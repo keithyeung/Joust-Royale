@@ -1114,6 +1114,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3210472093794054648, guid: e15ffdd2e6f5718468772d47a59e388b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3282981565403861463, guid: e15ffdd2e6f5718468772d47a59e388b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1439,6 +1444,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6903853579176139934, guid: e15ffdd2e6f5718468772d47a59e388b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7086762766581602829, guid: e15ffdd2e6f5718468772d47a59e388b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1559,6 +1569,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8861133540669044442, guid: e15ffdd2e6f5718468772d47a59e388b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8981389008420951023, guid: e15ffdd2e6f5718468772d47a59e388b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1580,14 +1595,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 34515188}
-    - targetCorrespondingSourceObject: {fileID: 3839398674809792891, guid: e15ffdd2e6f5718468772d47a59e388b,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 682618317}
-    - targetCorrespondingSourceObject: {fileID: 3839398674809792891, guid: e15ffdd2e6f5718468772d47a59e388b,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 682618316}
     - targetCorrespondingSourceObject: {fileID: 6461882146183743064, guid: e15ffdd2e6f5718468772d47a59e388b,
         type: 3}
       insertIndex: -1
@@ -1612,6 +1619,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2107131720}
+    - targetCorrespondingSourceObject: {fileID: 3839398674809792891, guid: e15ffdd2e6f5718468772d47a59e388b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 682618317}
+    - targetCorrespondingSourceObject: {fileID: 3839398674809792891, guid: e15ffdd2e6f5718468772d47a59e388b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 682618316}
   m_SourcePrefab: {fileID: 100100000, guid: e15ffdd2e6f5718468772d47a59e388b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
