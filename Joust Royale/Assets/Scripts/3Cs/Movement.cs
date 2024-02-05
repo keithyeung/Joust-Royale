@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float turnSpeed = 100f;
     [SerializeField] private Vector2 moveInput;
 
     private int playerIndex; // Index to track which player this script controls
@@ -19,19 +20,20 @@ public class Movement : MonoBehaviour
     {
         input = new CustomInput();
         input.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        input.Player.Movement.canceled += ctx => moveInput = Vector2.zero; // Reset moveInput when movement is canceled
     }
 
     private void OnEnable()
     {
         input.Enable();
-        InputSystem.EnableDevice(UnityEngine.InputSystem.Keyboard.current);
-        InputSystem.onDeviceChange += OnDeviceChange;
+        //InputSystem.EnableDevice(UnityEngine.InputSystem.Keyboard.current);
+        //InputSystem.onDeviceChange += OnDeviceChange;
     }
 
     private void OnDisable()
     {
         input.Disable();
-        InputSystem.onDeviceChange -= OnDeviceChange;
+        //InputSystem.onDeviceChange -= OnDeviceChange;
     }
 
     private void OnDeviceChange(InputDevice device, InputDeviceChange change)
@@ -70,12 +72,23 @@ public class Movement : MonoBehaviour
         Vector3 move = ((playerCamera.forward * moveInput.y) + (playerCamera.right * moveInput.x)).normalized;
         move.y = 0;
         transform.Translate(move * moveSpeed * Time.deltaTime);
+
+        RotateTowardsMovementDirection(move);
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    //public void OnMove(InputAction.CallbackContext context)
+    //{
+    //    // Get the movement input value
+    //    moveInput = context.ReadValue<Vector3>();
+    //}
+
+    private void RotateTowardsMovementDirection(Vector3 moveDirection)
     {
-        // Get the movement input value
-        moveInput = context.ReadValue<Vector3>();
+        // Calculate the target rotation based on the movement direction
+        Quaternion targetRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+
+        // Smoothly interpolate towards the target rotation
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
     }
 
     public CustomInput GetInput()

@@ -481,6 +481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  turnSpeed: 5
   moveInput: {x: 0, y: 0}
   playerCamera: {fileID: 139797883}
 --- !u!114 &1002672593
