@@ -31,7 +31,6 @@ public class PlayerManager : MonoBehaviour
     public void AddPlayer(PlayerInput player)
     {
         players.Add(player);
-        
 
         //using parent due to prefab structure
         Transform playerParent = player.transform.parent;
@@ -45,7 +44,7 @@ public class PlayerManager : MonoBehaviour
         //add the layer to the player
         playerParent.GetComponentInChildren<Camera>().cullingMask |= 1 << layerToAdd;
         //set the action in the custom cinemachine Input Handler
-
+        playerParent.GetComponentInChildren<InputHandler>().horizontal = player.actions.FindAction("Look");
     }
 
 }
