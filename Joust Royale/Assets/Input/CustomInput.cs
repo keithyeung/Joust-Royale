@@ -53,6 +53,24 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AttackMode"",
+                    ""type"": ""Button"",
+                    ""id"": ""1c2c385d-8ca4-49fe-a42a-8b6eb6f80947"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=0.1)"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ReleaseAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""4f82051c-3093-42fd-ba88-cddd176c427c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -161,8 +179,41 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Keyboard;Mouse"",
                     ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab6c5c4b-cd1d-4216-b3d8-d5cc9e8a1f6e"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""AttackMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d443decf-81fa-4534-bea0-4727793fbf6a"",
+                    ""path"": ""<Mouse>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard;Mouse"",
+                    ""action"": ""AttackMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""56d3c795-5d67-4094-af91-a0d774995ad0"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""ReleaseAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -191,6 +242,17 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Mouse"",
+            ""bindingGroup"": ""Mouse"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Mouse>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
         }
     ]
 }");
@@ -199,6 +261,8 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Join = m_Player.FindAction("Join", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_AttackMode = m_Player.FindAction("AttackMode", throwIfNotFound: true);
+        m_Player_ReleaseAttack = m_Player.FindAction("ReleaseAttack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -263,6 +327,8 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Join;
     private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_AttackMode;
+    private readonly InputAction m_Player_ReleaseAttack;
     public struct PlayerActions
     {
         private @CustomInput m_Wrapper;
@@ -270,6 +336,8 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Join => m_Wrapper.m_Player_Join;
         public InputAction @Look => m_Wrapper.m_Player_Look;
+        public InputAction @AttackMode => m_Wrapper.m_Player_AttackMode;
+        public InputAction @ReleaseAttack => m_Wrapper.m_Player_ReleaseAttack;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -288,6 +356,12 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
+            @AttackMode.started += instance.OnAttackMode;
+            @AttackMode.performed += instance.OnAttackMode;
+            @AttackMode.canceled += instance.OnAttackMode;
+            @ReleaseAttack.started += instance.OnReleaseAttack;
+            @ReleaseAttack.performed += instance.OnReleaseAttack;
+            @ReleaseAttack.canceled += instance.OnReleaseAttack;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -301,6 +375,12 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
+            @AttackMode.started -= instance.OnAttackMode;
+            @AttackMode.performed -= instance.OnAttackMode;
+            @AttackMode.canceled -= instance.OnAttackMode;
+            @ReleaseAttack.started -= instance.OnReleaseAttack;
+            @ReleaseAttack.performed -= instance.OnReleaseAttack;
+            @ReleaseAttack.canceled -= instance.OnReleaseAttack;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -336,10 +416,21 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_KeyboardSchemeIndex];
         }
     }
+    private int m_MouseSchemeIndex = -1;
+    public InputControlScheme MouseScheme
+    {
+        get
+        {
+            if (m_MouseSchemeIndex == -1) m_MouseSchemeIndex = asset.FindControlSchemeIndex("Mouse");
+            return asset.controlSchemes[m_MouseSchemeIndex];
+        }
+    }
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJoin(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnAttackMode(InputAction.CallbackContext context);
+        void OnReleaseAttack(InputAction.CallbackContext context);
     }
 }

@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField]private float playerSpeed = 2.0f;
     [SerializeField]private float jumpHeight = 1.0f;
     [SerializeField]private float gravityValue = -9.81f;
 
@@ -57,6 +56,9 @@ public class PlayerController : MonoBehaviour
             // Gradual deceleration
             currentSpeed = Mathf.MoveTowards(currentSpeed, 0f, deceleration * Time.deltaTime);
         }
+
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        controller.Move(playerVelocity * Time.deltaTime);
     }
 
     public void OnLook(InputAction.CallbackContext context)
