@@ -134,8 +134,8 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _alpha_smooth: 0.632
-    - _contrast: 1.4
+    - _alpha_smooth: 0.74
+    - _contrast: 4.5
     - _metallic: 0
     - _smooth: 0
     m_Colors:
