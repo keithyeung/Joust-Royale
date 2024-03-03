@@ -666,7 +666,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 07f439bc4e7b2be4480fbe500c15ae9f, type: 2}
+      objectReference: {fileID: 2100000, guid: 892e913c83058fa4fb99c24f44b5d676, type: 2}
     - target: {fileID: 919132149155446097, guid: e17e68c5dfb37c94b939d205469b7437,
         type: 3}
       propertyPath: m_Name
@@ -1039,12 +1039,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 07f439bc4e7b2be4480fbe500c15ae9f, type: 2}
+      objectReference: {fileID: 2100000, guid: 892e913c83058fa4fb99c24f44b5d676, type: 2}
     - target: {fileID: -2708497312253239672, guid: cf8b8808cefab8b4ba3431d245e1ba84,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d18f7aba582ac86479390a5da6f287d4, type: 2}
+      objectReference: {fileID: 2100000, guid: 8c67deec887decd4bb25addbc97991e9, type: 2}
     - target: {fileID: 919132149155446097, guid: cf8b8808cefab8b4ba3431d245e1ba84,
         type: 3}
       propertyPath: m_Name
@@ -1054,7 +1054,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 07f439bc4e7b2be4480fbe500c15ae9f, type: 2}
+      objectReference: {fileID: 2100000, guid: 892e913c83058fa4fb99c24f44b5d676, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2297,6 +2297,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3383264398418362890, guid: 0598e028ceb92054f9aabb5793a4b263,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 892e913c83058fa4fb99c24f44b5d676, type: 2}
     - target: {fileID: 5543087854574770551, guid: 0598e028ceb92054f9aabb5793a4b263,
         type: 3}
       propertyPath: m_Name
