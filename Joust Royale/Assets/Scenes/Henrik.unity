@@ -336,7 +336,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 24f805327ef93b04d8060dd49eb3de57, type: 2}
+  - {fileID: 2100000, guid: 93b01656d5856f34fadf7843ffdfab4f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -912,7 +912,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d18f7aba582ac86479390a5da6f287d4, type: 2}
+  - {fileID: 2100000, guid: 8c67deec887decd4bb25addbc97991e9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2475,6 +2475,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4988858505853980323, guid: c569867faff49674c9c264e8d4b69e80,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8c67deec887decd4bb25addbc97991e9, type: 2}
     - target: {fileID: 5753680814617615418, guid: c569867faff49674c9c264e8d4b69e80,
         type: 3}
       propertyPath: m_Name
