@@ -22,18 +22,7 @@ public class PlayerState : MonoBehaviour
     public Animator animator;
     private PlayerInput playerInput;
 
-    private CustomInput controls;
-
-    private void OnEnable()
-    {
-        controls = new CustomInput();
-        controls.Enable();
-    }
-
-    private void OnDisable()
-    {
-        controls.Disable();
-    }
+    //private CustomInput controls;
 
     private void Start()
     {
@@ -55,6 +44,7 @@ public class PlayerState : MonoBehaviour
                 animator.SetBool("AttackMode", true);
                 break;
             case PLAYER_STATE.Blocking:
+                animator.SetBool("AttackMode", false);
                 break;
             case PLAYER_STATE.Dead:
                 break;
@@ -62,21 +52,18 @@ public class PlayerState : MonoBehaviour
                 break;
         }
 
-        // Check if the "Attack" action is being held
-        if (controls.Player.AttackMode.triggered)
-        {
-            state = PLAYER_STATE.Attacking;
-        }
-        OnReleaseAttack();
+        
     }
 
-    void OnReleaseAttack()
+    public void OnAttack(InputAction.CallbackContext context)
     {
-        if (controls.Player.ReleaseAttack.triggered)
-        {
-            state = PLAYER_STATE.Idle;
-            animator.SetBool("AttackMode", false);
-        }
+        state = PLAYER_STATE.Attacking;
+    }
+
+    public void OnReleaseAttack(InputAction.CallbackContext context)
+    {
+        state = PLAYER_STATE.Idle;
+        //animator.SetBool("AttackMode", false);
     }
 
     //Write a function to check if a key is pressed and hold and return true if it does. so it should take a KeyCode as a parameter and return a bool

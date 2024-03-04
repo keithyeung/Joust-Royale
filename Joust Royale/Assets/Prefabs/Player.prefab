@@ -355,7 +355,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4583588832824254635}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &69977618475392581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,6 +492,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1172729525182967991, guid: c569867faff49674c9c264e8d4b69e80,
+        type: 3}
+      propertyPath: m_TagString
+      value: Shield
+      objectReference: {fileID: 0}
     - target: {fileID: 1552646520484300335, guid: c569867faff49674c9c264e8d4b69e80,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -547,6 +552,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f063337aa6b8f7a48a7672e0943af7bf, type: 2}
+    - target: {fileID: 2666754903049438915, guid: c569867faff49674c9c264e8d4b69e80,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3871105617760184592, guid: c569867faff49674c9c264e8d4b69e80,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -596,6 +606,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536038107550397354, guid: c569867faff49674c9c264e8d4b69e80,
+        type: 3}
+      propertyPath: m_TagString
+      value: Lance
       objectReference: {fileID: 0}
     - target: {fileID: 4692427147957960902, guid: c569867faff49674c9c264e8d4b69e80,
         type: 3}
@@ -702,38 +717,29 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2897702659495845351}
-    - targetCorrespondingSourceObject: {fileID: 1982187096006577174, guid: c569867faff49674c9c264e8d4b69e80,
+    - targetCorrespondingSourceObject: {fileID: 1172729525182967991, guid: c569867faff49674c9c264e8d4b69e80,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4583441951290073710}
+      addedObject: {fileID: 7819259845296659101}
   m_SourcePrefab: {fileID: 100100000, guid: c569867faff49674c9c264e8d4b69e80, type: 3}
---- !u!1 &90675805166733626 stripped
+--- !u!1 &758397806206449051 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1982187096006577174, guid: c569867faff49674c9c264e8d4b69e80,
+  m_CorrespondingSourceObject: {fileID: 1172729525182967991, guid: c569867faff49674c9c264e8d4b69e80,
     type: 3}
   m_PrefabInstance: {fileID: 1927542304604308780}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &4583441951290073710
-Animator:
-  serializedVersion: 5
+--- !u!114 &7819259845296659101
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 90675805166733626}
+  m_GameObject: {fileID: 758397806206449051}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 248918c220622bb42a489aa4ef4d2f34, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 389678e98699c274a939482d40dbe0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1098123758389948928 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1584510871278040876, guid: c569867faff49674c9c264e8d4b69e80,
@@ -842,8 +848,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6647668562839623434}
         m_TargetAssemblyTypeName: PlayerState, Assembly-CSharp
-        m_MethodName: AttackAnimatorSetUp
-        m_Mode: 1
+        m_MethodName: OnAttack
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
