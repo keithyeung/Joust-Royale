@@ -71,6 +71,24 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Parry"",
+                    ""type"": ""Button"",
+                    ""id"": ""914d5025-d5df-4eab-86f8-01f8fa801b98"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ReleaseParry"",
+                    ""type"": ""Button"",
+                    ""id"": ""9aede4b9-8acb-4cbc-b4ff-8f9de3ef4ca3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -216,6 +234,28 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""action"": ""ReleaseAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""54809c55-1151-4b6e-8467-0bb018395e90"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Parry"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""40389911-c7a4-46bb-b299-490d531e6f41"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""ReleaseParry"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -263,6 +303,8 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_AttackMode = m_Player.FindAction("AttackMode", throwIfNotFound: true);
         m_Player_ReleaseAttack = m_Player.FindAction("ReleaseAttack", throwIfNotFound: true);
+        m_Player_Parry = m_Player.FindAction("Parry", throwIfNotFound: true);
+        m_Player_ReleaseParry = m_Player.FindAction("ReleaseParry", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -329,6 +371,8 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_AttackMode;
     private readonly InputAction m_Player_ReleaseAttack;
+    private readonly InputAction m_Player_Parry;
+    private readonly InputAction m_Player_ReleaseParry;
     public struct PlayerActions
     {
         private @CustomInput m_Wrapper;
@@ -338,6 +382,8 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @AttackMode => m_Wrapper.m_Player_AttackMode;
         public InputAction @ReleaseAttack => m_Wrapper.m_Player_ReleaseAttack;
+        public InputAction @Parry => m_Wrapper.m_Player_Parry;
+        public InputAction @ReleaseParry => m_Wrapper.m_Player_ReleaseParry;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -362,6 +408,12 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @ReleaseAttack.started += instance.OnReleaseAttack;
             @ReleaseAttack.performed += instance.OnReleaseAttack;
             @ReleaseAttack.canceled += instance.OnReleaseAttack;
+            @Parry.started += instance.OnParry;
+            @Parry.performed += instance.OnParry;
+            @Parry.canceled += instance.OnParry;
+            @ReleaseParry.started += instance.OnReleaseParry;
+            @ReleaseParry.performed += instance.OnReleaseParry;
+            @ReleaseParry.canceled += instance.OnReleaseParry;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -381,6 +433,12 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @ReleaseAttack.started -= instance.OnReleaseAttack;
             @ReleaseAttack.performed -= instance.OnReleaseAttack;
             @ReleaseAttack.canceled -= instance.OnReleaseAttack;
+            @Parry.started -= instance.OnParry;
+            @Parry.performed -= instance.OnParry;
+            @Parry.canceled -= instance.OnParry;
+            @ReleaseParry.started -= instance.OnReleaseParry;
+            @ReleaseParry.performed -= instance.OnReleaseParry;
+            @ReleaseParry.canceled -= instance.OnReleaseParry;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -432,5 +490,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnAttackMode(InputAction.CallbackContext context);
         void OnReleaseAttack(InputAction.CallbackContext context);
+        void OnParry(InputAction.CallbackContext context);
+        void OnReleaseParry(InputAction.CallbackContext context);
     }
 }

@@ -44,7 +44,7 @@ public class PlayerState : MonoBehaviour
                 animator.SetBool("AttackMode", true);
                 break;
             case PLAYER_STATE.Blocking:
-                animator.SetBool("AttackMode", false);
+                //animator.SetBool("AttackMode", false);
                 break;
             case PLAYER_STATE.Dead:
                 break;
@@ -63,7 +63,7 @@ public class PlayerState : MonoBehaviour
     public void OnReleaseAttack(InputAction.CallbackContext context)
     {
         state = PLAYER_STATE.Idle;
-        //animator.SetBool("AttackMode", false);
+        animator.SetBool("AttackMode", false);
     }
 
     //Write a function to check if a key is pressed and hold and return true if it does. so it should take a KeyCode as a parameter and return a bool

@@ -10,6 +10,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private float jumpHeight = 1.0f;
     [SerializeField]private float gravityValue = -9.81f;
 
+    [Header("Movement Related")]
+    [SerializeField]private float rotationSpeed = 60f;
+    [SerializeField]private float acceleration = 6f;  // Adjust acceleration as needed
+    [SerializeField]private float deceleration = 2f;  // Adjust deceleration as needed
+    [SerializeField]private float maxSpeed = 30f;  // Adjust max speed as needed
+
     //[SerializeField] private CustomInput input = null;
 
     private CharacterController controller;
@@ -19,10 +25,6 @@ public class PlayerController : MonoBehaviour
     private Vector2 movementInput;
     private float currentSpeed = 0f;
     private float targetSpeed = 0f;
-    private float acceleration = 6f;  // Adjust acceleration as needed
-    private float deceleration = 2f;  // Adjust deceleration as needed
-    private float maxSpeed = 30f;  // Adjust max speed as needed
-    private float rotationSpeed = 60f;
 
 
     private void Start()
