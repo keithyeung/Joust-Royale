@@ -41,6 +41,7 @@ public class PlayerManager : MonoBehaviour
 
         //set the layer of the player
         playerParent.GetComponentInChildren<CinemachineVirtualCamera>().gameObject.layer = layerToAdd;
+        player.gameObject.layer = layerToAdd;
         //add the layer to the player
         playerParent.GetComponentInChildren<Camera>().cullingMask |= 1 << layerToAdd;
         //set the action in the custom cinemachine Input Handler
