@@ -738,6 +738,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6190029755968656285}
+    - targetCorrespondingSourceObject: {fileID: 5753680814617615418, guid: c569867faff49674c9c264e8d4b69e80,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8480422953038194671}
     - targetCorrespondingSourceObject: {fileID: 1584510871278040876, guid: c569867faff49674c9c264e8d4b69e80,
         type: 3}
       insertIndex: -1
@@ -1120,6 +1124,8 @@ MonoBehaviour:
   acceleration: 6
   deceleration: 2
   maxSpeed: 30
+  lance: {fileID: 2608498029998077574}
+  shield: {fileID: 758397806206449051}
 --- !u!143 &5214881062113968829
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1194,3 +1200,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+--- !u!114 &8480422953038194671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6131984817802778902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6cb1809ce8bd324cb708f194b6d60e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

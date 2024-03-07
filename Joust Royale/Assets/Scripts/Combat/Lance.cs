@@ -16,16 +16,10 @@ public class Lance : MonoBehaviour
         if (collision.gameObject.CompareTag("Armor"))
         {
             LayerMask tempLayer = collision.gameObject.GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
-            Debug.Log(thisLayer + " , " + tempLayer);
-            if (tempLayer == thisLayer)
+            if (tempLayer != thisLayer)
             {
-                Debug.Log("Lance hit friendly");
+                collision.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage();
             }
-            else
-            {
-                Debug.Log("Lance hit enemy");
-            }
-            
         }
     }
 }

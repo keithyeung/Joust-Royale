@@ -7,16 +7,18 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField]private float jumpHeight = 1.0f;
-    [SerializeField]private float gravityValue = -9.81f;
+    [SerializeField] private float jumpHeight = 1.0f;
+    [SerializeField] private float gravityValue = -9.81f;
 
     [Header("Movement Related")]
-    [SerializeField]private float rotationSpeed = 60f;
-    [SerializeField]private float acceleration = 6f;  // Adjust acceleration as needed
-    [SerializeField]private float deceleration = 2f;  // Adjust deceleration as needed
-    [SerializeField]private float maxSpeed = 30f;  // Adjust max speed as needed
+    [SerializeField] private float rotationSpeed = 60f;
+    [SerializeField] private float acceleration = 6f;  // Adjust acceleration as needed
+    [SerializeField] private float deceleration = 2f;  // Adjust deceleration as needed
+    [SerializeField] private float maxSpeed = 30f;  // Adjust max speed as needed
 
-    //[SerializeField] private CustomInput input = null;
+    [Header("Equipments")]
+    [SerializeField] public GameObject lance;
+    [SerializeField] public GameObject shield;
 
     private CharacterController controller;
     private Vector3 playerVelocity;

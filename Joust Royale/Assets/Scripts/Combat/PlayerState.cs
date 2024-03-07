@@ -76,11 +76,6 @@ public class PlayerState : MonoBehaviour
     {
         return state = newState;
     }
-
-    //public void AttackAnimatorSetUp()
-    //{
-    //    animator.SetBool("AttackMode" , true);
-    //}
      
 
     
