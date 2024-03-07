@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Shield : MonoBehaviour
 {
+    public bool isParryActive = false;
 
-    private void Start()
-    {
-        Debug.Log("Shield Script Loaded");
-    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Lance")
@@ -16,17 +14,40 @@ public class Shield : MonoBehaviour
             Debug.Log("Shield is broken");
             this.gameObject.SetActive(false);
         }
-        //Debug.Log(collision.gameObject.name);
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Lance"))
         {
-            Debug.Log("Parry Shield is broken");
-            this.gameObject.SetActive(false);
+            Debug.Log("Parry Shield is detecting Lance");
+            if(isParryActive)
+            {
+                Debug.Log("Parried!");
+                other.gameObject.SetActive(false);
+            }
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Lance"))
+        {
+            Debug.Log("Parry Shield is no longer detecting Lance");
+        }
+    }
+    public void OnParry(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            Debug.Log("LT Pressed");
+            isParryActive = true;
+        }
+        else if (context.canceled)
+        {
+            Debug.Log("LT Released");
+            isParryActive = false;
+        }
+    }
 }

@@ -239,7 +239,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""54809c55-1151-4b6e-8467-0bb018395e90"",
                     ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": ""Tap"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""Controller"",
                     ""action"": ""Parry"",
