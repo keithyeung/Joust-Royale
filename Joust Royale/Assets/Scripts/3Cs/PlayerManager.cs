@@ -53,8 +53,7 @@ public class PlayerManager : MonoBehaviour
         //set the layer of the player
         playerParent.GetComponentInChildren<CinemachineVirtualCamera>().gameObject.layer = layerToAdd;
         player.gameObject.layer = layerToAdd;
-        player.transform.Find("Mount").gameObject.layer = layerToAdd;
-        //player.transform.FindChild("Mount").transform.Find("Knight").
+        player.transform.Find("Mount").Find("Knight").Find("Upper").Find("Knight_Upper 1").gameObject.layer = layerToAdd; // add layer to the armor.
         //add the layer to the player
         playerParent.GetComponentInChildren<Camera>().cullingMask |= 1 << layerToAdd;
         //set the action in the custom cinemachine Input Handler

@@ -58,7 +58,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823119419440287723}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.037141334, y: -0.000000017462643, z: 6.490336e-10, w: 0.99931}
+  m_LocalRotation: {x: 0.037141334, y: -0.000000017462646, z: 6.490337e-10, w: 0.99931}
   m_LocalPosition: {x: 0, y: 2.8599997, z: -10.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -290,7 +290,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4583588832824254635}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.037141334, y: -0.000000017462643, z: 6.490336e-10, w: 0.99931}
+  m_LocalRotation: {x: 0.037141334, y: -0.000000017462646, z: 6.490337e-10, w: 0.99931}
   m_LocalPosition: {x: 0, y: 2.8599997, z: -10.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -496,6 +496,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284381378967157780, guid: c569867faff49674c9c264e8d4b69e80,
+        type: 3}
+      propertyPath: m_TagString
+      value: Armor
       objectReference: {fileID: 0}
     - target: {fileID: 1552646520484300335, guid: c569867faff49674c9c264e8d4b69e80,
         type: 3}
@@ -757,10 +762,18 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3126275430404176140}
+    - targetCorrespondingSourceObject: {fileID: 1284381378967157780, guid: c569867faff49674c9c264e8d4b69e80,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6367940923513202067}
     - targetCorrespondingSourceObject: {fileID: 4536038107550397354, guid: c569867faff49674c9c264e8d4b69e80,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1129629886397491774}
+    - targetCorrespondingSourceObject: {fileID: 4536038107550397354, guid: c569867faff49674c9c264e8d4b69e80,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7472666274610462745}
   m_SourcePrefab: {fileID: 100100000, guid: c569867faff49674c9c264e8d4b69e80, type: 3}
 --- !u!1 &758397806206449051 stripped
 GameObject:
@@ -856,6 +869,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 8, y: 10, z: 8}
   m_Center: {x: 0, y: 4.88, z: 0}
+--- !u!54 &6367940923513202067
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797994256408836408}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &1098123758389948928 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1584510871278040876, guid: c569867faff49674c9c264e8d4b69e80,
@@ -937,6 +977,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &7472666274610462745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608498029998077574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b405d08cbee1001479f1dc93c1e1d779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6131984817802778902 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5753680814617615418, guid: c569867faff49674c9c264e8d4b69e80,
@@ -955,7 +1007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: cf288e3041ebf9f40917ae9901897cbb,
+  m_Actions: {fileID: -944628639613478452, guid: 7f3b6f065ba00534aa766f63df2707ed,
     type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
@@ -988,11 +1040,11 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: b5e839c6-74cf-44bf-bda5-3c0db83826ba
-    m_ActionName: Player/Join[/Keyboard/anyKey]
+    m_ActionName: Player/Join[/Keyboard/anyKey,/XInputControllerWindows1/start]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: d17498cc-4fad-42c6-8a8d-f7363e828ede
-    m_ActionName: Player/Look[/XInputControllerWindows/rightStick,/Mouse/delta]
+    m_ActionName: Player/Look[/XInputControllerWindows1/rightStick,/Mouse/position]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6647668562839623434}
@@ -1008,7 +1060,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 1c2c385d-8ca4-49fe-a42a-8b6eb6f80947
-    m_ActionName: Player/AttackMode[/XInputControllerWindows/rightTrigger,/Mouse/press]
+    m_ActionName: Player/AttackMode[/XInputControllerWindows1/rightTrigger,/Mouse/press]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6647668562839623434}
@@ -1024,7 +1076,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 4f82051c-3093-42fd-ba88-cddd176c427c
-    m_ActionName: Player/ReleaseAttack
+    m_ActionName: Player/ReleaseAttack[/XInputControllerWindows1/rightTrigger]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7819259845296659101}
@@ -1040,11 +1092,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 914d5025-d5df-4eab-86f8-01f8fa801b98
-    m_ActionName: Player/Parry
+    m_ActionName: Player/Parry[/XInputControllerWindows1/leftTrigger]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 9aede4b9-8acb-4cbc-b4ff-8f9de3ef4ca3
-    m_ActionName: Player/ReleaseParry[/XInputControllerWindows/leftTrigger,/XInputControllerWindows1/leftTrigger]
+    m_ActionName: Player/ReleaseParry[/XInputControllerWindows1/leftTrigger]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

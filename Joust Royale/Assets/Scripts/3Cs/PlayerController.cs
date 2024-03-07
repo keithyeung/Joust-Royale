@@ -33,6 +33,17 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    public LayerMask GetLayerMaskForArmor()
+    {
+        LayerMask tempLayer = transform.Find("Mount").Find("Knight").Find("Upper").Find("Knight_Upper 1").gameObject.layer;
+        if(tempLayer != null)
+        {
+            Debug.Log(tempLayer.value.ToString());
+            return tempLayer;
+        }
+        return 0;
+    }
+
     public void HandleMovement()
     {
         // Update target speed based on input
