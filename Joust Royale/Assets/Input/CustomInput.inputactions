@@ -217,7 +217,7 @@
                     "name": "",
                     "id": "54809c55-1151-4b6e-8467-0bb018395e90",
                     "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "processors": "",
                     "groups": "Controller",
                     "action": "Parry",

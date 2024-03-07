@@ -18,4 +18,15 @@ public class Shield : MonoBehaviour
         }
         //Debug.Log(collision.gameObject.name);
     }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Lance"))
+        {
+            Debug.Log("Parry Shield is broken");
+            this.gameObject.SetActive(false);
+        }
+    }
+
 }

@@ -5,23 +5,30 @@ using UnityEngine.InputSystem;
 
 public class Parrying : MonoBehaviour
 {
-    private bool isParryActive = false;
+    public bool isParryActive = false;
+    public bool detectedLance = false;
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Lance") && isParryActive);
+        if (other.gameObject.CompareTag("Lance") && isParryActive == true);
         {
             Debug.Log("Parry Successful");
+            Debug.Log(other.gameObject.name);
             other.gameObject.SetActive(false);
         }
     }
 
     public void OnParry(InputAction.CallbackContext context)
     {
-        if (context.control.IsPressed())
+        if (context.started)
         {
             Debug.Log("LT Pressed");
             isParryActive = true;
+        }
+        else if(context.canceled)
+        {
+            Debug.Log("LT Released");
+            isParryActive = false;
         }
     }
 

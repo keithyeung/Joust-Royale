@@ -458,13 +458,13 @@ GameObject:
   - component: {fileID: 1412821535}
   - component: {fileID: 1412821534}
   - component: {fileID: 1412821533}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &1412821533
 SphereCollider:
   m_ObjectHideFlags: 0
