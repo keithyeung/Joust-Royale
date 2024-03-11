@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     private List<PlayerInput> players = new List<PlayerInput>();
     //[SerializeField] private List<Transform> startingPoints;
     [SerializeField] private List<LayerMask> playerLayers;
+    [SerializeField] private List<Material> playerMaterials;
 
     [SerializeField] private Camera mainCamera;
 
@@ -58,6 +59,18 @@ public class PlayerManager : MonoBehaviour
         playerParent.GetComponentInChildren<Camera>().cullingMask |= 1 << layerToAdd;
         //set the action in the custom cinemachine Input Handler
         playerParent.GetComponentInChildren<InputHandler>().horizontal = player.actions.FindAction("Look");
+
+        int materialIndex = players.Count - 1;
+        if (materialIndex < playerMaterials.Count)
+        {
+            //Renderer playerRenderer = playerParent.GetComponentInChildren<Renderer>();
+            //playerRenderer.material = playerMaterials[materialIndex];
+            GameObject temptorso = playerParent.GetComponentInChildren<PlayerController>().torso;
+            GameObject tempHorseCape = playerParent.GetComponentInChildren<PlayerController>().horseCape;
+            temptorso.GetComponent<Renderer>().material = playerMaterials[materialIndex];
+            tempHorseCape.GetComponent<Renderer>().material = playerMaterials[materialIndex];
+        }
+
     }
 
 }

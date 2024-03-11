@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     [Header("Equipments")]
     [SerializeField] public GameObject lance;
     [SerializeField] public GameObject shield;
+    [SerializeField] public GameObject torso;
+    [SerializeField] public GameObject horseCape;
 
     private CharacterController controller;
     private Vector3 playerVelocity;
