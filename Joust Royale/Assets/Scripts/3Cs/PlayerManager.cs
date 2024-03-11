@@ -63,8 +63,6 @@ public class PlayerManager : MonoBehaviour
         int materialIndex = players.Count - 1;
         if (materialIndex < playerMaterials.Count)
         {
-            //Renderer playerRenderer = playerParent.GetComponentInChildren<Renderer>();
-            //playerRenderer.material = playerMaterials[materialIndex];
             GameObject temptorso = playerParent.GetComponentInChildren<PlayerController>().torso;
             GameObject tempHorseCape = playerParent.GetComponentInChildren<PlayerController>().horseCape;
             temptorso.GetComponent<Renderer>().material = playerMaterials[materialIndex];

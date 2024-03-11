@@ -21,6 +21,9 @@ public class PlayerState : MonoBehaviour
     public PLAYER_STATE state;
     public Animator animator;
     private PlayerInput playerInput;
+    private PlayerController playerController;
+    private float lowerRotationSpeed;
+    private float defaultRotationSpeed;
 
     //private CustomInput controls;
 
@@ -28,6 +31,9 @@ public class PlayerState : MonoBehaviour
     {
         state = PLAYER_STATE.Idle;
         animator = GetComponent<Animator>();
+        playerController = GetComponent<PlayerController>();
+        defaultRotationSpeed = playerController.rotationSpeed;
+        lowerRotationSpeed = playerController.rotationSpeed * 0.5f;
     }
 
     private void Update()
@@ -35,6 +41,7 @@ public class PlayerState : MonoBehaviour
         switch (state)
         {
             case PLAYER_STATE.Idle:
+                playerController.rotationSpeed = defaultRotationSpeed;
                 break;
             case PLAYER_STATE.Walking:
                 break;
@@ -42,6 +49,7 @@ public class PlayerState : MonoBehaviour
                 break;
             case PLAYER_STATE.Attacking:
                 animator.SetBool("AttackMode", true);
+                playerController.rotationSpeed = lowerRotationSpeed;
                 break;
             case PLAYER_STATE.Blocking:
                 //animator.SetBool("AttackMode", false);

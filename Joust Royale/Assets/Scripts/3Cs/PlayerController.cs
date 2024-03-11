@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float gravityValue = -9.81f;
 
     [Header("Movement Related")]
-    [SerializeField] private float rotationSpeed = 60f;
+    public float rotationSpeed = 60f;
     [SerializeField] private float acceleration = 6f;  // Adjust acceleration as needed
     [SerializeField] private float deceleration = 2f;  // Adjust deceleration as needed
     [SerializeField] private float maxSpeed = 30f;  // Adjust max speed as needed
