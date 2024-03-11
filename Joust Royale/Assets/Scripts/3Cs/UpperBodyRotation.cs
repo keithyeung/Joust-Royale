@@ -11,7 +11,6 @@ public class UpperBodyRotation : MonoBehaviour
 
     CinemachineOrbitalTransposer orbital;
     public float rotationSum;
-    public float smooth = 5.0f;
 
     private void Start()
     {

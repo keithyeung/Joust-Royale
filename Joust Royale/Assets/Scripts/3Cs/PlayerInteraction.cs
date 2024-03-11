@@ -20,6 +20,7 @@ public class PlayerInteraction : MonoBehaviour
             GetComponent<PlayerController>().lance.SetActive(true);
             Debug.Log("Found a lance and equiped");
             other.gameObject.SetActive(false);
+            StartCoroutine(FindAnyObjectByType<RespawnObject>().RespawnPickup(other.gameObject)); ;
         }
 
         if (other.gameObject.CompareTag("PU_Shield"))
@@ -35,6 +36,7 @@ public class PlayerInteraction : MonoBehaviour
             GetComponent<PlayerController>().shield.SetActive(true);
             Debug.Log("Found a Shield and equiped");
             other.gameObject.SetActive(false);
+            StartCoroutine(FindAnyObjectByType<RespawnObject>().RespawnPickup(other.gameObject));
         }
     }
 

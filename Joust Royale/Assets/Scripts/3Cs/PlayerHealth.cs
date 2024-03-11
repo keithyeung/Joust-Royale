@@ -24,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        gameObject.SetActive(false);
         Debug.Log("Player died");
     }
 }
