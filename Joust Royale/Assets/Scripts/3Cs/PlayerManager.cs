@@ -17,13 +17,13 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        playerInputManager = FindAnyObjectByType<PlayerInputManager>();
+        playerInputManager = GetComponent<PlayerInputManager>();
     }
 
     private void OnEnable()
     {
         playerInputManager.onPlayerJoined += AddPlayer;
-        Debug.Log("Player JOined");
+        Debug.Log("Player Joined");
     }
 
     private void OnDisable()
