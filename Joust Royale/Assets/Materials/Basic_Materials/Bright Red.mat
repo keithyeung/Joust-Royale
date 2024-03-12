@@ -8,9 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Bright Red
-  m_Shader: {fileID: -6465566751694194690, guid: 38027c89fde5ed54aa20220a55ff2f76,
+  m_Shader: {fileID: -6465566751694194690, guid: e5d3e036c8bae654aace6a099d9bfd07,
     type: 3}
-  m_Parent: {fileID: 2100000, guid: 24f805327ef93b04d8060dd49eb3de57, type: 2}
+  m_Parent: {fileID: 2100000, guid: 93b01656d5856f34fadf7843ffdfab4f, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
