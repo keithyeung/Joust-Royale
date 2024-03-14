@@ -60,7 +60,6 @@ public class PlayerManager : MonoBehaviour
         //set the action in the custom cinemachine Input Handler
         playerParent.GetComponentInChildren<InputHandler>().horizontal = player.actions.FindAction("Look");
 
-        PlayerHealth playerHealthComponent = playerParent.GetComponentInChildren<PlayerHealth>();
         int materialIndex = players.Count - 1;
         if (materialIndex < playerMaterials.Count)
         {
@@ -68,15 +67,6 @@ public class PlayerManager : MonoBehaviour
             GameObject tempHorseCape = playerParent.GetComponentInChildren<PlayerController>().horseCape;
             temptorso.GetComponent<Renderer>().material = playerMaterials[materialIndex];
             tempHorseCape.GetComponent<Renderer>().material = playerMaterials[materialIndex];
-            if (playerMaterials[materialIndex].HasProperty("_color"))
-            {
-                Color tempColor = playerMaterials[materialIndex].GetColor("_color");
-                playerHealthComponent.SetPlumageColor(tempColor);
-            }
-            else
-            {
-                Debug.Log("Does not have the _color property");
-            }
         }
 
     }
