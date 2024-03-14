@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Scripting;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -45,4 +46,14 @@ public class PlayerHealth : MonoBehaviour
         gameObject.SetActive(false);
         Debug.Log("Player died");
     }
+
+    public void SetPlumageColor(Color color)
+    {
+        color.a = 255f;
+        for (int i = 0; i < plumageIcon.Length; i++)
+        {
+            plumageIcon[i].GetComponent<Image>().color = color;
+        }
+    }
+
 }
