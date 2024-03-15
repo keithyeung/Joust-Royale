@@ -11,6 +11,7 @@ public class PlayerManager : MonoBehaviour
     //[SerializeField] private List<Transform> startingPoints;
     [SerializeField] private List<LayerMask> playerLayers;
     [SerializeField] private List<Material> playerMaterials;
+    [SerializeField] private List<Transform> playerSpawnPositions;
 
     [SerializeField] private Camera mainCamera;
 
@@ -46,10 +47,19 @@ public class PlayerManager : MonoBehaviour
 
         //using parent due to prefab structure
         Transform playerParent = player.transform.parent;
-        //playerParent.position = startingPoints[players.Count - 1].position;
+        Vector3 oldParentPosition = playerParent.transform.position;
+        playerParent.transform.position = playerSpawnPositions[players.Count - 1].position;
+        // Calculate the difference in positions
+        Vector3 positionDifference = playerParent.transform.position - oldParentPosition;
+        Debug.Log("Pos diff: " + positionDifference);
+        // Apply the difference in positions to the child object
+        player.GetComponent<Transform>().position -= positionDifference;
+        Debug.Log("playerPosition: " + player.GetComponent<Transform>().position);
+
 
         //convert layer mask (bit) to an integer
         int layerToAdd = (int)Mathf.Log(playerLayers[players.Count - 1].value, 2);
+        
 
         //set the layer of the player
         playerParent.GetComponentInChildren<CinemachineVirtualCamera>().gameObject.layer = layerToAdd;
@@ -59,6 +69,8 @@ public class PlayerManager : MonoBehaviour
         playerParent.GetComponentInChildren<Camera>().cullingMask |= 1 << layerToAdd;
         //set the action in the custom cinemachine Input Handler
         playerParent.GetComponentInChildren<InputHandler>().horizontal = player.actions.FindAction("Look");
+
+        
 
         PlayerHealth playerHealthComponent = playerParent.GetComponentInChildren<PlayerHealth>();
         int materialIndex = players.Count - 1;
