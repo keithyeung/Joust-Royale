@@ -133,11 +133,12 @@ Material:
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
-    - _alpha_clip_power: 2.58
+    - _alpha_clip_power: 1.14
     - _alpha_clipping: 0.5
     - _fade_power: 0.86
-    - _fresnel_power: 0.584
-    - _voronoi_scale: 5.31
+    - _fresnel_power: 2.17
+    - _voronoi_power: 0
+    - _voronoi_scale: 5.54
     - _voronoi_speed: 2.35
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
