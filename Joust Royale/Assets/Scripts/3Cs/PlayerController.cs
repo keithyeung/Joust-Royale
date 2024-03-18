@@ -30,10 +30,18 @@ public class PlayerController : MonoBehaviour
     private float currentSpeed = 0f;
     private float targetSpeed = 0f;
 
+    private Vector3 previousPosition;
+
 
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
+        //transform.localPosition = new Vector3(0, transform.position.y, 0);
+        //transform.position = GetComponentInParent<Transform>().position;
+        controller.transform.localPosition = new Vector3(0, 0, 0);
+        //transform.localPosition = new Vector3(0, 0, 0);
+        print("aa");
+        previousPosition = transform.localPosition;
     }
 
 
@@ -96,6 +104,16 @@ public class PlayerController : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
+
         HandleMovement();
+
+        // Check if the player's position has changed
+        if (transform.localPosition != previousPosition)
+        {
+            Debug.Log("Player position changed from " + previousPosition + " to " + transform.localPosition);
+            previousPosition = transform.localPosition;
+        }
+
+
     }
 }

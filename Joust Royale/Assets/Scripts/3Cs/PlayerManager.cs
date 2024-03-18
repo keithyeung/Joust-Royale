@@ -53,7 +53,8 @@ public class PlayerManager : MonoBehaviour
         Vector3 positionDifference = playerParent.transform.position - oldParentPosition;
         Debug.Log("Pos diff: " + positionDifference);
         // Apply the difference in positions to the child object
-        player.GetComponent<Transform>().position -= positionDifference;
+        //player.GetComponent<Transform>().position -= positionDifference;
+        player.transform.position = new Vector3(1000, 100001, 1000);
         Debug.Log("playerPosition: " + player.GetComponent<Transform>().position);
 
 
@@ -90,6 +91,8 @@ public class PlayerManager : MonoBehaviour
                 Debug.Log("Does not have the _color property");
             }
         }
+
+        player.transform.position = new Vector3(0, 0.61f, 0);
 
     }
 
