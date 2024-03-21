@@ -8262,6 +8262,11 @@ PrefabInstance:
       propertyPath: playerSpawnPositions.Array.data[3]
       value: 
       objectReference: {fileID: 55793231}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -6496337101204507388, guid: 2cd07c0716079254f9d6ef56ef1ea8fd, type: 3}
