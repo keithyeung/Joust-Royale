@@ -1791,8 +1791,8 @@ MonoBehaviour:
   - {fileID: 7642089991923010648}
   - {fileID: 3380865794925642986}
   - {fileID: 1553705560332112628}
-  plumageMaterialPrefab: {fileID: 2100000, guid: 81e9e6df690d76c459ab4b5f51d36037,
-    type: 2}
+  plumagePrefabInPlayer: {fileID: 9099889378959811589, guid: 9f3807f9d098ff242a6b29a9f335582d,
+    type: 3}
 --- !u!114 &8480422953038194671
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
     private float currentHealth;
 
     public GameObject[] plumageIcon;
-    public Material plumageMaterialPrefab;
+    public GameObject plumagePrefabInPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -19,25 +19,31 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    private void Update()
-    {
-        for(int i = 0; i < plumageIcon.Length; i++)
-        {
-            if (i < currentHealth)
-            {
-                plumageIcon[i].SetActive(true);
-            }
-            else
-            {
-                plumageIcon[i].SetActive(false);
-            }
-        }
-    }
+    //Health component is removed from the player
+    //private void Update()
+    //{
+    //    for(int i = 0; i < plumageIcon.Length; i++)
+    //    {
+    //        if (i < currentHealth)
+    //        {
+    //            plumageIcon[i].SetActive(true);
+    //        }
+    //        else
+    //        {
+    //            plumageIcon[i].SetActive(false);
+    //        }
+    //    }
+    //}
 
     public void SetPlumagePrefabMaterial(Material material)
     {
-        plumageMaterialPrefab.GetComponent<Renderer>().material = material;
+        plumagePrefabInPlayer.GetComponent<MeshRenderer>().material = material;
     }
+
+    //public Material GetPlumagePrefabMaterial()
+    //{
+    //    return plumagePrefabInPlayer.GetComponent<Renderer>().material;
+    //}
 
     public void TakeDamage()
     {

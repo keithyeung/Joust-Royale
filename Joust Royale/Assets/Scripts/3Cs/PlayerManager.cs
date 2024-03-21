@@ -11,16 +11,18 @@ public class PlayerManager : MonoBehaviour
     //[SerializeField] private List<Transform> startingPoints;
     [SerializeField] private List<LayerMask> playerLayers;
     [SerializeField] private List<Material> playerMaterials;
-    [SerializeField] private List<Material> plumageMaterialList;
+    [SerializeField] private List<GameObject> plumagePrefabList;
     public List<Transform> playerSpawnPositions;
 
     [SerializeField] private Camera mainCamera;
 
     private PlayerInputManager playerInputManager;
+    private GameState gameStateManager;
 
     private void Awake()
     {
         playerInputManager = GetComponent<PlayerInputManager>();
+        gameStateManager = FindAnyObjectByType<GameState>();
     }
 
     private void OnEnable()
@@ -73,10 +75,6 @@ public class PlayerManager : MonoBehaviour
         {
             GameObject temptorso = playerParent.GetComponentInChildren<PlayerController>().torso;
             GameObject tempHorseCape = playerParent.GetComponentInChildren<PlayerController>().horseCape;
-            Material tempPlumageMaterial = playerParent.GetComponentInChildren<PlayerHealth>().plumageMaterialPrefab;
-            Debug.Log(tempPlumageMaterial.name);
-            tempPlumageMaterial = plumageMaterialList[materialIndex];
-            //playerParent.GetComponentInChildren<PlayerHealth>().SetPlumagePrefabMaterial(tempPlumageMaterial);
             temptorso.GetComponent<Renderer>().material = playerMaterials[materialIndex];
             tempHorseCape.GetComponent<Renderer>().material = playerMaterials[materialIndex];
             if (playerMaterials[materialIndex].HasProperty("_color"))
@@ -90,9 +88,20 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
+        SetPlayerPlumagePrefab(player);
 
-
-
+        gameStateManager.UpdateWinCount();
     }
 
+
+    private void SetPlayerPlumagePrefab(PlayerInput player)
+    {
+        Transform playerParent = player.transform.parent;
+        PlayerHealth playerHealthComponent = playerParent.GetComponentInChildren<PlayerHealth>();
+        int prefabPlumageIndex = players.Count - 1;
+        if (prefabPlumageIndex < plumagePrefabList.Count)
+        {
+            playerHealthComponent.plumagePrefabInPlayer = plumagePrefabList[prefabPlumageIndex];
+        }
+    }
 }

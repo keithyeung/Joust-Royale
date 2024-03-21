@@ -10,17 +10,16 @@ public class PlayerInteraction : MonoBehaviour
         if (other.gameObject.CompareTag("PU_Lance"))
         {
             Renderer objectRenderer = other.gameObject.GetComponent<Renderer>();
-            Material tempMaterial;
             //Get the material from the pick up lance
             if (objectRenderer != null)
             {
-                tempMaterial = objectRenderer.material;
+                Material tempMaterial = objectRenderer.material;
                 GetComponent<PlayerController>().lance.GetComponent<Renderer>().material = tempMaterial;
             }
             GetComponent<PlayerController>().lance.SetActive(true);
             Debug.Log("Found a lance and equiped");
             other.gameObject.SetActive(false);
-            StartCoroutine(FindAnyObjectByType<RespawnObject>().RespawnPickup(other.gameObject)); ;
+            StartCoroutine(FindAnyObjectByType<RespawnObject>().RespawnPickup(other.gameObject)); 
         }
 
         if (other.gameObject.CompareTag("PU_Shield"))
