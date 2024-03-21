@@ -457,12 +457,12 @@ PrefabInstance:
     - target: {fileID: 1851566198372323406, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000017462646
+      value: 0.000000017462643
       objectReference: {fileID: 0}
     - target: {fileID: 1851566198372323406, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -6.490337e-10
+      value: -6.490336e-10
       objectReference: {fileID: 0}
     - target: {fileID: 4594295008520127471, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
@@ -477,17 +477,17 @@ PrefabInstance:
     - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.2600021
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.8600006
+      value: 2.8599997
       objectReference: {fileID: 0}
     - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.969999
+      value: -10.21
       objectReference: {fileID: 0}
     - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
@@ -497,17 +497,17 @@ PrefabInstance:
     - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.037141375
+      value: 0.037141334
       objectReference: {fileID: 0}
     - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017194509
+      value: 0.000000017462643
       objectReference: {fileID: 0}
     - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 6.390687e-10
+      value: -6.490336e-10
       objectReference: {fileID: 0}
     - target: {fileID: 6671126271795586783, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
@@ -942,17 +942,17 @@ PrefabInstance:
     - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.2600021
       objectReference: {fileID: 0}
     - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.8600001
+      value: 2.8599997
       objectReference: {fileID: 0}
     - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.21
+      value: -10.450001
       objectReference: {fileID: 0}
     - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
@@ -962,17 +962,17 @@ PrefabInstance:
     - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.037141375
+      value: 0.037141334
       objectReference: {fileID: 0}
     - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017194509
+      value: 0.000000017462646
       objectReference: {fileID: 0}
     - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 6.390687e-10
+      value: -6.490337e-10
       objectReference: {fileID: 0}
     - target: {fileID: 6671126271795586783, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
@@ -1389,49 +1389,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6263876249887461875, guid: a7b776fd3d0e18f4c81fb745b6bc33c9,
         type: 3}
-      propertyPath: sounds.Array.data[1].clip
+      propertyPath: sounds.Array.data[10].clip
       value: 
-      objectReference: {fileID: 8300000, guid: daa3790a6120cd042a64c4a5626044c5, type: 3}
+      objectReference: {fileID: 8300000, guid: b1b130934f81e1c47a2182d903357a1d, type: 3}
     - target: {fileID: 6263876249887461875, guid: a7b776fd3d0e18f4c81fb745b6bc33c9,
         type: 3}
-      propertyPath: sounds.Array.data[2].name
-      value: PlumeSteal
-      objectReference: {fileID: 0}
-    - target: {fileID: 6263876249887461875, guid: a7b776fd3d0e18f4c81fb745b6bc33c9,
-        type: 3}
-      propertyPath: sounds.Array.data[4].clip
+      propertyPath: sounds.Array.data[11].clip
       value: 
-      objectReference: {fileID: 8300000, guid: e964dcab1942f9b46906d85131c0058d, type: 3}
-    - target: {fileID: 6263876249887461875, guid: a7b776fd3d0e18f4c81fb745b6bc33c9,
-        type: 3}
-      propertyPath: sounds.Array.data[5].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: aeda8072379ccd1408ea449632e03ca5, type: 3}
-    - target: {fileID: 6263876249887461875, guid: a7b776fd3d0e18f4c81fb745b6bc33c9,
-        type: 3}
-      propertyPath: sounds.Array.data[12].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9ad61ac7071e58548955f11d9ca9bdfa, type: 3}
-    - target: {fileID: 6263876249887461875, guid: a7b776fd3d0e18f4c81fb745b6bc33c9,
-        type: 3}
-      propertyPath: sounds.Array.data[12].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6263876249887461875, guid: a7b776fd3d0e18f4c81fb745b6bc33c9,
-        type: 3}
-      propertyPath: sounds.Array.data[12].name
-      value: Victory
-      objectReference: {fileID: 0}
-    - target: {fileID: 6263876249887461875, guid: a7b776fd3d0e18f4c81fb745b6bc33c9,
-        type: 3}
-      propertyPath: sounds.Array.data[12].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6263876249887461875, guid: a7b776fd3d0e18f4c81fb745b6bc33c9,
-        type: 3}
-      propertyPath: sounds.Array.data[12].volume
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: ee17b8758fd801f47b5efd2cddb839d1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -82,13 +82,13 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: LancePickUp
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 0a934108daab1664abbe655d6b999199, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: ShieldPickUp
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 0a934108daab1664abbe655d6b999199, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -106,25 +106,19 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: KnightDefeat
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: b1b130934f81e1c47a2182d903357a1d, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: BGM
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: ee17b8758fd801f47b5efd2cddb839d1, type: 3}
     volume: 0.2
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Victory
     clip: {fileID: 8300000, guid: 9ad61ac7071e58548955f11d9ca9bdfa, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: BattleStart
-    clip: {fileID: 8300000, guid: 14c254f3c8f5db7458eb928eed503f9d, type: 3}
     volume: 1
     pitch: 1
     loop: 1
