@@ -2,6 +2,7 @@ using Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -29,6 +30,10 @@ public class PlayerController : MonoBehaviour
     private Vector2 movementInput;
     private float currentSpeed = 0f;
     private float targetSpeed = 0f;
+
+    private Vector3 previousPosition;
+
+    private bool resetPosition = false;
 
 
     private void Start()
@@ -96,6 +101,17 @@ public class PlayerController : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
+
         HandleMovement();
+
+        // Check if the player's position has changed
+        if (transform.localPosition != previousPosition)
+        {
+            if(!resetPosition)
+            {
+                transform.localPosition = previousPosition;
+                resetPosition = true;
+            }
+        }
     }
 }
