@@ -2,6 +2,7 @@ using Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -32,16 +33,12 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 previousPosition;
 
+    private bool resetPosition = false;
+
 
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
-        //transform.localPosition = new Vector3(0, transform.position.y, 0);
-        //transform.position = GetComponentInParent<Transform>().position;
-        controller.transform.localPosition = new Vector3(0, 0, 0);
-        //transform.localPosition = new Vector3(0, 0, 0);
-        print("aa");
-        previousPosition = transform.localPosition;
     }
 
 
@@ -110,10 +107,11 @@ public class PlayerController : MonoBehaviour
         // Check if the player's position has changed
         if (transform.localPosition != previousPosition)
         {
-            Debug.Log("Player position changed from " + previousPosition + " to " + transform.localPosition);
-            previousPosition = transform.localPosition;
+            if(!resetPosition)
+            {
+                transform.localPosition = previousPosition;
+                resetPosition = true;
+            }
         }
-
-
     }
 }
