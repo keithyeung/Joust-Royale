@@ -24,6 +24,11 @@ public class PlayerKillCount : MonoBehaviour
         }
     }
 
+    public int GetPlumageCount()
+    {
+        return Plumages.Count;
+    }
+
     public void AddPlumages(Material material)
     {
         plumageNumber++;
@@ -34,6 +39,11 @@ public class PlayerKillCount : MonoBehaviour
 
     public void RemovePlumages()
     {
+        if(Plumages.Count <= 0)
+        {
+            Debug.Log("We have no plumages to remove");
+            return;
+        }
         Plumages[plumageNumber -1].SetActive(false);
         plumageNumber--;
     }

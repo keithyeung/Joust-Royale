@@ -25,8 +25,12 @@ public class Lance : MonoBehaviour
                 if(tempMaterial != null && opponentKillCount != null)
                 {
                     //collision.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(); Removed due to we dont use health anymore.
-                    playerKillCount.AddPlumages(tempMaterial.GetComponent<MeshRenderer>().sharedMaterial);
-                    opponentKillCount.RemovePlumages();
+                    collision.gameObject.GetComponentInParent<PlayerHealth>().StartInvincibility();
+                    if(playerKillCount.GetPlumageCount() > 0)
+                    {
+                        playerKillCount.AddPlumages(tempMaterial.GetComponent<MeshRenderer>().sharedMaterial);
+                        opponentKillCount.RemovePlumages();
+                    }
                 }
                 else
                 {
