@@ -25,6 +25,7 @@ public class Lance : MonoBehaviour
                 {
                     collision.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage();
                     playerKillCount.AddPlumages(tempMaterial);
+                    FindObjectOfType<AudioManager>().Play("PlumeSteal");
                 }
             }
         }
