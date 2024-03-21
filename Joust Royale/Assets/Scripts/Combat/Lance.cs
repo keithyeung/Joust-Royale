@@ -5,10 +5,12 @@ using UnityEngine;
 public class Lance : MonoBehaviour
 {
     private LayerMask thisLayer;
+    private PlayerKillCount playerKillCount;
 
     private void Start()
     {
         thisLayer = GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
+        playerKillCount = GetComponentInParent<PlayerKillCount>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -18,7 +20,12 @@ public class Lance : MonoBehaviour
             LayerMask tempLayer = collision.gameObject.GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
             if (tempLayer != thisLayer)
             {
-                collision.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage();
+                Material tempMaterial = collision.gameObject.GetComponentInParent<PlayerHealth>().plumageMaterialPrefab;
+                if(tempMaterial != null)
+                {
+                    collision.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage();
+                    playerKillCount.AddPlumages(tempMaterial);
+                }
             }
         }
     }

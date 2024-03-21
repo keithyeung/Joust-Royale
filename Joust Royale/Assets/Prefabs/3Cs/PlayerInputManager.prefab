@@ -66,7 +66,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: -7540476979328290395, guid: cf288e3041ebf9f40917ae9901897cbb,
+    m_Reference: {fileID: -7540476979328290395, guid: 7f3b6f065ba00534aa766f63df2707ed,
       type: 3}
   m_PlayerPrefab: {fileID: 520871784489415707, guid: a884dab8be06e0f49b81056881383229,
     type: 3}
@@ -100,3 +100,14 @@ MonoBehaviour:
     m_Bits: 256
   - serializedVersion: 2
     m_Bits: 512
+  playerMaterials:
+  - {fileID: 2100000, guid: afbb36476f66d484aa0e95c587b16ca2, type: 2}
+  - {fileID: 2100000, guid: 9f443987690beee4c97529dbb8692f12, type: 2}
+  - {fileID: 2100000, guid: 9a6292a06c89b3e4fb125a0294011bd7, type: 2}
+  - {fileID: 2100000, guid: 92af3bb0d1c779a4ca2f155a59860323, type: 2}
+  playerSpawnPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  mainCamera: {fileID: 0}

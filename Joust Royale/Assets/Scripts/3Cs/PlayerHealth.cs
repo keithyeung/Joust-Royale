@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Scripting;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     private float currentHealth;
 
     public GameObject[] plumageIcon;
+    public Material plumageMaterialPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,11 @@ public class PlayerHealth : MonoBehaviour
                 plumageIcon[i].SetActive(false);
             }
         }
+    }
+
+    public void SetPlumagePrefabMaterial(Material material)
+    {
+        plumageMaterialPrefab.GetComponent<Renderer>().material = material;
     }
 
     public void TakeDamage()
