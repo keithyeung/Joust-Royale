@@ -24,6 +24,7 @@ public class PlayerState : MonoBehaviour
     private PlayerController playerController;
     private float lowerRotationSpeed;
     private float defaultRotationSpeed;
+    private AudioManager audioManager;
 
     //private CustomInput controls;
 

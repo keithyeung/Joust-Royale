@@ -11,7 +11,22 @@ public class PlayerHealth : MonoBehaviour
     private float currentHealth;
 
     public GameObject[] plumageIcon;
-    public Material plumageMaterialPrefab;
+    public GameObject plumagePrefabInPlayer;
+
+
+    //Invincible functions
+    [Header("Invincible variable")]
+    private bool isInvincible = false;
+    public float invincibilityDuration = 2f;
+
+    //Blinking functions
+    [Header("Blinking variables")]
+    [SerializeField]private GameObject playerModel;
+    [SerializeField]private GameObject playerArmor;
+    public float blinkInterval = 0.5f;
+    public float blinkDuration = 2f;
+    private bool isBlinking = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,24 +34,62 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    private void Update()
+    //Health component is removed from the player
+    //private void Update()
+    //{
+    //    for(int i = 0; i < plumageIcon.Length; i++)
+    //    {
+    //        if (i < currentHealth)
+    //        {
+    //            plumageIcon[i].SetActive(true);
+    //        }
+    //        else
+    //        {
+    //            plumageIcon[i].SetActive(false);
+    //        }
+    //    }
+    //}
+
+    private void ToggleVisibility()
     {
-        for(int i = 0; i < plumageIcon.Length; i++)
+        playerModel.SetActive(!playerModel.activeSelf);
+    }
+
+    private void StartBlinking()
+    {
+        if (!isBlinking)
         {
-            if (i < currentHealth)
-            {
-                plumageIcon[i].SetActive(true);
-            }
-            else
-            {
-                plumageIcon[i].SetActive(false);
-            }
+            isBlinking = true;
+            InvokeRepeating(nameof(ToggleVisibility), 0f, blinkInterval);
+            Invoke(nameof(EndBlinking), blinkDuration);
         }
+    }
+
+    private void EndBlinking()
+    {
+        CancelInvoke(nameof(ToggleVisibility));
+        playerModel.SetActive(true); // Ensure the player character is visible when blinking ends
+        isBlinking = false;
     }
 
     public void SetPlumagePrefabMaterial(Material material)
     {
-        plumageMaterialPrefab.GetComponent<Renderer>().material = material;
+        plumagePrefabInPlayer.GetComponent<MeshRenderer>().material = material;
+    }
+
+    public void StartInvincibility()
+    {
+        isInvincible = true;
+        StartBlinking();
+        Invoke(nameof(EndInvincibility), invincibilityDuration);
+        playerArmor.GetComponent<BoxCollider>().enabled = false;
+        // Additional visual/audio effects for invincibility can be added here
+    }
+
+    private void EndInvincibility()
+    {
+        isInvincible = false;
+        playerArmor.GetComponent<BoxCollider>().enabled = true;
     }
 
     public void TakeDamage()

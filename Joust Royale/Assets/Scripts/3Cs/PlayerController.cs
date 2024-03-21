@@ -31,14 +31,18 @@ public class PlayerController : MonoBehaviour
     private float currentSpeed = 0f;
     private float targetSpeed = 0f;
 
-    private Vector3 previousPosition;
+    //Game State
+    [SerializeField] private GameState gameState;
 
+    //Hard coded things
+    private Vector3 previousPosition;
     private bool resetPosition = false;
 
 
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
+        gameState = FindObjectOfType<GameState>();
     }
 
 
@@ -47,7 +51,6 @@ public class PlayerController : MonoBehaviour
         LayerMask tempLayer = transform.Find("Mount").Find("Knight").Find("Upper").Find("Knight_Upper 1").gameObject.layer;
         if(tempLayer != null)
         {
-            Debug.Log(tempLayer.value.ToString());
             return tempLayer;
         }
         return 0;
@@ -95,22 +98,25 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0)
+        if(gameState.states == GameState.GameStatesMachine.Playing)
         {
-            playerVelocity.y = 0f;
-        }
-
-
-        HandleMovement();
-
-        // Check if the player's position has changed
-        if (transform.localPosition != previousPosition)
-        {
-            if(!resetPosition)
+            groundedPlayer = controller.isGrounded;
+            if (groundedPlayer && playerVelocity.y < 0)
             {
-                transform.localPosition = previousPosition;
-                resetPosition = true;
+                playerVelocity.y = 0f;
+            }
+
+
+            HandleMovement();
+
+            // Check if the player's position has changed
+            if (transform.localPosition != previousPosition)
+            {
+                if(!resetPosition)
+                {
+                    transform.localPosition = previousPosition;
+                    resetPosition = true;
+                }
             }
         }
     }

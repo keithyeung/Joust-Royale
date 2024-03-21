@@ -18,13 +18,23 @@ public class Lance : MonoBehaviour
         if (collision.gameObject.CompareTag("Armor"))
         {
             LayerMask tempLayer = collision.gameObject.GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
+            PlayerKillCount opponentKillCount = collision.gameObject.GetComponentInParent<PlayerKillCount>();
             if (tempLayer != thisLayer)
             {
-                Material tempMaterial = collision.gameObject.GetComponentInParent<PlayerHealth>().plumageMaterialPrefab;
-                if(tempMaterial != null)
+                GameObject tempMaterial = collision.gameObject.GetComponentInParent<PlayerHealth>().plumagePrefabInPlayer;
+                if(tempMaterial != null && opponentKillCount != null)
                 {
-                    collision.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage();
-                    playerKillCount.AddPlumages(tempMaterial);
+                    //collision.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(); Removed due to we dont use health anymore.
+                    collision.gameObject.GetComponentInParent<PlayerHealth>().StartInvincibility();
+                    if(playerKillCount.GetPlumageCount() > 0)
+                    {
+                        playerKillCount.AddPlumages(tempMaterial.GetComponent<MeshRenderer>().sharedMaterial);
+                        opponentKillCount.RemovePlumages();
+                    }
+                }
+                else
+                {
+                    Debug.Log("Lance.cs cannot find a material");
                 }
             }
         }

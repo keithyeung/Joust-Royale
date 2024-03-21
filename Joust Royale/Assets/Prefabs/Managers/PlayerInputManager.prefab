@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e034d16305d463419b6d44bcad040e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  players: []
   playerLayers:
   - serializedVersion: 2
     m_Bits: 64
@@ -105,6 +106,11 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 9f443987690beee4c97529dbb8692f12, type: 2}
   - {fileID: 2100000, guid: 9a6292a06c89b3e4fb125a0294011bd7, type: 2}
   - {fileID: 2100000, guid: 92af3bb0d1c779a4ca2f155a59860323, type: 2}
+  plumagePrefabList:
+  - {fileID: 1098877245227457809, guid: c87779ee4031cbf469eb7ae6500cbb38, type: 3}
+  - {fileID: 6636582510409934090, guid: 028577e231986b14e9c988188e7e9fb7, type: 3}
+  - {fileID: 9099889378959811589, guid: 9f3807f9d098ff242a6b29a9f335582d, type: 3}
+  - {fileID: 2610834501718022350, guid: e419e8415b612d649bfca130beac3a62, type: 3}
   playerSpawnPositions:
   - {fileID: 0}
   - {fileID: 0}
