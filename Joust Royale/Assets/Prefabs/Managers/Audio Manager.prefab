@@ -46,18 +46,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: LanceAttack
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: d43fb7d551ec0b84f8f757a3a01ee2f4, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: ShieldBreak
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: daa3790a6120cd042a64c4a5626044c5, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: RecievedHit
+  - name: PlumeSteal
     clip: {fileID: 0}
     volume: 1
     pitch: 1
@@ -70,13 +70,13 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: SuccessfulParry
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: e964dcab1942f9b46906d85131c0058d, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: LanceBreak
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: aeda8072379ccd1408ea449632e03ca5, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -114,6 +114,18 @@ MonoBehaviour:
   - name: BGM
     clip: {fileID: 0}
     volume: 0.2
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Victory
+    clip: {fileID: 8300000, guid: 9ad61ac7071e58548955f11d9ca9bdfa, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: BattleStart
+    clip: {fileID: 8300000, guid: 14c254f3c8f5db7458eb928eed503f9d, type: 3}
+    volume: 1
     pitch: 1
     loop: 1
     source: {fileID: 0}

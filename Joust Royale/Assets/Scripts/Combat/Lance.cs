@@ -27,6 +27,7 @@ public class Lance : MonoBehaviour
                     //collision.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(); Removed due to we dont use health anymore.
                     playerKillCount.AddPlumages(tempMaterial.GetComponent<MeshRenderer>().sharedMaterial);
                     opponentKillCount.RemovePlumages();
+                    FindObjectOfType<AudioManager>().Play("Steal");
                 }
                 else
                 {

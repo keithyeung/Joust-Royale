@@ -26,6 +26,7 @@ public class GameState : MonoBehaviour
             if(player.GetComponent<PlayerKillCount>().plumageNumber >= winCount)
             {
                 states = GameStatesMachine.Ended;
+                FindObjectOfType<AudioManager>().Play("Victory");
             }
         }
     }
