@@ -309,6 +309,131 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1347627128}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d05c307ca3f5b8b40a1c810d27fe4f29, type: 3}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[1].name
+      value: GotHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[2].name
+      value: Player1Hit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[3].name
+      value: Player2Hit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[4].name
+      value: Player3Hit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[5].name
+      value: Player4Hit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0a934108daab1664abbe655d6b999199, type: 3}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[6].name
+      value: PickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e964dcab1942f9b46906d85131c0058d, type: 3}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[7].name
+      value: SuccessfulParry
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: aeda8072379ccd1408ea449632e03ca5, type: 3}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[8].name
+      value: LanceBreak
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[9].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: daa3790a6120cd042a64c4a5626044c5, type: 3}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[9].name
+      value: ShieldBreak
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[6].pitch
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[9].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[5].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[6].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[7].volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[8].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[9].volume
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -490,11 +615,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1890567488}
-    - target: {fileID: 658164943611629151, guid: 311f3a32d03bad74dafdec11d0dc2873,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1c5f3fdcc1e8c3642b00bd922b006654, type: 2}
     - target: {fileID: 2018214023381814902, guid: 311f3a32d03bad74dafdec11d0dc2873,
         type: 3}
       propertyPath: m_Name

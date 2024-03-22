@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8599849830529022568}
   - component: {fileID: 1185257905871843974}
   - component: {fileID: 3436759568389741818}
-  - component: {fileID: 7147288559944968497}
   m_Layer: 0
   m_Name: SpawnPoint2
   m_TagString: Untagged
@@ -50,7 +49,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173835962845109002}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 3
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -84,27 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7147288559944968497
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173835962845109002}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2018214023381814902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,7 +1006,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 514
+  m_VersionIndex: 517
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1167,7 +1145,6 @@ GameObject:
   - component: {fileID: 6325302917016051478}
   - component: {fileID: 3583111451274232407}
   - component: {fileID: 1374147939390523998}
-  - component: {fileID: 5464096656931089058}
   m_Layer: 0
   m_Name: SpawnPoint1
   m_TagString: Untagged
@@ -1206,7 +1183,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2989315682532265527}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 3
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -1240,27 +1217,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5464096656931089058
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2989315682532265527}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6420276395330705575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,7 +1263,6 @@ GameObject:
   - component: {fileID: 7110235443167484058}
   - component: {fileID: 5391416754289386684}
   - component: {fileID: 2063371744019230125}
-  - component: {fileID: 1879778469865009333}
   m_Layer: 0
   m_Name: SpawnPoint4
   m_TagString: Untagged
@@ -1346,7 +1301,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6699852525935643787}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 3
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -1380,27 +1335,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1879778469865009333
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6699852525935643787}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7728097633925552651
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,7 +1346,6 @@ GameObject:
   - component: {fileID: 3626125235913707754}
   - component: {fileID: 3720152380446268828}
   - component: {fileID: 2020762059618386696}
-  - component: {fileID: 3865529010590522162}
   m_Layer: 0
   m_Name: SpawnPoint3
   m_TagString: Untagged
@@ -1451,7 +1384,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7728097633925552651}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 3
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -1485,27 +1418,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &3865529010590522162
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7728097633925552651}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8328101601265597416
 GameObject:
   m_ObjectHideFlags: 0
@@ -5412,7 +5324,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 12562
+  m_VersionIndex: 12565
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5588,7 +5500,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1b4a4779e1a624f48914e665431028bc, type: 2}
+      objectReference: {fileID: 2100000, guid: 9d4306d5a65b35f43be395f393a303a9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5662,7 +5574,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1c5f3fdcc1e8c3642b00bd922b006654, type: 2}
+      objectReference: {fileID: 2100000, guid: 93b01656d5856f34fadf7843ffdfab4f, type: 2}
     - target: {fileID: 6434475598365301295, guid: d7bf3ede88418d74686048c1d3020bc0,
         type: 3}
       propertyPath: m_Name
@@ -5741,7 +5653,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1c5f3fdcc1e8c3642b00bd922b006654, type: 2}
+      objectReference: {fileID: 2100000, guid: 93b01656d5856f34fadf7843ffdfab4f, type: 2}
     - target: {fileID: 6434475598365301295, guid: d7bf3ede88418d74686048c1d3020bc0,
         type: 3}
       propertyPath: m_Name
@@ -5825,7 +5737,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5a102aaefbaa47c4c89b6ec954b51f27, type: 2}
+      objectReference: {fileID: 2100000, guid: 9d4306d5a65b35f43be395f393a303a9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5904,7 +5816,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1c5f3fdcc1e8c3642b00bd922b006654, type: 2}
+      objectReference: {fileID: 2100000, guid: 9d4306d5a65b35f43be395f393a303a9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5983,7 +5895,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3a1d1bbfa6c639643bf844f7239ee04f, type: 2}
+      objectReference: {fileID: 2100000, guid: 9d4306d5a65b35f43be395f393a303a9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6057,7 +5969,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3a1d1bbfa6c639643bf844f7239ee04f, type: 2}
+      objectReference: {fileID: 2100000, guid: 93b01656d5856f34fadf7843ffdfab4f, type: 2}
     - target: {fileID: 6434475598365301295, guid: d7bf3ede88418d74686048c1d3020bc0,
         type: 3}
       propertyPath: m_Name
@@ -6132,6 +6044,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 99161438782281036, guid: d7bf3ede88418d74686048c1d3020bc0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 93b01656d5856f34fadf7843ffdfab4f, type: 2}
     - target: {fileID: 6434475598365301295, guid: d7bf3ede88418d74686048c1d3020bc0,
         type: 3}
       propertyPath: m_Name
