@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Toon_Sheild
+  m_Name: Toon_Shield
   m_Shader: {fileID: -6465566751694194690, guid: 93504f478c66ac44a86cff2b7ca2641a,
     type: 3}
   m_Parent: {fileID: 2100000, guid: 8c67deec887decd4bb25addbc97991e9, type: 2}

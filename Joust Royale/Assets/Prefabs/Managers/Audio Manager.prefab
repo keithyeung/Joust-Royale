@@ -45,25 +45,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: LanceAttack
-    clip: {fileID: 8300000, guid: d43fb7d551ec0b84f8f757a3a01ee2f4, type: 3}
-    volume: 1
+  - name: BGM
+    clip: {fileID: 8300000, guid: 095de58e0a5c84540b8c95930c21a626, type: 3}
+    volume: 0.1
     pitch: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
-  - name: ShieldBreak
-    clip: {fileID: 8300000, guid: daa3790a6120cd042a64c4a5626044c5, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: PlumeSteal
+  - name: Player1Hit
     clip: {fileID: 0}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: FailedParry
+  - name: Player2Hit
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Player3Hit
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Player4Hit
     clip: {fileID: 0}
     volume: 1
     pitch: 1
@@ -71,55 +77,25 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: SuccessfulParry
     clip: {fileID: 8300000, guid: e964dcab1942f9b46906d85131c0058d, type: 3}
-    volume: 1
+    volume: 0.6
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: LanceBreak
     clip: {fileID: 8300000, guid: aeda8072379ccd1408ea449632e03ca5, type: 3}
-    volume: 1
+    volume: 0.6
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: LancePickUp
-    clip: {fileID: 8300000, guid: 0a934108daab1664abbe655d6b999199, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: ShieldPickUp
-    clip: {fileID: 8300000, guid: 0a934108daab1664abbe655d6b999199, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Gallop
+  - name: PickUp
     clip: {fileID: 0}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Ramming
+  - name: ShieldBreak
     clip: {fileID: 0}
-    volume: 1
+    volume: 0.6
     pitch: 1
     loop: 0
-    source: {fileID: 0}
-  - name: KnightDefeat
-    clip: {fileID: 8300000, guid: b1b130934f81e1c47a2182d903357a1d, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: BGM
-    clip: {fileID: 8300000, guid: ee17b8758fd801f47b5efd2cddb839d1, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: Victory
-    clip: {fileID: 8300000, guid: 9ad61ac7071e58548955f11d9ca9bdfa, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
     source: {fileID: 0}

@@ -17,14 +17,14 @@ public class SoundTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O))
         {
             // Call a function to play the sound effect
-            FindObjectOfType<AudioManager>().Play("Dash");
+            FindObjectOfType<AudioManager>().Play("SuccessfulParry");
         }
 
         // Check for input (you can customize the button as needed)
         if (Input.GetKeyDown(KeyCode.Y))
         {
             // Call a function to play the sound effect
-            FindObjectOfType<AudioManager>().Play("TakingDamage");
+            FindObjectOfType<AudioManager>().Play("ShieldBreak");
         }
     }
 }
