@@ -135,8 +135,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823119419440287723}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.037141334, y: -0.000000017462646, z: 6.490337e-10, w: 0.99931}
-  m_LocalPosition: {x: 0, y: 2.8599997, z: -10.21}
+  m_LocalRotation: {x: 0.16932784, y: 0.6177095, z: -0.13846844, w: 0.7553738}
+  m_LocalPosition: {x: 0, y: 2.8600001, z: -10.209999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -235,8 +235,8 @@ MonoBehaviour:
   m_AvoidObstacles: 1
   m_DistanceLimit: 0
   m_MinimumOcclusionTime: 0
-  m_CameraRadius: 0.1
-  m_Strategy: 0
+  m_CameraRadius: 0.5
+  m_Strategy: 2
   m_MaximumEffort: 4
   m_SmoothingTime: 0
   m_Damping: 0
@@ -614,8 +614,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4583588832824254635}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.037141334, y: -0.000000017462646, z: 6.490337e-10, w: 0.99931}
-  m_LocalPosition: {x: 0, y: 2.8599997, z: -10.21}
+  m_LocalRotation: {x: 0.16932784, y: 0.6177095, z: -0.13846844, w: 0.7553738}
+  m_LocalPosition: {x: -8.889471, y: 6.381483, z: -1.800602}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1773,11 +1773,14 @@ MonoBehaviour:
   acceleration: 6
   deceleration: 2
   maxSpeed: 30
+  AttackingAcceleration: 12
+  AttackingSpeed: 50
   lance: {fileID: 2608498029998077574}
   shield: {fileID: 758397806206449051}
   torso: {fileID: 7068990049402134814}
   horseCape: {fileID: 3116670329208065515}
   gameState: {fileID: 0}
+  playerState: {fileID: 0}
 --- !u!114 &6647668562839623434
 MonoBehaviour:
   m_ObjectHideFlags: 0
