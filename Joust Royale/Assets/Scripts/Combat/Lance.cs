@@ -6,6 +6,9 @@ public class Lance : MonoBehaviour
 {
     private LayerMask thisLayer;
     private PlayerKillCount playerKillCount;
+    [SerializeField] private GameObject tip;
+    [SerializeField] private ParticleSystem sparks;
+    [SerializeField] private ParticleSystem shieldBreak;
 
     private void Start()
     {
@@ -19,6 +22,9 @@ public class Lance : MonoBehaviour
         {
             LayerMask tempLayer = collision.gameObject.GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
             PlayerKillCount opponentKillCount = collision.gameObject.GetComponentInParent<PlayerKillCount>();
+
+            PlayParticle();
+
             if (tempLayer != thisLayer)
             {
                 GameObject tempMaterial = collision.gameObject.GetComponentInParent<PlayerHealth>().plumagePrefabInPlayer;
@@ -38,5 +44,11 @@ public class Lance : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void PlayParticle()
+    {
+        sparks.transform.position = tip.transform.position;
+        sparks.Play();
     }
 }
