@@ -8,11 +8,13 @@ public class GameState : MonoBehaviour
     private int winCount;
     public enum GameStatesMachine { MainMenu, Playing, Ended};
     public GameStatesMachine states;
+    private AudioManager audioManager;
 
     private void Start()
     {
         playerManager = FindAnyObjectByType<PlayerManager>();
         states = GameStatesMachine.Playing;
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void Update()
@@ -26,7 +28,10 @@ public class GameState : MonoBehaviour
             if(player.GetComponent<PlayerKillCount>().plumageNumber >= winCount)
             {
                 states = GameStatesMachine.Ended;
-                FindObjectOfType<AudioManager>().Play("Victory");
+                if(audioManager != null)
+                {
+                    audioManager.Play("Victory");
+                }
             }
         }
     }

@@ -135,8 +135,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823119419440287723}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.03714138, y: 0.000000017194507, z: -6.3906874e-10, w: 0.99931}
-  m_LocalPosition: {x: 0, y: 2.8600001, z: -10.209999}
+  m_LocalRotation: {x: 0.037141334, y: -0.000000017462646, z: 6.490337e-10, w: 0.99931}
+  m_LocalPosition: {x: 0, y: 2.8599997, z: -10.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -614,8 +614,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4583588832824254635}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.03714138, y: 0.000000017194507, z: -6.3906874e-10, w: 0.99931}
-  m_LocalPosition: {x: 0, y: 2.8600001, z: -10.209999}
+  m_LocalRotation: {x: 0.037141334, y: -0.000000017462646, z: 6.490337e-10, w: 0.99931}
+  m_LocalPosition: {x: 0, y: 2.8599997, z: -10.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1610,6 +1610,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b405d08cbee1001479f1dc93c1e1d779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3116670329208065515 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3567029737602156743, guid: c569867faff49674c9c264e8d4b69e80,
+    type: 3}
+  m_PrefabInstance: {fileID: 1927542304604308780}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6131984817802778902 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5753680814617615418, guid: c569867faff49674c9c264e8d4b69e80,
@@ -1770,7 +1776,7 @@ MonoBehaviour:
   lance: {fileID: 2608498029998077574}
   shield: {fileID: 758397806206449051}
   torso: {fileID: 7068990049402134814}
-  horseCape: {fileID: 6748061139583327585}
+  horseCape: {fileID: 3116670329208065515}
   gameState: {fileID: 0}
 --- !u!114 &6647668562839623434
 MonoBehaviour:
@@ -1865,12 +1871,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &6748061139583327585 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5144778020497725517, guid: c569867faff49674c9c264e8d4b69e80,
-    type: 3}
-  m_PrefabInstance: {fileID: 1927542304604308780}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6759857313547141145 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5120548701923149109, guid: c569867faff49674c9c264e8d4b69e80,
