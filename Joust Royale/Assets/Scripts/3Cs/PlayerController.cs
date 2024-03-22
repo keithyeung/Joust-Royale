@@ -17,13 +17,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float deceleration = 2f;  // Adjust deceleration as needed
     [SerializeField] private float maxSpeed = 30f;  // Adjust max speed as needed
     [SerializeField] private float AttackingAcceleration = 12f;  // Adjust rotation speed as needed
-    [SerializeField] private float AttackingSpeed = 50f;  // Adjust max speed as needed
+    [SerializeField] private float AttackingMaxSpeed = 50f;  // Adjust max speed as needed
 
     [Header("Equipments")]
     [SerializeField] public GameObject lance;
     [SerializeField] public GameObject shield;
     [SerializeField] public GameObject torso;
-    [SerializeField] public GameObject horseCape;
+    [SerializeField] public GameObject frontHorseCape;
+    [SerializeField] public GameObject backHorseCape;
 
     private CharacterController controller;
     private Vector3 playerVelocity;
@@ -67,7 +68,7 @@ public class PlayerController : MonoBehaviour
         {
             // Apply additional forward force while attacking
             currentSpeed += AttackingAcceleration * Time.deltaTime;
-            currentSpeed = Mathf.Clamp(currentSpeed, 0f, AttackingSpeed);
+            currentSpeed = Mathf.Clamp(currentSpeed, 0f, AttackingMaxSpeed);
         }
         else
         {
