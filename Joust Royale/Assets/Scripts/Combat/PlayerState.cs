@@ -68,7 +68,7 @@ public class PlayerState : MonoBehaviour
     public void OnAttack(InputAction.CallbackContext context)
     {
         state = PLAYER_STATE.Attacking;
-        audioManager.Play("LanceAttack");
+        //audioManager.Play("LanceAttack");
     }
 
     public void OnReleaseAttack(InputAction.CallbackContext context)
