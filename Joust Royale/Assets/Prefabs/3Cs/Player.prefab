@@ -135,7 +135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823119419440287723}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.048796557, y: 0.000000017185883, z: -8.3961205e-10, w: 0.99880874}
+  m_LocalRotation: {x: 0.048796535, y: -0.000000017185885, z: 8.396118e-10, w: 0.99880874}
   m_LocalPosition: {x: 0, y: 5.5000005, z: -10.209999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -614,7 +614,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4583588832824254635}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.048796557, y: 0.000000017185883, z: -8.3961205e-10, w: 0.99880874}
+  m_LocalRotation: {x: 0.048796535, y: -0.000000017185885, z: 8.396118e-10, w: 0.99880874}
   m_LocalPosition: {x: 0, y: 5.5000005, z: -10.209999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1641,6 +1641,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b405d08cbee1001479f1dc93c1e1d779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tip: {fileID: 7444424176137263410}
+  sparks: {fileID: 2660521079297158930, guid: 39e933bd82e198f488b07c46556c2fc7, type: 3}
+  shieldBreak: {fileID: 2660521079297158930, guid: 39e933bd82e198f488b07c46556c2fc7,
+    type: 3}
 --- !u!1 &3116670329208065515 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3567029737602156743, guid: c569867faff49674c9c264e8d4b69e80,
@@ -1915,6 +1919,12 @@ Transform:
 --- !u!1 &7068990049402134814 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8708300851386049586, guid: c569867faff49674c9c264e8d4b69e80,
+    type: 3}
+  m_PrefabInstance: {fileID: 1927542304604308780}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7444424176137263410 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9047707307454471198, guid: c569867faff49674c9c264e8d4b69e80,
     type: 3}
   m_PrefabInstance: {fileID: 1927542304604308780}
   m_PrefabAsset: {fileID: 0}
