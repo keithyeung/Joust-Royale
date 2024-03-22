@@ -36,6 +36,7 @@ public class Lance : MonoBehaviour
                     {
                         playerKillCount.AddPlumages(tempMaterial.GetComponent<MeshRenderer>().sharedMaterial);
                         opponentKillCount.RemovePlumages();
+                        FindObjectOfType<AudioManager>().Play("GotHit");
                     }
                 }
                 else
