@@ -16,6 +16,7 @@ public class Parrying : MonoBehaviour
             Debug.Log(other.gameObject.name);
             other.gameObject.SetActive(false);
             FindObjectOfType<AudioManager>().Play("SuccessfulParry");
+            FindObjectOfType<AudioManager>().Play("LanceBreak");
         }
     }
 

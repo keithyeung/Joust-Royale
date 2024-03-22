@@ -13,6 +13,7 @@ public class Shield : MonoBehaviour
         {
             Debug.Log("Shield is broken");
             this.gameObject.SetActive(false);
+            FindObjectOfType<AudioManager>().Play("ShieldBreak");
         }
     }
 
@@ -26,6 +27,8 @@ public class Shield : MonoBehaviour
             {
                 Debug.Log("Parried!");
                 other.gameObject.SetActive(false);
+                FindObjectOfType<AudioManager>().Play("LanceBreak");
+                FindObjectOfType<AudioManager>().Play("SuccessfulParry");
             }
         }
     }
