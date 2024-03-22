@@ -40,7 +40,7 @@ public class PlayerManager : MonoBehaviour
     {
         if(players.Count > 0)
         {
-            mainCamera.gameObject.SetActive(false);
+            mainCamera.GetComponent<Camera>().enabled = false;
         }
     }
 

@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float acceleration = 6f;  // Adjust acceleration as needed
     [SerializeField] private float deceleration = 2f;  // Adjust deceleration as needed
     [SerializeField] private float maxSpeed = 30f;  // Adjust max speed as needed
+    [SerializeField] private float AttackingAcceleration = 12f;  // Adjust rotation speed as needed
+    [SerializeField] private float AttackingSpeed = 50f;  // Adjust max speed as needed
 
     [Header("Equipments")]
     [SerializeField] public GameObject lance;
@@ -33,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
     //Game State
     [SerializeField] private GameState gameState;
+    [SerializeField] private PlayerState playerState;
 
     //Hard coded things
     private Vector3 previousPosition;
@@ -43,6 +46,7 @@ public class PlayerController : MonoBehaviour
     {
         controller = gameObject.GetComponent<CharacterController>();
         gameState = FindObjectOfType<GameState>();
+        playerState = GetComponent<PlayerState>();
     }
 
 
@@ -58,11 +62,21 @@ public class PlayerController : MonoBehaviour
 
     public void HandleMovement()
     {
-        // Update target speed based on input
-        targetSpeed = movementInput.y * maxSpeed;
 
-        // Smoothly adjust the current speed
-        currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.deltaTime);
+        if(playerState.state == PLAYER_STATE.Attacking)
+        {
+            // Apply additional forward force while attacking
+            currentSpeed += AttackingAcceleration * Time.deltaTime;
+            currentSpeed = Mathf.Clamp(currentSpeed, 0f, AttackingSpeed);
+        }
+        else
+        {
+            // Update target speed based on input
+            targetSpeed = movementInput.y * maxSpeed;
+
+            // Smoothly adjust the current speed
+            currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.deltaTime);
+        }
 
         // Apply car-like movement
         Vector3 moveDirection = new Vector3(0, 0, currentSpeed);
@@ -81,7 +95,6 @@ public class PlayerController : MonoBehaviour
             // Gradual deceleration
             currentSpeed = Mathf.MoveTowards(currentSpeed, 0f, deceleration * Time.deltaTime);
         }
-
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
