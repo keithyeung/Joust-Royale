@@ -1028,7 +1028,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 511
+  m_VersionIndex: 514
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1083,7 +1083,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d239d284a95d46e488722eac63ecfa52, type: 2}
+  - {fileID: 2100000, guid: c15a8c43a59152a4db1085325ae1f0da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5412,7 +5412,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 12559
+  m_VersionIndex: 12562
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5662,7 +5662,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9a6292a06c89b3e4fb125a0294011bd7, type: 2}
+      objectReference: {fileID: 2100000, guid: 1c5f3fdcc1e8c3642b00bd922b006654, type: 2}
     - target: {fileID: 6434475598365301295, guid: d7bf3ede88418d74686048c1d3020bc0,
         type: 3}
       propertyPath: m_Name
