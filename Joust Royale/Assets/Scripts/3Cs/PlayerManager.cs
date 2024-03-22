@@ -73,10 +73,13 @@ public class PlayerManager : MonoBehaviour
         int materialIndex = players.Count - 1;
         if (materialIndex < playerMaterials.Count)
         {
-            GameObject temptorso = playerParent.GetComponentInChildren<PlayerController>().torso;
-            GameObject tempHorseCape = playerParent.GetComponentInChildren<PlayerController>().horseCape;
-            temptorso.GetComponent<Renderer>().material = playerMaterials[materialIndex];
-            tempHorseCape.GetComponent<Renderer>().material = playerMaterials[materialIndex];
+            //GameObject temptorso = playerParent.GetComponentInChildren<PlayerController>().torso;
+            //GameObject tempFrontHorseCape = playerParent.GetComponentInChildren<PlayerController>().frontHorseCape;
+            //GameObject tempBackHorseCape = playerParent.GetComponentInChildren<PlayerController>().backHorseCape;
+            //temptorso.GetComponent<Renderer>().material = playerMaterials[materialIndex];
+            //tempFrontHorseCape.GetComponent<Renderer>().material = playerMaterials[materialIndex];
+            //tempBackHorseCape.GetComponent<Renderer>().material = playerMaterials[materialIndex];
+            SetPlayerColor(playerParent, materialIndex);
             if (playerMaterials[materialIndex].HasProperty("_color"))
             {
                 Color tempColor = playerMaterials[materialIndex].GetColor("_color");
@@ -103,5 +106,19 @@ public class PlayerManager : MonoBehaviour
         {
             playerHealthComponent.plumagePrefabInPlayer = plumagePrefabList[prefabPlumageIndex];
         }
+    }
+
+    private void SetPlayerColor(Transform playerParentTransform, int materialIndex)
+    {
+        GameObject temptorso = playerParentTransform.GetComponentInChildren<PlayerController>().torso;
+        GameObject tempFrontHorseCape = playerParentTransform.GetComponentInChildren<PlayerController>().frontHorseCape;
+        GameObject tempBackHorseCape = playerParentTransform.GetComponentInChildren<PlayerController>().backHorseCape;
+        GameObject tempLance = playerParentTransform.GetComponentInChildren<PlayerController>().lance;
+        GameObject tempShield = playerParentTransform.GetComponentInChildren<PlayerController>().shield;
+        temptorso.GetComponent<Renderer>().material = playerMaterials[materialIndex];
+        tempFrontHorseCape.GetComponent<Renderer>().material = playerMaterials[materialIndex];
+        tempBackHorseCape.GetComponent<Renderer>().material = playerMaterials[materialIndex];
+        tempLance.GetComponent<Renderer>().material = playerMaterials[materialIndex];
+        tempShield.GetComponent<Renderer>().material = playerMaterials[materialIndex];
     }
 }
