@@ -226,6 +226,17 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""061bd2d1-f4af-4f3f-a6c4-f416da4452e5"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard;Mouse"",
+                    ""action"": ""AttackMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""56d3c795-5d67-4094-af91-a0d774995ad0"",
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": ""Press(behavior=1)"",
