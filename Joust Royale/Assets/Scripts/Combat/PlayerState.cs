@@ -35,6 +35,7 @@ public class PlayerState : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         defaultRotationSpeed = playerController.rotationSpeed;
         lowerRotationSpeed = playerController.rotationSpeed * 0.5f;
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void Update()
@@ -67,6 +68,7 @@ public class PlayerState : MonoBehaviour
     public void OnAttack(InputAction.CallbackContext context)
     {
         state = PLAYER_STATE.Attacking;
+        //audioManager.Play("LanceAttack");
     }
 
     public void OnReleaseAttack(InputAction.CallbackContext context)
