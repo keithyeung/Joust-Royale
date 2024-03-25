@@ -1,5 +1,6 @@
 using Cinemachine;
 using Unity.VisualScripting;
+using UnityEditor.iOS.Extensions.Common;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEditor.Experimental.GraphView.GraphView;
@@ -57,28 +58,40 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (gameState.states == GameState.GameStatesMachine.Playing)
+        if (gameState.states != GameState.GameStatesMachine.Playing)
         {
-            groundedPlayer = controller.isGrounded;
-            if (groundedPlayer && playerVelocity.y < 0)
+            return;
+        }
+
+        GroundPlayer();
+
+        HandleMovement();
+
+        ResetPlayerPositionIfNeeded();
+    }
+
+    private void GroundPlayer()
+    {
+        groundedPlayer = controller.isGrounded;
+        if (groundedPlayer && playerVelocity.y < 0)
+        {
+            playerVelocity.y = 0f;
+        }
+    }
+
+    private void ResetPlayerPositionIfNeeded()
+    {
+        // Check if the player's position has changed
+        if (transform.localPosition != previousPosition)
+        {
+            if (!resetPosition)
             {
-                playerVelocity.y = 0f;
-            }
-
-
-            HandleMovement();
-
-            // Check if the player's position has changed
-            if (transform.localPosition != previousPosition)
-            {
-                if (!resetPosition)
-                {
-                    transform.localPosition = previousPosition;
-                    resetPosition = true;
-                }
+                transform.localPosition = previousPosition;
+                resetPosition = true;
             }
         }
     }
+
     public LayerMask GetLayerMaskForArmor()
     {
         Transform armorTransform = transform.Find("Mount/Knight/Upper/Knight_Upper 1");
@@ -98,32 +111,12 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            // Update target speed based on input
-            targetSpeed = movementInput.y * maxSpeed;
-
-            // Smoothly adjust the current speed
-            currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.deltaTime);
+            ApplyRegularMovement();
         }
 
-        // Apply car-like movement
-        Vector3 moveDirection = new Vector3(0, 0, currentSpeed);
-        moveDirection = transform.TransformDirection(moveDirection);
-
-        // Apply rotation for car-like steering
-        float rotation = movementInput.x * rotationSpeed * Time.deltaTime;
-        transform.Rotate(Vector3.up * rotation);
-
-        // Move the character with the added velocity
-        controller.Move(moveDirection * Time.deltaTime);
-
-        // Decelerate when no forward/backward input is provided
-        if (Mathf.Approximately(movementInput.y, 0f))
-        {
-            // Gradual deceleration
-            currentSpeed = Mathf.MoveTowards(currentSpeed, 0f, deceleration * Time.deltaTime);
-        }
-        playerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
+        ApplyRotation();
+        ApplyMovement();
+        ApplyGravity();
     }
 
     private void ApplyAttackMovement()
@@ -147,7 +140,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
+    private void ApplyRotation()
+    {
+        float rotation = movementInput.x * rotationSpeed * Time.deltaTime;
+        transform.Rotate(Vector3.up * rotation);
+    }
 
+    private void ApplyMovement()
+    {
+        Vector3 moveDirection = transform.forward * currentSpeed * Time.deltaTime;
+        controller.Move(moveDirection);
+    }
+
+    private void ApplyGravity()
+    {
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        controller.Move(playerVelocity * Time.deltaTime);
+    }
 
 }

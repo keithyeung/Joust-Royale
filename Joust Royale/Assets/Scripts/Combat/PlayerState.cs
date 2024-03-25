@@ -40,6 +40,11 @@ public class PlayerState : MonoBehaviour
 
     private void Update()
     {
+        HandleStateMachine(); 
+    }
+
+    private void HandleStateMachine()
+    {
         switch (state)
         {
             case PLAYER_STATE.Idle:
@@ -61,8 +66,6 @@ public class PlayerState : MonoBehaviour
             default:
                 break;
         }
-
-        
     }
 
     public void OnAttack(InputAction.CallbackContext context)
@@ -75,12 +78,6 @@ public class PlayerState : MonoBehaviour
     {
         state = PLAYER_STATE.Idle;
         animator.SetBool("AttackMode", false);
-    }
-
-    //Write a function to check if a key is pressed and hold and return true if it does. so it should take a KeyCode as a parameter and return a bool
-    private bool IsKeyPressed(KeyCode key)
-    {
-        return Input.GetKey(key);
     }
     
     public PLAYER_STATE SetState(PLAYER_STATE newState)

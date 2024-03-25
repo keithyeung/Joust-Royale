@@ -34,22 +34,6 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    //Health component is removed from the player
-    //private void Update()
-    //{
-    //    for(int i = 0; i < plumageIcon.Length; i++)
-    //    {
-    //        if (i < currentHealth)
-    //        {
-    //            plumageIcon[i].SetActive(true);
-    //        }
-    //        else
-    //        {
-    //            plumageIcon[i].SetActive(false);
-    //        }
-    //    }
-    //}
-
     private void ToggleVisibility()
     {
         playerModel.SetActive(!playerModel.activeSelf);
