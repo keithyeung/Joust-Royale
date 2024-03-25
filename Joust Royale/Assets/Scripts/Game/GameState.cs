@@ -30,7 +30,7 @@ public class GameState : MonoBehaviour
                 states = GameStatesMachine.Ended;
                 if(audioManager != null)
                 {
-                    audioManager.Play("Victory");
+                    // audioManager.Play("Victory");
                 }
             }
         }

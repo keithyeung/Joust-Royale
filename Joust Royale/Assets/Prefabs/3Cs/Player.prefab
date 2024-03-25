@@ -135,8 +135,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823119419440287723}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.048796505, y: 0.00000001745388, z: -8.527042e-10, w: 0.99880874}
-  m_LocalPosition: {x: 0, y: 5.5, z: -10.21}
+  m_LocalRotation: {x: 0.10542689, y: -0.000000004277623, z: 4.5350385e-10, w: 0.9944271}
+  m_LocalPosition: {x: 0, y: 10, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1568310238568874374}
   m_Follow: {fileID: 1568310238568874374}
   m_Lens:
-    FieldOfView: 35.62
+    FieldOfView: 30
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 5.5, z: -10.21}
+  m_FollowOffset: {x: 0, y: 10, z: -25}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -578,13 +578,13 @@ MonoBehaviour:
   m_HorizontalDamping: 0.5
   m_VerticalDamping: 0.5
   m_ScreenX: 0.5
-  m_ScreenY: 0.5
-  m_DeadZoneWidth: 0
-  m_DeadZoneHeight: 0
+  m_ScreenY: 0.51
+  m_DeadZoneWidth: 0.2
+  m_DeadZoneHeight: 0.38
   m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
+  m_SoftZoneHeight: 0.95
   m_BiasX: 0
-  m_BiasY: 0
+  m_BiasY: -0.022
   m_CenterOnActivate: 1
 --- !u!1 &4583588832824254635
 GameObject:
@@ -614,8 +614,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4583588832824254635}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.048796523, y: -0.000000017052665, z: 8.3310325e-10, w: 0.99880874}
-  m_LocalPosition: {x: 0, y: 5.5, z: -10.21}
+  m_LocalRotation: {x: 0.10542689, y: -0.000000004277623, z: 4.5350385e-10, w: 0.9944271}
+  m_LocalPosition: {x: 0, y: 10, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -654,7 +654,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 35.62
+  field of view: 30
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -1504,7 +1504,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1643,9 +1643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tip: {fileID: 7444424176137263410}
   sparks: {fileID: 2660521079297158930, guid: 39e933bd82e198f488b07c46556c2fc7, type: 3}
-  shieldBreak: {fileID: 2129262379463997504, guid: 1ea92444a51433841a89b41d3203939f,
-    type: 3}
-  lanceBreak: {fileID: 2660521079297158930, guid: 39e933bd82e198f488b07c46556c2fc7,
+  shieldBreak: {fileID: 2660521079297158930, guid: 39e933bd82e198f488b07c46556c2fc7,
     type: 3}
 --- !u!1 &3116670329208065515 stripped
 GameObject:
@@ -1807,11 +1805,11 @@ MonoBehaviour:
   jumpHeight: 1
   gravityValue: -10
   rotationSpeed: 150
-  acceleration: 6
-  deceleration: 10
+  acceleration: 10
+  deceleration: 20
   maxSpeed: 30
-  AttackingAcceleration: 12
-  AttackingMaxSpeed: 50
+  AttackingAcceleration: 15
+  AttackingMaxSpeed: 45
   lance: {fileID: 2608498029998077574}
   shield: {fileID: 758397806206449051}
   torso: {fileID: 7068990049402134814}
@@ -1852,7 +1850,7 @@ MonoBehaviour:
   - {fileID: 1553705560332112628}
   plumagePrefabInPlayer: {fileID: 9099889378959811589, guid: 9f3807f9d098ff242a6b29a9f335582d,
     type: 3}
-  invincibilityDuration: 5
+  invincibilityDuration: 3
   playerModel: {fileID: 2600262088121483604}
   playerArmor: {fileID: 797994256408836408}
   blinkInterval: 0.5

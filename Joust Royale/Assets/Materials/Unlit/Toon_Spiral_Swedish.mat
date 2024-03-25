@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Toon_Spiral
+  m_Name: Toon_Spiral_Swedish
   m_Shader: {fileID: -6465566751694194690, guid: e5d3e036c8bae654aace6a099d9bfd07,
     type: 3}
   m_Parent: {fileID: 0}
@@ -121,8 +121,8 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _base_color: {r: 0.8301887, g: 0.2145959, b: 0.2145959, a: 0}
-    - _color: {r: 0.6509434, g: 0.57008594, b: 0.56128514, a: 0}
+    - _base_color: {r: 0, g: 0.49769807, b: 1, a: 0}
+    - _color: {r: 1, g: 0.91437024, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7700920720377676940
 MonoBehaviour:
