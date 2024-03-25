@@ -6,9 +6,11 @@ public class Lance : MonoBehaviour
 {
     private LayerMask thisLayer;
     private PlayerKillCount playerKillCount;
+    private Shield shield;
     [SerializeField] private GameObject tip;
     [SerializeField] private ParticleSystem sparks;
     [SerializeField] private ParticleSystem shieldBreak;
+    [SerializeField] private ParticleSystem lanceBreak;
 
     private void Start()
     {
@@ -16,22 +18,22 @@ public class Lance : MonoBehaviour
         playerKillCount = GetComponentInParent<PlayerKillCount>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerStay(Collider other) 
     {
-        if (collision.gameObject.CompareTag("Armor"))
+        if (other.gameObject.CompareTag("Armor"))
         {
-            LayerMask tempLayer = collision.gameObject.GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
-            PlayerKillCount opponentKillCount = collision.gameObject.GetComponentInParent<PlayerKillCount>();
+            LayerMask tempLayer = other.gameObject.GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
+            PlayerKillCount opponentKillCount = other.gameObject.GetComponentInParent<PlayerKillCount>();
 
-            PlayParticle();
+            PlayParticle(sparks);
 
             if (tempLayer != thisLayer)
             {
-                GameObject tempMaterial = collision.gameObject.GetComponentInParent<PlayerHealth>().plumagePrefabInPlayer;
+                GameObject tempMaterial = other.gameObject.GetComponentInParent<PlayerHealth>().plumagePrefabInPlayer;
                 if(tempMaterial != null && opponentKillCount != null)
                 {
                     //collision.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(); Removed due to we dont use health anymore.
-                    collision.gameObject.GetComponentInParent<PlayerHealth>().StartInvincibility();
+                    other.gameObject.GetComponentInParent<PlayerHealth>().StartInvincibility();
                     if(playerKillCount.GetPlumageCount() > 0)
                     {
                         playerKillCount.AddPlumages(tempMaterial.GetComponent<MeshRenderer>().sharedMaterial);
@@ -45,11 +47,32 @@ public class Lance : MonoBehaviour
                 }
             }
         }
+        if (other.gameObject.CompareTag("Shield"))
+        {
+            shield = other.gameObject.GetComponent<Shield>();
+            if (shield != null)
+            {
+                if(shield.isParryActive)
+                {
+                    this.gameObject.SetActive(false);
+                    FindObjectOfType<AudioManager>().Play("LanceBreak");
+                    PlayParticle(lanceBreak);
+                    Debug.Log("Lance is broken");
+                }
+                else
+                {
+                    other.gameObject.SetActive(false);
+                    FindObjectOfType<AudioManager>().Play("ShieldBreak");
+                    PlayParticle(shieldBreak);
+                    Debug.Log("Shield is broken!");
+                }
+            }
+        }
     }
 
-    private void PlayParticle()
+    private void PlayParticle(ParticleSystem particleSystem)
     {
-        sparks.transform.position = tip.transform.position;
-        sparks.Play();
+        particleSystem.transform.position = tip.transform.position;
+        particleSystem.Play();
     }
 }

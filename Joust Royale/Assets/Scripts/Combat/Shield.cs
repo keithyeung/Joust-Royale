@@ -7,31 +7,31 @@ public class Shield : MonoBehaviour
 {
     public bool isParryActive = false;
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Lance")
-        {
-            Debug.Log("Shield is broken");
-            this.gameObject.SetActive(false);
-            FindObjectOfType<AudioManager>().Play("ShieldBreak");
-        }
-    }
+    //private void OnCollisionEnter(Collision other)
+    //{
+    //    if (other.gameObject.tag == "Lance")
+    //    {
+    //        Debug.Log("Shield is broken");
+    //        this.gameObject.SetActive(false);
+    //        FindObjectOfType<AudioManager>().Play("ShieldBreak");
+    //    }
+    //}
 
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.CompareTag("Lance"))
-        {
-            Debug.Log("Parry Shield is detecting Lance");
-            if(isParryActive)
-            {
-                Debug.Log("Parried!");
-                other.gameObject.SetActive(false);
-                FindObjectOfType<AudioManager>().Play("LanceBreak");
-                FindObjectOfType<AudioManager>().Play("SuccessfulParry");
-            }
-        }
-    }
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Lance"))
+    //    {
+    //        Debug.Log("Parry Shield is detecting Lance");
+    //        if(isParryActive)
+    //        {
+    //            Debug.Log("Parried!");
+    //            other.gameObject.SetActive(false);
+    //            FindObjectOfType<AudioManager>().Play("LanceBreak");
+    //            FindObjectOfType<AudioManager>().Play("SuccessfulParry");
+    //        }
+    //    }
+    //}
 
     private void OnTriggerExit(Collider other)
     {
@@ -52,5 +52,10 @@ public class Shield : MonoBehaviour
             Debug.Log("LT Released");
             isParryActive = false;
         }
+    }
+
+    public bool IsParrying()
+    {
+        return isParryActive;
     }
 }
