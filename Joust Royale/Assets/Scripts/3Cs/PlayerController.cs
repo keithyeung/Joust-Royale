@@ -50,13 +50,41 @@ public class PlayerController : MonoBehaviour
         playerState = GetComponent<PlayerState>();
     }
 
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        movementInput = context.ReadValue<Vector2>();
+    }
 
+    private void FixedUpdate()
+    {
+        if (gameState.states == GameState.GameStatesMachine.Playing)
+        {
+            groundedPlayer = controller.isGrounded;
+            if (groundedPlayer && playerVelocity.y < 0)
+            {
+                playerVelocity.y = 0f;
+            }
+
+
+            HandleMovement();
+
+            // Check if the player's position has changed
+            if (transform.localPosition != previousPosition)
+            {
+                if (!resetPosition)
+                {
+                    transform.localPosition = previousPosition;
+                    resetPosition = true;
+                }
+            }
+        }
+    }
     public LayerMask GetLayerMaskForArmor()
     {
-        LayerMask tempLayer = transform.Find("Mount").Find("Knight").Find("Upper").Find("Knight_Upper 1").gameObject.layer;
-        if(tempLayer != null)
+        Transform armorTransform = transform.Find("Mount/Knight/Upper/Knight_Upper 1");
+        if (armorTransform != null)
         {
-            return tempLayer;
+            return 1 << armorTransform.gameObject.layer;
         }
         return 0;
     }
@@ -66,9 +94,7 @@ public class PlayerController : MonoBehaviour
 
         if(playerState.state == PLAYER_STATE.Attacking)
         {
-            // Apply additional forward force while attacking
-            currentSpeed += AttackingAcceleration * Time.deltaTime;
-            currentSpeed = Mathf.Clamp(currentSpeed, 0f, AttackingMaxSpeed);
+            ApplyAttackMovement();
         }
         else
         {
@@ -100,38 +126,28 @@ public class PlayerController : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
     }
 
-    public void OnLook(InputAction.CallbackContext context)
+    private void ApplyAttackMovement()
     {
-        //lookInput = context.ReadValue<Vector2>();
+        currentSpeed += AttackingAcceleration * Time.deltaTime;
+        currentSpeed = Mathf.Clamp(currentSpeed, 0f, AttackingMaxSpeed);
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    private void ApplyRegularMovement()
     {
-        movementInput = context.ReadValue<Vector2>();
+        targetSpeed = movementInput.y * maxSpeed;
+        currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.deltaTime);
+        DecelerateIfNoInput();
     }
 
-    void Update()
+    private void DecelerateIfNoInput()
     {
-        if(gameState.states == GameState.GameStatesMachine.Playing)
+        if (Mathf.Approximately(movementInput.y, 0f))
         {
-            groundedPlayer = controller.isGrounded;
-            if (groundedPlayer && playerVelocity.y < 0)
-            {
-                playerVelocity.y = 0f;
-            }
-
-
-            HandleMovement();
-
-            // Check if the player's position has changed
-            if (transform.localPosition != previousPosition)
-            {
-                if(!resetPosition)
-                {
-                    transform.localPosition = previousPosition;
-                    resetPosition = true;
-                }
-            }
+            currentSpeed = Mathf.MoveTowards(currentSpeed, 0f, deceleration * Time.deltaTime);
         }
     }
+
+    
+
+
 }

@@ -46,48 +46,57 @@ public class PlayerManager : MonoBehaviour
 
     public void AddPlayer(PlayerInput player)
     {
-        player.transform.position = new Vector3(0f, 0f, 0f);   
+        player.transform.position = new Vector3(0f, 0f, 0f);
+        players.Add(player);
         //using parent due to prefab structure
         Transform playerParent = player.transform.parent;
         //Vector3 oldParentPosition = playerParent.transform.position;
-        players.Add(player);
         playerParent.transform.position = playerSpawnPositions[players.Count - 1].position;        
 
-
-        //convert layer mask (bit) to an integer
-        int layerToAdd = (int)Mathf.Log(playerLayers[players.Count - 1].value, 2);
-        
-
-        //set the layer of the player
-        playerParent.GetComponentInChildren<CinemachineVirtualCamera>().gameObject.layer = layerToAdd;
-        player.gameObject.layer = layerToAdd;
-        player.transform.Find("Mount").Find("Knight").Find("Upper").Find("Knight_Upper 1").gameObject.layer = layerToAdd; // add layer to the armor.
-        //add the layer to the player
-        playerParent.GetComponentInChildren<Camera>().cullingMask |= 1 << layerToAdd;
-        //set the action in the custom cinemachine Input Handler
-        playerParent.GetComponentInChildren<InputHandler>().horizontal = player.actions.FindAction("Look");
-
-        
-        //Set the color of Plumage UI based on the material
-        PlayerHealth playerHealthComponent = playerParent.GetComponentInChildren<PlayerHealth>();
-        int materialIndex = players.Count - 1;
-        if (materialIndex < playerMaterials.Count)
-        {
-            SetPlayerColor(playerParent, materialIndex);
-            if (playerMaterials[materialIndex].HasProperty("_color"))
-            {
-                Color tempColor = playerMaterials[materialIndex].GetColor("_color");
-                playerHealthComponent.SetPlumageColor(tempColor);
-            }
-            else
-            {
-                Debug.Log("Does not have the _color property");
-            }
-        }
-
+        SetPlayerLayers(player);
+        SetPlayerCamera(player);
+        SetPlayerInputHandler(player);
+        SetPlayerColor(playerParent);
         SetPlayerPlumagePrefab(player);
-
         gameStateManager.UpdateWinCount();
+    }
+
+    private void SetPlayerInputHandler(PlayerInput player)
+    {
+        Transform playerParent = player.transform.parent;
+        InputHandler inputHandler = playerParent.GetComponentInChildren<InputHandler>();
+        if (inputHandler != null)
+        {
+            inputHandler.horizontal = player.actions.FindAction("Look");
+        }
+    }
+
+    private void SetPlayerLayers(PlayerInput player)
+    {
+        int layerToAdd = Mathf.FloorToInt(Mathf.Log(playerLayers[players.Count -1 ].value, 2));
+        Transform playerParent = player.transform.parent;
+        playerParent.gameObject.layer = layerToAdd;
+        player.gameObject.layer = layerToAdd;
+        Transform armor = player.transform.Find("Mount/Knight/Upper/Knight_Upper 1");
+        if (armor != null)
+        {
+            armor.gameObject.layer = layerToAdd;
+        }
+    }
+
+    private void SetPlayerCamera(PlayerInput player)
+    {
+        Transform playerParent = player.transform.parent;
+        CinemachineVirtualCamera virtualCamera = playerParent.GetComponentInChildren<CinemachineVirtualCamera>();
+        if (virtualCamera != null)
+        {
+            virtualCamera.gameObject.layer = playerParent.gameObject.layer;
+        }
+        Camera camera = playerParent.GetComponentInChildren<Camera>();
+        if (camera != null)
+        {
+            camera.cullingMask |= 1 << playerParent.gameObject.layer;
+        }
     }
 
 
@@ -102,17 +111,22 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void SetPlayerColor(Transform playerParentTransform, int materialIndex)
+    private void SetPlayerColor(Transform playerParentTransform)
     {
-        GameObject temptorso = playerParentTransform.GetComponentInChildren<PlayerController>().torso;
-        GameObject tempFrontHorseCape = playerParentTransform.GetComponentInChildren<PlayerController>().frontHorseCape;
-        GameObject tempBackHorseCape = playerParentTransform.GetComponentInChildren<PlayerController>().backHorseCape;
-        GameObject tempLance = playerParentTransform.GetComponentInChildren<PlayerController>().lance;
-        GameObject tempShield = playerParentTransform.GetComponentInChildren<PlayerController>().shield;
-        temptorso.GetComponent<Renderer>().material = playerMaterials[materialIndex];
-        tempFrontHorseCape.GetComponent<Renderer>().material = playerMaterials[materialIndex];
-        tempBackHorseCape.GetComponent<Renderer>().material = playerMaterials[materialIndex];
-        tempLance.GetComponent<Renderer>().material = playerMaterials[materialIndex];
-        tempShield.GetComponent<Renderer>().material = playerMaterials[materialIndex];
+        int materialIndex = players.Count - 1;
+        if (materialIndex < playerMaterials.Count)
+        {
+            GameObject temptorso = playerParentTransform.GetComponentInChildren<PlayerController>().torso;
+            GameObject tempFrontHorseCape = playerParentTransform.GetComponentInChildren<PlayerController>().frontHorseCape;
+            GameObject tempBackHorseCape = playerParentTransform.GetComponentInChildren<PlayerController>().backHorseCape;
+            GameObject tempLance = playerParentTransform.GetComponentInChildren<PlayerController>().lance;
+            GameObject tempShield = playerParentTransform.GetComponentInChildren<PlayerController>().shield;
+            temptorso.GetComponent<Renderer>().material = playerMaterials[materialIndex];
+            tempFrontHorseCape.GetComponent<Renderer>().material = playerMaterials[materialIndex];
+            tempBackHorseCape.GetComponent<Renderer>().material = playerMaterials[materialIndex];
+            tempLance.GetComponent<Renderer>().material = playerMaterials[materialIndex];
+            tempShield.GetComponent<Renderer>().material = playerMaterials[materialIndex];
+        }
+
     }
 }

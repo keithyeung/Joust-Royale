@@ -9,35 +9,27 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PU_Lance"))
         {
-            Renderer objectRenderer = other.gameObject.GetComponent<Renderer>();
-            //Get the material from the pick up lance
-            if (objectRenderer != null)
-            {
-                Material tempMaterial = objectRenderer.material;
-                GetComponent<PlayerController>().lance.GetComponent<Renderer>().material = tempMaterial;
-            }
-            GetComponent<PlayerController>().lance.SetActive(true);
-            Debug.Log("Found a lance and equiped");
-            other.gameObject.SetActive(false);
-            StartCoroutine(FindAnyObjectByType<RespawnObject>().RespawnPickup(other.gameObject)); 
+            EquipItem(other, GetComponent<PlayerController>().lance, "Found a lance and equipped");
         }
 
         if (other.gameObject.CompareTag("PU_Shield"))
         {
-            Renderer objectRenderer = other.gameObject.GetComponent<Renderer>();
-            Material tempMaterial;
-            //Get the material from the pick up lance
-            if (objectRenderer != null)
-            {
-                tempMaterial = objectRenderer.material;
-                GetComponent<PlayerController>().shield.GetComponent<Renderer>().material = tempMaterial;
-            }
-            GetComponent<PlayerController>().shield.SetActive(true);
-            Debug.Log("Found a Shield and equiped");
-            other.gameObject.SetActive(false);
-            StartCoroutine(FindAnyObjectByType<RespawnObject>().RespawnPickup(other.gameObject));
+
+            EquipItem(other, GetComponent<PlayerController>().shield, "Found a Shield and equipped");
         }
     }
 
-    
+    private void EquipItem(Collider other, GameObject playerItem, string logMessage)
+    {
+        Renderer objectRenderer = other.gameObject.GetComponent<Renderer>();
+        if (objectRenderer != null)
+        {
+            Material tempMaterial = objectRenderer.material;
+            playerItem.GetComponent<Renderer>().material = tempMaterial;
+        }
+        playerItem.SetActive(true);
+        Debug.Log(logMessage);
+        other.gameObject.SetActive(false);
+        StartCoroutine(FindAnyObjectByType<RespawnObject>().RespawnPickup(other.gameObject));
+    }
 }

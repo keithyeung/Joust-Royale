@@ -13,6 +13,5 @@ public class RespawnObject : MonoBehaviour
         yield return new WaitForSeconds(respawnDelay);
 
         p_gameObject.SetActive(true);
-        Debug.Log("Actived");
     }
 }
