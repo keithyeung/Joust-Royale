@@ -1590,6 +1590,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1927542304604308780}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1767065658405292332 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 163784737384582144, guid: c569867faff49674c9c264e8d4b69e80,
+    type: 3}
+  m_PrefabInstance: {fileID: 1927542304604308780}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2600262088121483604 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4527803266324481144, guid: c569867faff49674c9c264e8d4b69e80,
@@ -1642,12 +1648,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tip: {fileID: 7444424176137263410}
-  sparks: {fileID: 2660521079297158930, guid: 39e933bd82e198f488b07c46556c2fc7, type: 3}
-  shieldBreak: {fileID: 2660521079297158930, guid: 39e933bd82e198f488b07c46556c2fc7,
-    type: 3}
+  sparks: {fileID: 5586467637313171250}
+  smoke: {fileID: 1767065658405292332}
+  splinters: {fileID: 5281482670471877242}
 --- !u!1 &3116670329208065515 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3567029737602156743, guid: c569867faff49674c9c264e8d4b69e80,
+    type: 3}
+  m_PrefabInstance: {fileID: 1927542304604308780}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5281482670471877242 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6020073564800145238, guid: c569867faff49674c9c264e8d4b69e80,
+    type: 3}
+  m_PrefabInstance: {fileID: 1927542304604308780}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5586467637313171250 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6289029716271573534, guid: c569867faff49674c9c264e8d4b69e80,
     type: 3}
   m_PrefabInstance: {fileID: 1927542304604308780}
   m_PrefabAsset: {fileID: 0}

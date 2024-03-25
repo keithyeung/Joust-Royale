@@ -9,8 +9,8 @@ public class Lance : MonoBehaviour
     private Shield shield;
     [SerializeField] private GameObject tip;
     [SerializeField] private ParticleSystem sparks;
-    [SerializeField] private ParticleSystem shieldBreak;
-    [SerializeField] private ParticleSystem lanceBreak;
+    [SerializeField] private ParticleSystem smoke;
+    [SerializeField] private ParticleSystem splinters;
 
     private void Start()
     {
@@ -56,14 +56,16 @@ public class Lance : MonoBehaviour
                 {
                     this.gameObject.SetActive(false);
                     FindObjectOfType<AudioManager>().Play("LanceBreak");
-                    PlayParticle(lanceBreak);
+                    PlayParticle(smoke);
+                    PlayParticle(splinters);
                     Debug.Log("Lance is broken");
                 }
                 else
                 {
                     other.gameObject.SetActive(false);
                     FindObjectOfType<AudioManager>().Play("ShieldBreak");
-                    PlayParticle(shieldBreak);
+                    PlayParticle(smoke);
+                    PlayParticle(splinters);
                     Debug.Log("Shield is broken!");
                 }
             }
