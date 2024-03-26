@@ -135,8 +135,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823119419440287723}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1054269, y: 0.000000008555246, z: -9.070078e-10, w: 0.9944271}
-  m_LocalPosition: {x: 0, y: 10, z: -25}
+  m_LocalRotation: {x: 0.105426915, y: 0.000000008555246, z: -9.0700797e-10, w: 0.9944271}
+  m_LocalPosition: {x: 0, y: 10, z: -24.999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -614,8 +614,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4583588832824254635}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1054269, y: 0.000000008555246, z: -9.070078e-10, w: 0.9944271}
-  m_LocalPosition: {x: 0, y: 10, z: -25}
+  m_LocalRotation: {x: 0.105426915, y: 0.000000008555246, z: -9.0700797e-10, w: 0.9944271}
+  m_LocalPosition: {x: 0, y: 10, z: -24.999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1316,6 +1316,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6d612904dd0662d4daa9d90ec29a8471, type: 2}
+    - target: {fileID: 6015660708273582135, guid: c569867faff49674c9c264e8d4b69e80,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.0042324
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015660708273582135, guid: c569867faff49674c9c264e8d4b69e80,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.050000016
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015660708273582135, guid: c569867faff49674c9c264e8d4b69e80,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.1828842
+      objectReference: {fileID: 0}
     - target: {fileID: 6674849945052587049, guid: c569867faff49674c9c264e8d4b69e80,
         type: 3}
       propertyPath: m_IsActive
@@ -1462,6 +1477,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParryActive: 0
+  shieldStatus: 0
+  parryTime: 1
+  blockTime: 1
+  tiredBlockingTime: 1
+  cooldownTime: 1
 --- !u!65 &8639716493439705186
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1807,7 +1827,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1.2, z: 0}
 --- !u!114 &5102751956379703385
 MonoBehaviour:
   m_ObjectHideFlags: 0

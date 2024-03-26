@@ -288,6 +288,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!4 &68831806 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9082111188846564352, guid: 1abed4be03cb0084da6780c838216652,
+    type: 3}
+  m_PrefabInstance: {fileID: 1013873304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &169733589
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,6 +431,12 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!4 &433494462 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3938486016979775595, guid: 1abed4be03cb0084da6780c838216652,
+    type: 3}
+  m_PrefabInstance: {fileID: 1013873304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &472080489
 Mesh:
   m_ObjectHideFlags: 0
@@ -7309,6 +7321,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!4 &1523826676 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7113247261749454924, guid: 1abed4be03cb0084da6780c838216652,
+    type: 3}
+  m_PrefabInstance: {fileID: 1013873304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1721404717
 Mesh:
   m_ObjectHideFlags: 0
@@ -7639,6 +7657,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!4 &1877981658 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4631689585552482068, guid: 1abed4be03cb0084da6780c838216652,
+    type: 3}
+  m_PrefabInstance: {fileID: 1013873304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1944377279 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 797994256408836408, guid: a884dab8be06e0f49b81056881383229,
@@ -8292,22 +8316,22 @@ PrefabInstance:
         type: 3}
       propertyPath: playerSpawnPositions.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 68831806}
     - target: {fileID: 7195185889468392722, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
         type: 3}
       propertyPath: playerSpawnPositions.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1877981658}
     - target: {fileID: 7195185889468392722, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
         type: 3}
       propertyPath: playerSpawnPositions.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1523826676}
     - target: {fileID: 7195185889468392722, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
         type: 3}
       propertyPath: playerSpawnPositions.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 433494462}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -6496337101204507388, guid: 2cd07c0716079254f9d6ef56ef1ea8fd, type: 3}
