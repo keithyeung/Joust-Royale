@@ -31,6 +31,6 @@ public class PlayerInteraction : MonoBehaviour
         ServiceLocator.instance.GetService<AudioManager>().Play("PickUp");
         Debug.Log(logMessage);
         other.gameObject.SetActive(false);
-        StartCoroutine(FindAnyObjectByType<RespawnObject>().RespawnPickup(other.gameObject));
+        StartCoroutine(ServiceLocator.instance.GetService<RespawnObject>().RespawnPickup(other.gameObject));
     }
 }

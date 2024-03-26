@@ -15,14 +15,11 @@ public class PlayerManager : MonoBehaviour
     public List<Transform> playerSpawnPositions;
 
     [SerializeField] private Camera mainCamera;
-
     private PlayerInputManager playerInputManager;
-    private GameState gameStateManager;
 
     private void Awake()
     {
         playerInputManager = GetComponent<PlayerInputManager>();
-        gameStateManager = FindAnyObjectByType<GameState>();
     }
 
     private void OnEnable()
@@ -58,7 +55,7 @@ public class PlayerManager : MonoBehaviour
         SetPlayerInputHandler(player);
         SetPlayerColor(playerParent);
         SetPlayerPlumagePrefab(player);
-        gameStateManager.UpdateWinCount();
+        ServiceLocator.instance.GetService<GameState>().UpdateWinCount();
     }
 
     private void SetPlayerInputHandler(PlayerInput player)
