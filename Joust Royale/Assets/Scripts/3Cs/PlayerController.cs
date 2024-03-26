@@ -20,6 +20,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float AttackingAcceleration = 12f;  // Adjust rotation speed as needed
     [SerializeField] private float AttackingMaxSpeed = 50f;  // Adjust max speed as needed
 
+    [Header("Horse tilting Related")]
+    [SerializeField] public float maxTiltAngle = 30f; // Maximum angle the motorcycle can tilt
+    [SerializeField] public float minTiltSpeed = 5f;  // Minimum tilt speed
+    [SerializeField] public float maxTiltSpeed = 15f; // Maximum tilt speed
+    [SerializeField] public float speedMultiplier = 0.1f; // Multiplier to control the effect of speed on tilt speed
+
     [Header("Equipments")]
     [SerializeField] public GameObject lance;
     [SerializeField] public GameObject shield;
@@ -142,9 +148,44 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyRotation()
     {
-        float rotation = movementInput.x * rotationSpeed * Time.deltaTime;
-        transform.Rotate(Vector3.up * rotation);
+        //float up_rotation = movementInput.x * rotationSpeed * Time.deltaTime;
+        //transform.Rotate(Vector3.up * up_rotation);
+
+        float turnInput = movementInput.x;
+        float rotationAngle = turnInput * rotationSpeed * Time.deltaTime;
+        Quaternion rotation = Quaternion.AngleAxis(rotationAngle, Vector3.up);
+
+        Quaternion tilt = GetHorseTilt();
+
+      
+        //transform.rotation = transform.rotation * rotation;
+        transform.rotation = Quaternion.Lerp(transform.rotation * rotation, tilt, Time.deltaTime * 5f);
+
+        transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+
+
+
     }
+
+    private Quaternion GetHorseTilt()
+    {
+        float turnInput = movementInput.x;
+        float targetTiltAngle = Mathf.Lerp(0, maxTiltAngle, currentSpeed) * turnInput;
+
+        if (Mathf.Approximately(turnInput, 0))
+        {
+            targetTiltAngle = 0f;
+        }
+
+        targetTiltAngle = Mathf.Clamp(targetTiltAngle, -maxTiltAngle, maxTiltAngle);
+        Quaternion targetRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, -targetTiltAngle);
+        //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+        return targetRotation;
+    }
+
+
+
+
 
     private void ApplyMovement()
     {
@@ -157,5 +198,7 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
+
+
 
 }
