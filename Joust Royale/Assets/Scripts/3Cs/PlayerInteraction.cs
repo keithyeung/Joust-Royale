@@ -28,6 +28,7 @@ public class PlayerInteraction : MonoBehaviour
             playerItem.GetComponent<Renderer>().material = tempMaterial;
         }
         playerItem.SetActive(true);
+        ServiceLocator.instance.GetService<AudioManager>().Play("PickUp");
         Debug.Log(logMessage);
         other.gameObject.SetActive(false);
         StartCoroutine(FindAnyObjectByType<RespawnObject>().RespawnPickup(other.gameObject));

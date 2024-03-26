@@ -38,7 +38,8 @@ public class Lance : MonoBehaviour
                     {
                         playerKillCount.AddPlumages(tempMaterial.GetComponent<MeshRenderer>().sharedMaterial);
                         opponentKillCount.RemovePlumages();
-                        FindObjectOfType<AudioManager>().Play("GotHit");
+                        //FindObjectOfType<AudioManager>().Play("GotHit");
+                        ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
                     }
                 }
                 else
@@ -55,7 +56,8 @@ public class Lance : MonoBehaviour
                 if(shield.isParryActive)
                 {
                     this.gameObject.SetActive(false);
-                    FindObjectOfType<AudioManager>().Play("LanceBreak");
+                    //FindObjectOfType<AudioManager>().Play("LanceBreak");
+                    ServiceLocator.instance.GetService<AudioManager>().Play("LanceBreak");
                     PlayParticle(smoke);
                     PlayParticle(splinters);
                     Debug.Log("Lance is broken");
@@ -63,7 +65,8 @@ public class Lance : MonoBehaviour
                 else
                 {
                     other.gameObject.SetActive(false);
-                    FindObjectOfType<AudioManager>().Play("ShieldBreak");
+                    //FindObjectOfType<AudioManager>().Play("ShieldBreak");
+                    ServiceLocator.instance.GetService<AudioManager>().Play("ShieldBreak");
                     PlayParticle(smoke);
                     PlayParticle(splinters);
                     Debug.Log("Shield is broken!");
