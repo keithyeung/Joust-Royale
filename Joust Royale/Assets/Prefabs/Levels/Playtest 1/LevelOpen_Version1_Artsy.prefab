@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 5416643368953371139}
   - component: {fileID: 4914710248547584275}
   m_Layer: 0
-  m_Name: VersionA_210324
+  m_Name: LevelOpen_Version1_Artsy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
