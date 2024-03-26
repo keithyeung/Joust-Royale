@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6671126271795586783
 Transform:
   m_ObjectHideFlags: 0
@@ -135,7 +135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823119419440287723}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1054269, y: 0.000000008555246, z: -9.070078e-10, w: 0.9944271}
+  m_LocalRotation: {x: 0.1054269, y: 0.0000000042776227, z: -4.5350382e-10, w: 0.9944271}
   m_LocalPosition: {x: 0, y: 10, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -614,7 +614,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4583588832824254635}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1054269, y: 0.000000008555246, z: -9.070078e-10, w: 0.9944271}
+  m_LocalRotation: {x: 0.1054269, y: 0.0000000042776227, z: -4.5350382e-10, w: 0.9944271}
   m_LocalPosition: {x: 0, y: 10, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1823,11 +1823,11 @@ MonoBehaviour:
   jumpHeight: 1
   gravityValue: -10
   rotationSpeed: 150
-  acceleration: 10
+  acceleration: 7
   deceleration: 20
-  maxSpeed: 30
-  AttackingAcceleration: 15
-  AttackingMaxSpeed: 45
+  maxSpeed: 25
+  AttackingAcceleration: 12
+  AttackingMaxSpeed: 40
   lance: {fileID: 2608498029998077574}
   shield: {fileID: 758397806206449051}
   torso: {fileID: 7068990049402134814}
@@ -1868,11 +1868,11 @@ MonoBehaviour:
   - {fileID: 1553705560332112628}
   plumagePrefabInPlayer: {fileID: 9099889378959811589, guid: 9f3807f9d098ff242a6b29a9f335582d,
     type: 3}
-  invincibilityDuration: 3
+  invincibilityDuration: 2
   playerModel: {fileID: 2600262088121483604}
   playerArmor: {fileID: 797994256408836408}
   blinkInterval: 0.5
-  blinkDuration: 5
+  blinkDuration: 2
 --- !u!114 &8480422953038194671
 MonoBehaviour:
   m_ObjectHideFlags: 0
