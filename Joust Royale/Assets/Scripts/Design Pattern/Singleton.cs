@@ -12,6 +12,11 @@ public class Singleton<T> : MonoBehaviour
             if (Equals(_instance, null) || _instance == null || _instance.Equals(null))
             {
                 var instanceGO = FindObjectOfType<Singleton<T>>();
+                if(instanceGO == null)
+                {
+                    var go = new GameObject(typeof(T).Name + "Auto-Generated");
+                    instanceGO = go.AddComponent<Singleton<T>>();
+                }
                 _instance = instanceGO.GetComponent<T>();
                 return _instance;
             }
