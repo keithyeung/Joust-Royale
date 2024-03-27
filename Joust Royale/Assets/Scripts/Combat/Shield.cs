@@ -91,7 +91,7 @@ public class Shield : MonoBehaviour
         shieldStatus = state;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         HandleShieldFSM();
     }

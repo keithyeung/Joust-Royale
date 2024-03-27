@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6671126271795586783
 Transform:
   m_ObjectHideFlags: 0
@@ -135,8 +135,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823119419440287723}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1054269, y: 0.0000000042776227, z: -4.5350382e-10, w: 0.9944271}
-  m_LocalPosition: {x: 0, y: 10, z: -25}
+  m_LocalRotation: {x: 0.105426915, y: -0.000000008555246, z: 9.0700797e-10, w: 0.9944271}
+  m_LocalPosition: {x: 0, y: 10, z: -24.999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -614,8 +614,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4583588832824254635}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1054269, y: 0.0000000042776227, z: -4.5350382e-10, w: 0.9944271}
-  m_LocalPosition: {x: 0, y: 10, z: -25}
+  m_LocalRotation: {x: 0.105426915, y: -0.000000008555246, z: 9.0700797e-10, w: 0.9944271}
+  m_LocalPosition: {x: 0, y: 10, z: -24.999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1387,18 +1387,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2897702659495845351}
-    - targetCorrespondingSourceObject: {fileID: 1172729525182967991, guid: c569867faff49674c9c264e8d4b69e80,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7538970648686196349}
-    - targetCorrespondingSourceObject: {fileID: 1172729525182967991, guid: c569867faff49674c9c264e8d4b69e80,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7819259845296659101}
-    - targetCorrespondingSourceObject: {fileID: 1172729525182967991, guid: c569867faff49674c9c264e8d4b69e80,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8639716493439705186}
     - targetCorrespondingSourceObject: {fileID: 1284381378967157780, guid: c569867faff49674c9c264e8d4b69e80,
         type: 3}
       insertIndex: -1
@@ -1415,6 +1403,18 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7472666274610462745}
+    - targetCorrespondingSourceObject: {fileID: 1172729525182967991, guid: c569867faff49674c9c264e8d4b69e80,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7538970648686196349}
+    - targetCorrespondingSourceObject: {fileID: 1172729525182967991, guid: c569867faff49674c9c264e8d4b69e80,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7819259845296659101}
+    - targetCorrespondingSourceObject: {fileID: 1172729525182967991, guid: c569867faff49674c9c264e8d4b69e80,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8639716493439705186}
   m_SourcePrefab: {fileID: 100100000, guid: c569867faff49674c9c264e8d4b69e80, type: 3}
 --- !u!1 &758397806206449051 stripped
 GameObject:
@@ -1462,6 +1462,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParryActive: 0
+  shieldStatus: 0
+  playerstate: {fileID: 6647668562839623434}
+  parryTime: 0.5
+  blockTime: 0.5
+  tiredBlockingTime: 0.5
+  cooldownTime: 0.5
 --- !u!65 &8639716493439705186
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1774,9 +1780,21 @@ MonoBehaviour:
     m_ActionId: 914d5025-d5df-4eab-86f8-01f8fa801b98
     m_ActionName: Player/Parry[/XInputControllerWindows1/leftTrigger]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 9aede4b9-8acb-4cbc-b4ff-8f9de3ef4ca3
-    m_ActionName: Player/ReleaseParry[/XInputControllerWindows1/leftTrigger]
+      m_Calls:
+      - m_Target: {fileID: 7819259845296659101}
+        m_TargetAssemblyTypeName: Shield, Assembly-CSharp
+        m_MethodName: OnBlock
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 75e35ce8-2c65-45ff-aca5-cc8bc4b7099c
+    m_ActionName: Player/Block[/XInputControllerWindows/leftTrigger]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1828,6 +1846,10 @@ MonoBehaviour:
   maxSpeed: 25
   AttackingAcceleration: 12
   AttackingMaxSpeed: 40
+  maxTiltAngle: 30
+  minTiltSpeed: 5
+  maxTiltSpeed: 15
+  speedMultiplier: 0.1
   lance: {fileID: 2608498029998077574}
   shield: {fileID: 758397806206449051}
   torso: {fileID: 7068990049402134814}
