@@ -1812,56 +1812,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 520871784489415707, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1851566198372323406, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9948504
-      objectReference: {fileID: 0}
-    - target: {fileID: 1851566198372323406, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.10135439
-      objectReference: {fileID: 0}
-    - target: {fileID: 1851566198372323406, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.0000000042819703
-      objectReference: {fileID: 0}
-    - target: {fileID: 1851566198372323406, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 4.3624304e-10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9948504
-      objectReference: {fileID: 0}
-    - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.10135439
-      objectReference: {fileID: 0}
-    - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.0000000042819703
-      objectReference: {fileID: 0}
-    - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 4.3624304e-10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384576291137159354, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: field of view
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 6671126271795586783, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1911,11 +1861,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7878717523274016763, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: m_Lens.FieldOfView
-      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
