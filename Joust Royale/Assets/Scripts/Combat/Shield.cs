@@ -2,36 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 public class Shield : MonoBehaviour
 {
     public bool isParryActive = false;
 
-    //private void OnCollisionEnter(Collision other)
-    //{
-    //    if (other.gameObject.tag == "Lance")
-    //    {
-    //        Debug.Log("Shield is broken");
-    //        this.gameObject.SetActive(false);
-    //        FindObjectOfType<AudioManager>().Play("ShieldBreak");
-    //    }
-    //}
+    public enum ShieldStatus { Idle, Parry, Block, TiredBlock, Cooldown };
+    public ShieldStatus shieldStatus;
+    [SerializeField] private PlayerState playerstate;
 
+    [Header("Time for states")]
+    [SerializeField] private float parryTime = 0.5f;
+    [SerializeField] private float blockTime = 0.5f;
+    [SerializeField] private float tiredBlockingTime = 0.5f;
+    [SerializeField] private float cooldownTime = 0.5f;
 
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("Lance"))
-    //    {
-    //        Debug.Log("Parry Shield is detecting Lance");
-    //        if(isParryActive)
-    //        {
-    //            Debug.Log("Parried!");
-    //            other.gameObject.SetActive(false);
-    //            FindObjectOfType<AudioManager>().Play("LanceBreak");
-    //            FindObjectOfType<AudioManager>().Play("SuccessfulParry");
-    //        }
-    //    }
-    //}
+    private void Start()
+    {
+        shieldStatus = ShieldStatus.Idle;
+    }
+
+    private void HandleShieldFSM()
+    {
+        switch (shieldStatus)
+        {
+            case ShieldStatus.Idle:
+
+                break;
+            case ShieldStatus.Parry:
+                isParryActive = true;
+                StartCoroutine(StateTimer(parryTime, ShieldStatus.Cooldown));
+                break;
+            case ShieldStatus.Block:
+                StartCoroutine(StateTimer(blockTime, ShieldStatus.TiredBlock));
+                break;
+            case ShieldStatus.TiredBlock:
+                StartCoroutine(StateTimer(tiredBlockingTime, ShieldStatus.Cooldown));
+                break;
+            case ShieldStatus.Cooldown:
+                StartCoroutine(StateTimer(cooldownTime, ShieldStatus.Idle));
+                break;
+        }
+    }
 
     private void OnTriggerExit(Collider other)
     {
@@ -42,20 +55,44 @@ public class Shield : MonoBehaviour
     }
     public void OnParry(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (shieldStatus != ShieldStatus.Idle) return;
+        if (context.performed)
         {
-            Debug.Log("LT Pressed");
-            isParryActive = true;
+            playerstate.SetState(PLAYER_STATE.Parry);
+            Debug.Log("Parry Pressed");
+            shieldStatus = ShieldStatus.Parry;
+        }
+    }
+
+    public void OnBlock(InputAction.CallbackContext context)
+    {
+        if (shieldStatus != ShieldStatus.Idle) return;
+        shieldStatus = ShieldStatus.Block;
+        if (context.performed)
+        {
+            Debug.Log("Block Pressed");
         }
         else if (context.canceled)
         {
-            Debug.Log("LT Released");
-            isParryActive = false;
+            Debug.Log("Block Released");
         }
     }
 
     public bool IsParrying()
     {
         return isParryActive;
+    }
+
+    //A function for timer which takes a float as a parameter
+    private IEnumerator StateTimer(float time, ShieldStatus state)
+    {
+        yield return new WaitForSeconds(time);
+        isParryActive = false;
+        shieldStatus = state;
+    }
+
+    private void FixedUpdate()
+    {
+        HandleShieldFSM();
     }
 }

@@ -82,9 +82,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ReleaseParry"",
+                    ""name"": ""Block"",
                     ""type"": ""Button"",
-                    ""id"": ""9aede4b9-8acb-4cbc-b4ff-8f9de3ef4ca3"",
+                    ""id"": ""75e35ce8-2c65-45ff-aca5-cc8bc4b7099c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -249,7 +249,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""54809c55-1151-4b6e-8467-0bb018395e90"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""Controller"",
@@ -259,12 +259,12 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""40389911-c7a4-46bb-b299-490d531e6f41"",
+                    ""id"": ""d78cabb0-df9e-463f-b972-21e38c6b09ac"",
                     ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": ""Press(behavior=1)"",
+                    ""interactions"": ""Hold(duration=0.6)"",
                     ""processors"": """",
                     ""groups"": ""Controller"",
-                    ""action"": ""ReleaseParry"",
+                    ""action"": ""Block"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -315,7 +315,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         m_Player_AttackMode = m_Player.FindAction("AttackMode", throwIfNotFound: true);
         m_Player_ReleaseAttack = m_Player.FindAction("ReleaseAttack", throwIfNotFound: true);
         m_Player_Parry = m_Player.FindAction("Parry", throwIfNotFound: true);
-        m_Player_ReleaseParry = m_Player.FindAction("ReleaseParry", throwIfNotFound: true);
+        m_Player_Block = m_Player.FindAction("Block", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -383,7 +383,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_AttackMode;
     private readonly InputAction m_Player_ReleaseAttack;
     private readonly InputAction m_Player_Parry;
-    private readonly InputAction m_Player_ReleaseParry;
+    private readonly InputAction m_Player_Block;
     public struct PlayerActions
     {
         private @CustomInput m_Wrapper;
@@ -394,7 +394,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         public InputAction @AttackMode => m_Wrapper.m_Player_AttackMode;
         public InputAction @ReleaseAttack => m_Wrapper.m_Player_ReleaseAttack;
         public InputAction @Parry => m_Wrapper.m_Player_Parry;
-        public InputAction @ReleaseParry => m_Wrapper.m_Player_ReleaseParry;
+        public InputAction @Block => m_Wrapper.m_Player_Block;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -422,9 +422,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Parry.started += instance.OnParry;
             @Parry.performed += instance.OnParry;
             @Parry.canceled += instance.OnParry;
-            @ReleaseParry.started += instance.OnReleaseParry;
-            @ReleaseParry.performed += instance.OnReleaseParry;
-            @ReleaseParry.canceled += instance.OnReleaseParry;
+            @Block.started += instance.OnBlock;
+            @Block.performed += instance.OnBlock;
+            @Block.canceled += instance.OnBlock;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -447,9 +447,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Parry.started -= instance.OnParry;
             @Parry.performed -= instance.OnParry;
             @Parry.canceled -= instance.OnParry;
-            @ReleaseParry.started -= instance.OnReleaseParry;
-            @ReleaseParry.performed -= instance.OnReleaseParry;
-            @ReleaseParry.canceled -= instance.OnReleaseParry;
+            @Block.started -= instance.OnBlock;
+            @Block.performed -= instance.OnBlock;
+            @Block.canceled -= instance.OnBlock;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -502,6 +502,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         void OnAttackMode(InputAction.CallbackContext context);
         void OnReleaseAttack(InputAction.CallbackContext context);
         void OnParry(InputAction.CallbackContext context);
-        void OnReleaseParry(InputAction.CallbackContext context);
+        void OnBlock(InputAction.CallbackContext context);
     }
 }

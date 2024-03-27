@@ -75,9 +75,14 @@ public class PlayerManager : MonoBehaviour
         playerParent.gameObject.layer = layerToAdd;
         player.gameObject.layer = layerToAdd;
         Transform armor = player.transform.Find("Mount/Knight/Upper/Knight_Upper 1");
+        Transform shield = player.transform.Find("Mount/Knight/Upper/ShieldFolder/Shield");
         if (armor != null)
         {
             armor.gameObject.layer = layerToAdd;
+        }
+        if(shield != null)
+        {
+            shield.gameObject.layer = layerToAdd;
         }
     }
 

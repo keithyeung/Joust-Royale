@@ -12,6 +12,7 @@ public enum PLAYER_STATE
     Running,
     Attacking,
     Blocking,
+    Parry,
     Dead
 }
 
@@ -24,7 +25,6 @@ public class PlayerState : MonoBehaviour
     private PlayerController playerController;
     private float lowerRotationSpeed;
     private float defaultRotationSpeed;
-    private AudioManager audioManager;
 
     //private CustomInput controls;
 
@@ -35,7 +35,6 @@ public class PlayerState : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         defaultRotationSpeed = playerController.rotationSpeed;
         lowerRotationSpeed = playerController.rotationSpeed * 0.5f;
-        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void Update()
@@ -60,6 +59,10 @@ public class PlayerState : MonoBehaviour
                 break;
             case PLAYER_STATE.Blocking:
                 //animator.SetBool("AttackMode", false);
+                break;
+            case PLAYER_STATE.Parry:
+                animator.Play("ShieldParry");
+                state = PLAYER_STATE.Idle;
                 break;
             case PLAYER_STATE.Dead:
                 break;
