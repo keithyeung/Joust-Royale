@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 public class Shield : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Shield : MonoBehaviour
 
     public enum ShieldStatus { Idle, Parry, Block, TiredBlock, Cooldown };
     public ShieldStatus shieldStatus;
+    [SerializeField] private PlayerState playerstate;
 
     [Header("Time for states")]
     [SerializeField] private float parryTime = 0.5f;
@@ -30,7 +32,7 @@ public class Shield : MonoBehaviour
                 break;
             case ShieldStatus.Parry:
                 isParryActive = true;
-                StartCoroutine(StateTimer(parryTime, ShieldStatus.Block));
+                StartCoroutine(StateTimer(parryTime, ShieldStatus.Cooldown));
                 break;
             case ShieldStatus.Block:
                 StartCoroutine(StateTimer(blockTime, ShieldStatus.TiredBlock));
@@ -54,16 +56,25 @@ public class Shield : MonoBehaviour
     public void OnParry(InputAction.CallbackContext context)
     {
         if (shieldStatus != ShieldStatus.Idle) return;
-        shieldStatus = ShieldStatus.Parry;
-        if (context.started)
+        if (context.performed)
         {
-            Debug.Log("LT Pressed");
-            isParryActive = true;
+            playerstate.SetState(PLAYER_STATE.Parry);
+            Debug.Log("Parry Pressed");
+            shieldStatus = ShieldStatus.Parry;
+        }
+    }
+
+    public void OnBlock(InputAction.CallbackContext context)
+    {
+        if (shieldStatus != ShieldStatus.Idle) return;
+        shieldStatus = ShieldStatus.Block;
+        if (context.performed)
+        {
+            Debug.Log("Block Pressed");
         }
         else if (context.canceled)
         {
-            Debug.Log("LT Released");
-            isParryActive = false;
+            Debug.Log("Block Released");
         }
     }
 

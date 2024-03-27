@@ -60,9 +60,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ReleaseParry",
+                    "name": "Block",
                     "type": "Button",
-                    "id": "9aede4b9-8acb-4cbc-b4ff-8f9de3ef4ca3",
+                    "id": "75e35ce8-2c65-45ff-aca5-cc8bc4b7099c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -227,7 +227,7 @@
                 {
                     "name": "",
                     "id": "54809c55-1151-4b6e-8467-0bb018395e90",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "Controller",
@@ -237,12 +237,12 @@
                 },
                 {
                     "name": "",
-                    "id": "40389911-c7a4-46bb-b299-490d531e6f41",
+                    "id": "d78cabb0-df9e-463f-b972-21e38c6b09ac",
                     "path": "<Gamepad>/leftTrigger",
-                    "interactions": "Press(behavior=1)",
+                    "interactions": "Hold(duration=0.6)",
                     "processors": "",
                     "groups": "Controller",
-                    "action": "ReleaseParry",
+                    "action": "Block",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

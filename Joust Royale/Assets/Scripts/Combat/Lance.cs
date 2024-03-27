@@ -51,7 +51,8 @@ public class Lance : MonoBehaviour
         if (other.gameObject.CompareTag("Shield"))
         {
             shield = other.gameObject.GetComponent<Shield>();
-            if (shield != null)
+            LayerMask tempLayer = other.gameObject.GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
+            if (shield != null && tempLayer != thisLayer)
             {
                 if(shield.isParryActive)
                 {
