@@ -116,10 +116,16 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     - _ZWriteControl: 0
-    - _gradient_power: 1.39
-    - _gradient_width: 1.33
-    - _spacing: 7
-    - _thickness: 0.46
+    - _barb_amount: 12.49
+    - _barb_opacity: 3.02
+    - _barb_thickness: -0.27
+    - _blend_end: 1
+    - _blend_start: 0.615
+    - _gradient_power: 0.94
+    - _gradient_width: 1.18
+    - _noise_power: 0.36
+    - _spacing: 13.23
+    - _thickness: 1.65
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
