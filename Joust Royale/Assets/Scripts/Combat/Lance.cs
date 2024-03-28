@@ -5,7 +5,7 @@ using UnityEngine;
 public class Lance : MonoBehaviour
 {
     private LayerMask thisLayer;
-    private PlayerKillCount playerKillCount;
+    private PlumageManager plumageManager;
     private Shield shield;
     private PlayerState playerState;
     [SerializeField] private GameObject tip;
@@ -16,7 +16,7 @@ public class Lance : MonoBehaviour
     private void Start()
     {
         thisLayer = GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
-        playerKillCount = GetComponentInParent<PlayerKillCount>();
+        plumageManager = GetComponentInParent<PlumageManager>();
         playerState = GetComponentInParent<PlayerState>(); 
     }
 
@@ -26,21 +26,21 @@ public class Lance : MonoBehaviour
         if (other.gameObject.CompareTag("Armor"))
         {
             LayerMask tempLayer = other.gameObject.GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
-            PlayerKillCount opponentKillCount = other.gameObject.GetComponentInParent<PlayerKillCount>();
+            PlumageManager opponentPlumageManager = other.gameObject.GetComponentInParent<PlumageManager>();
 
             PlayParticle(sparks);
 
             if (tempLayer != thisLayer)
             {
                 GameObject tempMaterial = other.gameObject.GetComponentInParent<PlayerHealth>().plumagePrefabInPlayer;
-                if(tempMaterial != null && opponentKillCount != null)
+                if(tempMaterial != null && opponentPlumageManager != null)
                 {
                     //collision.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(); Removed due to we dont use health anymore.
                     other.gameObject.GetComponentInParent<PlayerHealth>().StartInvincibility();
-                    if(playerKillCount.GetPlumageCount() > 0)
+                    if(plumageManager.GetPlumageCount() > 0)
                     {
-                        playerKillCount.AddPlumages(tempMaterial.GetComponent<MeshRenderer>().sharedMaterial);
-                        opponentKillCount.RemovePlumages();
+                        Color plumeColor = opponentPlumageManager.StealPlume();
+                        plumageManager.AddPlume(plumeColor);
                         //FindObjectOfType<AudioManager>().Play("GotHit");
                         ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
                     }

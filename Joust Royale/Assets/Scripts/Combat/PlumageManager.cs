@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -48,33 +49,12 @@ public class PlumageManager : MonoBehaviour
         Debug.Log("player got a new plume: " + GetPlumageCount());
     }
 
-
-    public void AddPlume(GameObject _plume)
-    {
-        GameObject newPlume = _plume;        
-        plumes.Add(newPlume);
-
-        ArrangePlumage();
-    }
-
     public Color StealPlume()
     {
         Color stolenPlumeColor = plumes.Last<GameObject>().GetComponentInChildren<MeshRenderer>().material.GetColor("_color");
         RemoveLastPlume();
         ArrangePlumage();
         return stolenPlumeColor;
-    }
-
-    GameObject GetLastPlume()
-    {
-        if (plumes.Count > 0)
-        {
-            return plumes[plumes.Count - 1];
-        }
-        else
-        {
-            return null;
-        }
     }
 
     void RemoveLastPlume()
@@ -96,6 +76,7 @@ public class PlumageManager : MonoBehaviour
     public void ArrangePlumage()
     {
         int plumeCount = plumes.Count;
+        Quaternion parenRotation = GetComponentInParent<Transform>().rotation;
 
         if (plumeCount == 0)
         {
@@ -110,6 +91,7 @@ public class PlumageManager : MonoBehaviour
         {
             float angle = startAngle + i * plumeSpacing;
             Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
+            //Quaternion rotation = Quaternion.Euler(parenRotation.x, parenRotation.y, angle);
             plumes[i].transform.rotation = rotation;
         }   
     }
