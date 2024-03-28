@@ -116,23 +116,24 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     - _ZWriteControl: 0
-    - _barb_amount: 12.49
-    - _barb_opacity: 3.02
-    - _barb_thickness: -0.27
+    - _barb_amount: 20
+    - _barb_opacity: 1.51
+    - _barb_thickness: -0.11
     - _blend_end: 1
-    - _blend_start: 0.615
+    - _blend_start: 0.656
     - _gradient_power: 0.94
     - _gradient_width: 1.18
     - _noise_power: 0.36
     - _spacing: 13.23
-    - _thickness: 1.65
+    - _thickness: 1.98
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 0.88279974, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _base_color: {r: 0.5660378, g: 0, b: 0, a: 0}
-    - _color: {r: 1, g: 0.36226407, b: 0.36226407, a: 0}
+    - _base_color: {r: 0.5647059, g: 0.02081099, b: 0, a: 0}
+    - _color: {r: 0.745283, g: 0, b: 0, a: 0}
+    - _color_shift: {r: 130, g: 15, b: 15, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &8998163226961729316
 MonoBehaviour:

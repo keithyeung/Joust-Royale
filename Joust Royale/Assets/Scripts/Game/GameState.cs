@@ -24,10 +24,11 @@ public class GameState : MonoBehaviour
         }
         foreach (var player in playerManager.players)
         {
-            if(player.GetComponent<PlayerKillCount>().plumageNumber >= winCount)
+            
+            if (player.GetComponent<PlumageManager>().GetPlumageCount() >= winCount)
             {
                 states = GameStatesMachine.Ended;
-                ServiceLocator.instance.GetService<AudioManager>().Play("Victory");
+                //ServiceLocator.instance.GetService<AudioManager>().Play("Victory");
             }
         }
     }
