@@ -924,8 +924,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5102751956379703385, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
+      propertyPath: maxSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102751956379703385, guid: a884dab8be06e0f49b81056881383229,
+        type: 3}
+      propertyPath: acceleration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102751956379703385, guid: a884dab8be06e0f49b81056881383229,
+        type: 3}
       propertyPath: maxTiltSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102751956379703385, guid: a884dab8be06e0f49b81056881383229,
+        type: 3}
+      propertyPath: AttackingAcceleration
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5492706240849029167, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
@@ -971,6 +986,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190029755968656285, guid: a884dab8be06e0f49b81056881383229,
+        type: 3}
+      propertyPath: blinkDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190029755968656285, guid: a884dab8be06e0f49b81056881383229,
+        type: 3}
+      propertyPath: invincibilityDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6671126271795586783, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
