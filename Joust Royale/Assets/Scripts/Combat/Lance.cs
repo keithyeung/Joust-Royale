@@ -7,6 +7,7 @@ public class Lance : MonoBehaviour
     private LayerMask thisLayer;
     private PlayerKillCount playerKillCount;
     private Shield shield;
+    private PlayerState playerState;
     [SerializeField] private GameObject tip;
     [SerializeField] private ParticleSystem sparks;
     [SerializeField] private ParticleSystem smoke;
@@ -20,6 +21,7 @@ public class Lance : MonoBehaviour
 
     private void OnTriggerStay(Collider other) 
     {
+        if (playerState.state != PLAYER_STATE.Attacking) return;
         if (other.gameObject.CompareTag("Armor"))
         {
             LayerMask tempLayer = other.gameObject.GetComponentInParent<PlayerController>().GetLayerMaskForArmor();

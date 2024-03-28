@@ -73,7 +73,14 @@ public class PlayerState : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        state = PLAYER_STATE.Attacking;
+        if (playerController.lance.activeInHierarchy)
+        {
+            state = PLAYER_STATE.Attacking;
+        }
+        else
+        {
+            Debug.Log("No Lance equipped");
+        }
         //audioManager.Play("LanceAttack");
     }
 
