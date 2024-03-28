@@ -17,6 +17,7 @@ public class Lance : MonoBehaviour
     {
         thisLayer = GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
         playerKillCount = GetComponentInParent<PlayerKillCount>();
+        playerState = GetComponentInParent<PlayerState>(); 
     }
 
     private void OnTriggerStay(Collider other) 
@@ -67,7 +68,7 @@ public class Lance : MonoBehaviour
                 }
                 else
                 {
-                    other.gameObject.SetActive(false);
+                    //other.gameObject.SetActive(false);
                     //FindObjectOfType<AudioManager>().Play("ShieldBreak");
                     ServiceLocator.instance.GetService<AudioManager>().Play("ShieldBreak");
                     PlayParticle(smoke);
