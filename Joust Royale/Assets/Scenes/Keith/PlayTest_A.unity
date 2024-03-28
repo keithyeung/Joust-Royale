@@ -9071,6 +9071,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7195185889468392722, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
         type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 169733591}
+    - target: {fileID: 7195185889468392722, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
       propertyPath: playerSpawnPositions.Array.data[0]
       value: 
       objectReference: {fileID: 578902971}
