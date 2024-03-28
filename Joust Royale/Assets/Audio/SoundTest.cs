@@ -24,7 +24,7 @@ public class SoundTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Y))
         {
             // Call a function to play the sound effect
-            FindObjectOfType<AudioManager>().Play("ShieldBreak");
+            FindObjectOfType<AudioManager>().Play("GotHit");
         }
     }
 }
