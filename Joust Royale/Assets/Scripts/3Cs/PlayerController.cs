@@ -3,7 +3,6 @@ using Unity.VisualScripting;
 //using UnityEditor.iOS.Extensions.Common;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
