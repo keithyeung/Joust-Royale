@@ -60,8 +60,7 @@ public class Shield : MonoBehaviour
         if (shieldStatus != ShieldStatus.Idle) return;
         if (context.performed)
         {
-            playerstate.SetState(PLAYER_STATE.Parry);
-            Debug.Log("Parry Pressed");
+            playerstate.animator.Play("ShieldParry");
             shieldStatus = ShieldStatus.Parry;
         }
     }

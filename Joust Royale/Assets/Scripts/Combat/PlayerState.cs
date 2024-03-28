@@ -60,10 +60,6 @@ public class PlayerState : MonoBehaviour
             case PLAYER_STATE.Blocking:
                 //animator.SetBool("AttackMode", false);
                 break;
-            case PLAYER_STATE.Parry:
-                animator.Play("ShieldParry");
-                state = PLAYER_STATE.Idle;
-                break;
             case PLAYER_STATE.Dead:
                 break;
             default:

@@ -61,20 +61,20 @@ public class Lance : MonoBehaviour
                 {
                     this.gameObject.SetActive(false);
                     //FindObjectOfType<AudioManager>().Play("LanceBreak");
-                    ServiceLocator.instance.GetService<AudioManager>().Play("LanceBreak");
+                    ServiceLocator.instance.GetService<AudioManager>().Play("SuccessfulParry");
                     PlayParticle(smoke);
                     PlayParticle(splinters);
                     Debug.Log("Lance is broken");
                 }
-                else
-                {
-                    //other.gameObject.SetActive(false);
-                    //FindObjectOfType<AudioManager>().Play("ShieldBreak");
-                    ServiceLocator.instance.GetService<AudioManager>().Play("ShieldBreak");
-                    PlayParticle(smoke);
-                    PlayParticle(splinters);
-                    Debug.Log("Shield is broken!");
-                }
+                //else
+                //{
+                //    //other.gameObject.SetActive(false);
+                //    //FindObjectOfType<AudioManager>().Play("ShieldBreak");
+                //    //ServiceLocator.instance.GetService<AudioManager>().Play("ShieldBreak");
+                //    //PlayParticle(smoke);
+                //    //PlayParticle(splinters);
+                //    //Debug.Log("Shield is broken!");
+                //}
             }
         }
     }
