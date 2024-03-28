@@ -135,7 +135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823119419440287723}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.035020415, y: 0.016120533, z: -0.0005649678, w: 0.99925643}
+  m_LocalRotation: {x: 0.035020415, y: 0.016120534, z: -0.00056496786, w: 0.99925643}
   m_LocalPosition: {x: 0, y: 10, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -614,7 +614,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4583588832824254635}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.035020415, y: 0.016120533, z: -0.0005649678, w: 0.99925643}
+  m_LocalRotation: {x: 0.035020415, y: 0.016120534, z: -0.00056496786, w: 0.99925643}
   m_LocalPosition: {x: 0, y: 10, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1464,7 +1464,7 @@ MonoBehaviour:
   isParryActive: 0
   shieldStatus: 0
   playerstate: {fileID: 6647668562839623434}
-  parryTime: 0.5
+  parryTime: 0.2
   blockTime: 0.5
   tiredBlockingTime: 0.5
   cooldownTime: 0.5
