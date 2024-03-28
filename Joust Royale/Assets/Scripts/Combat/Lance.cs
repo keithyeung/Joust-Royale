@@ -5,8 +5,9 @@ using UnityEngine;
 public class Lance : MonoBehaviour
 {
     private LayerMask thisLayer;
-    private PlumageManager plumeManager;
+    private PlayerKillCount playerKillCount;
     private Shield shield;
+    private PlayerState playerState;
     [SerializeField] private GameObject tip;
     [SerializeField] private ParticleSystem sparks;
     [SerializeField] private ParticleSystem smoke;
@@ -15,30 +16,31 @@ public class Lance : MonoBehaviour
     private void Start()
     {
         thisLayer = GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
-        plumeManager = GetComponentInParent<PlumageManager>();
+        playerKillCount = GetComponentInParent<PlayerKillCount>();
+        playerState = GetComponentInParent<PlayerState>(); 
     }
 
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerStay(Collider other) 
     {
-        Debug.Log("Lance collided with", other);
+        if (playerState.state != PLAYER_STATE.Attacking) return;
         if (other.gameObject.CompareTag("Armor"))
         {
-
             LayerMask tempLayer = other.gameObject.GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
-            PlumageManager opponentPlumeManager = other.gameObject.GetComponentInParent<PlumageManager>();
+            PlayerKillCount opponentKillCount = other.gameObject.GetComponentInParent<PlayerKillCount>();
 
             PlayParticle(sparks);
 
             if (tempLayer != thisLayer)
             {
                 GameObject tempMaterial = other.gameObject.GetComponentInParent<PlayerHealth>().plumagePrefabInPlayer;
-                if(tempMaterial != null && opponentPlumeManager != null)
+                if(tempMaterial != null && opponentKillCount != null)
                 {
+                    //collision.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(); Removed due to we dont use health anymore.
                     other.gameObject.GetComponentInParent<PlayerHealth>().StartInvincibility();
-                    if(plumeManager.GetPlumageCount() > 0)
+                    if(playerKillCount.GetPlumageCount() > 0)
                     {
-                        Color newPlumeColor = opponentPlumeManager.StealPlume();
-                        plumeManager.AddPlume(newPlumeColor);
+                        playerKillCount.AddPlumages(tempMaterial.GetComponent<MeshRenderer>().sharedMaterial);
+                        opponentKillCount.RemovePlumages();
                         //FindObjectOfType<AudioManager>().Play("GotHit");
                         ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
                     }
@@ -59,20 +61,20 @@ public class Lance : MonoBehaviour
                 {
                     this.gameObject.SetActive(false);
                     //FindObjectOfType<AudioManager>().Play("LanceBreak");
-                    ServiceLocator.instance.GetService<AudioManager>().Play("LanceBreak");
+                    ServiceLocator.instance.GetService<AudioManager>().Play("SuccessfulParry");
                     PlayParticle(smoke);
                     PlayParticle(splinters);
                     Debug.Log("Lance is broken");
                 }
-                else
-                {
-                    other.gameObject.SetActive(false);
-                    //FindObjectOfType<AudioManager>().Play("ShieldBreak");
-                    ServiceLocator.instance.GetService<AudioManager>().Play("ShieldBreak");
-                    PlayParticle(smoke);
-                    PlayParticle(splinters);
-                    Debug.Log("Shield is broken!");
-                }
+                //else
+                //{
+                //    //other.gameObject.SetActive(false);
+                //    //FindObjectOfType<AudioManager>().Play("ShieldBreak");
+                //    //ServiceLocator.instance.GetService<AudioManager>().Play("ShieldBreak");
+                //    //PlayParticle(smoke);
+                //    //PlayParticle(splinters);
+                //    //Debug.Log("Shield is broken!");
+                //}
             }
         }
     }

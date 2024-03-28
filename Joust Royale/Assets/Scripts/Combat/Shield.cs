@@ -35,12 +35,14 @@ public class Shield : MonoBehaviour
                 StartCoroutine(StateTimer(parryTime, ShieldStatus.Cooldown));
                 break;
             case ShieldStatus.Block:
+                playerstate.animator.SetBool("Blocking", true);
                 StartCoroutine(StateTimer(blockTime, ShieldStatus.TiredBlock));
                 break;
             case ShieldStatus.TiredBlock:
                 StartCoroutine(StateTimer(tiredBlockingTime, ShieldStatus.Cooldown));
                 break;
             case ShieldStatus.Cooldown:
+                playerstate.animator.SetBool("Blocking", false);
                 StartCoroutine(StateTimer(cooldownTime, ShieldStatus.Idle));
                 break;
         }
@@ -58,8 +60,7 @@ public class Shield : MonoBehaviour
         if (shieldStatus != ShieldStatus.Idle) return;
         if (context.performed)
         {
-            playerstate.SetState(PLAYER_STATE.Parry);
-            Debug.Log("Parry Pressed");
+            playerstate.animator.Play("ShieldParry");
             shieldStatus = ShieldStatus.Parry;
         }
     }
