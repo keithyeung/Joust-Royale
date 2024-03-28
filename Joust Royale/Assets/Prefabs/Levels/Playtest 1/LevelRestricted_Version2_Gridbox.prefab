@@ -13068,6 +13068,11 @@ PrefabInstance:
       propertyPath: m_SharedVertices.Array.data[79].m_Vertices.Array.data[3]
       value: 319
       objectReference: {fileID: 0}
+    - target: {fileID: 3528425227528157829, guid: 3c895276c384ab540a0ff5144f9a329a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3529160149316664249, guid: 3c895276c384ab540a0ff5144f9a329a,
         type: 3}
       propertyPath: m_Size.x
@@ -13111,7 +13116,7 @@ PrefabInstance:
     - target: {fileID: 4837285216644267332, guid: 3c895276c384ab540a0ff5144f9a329a,
         type: 3}
       propertyPath: m_Name
-      value: LevelRestricted_Version2_Gridbox Variant
+      value: LevelRestricted_Version2_Gridbox
       objectReference: {fileID: 0}
     - target: {fileID: 5179240652325172155, guid: 3c895276c384ab540a0ff5144f9a329a,
         type: 3}
