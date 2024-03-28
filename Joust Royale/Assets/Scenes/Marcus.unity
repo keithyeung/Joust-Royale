@@ -1484,6 +1484,11 @@ PrefabInstance:
       propertyPath: playerSpawnPositions.Array.data[3]
       value: 
       objectReference: {fileID: 1787772788}
+    - target: {fileID: 7900695127440882769, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: respawnDelay
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
         type: 3}
       propertyPath: sounds.Array.size
@@ -1538,7 +1543,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sounds.Array.data[7].clip
       value: 
-      objectReference: {fileID: 8300000, guid: e964dcab1942f9b46906d85131c0058d, type: 3}
+      objectReference: {fileID: 8300000, guid: 269df37fe72560e45b565346e3108bc5, type: 3}
     - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
         type: 3}
       propertyPath: sounds.Array.data[7].name
@@ -1612,7 +1617,7 @@ PrefabInstance:
     - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
         type: 3}
       propertyPath: sounds.Array.data[7].volume
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
         type: 3}
@@ -1812,10 +1817,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1851566198372323406, guid: a884dab8be06e0f49b81056881383229,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.016120533
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851566198372323406, guid: a884dab8be06e0f49b81056881383229,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.00056496804
+      objectReference: {fileID: 0}
     - target: {fileID: 5102751956379703385, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: maxTiltSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.016120533
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.00056496804
       objectReference: {fileID: 0}
     - target: {fileID: 6671126271795586783, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
@@ -4235,7 +4260,6 @@ GameObject:
   - component: {fileID: 1946921252}
   - component: {fileID: 1946921251}
   - component: {fileID: 1946921250}
-  - component: {fileID: 1946921249}
   - component: {fileID: 1946921248}
   m_Layer: 0
   m_Name: SoundTestSphere
@@ -4256,27 +4280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b491c0b62b92cba459c54ff30d7005df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &1946921249
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1946921247}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1946921250
 MeshRenderer:
   m_ObjectHideFlags: 0
