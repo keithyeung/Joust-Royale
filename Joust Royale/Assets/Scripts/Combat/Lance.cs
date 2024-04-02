@@ -37,12 +37,16 @@ public class Lance : MonoBehaviour
                 {
                     //collision.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(); Removed due to we dont use health anymore.
                     other.gameObject.GetComponentInParent<PlayerHealth>().StartInvincibility();
-                    if(plumageManager.GetPlumageCount() > 0)
+                    if(opponentPlumageManager.GetPlumageCount() > 0)
                     {
                         Color plumeColor = opponentPlumageManager.StealPlume();
                         plumageManager.AddPlume(plumeColor);
                         //FindObjectOfType<AudioManager>().Play("GotHit");
                         ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
+                    }
+                    else
+                    {
+                        Debug.Log("Opponent had no plumes to steal");
                     }
                 }
                 else
