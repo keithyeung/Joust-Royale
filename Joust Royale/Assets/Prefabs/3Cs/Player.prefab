@@ -1779,6 +1779,7 @@ MonoBehaviour:
   sparks: {fileID: 5586467637313171250}
   smoke: {fileID: 1767065658405292332}
   splinters: {fileID: 5281482670471877242}
+  trail: {fileID: 7363867450608915643}
 --- !u!1 &3116670329208065515 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3567029737602156743, guid: c569867faff49674c9c264e8d4b69e80,
@@ -2083,6 +2084,12 @@ Transform:
 --- !u!1 &7068990049402134814 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8708300851386049586, guid: c569867faff49674c9c264e8d4b69e80,
+    type: 3}
+  m_PrefabInstance: {fileID: 1927542304604308780}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7363867450608915643 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9003179359663640983, guid: c569867faff49674c9c264e8d4b69e80,
     type: 3}
   m_PrefabInstance: {fileID: 1927542304604308780}
   m_PrefabAsset: {fileID: 0}

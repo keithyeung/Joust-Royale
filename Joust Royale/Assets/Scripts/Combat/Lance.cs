@@ -12,6 +12,7 @@ public class Lance : MonoBehaviour
     [SerializeField] private ParticleSystem sparks;
     [SerializeField] private ParticleSystem smoke;
     [SerializeField] private ParticleSystem splinters;
+    [SerializeField] private ParticleSystem trail;
 
     private void Start()
     {
@@ -87,5 +88,18 @@ public class Lance : MonoBehaviour
     {
         particleSystem.transform.position = tip.transform.position;
         particleSystem.Play();
+    }
+
+    public void PlayTrail(bool play)
+    {
+        if (play)
+        {
+            trail.Play();
+
+        }
+        else
+        {
+            trail.Stop();
+        }
     }
 }
