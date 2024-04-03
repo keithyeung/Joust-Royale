@@ -18,45 +18,17 @@ public class Lance : MonoBehaviour
     {
         thisLayer = GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
         plumageManager = GetComponentInParent<PlumageManager>();
-        playerState = GetComponentInParent<PlayerState>(); 
+        playerState = GetComponentInParent<PlayerState>();
     }
 
-    private void OnTriggerStay(Collider other) 
+    private void OnTriggerStay(Collider other)
     {
         if (playerState.state != PLAYER_STATE.Attacking) return;
         //maybe check the layer here, so I dont need the 2 if statement down below.
 
         if (other.gameObject.CompareTag("Armor"))
         {
-            LayerMask tempLayer = other.gameObject.GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
-            PlumageManager opponentPlumageManager = other.gameObject.GetComponentInParent<PlumageManager>();
-
-            PlayParticle(sparks);
-
-            if (tempLayer != thisLayer)
-            {
-                GameObject tempMaterial = other.gameObject.GetComponentInParent<PlayerHealth>().plumagePrefabInPlayer;
-                if(tempMaterial != null && opponentPlumageManager != null)
-                {
-                    //collision.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(); Removed due to we dont use health anymore.
-                    other.gameObject.GetComponentInParent<PlayerHealth>().StartInvincibility();
-                    if(opponentPlumageManager.GetPlumageCount() > 0)
-                    {
-                        Color plumeColor = opponentPlumageManager.StealPlume();
-                        plumageManager.AddPlume(plumeColor);
-                        ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
-                        
-                    }
-                    else
-                    {
-                        Debug.Log("Opponent had no plumes to steal");
-                    }
-                }
-                else
-                {
-                    Debug.Log("Lance.cs cannot find a material");
-                }
-            }
+            HandleArmorCollision(other);
         }
         if (other.gameObject.CompareTag("Shield"))
         {
@@ -109,8 +81,8 @@ public class Lance : MonoBehaviour
             Debug.Log("Lance is broken");
 
         }
-    }   
-    
+    }
+
     public void PlayTrail(bool play)
     {
         if (play)
@@ -123,3 +95,4 @@ public class Lance : MonoBehaviour
             trail.Stop();
         }
     }
+}

@@ -28,7 +28,6 @@ public class Shield : MonoBehaviour
         switch (shieldStatus)
         {
             case ShieldStatus.Idle:
-
                 break;
             case ShieldStatus.Parry:
                 isParryActive = true;

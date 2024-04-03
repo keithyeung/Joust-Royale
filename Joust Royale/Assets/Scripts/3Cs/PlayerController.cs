@@ -41,7 +41,6 @@ public class PlayerController : MonoBehaviour
     private float targetSpeed = 0f;
 
     //Game State
-    [SerializeField] private GameState gameState;
     [SerializeField] private PlayerState playerState;
 
     //Hard coded things
@@ -52,7 +51,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
-        gameState = FindObjectOfType<GameState>();
         playerState = GetComponent<PlayerState>();
     }
 
@@ -63,10 +61,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (gameState.states != GameState.GameStatesMachine.Playing)
-        {
-            return;
-        }
+        if (ServiceLocator.instance.GetService<GameState>().states != GameState.GameStatesMachine.Playing) return;
 
         GroundPlayer();
 
