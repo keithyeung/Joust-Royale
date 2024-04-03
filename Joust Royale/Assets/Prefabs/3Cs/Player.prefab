@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6671126271795586783
 Transform:
   m_ObjectHideFlags: 0
@@ -135,8 +135,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823119419440287723}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.03502027, y: 0.016379645, z: -0.00057404884, w: 0.9992522}
-  m_LocalPosition: {x: 0, y: 10, z: -20}
+  m_LocalRotation: {x: 0.105426915, y: -0.000000008555246, z: 9.0700797e-10, w: 0.9944271}
+  m_LocalPosition: {x: 0, y: 10, z: -24.999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -480,7 +480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 10, z: -20}
+  m_FollowOffset: {x: 0, y: 16, z: -15}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -533,8 +533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 7, z: 4}
-  m_LookaheadTime: 0.13
+  m_TrackedObjectOffset: {x: 0, y: 6, z: 4}
+  m_LookaheadTime: 0.3
   m_LookaheadSmoothing: 2
   m_LookaheadIgnoreY: 0
   m_HorizontalDamping: 0.5
@@ -607,8 +607,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4583588832824254635}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.03502027, y: 0.016379645, z: -0.00057404884, w: 0.9992522}
-  m_LocalPosition: {x: 0, y: 10, z: -20}
+  m_LocalRotation: {x: 0.105426915, y: -0.000000008555246, z: 9.0700797e-10, w: 0.9944271}
+  m_LocalPosition: {x: 0, y: 10, z: -24.999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1516,7 +1516,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1284381378967157780, guid: c569867faff49674c9c264e8d4b69e80,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6367940923513202067}
+      addedObject: {fileID: 9018546323156243748}
     - targetCorrespondingSourceObject: {fileID: 4536038107550397354, guid: c569867faff49674c9c264e8d4b69e80,
         type: 3}
       insertIndex: -1
@@ -1638,7 +1638,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 8, y: 10, z: 8}
   m_Center: {x: 0, y: 4.88, z: 0}
---- !u!54 &6367940923513202067
+--- !u!54 &9018546323156243748
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1861,19 +1861,7 @@ MonoBehaviour:
     m_ActionId: d17498cc-4fad-42c6-8a8d-f7363e828ede
     m_ActionName: Player/Look[/XInputControllerWindows1/rightStick,/Mouse/position]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6647668562839623434}
-        m_TargetAssemblyTypeName: PlayerState, Assembly-CSharp
-        m_MethodName: OnAttack
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 1c2c385d-8ca4-49fe-a42a-8b6eb6f80947
     m_ActionName: Player/AttackMode[/XInputControllerWindows1/rightTrigger,/Mouse/press]
   - m_PersistentCalls:
