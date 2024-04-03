@@ -33666,17 +33666,37 @@ PrefabInstance:
     - target: {fileID: 520871784489415707, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1918736983245553745, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2768518777524992455, guid: a884dab8be06e0f49b81056881383229,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.01595348
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768518777524992455, guid: a884dab8be06e0f49b81056881383229,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0038328453
+      objectReference: {fileID: 0}
     - target: {fileID: 5102751956379703385, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: playerState
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.01595348
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0038328453
       objectReference: {fileID: 0}
     - target: {fileID: 6671126271795586783, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
@@ -33731,12 +33751,12 @@ PrefabInstance:
     - target: {fileID: 8507015872839953597, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8507015872839953597, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8507015872839953597, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
