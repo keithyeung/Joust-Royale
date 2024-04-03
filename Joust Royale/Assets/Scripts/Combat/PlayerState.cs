@@ -72,6 +72,8 @@ public class PlayerState : MonoBehaviour
         if (playerController.lance.activeInHierarchy)
         {
             state = PLAYER_STATE.Attacking;
+            Lance playerLance = playerController.lance.GetComponent<Lance>();
+            playerLance.PlayTrail(true);
         }
         else
         {
@@ -84,13 +86,18 @@ public class PlayerState : MonoBehaviour
     {
         state = PLAYER_STATE.Idle;
         animator.SetBool("AttackMode", false);
+        Lance playerLance = playerController.lance.GetComponent<Lance>();
+        playerLance.PlayTrail(false);
     }
     
     public PLAYER_STATE SetState(PLAYER_STATE newState)
     {
         return state = newState;
     }
-     
 
-    
+    public PLAYER_STATE GetState()
+    {
+        return state;
+    }
+
 }

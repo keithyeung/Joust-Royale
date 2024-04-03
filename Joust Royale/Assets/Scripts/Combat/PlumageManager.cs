@@ -4,6 +4,7 @@ using System.Linq;
 using Unity.Mathematics;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlumageManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlumageManager : MonoBehaviour
     public Transform plumeTransform;
     public int startAmount;
     public int maxAmount;
+    public float spreadAngle;
 
     
     private Color color = Color.white;
@@ -76,23 +78,26 @@ public class PlumageManager : MonoBehaviour
     public void ArrangePlumage()
     {
         int plumeCount = plumes.Count;
-        Quaternion parenRotation = GetComponentInParent<Transform>().rotation;
 
         if (plumeCount == 0)
         {
             return;
         }
 
-        float spreadAngle = 180;
+        
+        Transform transform = GetComponent<Transform>();
+        Vector3 playerRotation = transform.rotation.eulerAngles;
         float plumeSpacing = spreadAngle / (plumeCount + 1);
         float startAngle = -(spreadAngle * 0.5f) + plumeSpacing;
+
 
         for (int i = 0; i < plumeCount; i++)
         {
             float angle = startAngle + i * plumeSpacing;
-            Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
-            //Quaternion rotation = Quaternion.Euler(parenRotation.x, parenRotation.y, angle);
+            Quaternion rotation = Quaternion.Euler(playerRotation.x, playerRotation.y, playerRotation.z + angle );
+            Vector3 rot = new Vector3( playerRotation.x, playerRotation.y, playerRotation.z + angle );
             plumes[i].transform.rotation = rotation;
-        }   
+            //plumes[i].transform.rotation = Quaternion.Vector3.Lerp(playerRotation, rot, 5f);
+        }
     }
 }

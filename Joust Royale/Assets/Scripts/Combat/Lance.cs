@@ -12,6 +12,7 @@ public class Lance : MonoBehaviour
     [SerializeField] private ParticleSystem sparks;
     [SerializeField] private ParticleSystem smoke;
     [SerializeField] private ParticleSystem splinters;
+    [SerializeField] private ParticleSystem trail;
 
     private void Start()
     {
@@ -39,12 +40,16 @@ public class Lance : MonoBehaviour
                 {
                     //collision.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(); Removed due to we dont use health anymore.
                     other.gameObject.GetComponentInParent<PlayerHealth>().StartInvincibility();
-                    if(plumageManager.GetPlumageCount() > 0)
+                    if(opponentPlumageManager.GetPlumageCount() > 0)
                     {
                         Color plumeColor = opponentPlumageManager.StealPlume();
                         plumageManager.AddPlume(plumeColor);
                         ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
                         
+                    }
+                    else
+                    {
+                        Debug.Log("Opponent had no plumes to steal");
                     }
                 }
                 else
@@ -102,6 +107,19 @@ public class Lance : MonoBehaviour
             PlayParticle(smoke);
             PlayParticle(splinters);
             Debug.Log("Lance is broken");
+
+        }
+    }   
+    
+    public void PlayTrail(bool play)
+    {
+        if (play)
+        {
+            trail.Play();
+
+        }
+        else
+        {
+            trail.Stop();
         }
     }
-}

@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6196847042694561873
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -7,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Toon_Plume
-  m_Shader: {fileID: -6465566751694194690, guid: 65f3eedf3d2dee84dbf92e5a4eb0ac62,
+  m_Name: flower
+  m_Shader: {fileID: -6465566751694194690, guid: 1b8ee6a28347e4b4881db014b0a5c453,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -20,7 +33,7 @@ Material:
   m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _concaveness_2 _petal_inner
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -87,7 +100,7 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
-    - _CastShadows: 1
+    - _CastShadows: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
@@ -116,35 +129,26 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     - _ZWriteControl: 0
-    - _barb_amount: 18.63
-    - _barb_opacity: 2.68
-    - _barb_thickness: 0.02
-    - _blend_end: 1
-    - _blend_start: 0.666
-    - _gradient_power: 0.94
-    - _gradient_width: 1.18
-    - _noise_power: 0.42
-    - _spacing: 13.23
-    - _thickness: 1.9
+    - _carpel_size: 1
+    - _concaveness_1: 0.43
+    - _concaveness_2: 0.88
+    - _gradient_power: 0.63
+    - _gradient_power_1: 0.43
+    - _gradient_power_2: 1.46
+    - _gradient_width: 0.84
+    - _petal_amount: 6.09
+    - _petal_length: 0.05
+    - _petal_shape: 4.5
+    - _size: 0.31
+    - _thickness: -0.75
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 0.88279974, b: 0, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _base_color: {r: 0.5647059, g: 0.02081099, b: 0, a: 0}
-    - _color: {r: 0.745283, g: 0, b: 0, a: 0}
-    - _color_shift: {r: 130, g: 15, b: 15, a: 0}
+    - _base_color: {r: 0.7264151, g: 0, b: 0, a: 0}
+    - _carpel_color: {r: 1, g: 0.838378, b: 0, a: 0}
+    - _color: {r: 1, g: 0.36226407, b: 0.36226407, a: 0}
+    - _petal_inner: {r: 0.7921569, g: 0.14259042, b: 0, a: 0}
+    - _petal_outer: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &8998163226961729316
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 7
