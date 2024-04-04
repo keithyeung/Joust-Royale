@@ -1987,11 +1987,11 @@ MonoBehaviour:
   jumpHeight: 1
   gravityValue: -5
   rotationSpeed: 150
-  acceleration: 3
-  deceleration: 40
+  acceleration: 5
+  deceleration: 30
   maxSpeed: 15
-  AttackingAcceleration: 8
-  AttackingMaxSpeed: 40
+  AttackingAcceleration: 10
+  AttackingMaxSpeed: 30
   maxTiltAngle: 20
   minTiltSpeed: 2
   maxTiltSpeed: 7
@@ -2067,6 +2067,7 @@ MonoBehaviour:
   plumeObject: {fileID: 2540857872122143605, guid: bf32e1ce7b5fdea47866cbda4d5f1922,
     type: 3}
   plumeTransform: {fileID: 8507015872839953597}
+  plumeParticleSystem: {fileID: 0}
   startAmount: 3
   maxAmount: 7
   spreadAngle: 180
