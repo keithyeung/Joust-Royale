@@ -98,11 +98,10 @@ public class PlumageManager : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(playerRotation.x, playerRotation.y, playerRotation.z + angle );
             Vector3 rot = new Vector3( playerRotation.x, playerRotation.y, playerRotation.z + angle );
             plumes[i].transform.rotation = rotation;
-            //plumes[i].transform.rotation = Quaternion.Vector3.Lerp(playerRotation, rot, 5f);
         }
     }
 
-    public void PlayPlumePoff (Color color)
+    public void PlayPlumePoff(Color color)
     {
         if (plumeTransform.GetComponentInChildren<MeshRenderer>() == null)
         {
