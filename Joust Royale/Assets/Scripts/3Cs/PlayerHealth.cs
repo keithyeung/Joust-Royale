@@ -65,14 +65,14 @@ public class PlayerHealth : MonoBehaviour
         isInvincible = true;
         StartBlinking();
         Invoke(nameof(EndInvincibility), invincibilityDuration);
-        playerArmor.GetComponent<BoxCollider>().enabled = false;
+        playerArmor.GetComponent<CapsuleCollider>().enabled = false;
         // Additional visual/audio effects for invincibility can be added here
     }
 
     private void EndInvincibility()
     {
         isInvincible = false;
-        playerArmor.GetComponent<BoxCollider>().enabled = true;
+        playerArmor.GetComponent<CapsuleCollider>().enabled = true;
     }
 
     public void TakeDamage()

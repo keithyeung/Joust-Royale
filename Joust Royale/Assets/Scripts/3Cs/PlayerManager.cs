@@ -11,7 +11,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private List<LayerMask> playerLayers;
     [SerializeField] private List<Material> playerMaterials;
     [SerializeField] private List<GameObject> plumagePrefabList;
-    [SerializeField] private List<Transform> playerSpawnPositions = new List<Transform>();
+    
+    private List<Transform> playerSpawnPositions = new List<Transform>();
 
     [SerializeField] private Camera mainCamera;
     private PlayerInputManager playerInputManager;
@@ -67,7 +68,7 @@ public class PlayerManager : MonoBehaviour
         GameObject spawnPointsParent = GameObject.Find("SpawnPointsFamily");
 
         // Check if the GameObject was found
-        if (spawnPointsParent != null)
+        if (spawnPointsParent != null && spawnPointsParent.activeInHierarchy)
         {
             Transform parentTransform = spawnPointsParent.transform;
 
