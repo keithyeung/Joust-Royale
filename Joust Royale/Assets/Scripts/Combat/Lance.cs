@@ -59,7 +59,7 @@ public class Lance : MonoBehaviour
         }
 
         other.gameObject.GetComponentInParent<PlayerHealth>().StartInvincibility();
-        if (plumageManager.GetPlumageCount() > 0)
+        if (opponentPlumageManager.GetPlumageCount() > 0)
         {
             Color plumeColor = opponentPlumageManager.StealPlume();
             plumageManager.AddPlume(plumeColor);
