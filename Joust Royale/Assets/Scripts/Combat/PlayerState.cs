@@ -47,6 +47,7 @@ public class PlayerState : MonoBehaviour
         switch (state)
         {
             case PLAYER_STATE.Idle:
+                //animator.SetBool("Idle", true);
                 playerController.rotationSpeed = defaultRotationSpeed;
                 break;
             case PLAYER_STATE.Walking:
