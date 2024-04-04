@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.Mathematics;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -47,7 +48,7 @@ public class PlumageManager : MonoBehaviour
     {
         GameObject newPlume = Instantiate(plumeObject, plumeTransform);
         newPlume.GetComponentInChildren<MeshRenderer>().material.SetColor("_color", _color);
-        //PlayPlumePoff(_color);
+
         plumes.Add(newPlume);
         ArrangePlumage();
         Debug.Log("player got a new plume: " + GetPlumageCount());
@@ -78,7 +79,13 @@ public class PlumageManager : MonoBehaviour
 
     public void ArrangePlumage()
     {
+        if (plumes.Count < 1)
+        {
+            return;
+        }
 
+        Color lastPlumeColor = plumes.First<GameObject>().GetComponentInChildren<MeshRenderer>().material.GetColor("_color");
+        PlayPlumePoff(lastPlumeColor);
 
         int plumeCount = plumes.Count;
 
