@@ -1,7 +1,6 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,7 +11,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private List<LayerMask> playerLayers;
     [SerializeField] private List<Material> playerMaterials;
     [SerializeField] private List<GameObject> plumagePrefabList;
-    public List<Transform> playerSpawnPositions;
+    [SerializeField] private List<Transform> playerSpawnPositions = new List<Transform>();
 
     [SerializeField] private Camera mainCamera;
     private PlayerInputManager playerInputManager;
@@ -20,6 +19,11 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         playerInputManager = GetComponent<PlayerInputManager>();
+    }
+
+    private void Start()
+    {
+        SpawnPointsPrefixs();
     }
 
     private void OnEnable()
@@ -47,7 +51,6 @@ public class PlayerManager : MonoBehaviour
         players.Add(player);
         //using parent due to prefab structure
         Transform playerParent = player.transform.parent;
-        //Vector3 oldParentPosition = playerParent.transform.position;
         playerParent.transform.position = playerSpawnPositions[players.Count - 1].position;        
 
         SetPlayerLayers(player);
@@ -56,6 +59,27 @@ public class PlayerManager : MonoBehaviour
         SetPlayerColor(playerParent);
         SetPlayerPlumagePrefab(player);
         ServiceLocator.instance.GetService<GameState>().UpdateWinCount();
+    }
+
+    public void SpawnPointsPrefixs()
+    {
+        GameObject spawnPointsParent = GameObject.Find("SpawnPointsFamily");
+
+        // Check if the GameObject was found
+        if (spawnPointsParent != null)
+        {
+            Transform parentTransform = spawnPointsParent.transform;
+
+            for (int i = 0; i < parentTransform.childCount; i++)
+            {
+                Transform childTransform = parentTransform.GetChild(i);
+                playerSpawnPositions.Add(childTransform);
+            }
+        }
+        else
+        {
+            Debug.LogError("GameObject" + spawnPointsParent.name + "SpawnPointsFamily not found!");
+        }
     }
 
     private void SetPlayerInputHandler(PlayerInput player)
