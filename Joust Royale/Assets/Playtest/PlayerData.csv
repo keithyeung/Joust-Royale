@@ -1,3 +1,1 @@
-Player Name, Player Position, Player Color, Player Plumage, Player Layer
-Player 1,(-42.00, 0.66, -37.00),Blue (Instance),Blue (Instance),6
-Player 1,(54.46, 0.66, -10.73),Blue (Instance),Blue (Instance),7
+Attacking Player,Defending Player,Player Positions,,Both Player Plumages,,Time in Game,Time in Real World,Stand still time,how many time did they press parry,Where did they get hit?
