@@ -10,6 +10,7 @@ public class PlumageManager : MonoBehaviour
 {
     public GameObject plumeObject;
     public Transform plumeTransform;
+    public ParticleSystem plumeParticleSystem;
     public int startAmount;
     public int maxAmount;
     public float spreadAngle;
@@ -46,6 +47,7 @@ public class PlumageManager : MonoBehaviour
     {
         GameObject newPlume = Instantiate(plumeObject, plumeTransform);
         newPlume.GetComponentInChildren<MeshRenderer>().material.SetColor("_color", _color);
+        //PlayPlumePoff(_color);
         plumes.Add(newPlume);
         ArrangePlumage();
         Debug.Log("player got a new plume: " + GetPlumageCount());
@@ -74,9 +76,10 @@ public class PlumageManager : MonoBehaviour
         }
     }
 
-
     public void ArrangePlumage()
     {
+
+
         int plumeCount = plumes.Count;
 
         if (plumeCount == 0)
@@ -84,12 +87,10 @@ public class PlumageManager : MonoBehaviour
             return;
         }
 
-        
         Transform transform = GetComponent<Transform>();
         Vector3 playerRotation = transform.rotation.eulerAngles;
         float plumeSpacing = spreadAngle / (plumeCount + 1);
         float startAngle = -(spreadAngle * 0.5f) + plumeSpacing;
-
 
         for (int i = 0; i < plumeCount; i++)
         {
@@ -99,5 +100,15 @@ public class PlumageManager : MonoBehaviour
             plumes[i].transform.rotation = rotation;
             //plumes[i].transform.rotation = Quaternion.Vector3.Lerp(playerRotation, rot, 5f);
         }
+    }
+
+    public void PlayPlumePoff (Color color)
+    {
+        if (plumeTransform.GetComponentInChildren<MeshRenderer>() == null)
+        {
+            return;
+        }
+        plumeTransform.GetComponentInChildren<MeshRenderer>().material.SetColor("_color", color);
+        plumeParticleSystem.Play();
     }
 }
