@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] private Camera mainCamera;
     private PlayerInputManager playerInputManager;
+    private string[] names = { "Player Yellow", "Player Red", "Player Green", "Player Blue"};
 
     private void Awake()
     {
@@ -51,7 +52,7 @@ public class PlayerManager : MonoBehaviour
         players.Add(player);
         //using parent due to prefab structure
         Transform playerParent = player.transform.parent;
-        playerParent.transform.position = playerSpawnPositions[players.Count - 1].position;        
+        playerParent.transform.position = playerSpawnPositions[players.Count - 1].position;
 
         SetPlayerLayers(player);
         SetPlayerCamera(player);
@@ -98,6 +99,7 @@ public class PlayerManager : MonoBehaviour
         Transform playerParent = player.transform.parent;
         playerParent.gameObject.layer = layerToAdd;
         player.gameObject.layer = layerToAdd;
+        player.name = names[players.Count -1];
         Transform armor = player.transform.Find("Mount/Knight/Upper/Knight_Upper 1");
         Transform shield = player.transform.Find("Mount/Knight/Upper/ShieldFolder/Shield");
         if (armor != null)
