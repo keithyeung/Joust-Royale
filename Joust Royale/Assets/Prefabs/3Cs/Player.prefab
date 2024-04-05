@@ -74,8 +74,8 @@ MonoBehaviour:
     m_Bias: 0
   m_RecenterToTargetHeading:
     m_enabled: 1
-    m_WaitTime: 1
-    m_RecenteringTime: 0.5
+    m_WaitTime: 5
+    m_RecenteringTime: 1
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
@@ -1721,7 +1721,7 @@ MonoBehaviour:
   isParryActive: 0
   shieldStatus: 0
   playerstate: {fileID: 6647668562839623434}
-  parryTime: 0.1
+  parryTime: 0.25
   blockTime: 0.5
   tiredBlockingTime: 0.5
   cooldownTime: 1
