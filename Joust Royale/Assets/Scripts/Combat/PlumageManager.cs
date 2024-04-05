@@ -103,7 +103,7 @@ public class PlumageManager : MonoBehaviour
         {
             float angle = startAngle + i * plumeSpacing;
             Quaternion rotation = Quaternion.Euler(playerRotation.x, playerRotation.y, playerRotation.z + angle );
-            Vector3 rot = new Vector3( playerRotation.x, playerRotation.y, playerRotation.z + angle );
+            //Vector3 rot = new Vector3( playerRotation.x, playerRotation.y, playerRotation.z + angle );
             plumes[i].transform.rotation = rotation;
         }
     }

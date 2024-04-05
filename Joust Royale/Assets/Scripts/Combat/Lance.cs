@@ -13,6 +13,8 @@ public class Lance : MonoBehaviour
     [SerializeField] private ParticleSystem smoke;
     [SerializeField] private ParticleSystem splinters;
     [SerializeField] private ParticleSystem trail;
+    [SerializeField] private ParticleSystem longSmoke;
+    [SerializeField] private ParticleSystem longSplinters;
 
     private void Start()
     {
@@ -76,8 +78,8 @@ public class Lance : MonoBehaviour
         {
             this.gameObject.SetActive(false);
             ServiceLocator.instance.GetService<AudioManager>().Play("SuccessfulParry");
-            PlayParticle(smoke);
-            PlayParticle(splinters);
+            PlayParticle(longSmoke);
+            PlayParticle(longSplinters);
             Debug.Log("Lance is broken");
 
         }
