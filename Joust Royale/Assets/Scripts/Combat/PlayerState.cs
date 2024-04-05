@@ -75,6 +75,7 @@ public class PlayerState : MonoBehaviour
             state = PLAYER_STATE.Attacking;
             Lance playerLance = playerController.lance.GetComponent<Lance>();
             playerLance.PlayTrail(true);
+            playerController.PlayTrail(true);
         }
         else
         {
@@ -89,6 +90,7 @@ public class PlayerState : MonoBehaviour
         animator.SetBool("AttackMode", false);
         Lance playerLance = playerController.lance.GetComponent<Lance>();
         playerLance.PlayTrail(false);
+        playerController.PlayTrail(false);
     }
     
     public PLAYER_STATE SetState(PLAYER_STATE newState)

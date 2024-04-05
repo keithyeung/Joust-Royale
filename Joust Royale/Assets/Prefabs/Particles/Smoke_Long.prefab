@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2129262379463997504}
   - component: {fileID: 4145817856738107495}
   m_Layer: 0
-  m_Name: Smoke_Round
+  m_Name: Smoke_Long
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

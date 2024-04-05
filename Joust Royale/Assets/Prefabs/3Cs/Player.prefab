@@ -1668,10 +1668,16 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 8
-  m_Height: 11.02326
+  m_Radius: 3.7001069
+  m_Height: 18.22
   m_Direction: 1
-  m_Center: {x: 0, y: 5.0116286, z: 0}
+  m_Center: {x: 0, y: 5.74, z: 0}
+--- !u!198 &1008193830805479799 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1674727123008152667, guid: c569867faff49674c9c264e8d4b69e80,
+    type: 3}
+  m_PrefabInstance: {fileID: 1927542304604308780}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1098123758389948928 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1584510871278040876, guid: c569867faff49674c9c264e8d4b69e80,
@@ -1787,6 +1793,8 @@ MonoBehaviour:
   smoke: {fileID: 1767065658405292332}
   splinters: {fileID: 5281482670471877242}
   trail: {fileID: 7363867450608915643}
+  longSmoke: {fileID: 1008193830805479799}
+  longSplinters: {fileID: 7125609423494807969}
 --- !u!1 &3116670329208065515 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3567029737602156743, guid: c569867faff49674c9c264e8d4b69e80,
@@ -1970,6 +1978,7 @@ MonoBehaviour:
   maxSpeed: 15
   AttackingAcceleration: 10
   AttackingMaxSpeed: 30
+  trail: {fileID: 1697844673194941997}
   maxTiltAngle: 20
   minTiltSpeed: 2
   maxTiltSpeed: 7
@@ -2091,6 +2100,12 @@ Transform:
 --- !u!1 &7068990049402134814 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8708300851386049586, guid: c569867faff49674c9c264e8d4b69e80,
+    type: 3}
+  m_PrefabInstance: {fileID: 1927542304604308780}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7125609423494807969 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8656834957029655693, guid: c569867faff49674c9c264e8d4b69e80,
     type: 3}
   m_PrefabInstance: {fileID: 1927542304604308780}
   m_PrefabAsset: {fileID: 0}
@@ -2269,6 +2284,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed767e8d4d067f847a84863788351368, type: 3}
+--- !u!198 &1697844673194941997 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5550151039451788824, guid: ed767e8d4d067f847a84863788351368,
+    type: 3}
+  m_PrefabInstance: {fileID: 6524005341852280885}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5362684475643733670 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1217653417152089747, guid: ed767e8d4d067f847a84863788351368,
