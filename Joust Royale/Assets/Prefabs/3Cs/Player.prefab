@@ -2075,17 +2075,17 @@ MonoBehaviour:
   maxSpeed: 15
   AttackingAcceleration: 30
   AttackingMaxSpeed: 30
+  currentSpeed: 0
   trail: {fileID: 1697844673194941997}
-  maxTiltAngle: 20
-  minTiltSpeed: 2
-  maxTiltSpeed: 7
+  maxTiltAngle: 10
+  minTiltSpeed: 1
+  maxTiltSpeed: 5
   speedMultiplier: 0.1
   lance: {fileID: 2608498029998077574}
   shield: {fileID: 758397806206449051}
   torso: {fileID: 7068990049402134814}
   frontHorseCape: {fileID: 3116670329208065515}
   backHorseCape: {fileID: 1309060604959108438}
-  currentSpeed: 0
   playerState: {fileID: 0}
 --- !u!114 &6647668562839623434
 MonoBehaviour:

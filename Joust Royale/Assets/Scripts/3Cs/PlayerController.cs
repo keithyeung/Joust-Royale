@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxSpeed = 30f;  // Adjust max speed as needed
     [SerializeField] private float AttackingAcceleration = 12f;  // Adjust rotation speed as needed
     [SerializeField] private float AttackingMaxSpeed = 50f;  // Adjust max speed as needed
+    [SerializeField] private float currentSpeed = 0f;
     [SerializeField] private ParticleSystem trail;
 
     [Header("Horse tilting Related")]
@@ -38,7 +39,6 @@ public class PlayerController : MonoBehaviour
     private bool groundedPlayer;
 
     private Vector2 movementInput;
-    [SerializeField] private float currentSpeed = 0f;
     private float targetSpeed = 0f;
 
     //Game State
