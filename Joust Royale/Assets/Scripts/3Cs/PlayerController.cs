@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxSpeed = 30f;  // Adjust max speed as needed
     [SerializeField] private float AttackingAcceleration = 12f;  // Adjust rotation speed as needed
     [SerializeField] private float AttackingMaxSpeed = 50f;  // Adjust max speed as needed
+    [SerializeField] private ParticleSystem trail;
 
     [Header("Horse tilting Related")]
     [SerializeField] public float maxTiltAngle = 30f; // Maximum angle the motorcycle can tilt
@@ -193,6 +194,17 @@ public class PlayerController : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
     }
 
+    public void PlayTrail(bool play)
+    {
+        if (play)
+        {
+            trail.Play();
 
+        }
+        else
+        {
+            trail.Stop();
+        }
+    }
 
 }

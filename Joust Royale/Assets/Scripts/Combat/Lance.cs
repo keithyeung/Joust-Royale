@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Lance : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Lance : MonoBehaviour
     [SerializeField] private ParticleSystem smoke;
     [SerializeField] private ParticleSystem splinters;
     [SerializeField] private ParticleSystem trail;
+    [SerializeField] private ParticleSystem longSmoke;
+    [SerializeField] private ParticleSystem longSplinters;
 
     private void Start()
     {
@@ -36,9 +39,17 @@ public class Lance : MonoBehaviour
         }
     }
 
-    private void PlayParticle(ParticleSystem particleSystem)
+    private void PlayParticleAtTip(ParticleSystem particleSystem)
     {
         particleSystem.transform.position = tip.transform.position;
+        particleSystem.Play();
+    }
+
+    private void PlayParticleAlongEdge(ParticleSystem particleSystem)
+    {
+        particleSystem.transform.position = transform.position;
+        particleSystem.transform.rotation = transform.rotation;
+
         particleSystem.Play();
     }
 
@@ -47,7 +58,7 @@ public class Lance : MonoBehaviour
         LayerMask tempLayer = other.gameObject.GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
         PlumageManager opponentPlumageManager = other.gameObject.GetComponentInParent<PlumageManager>();
 
-        PlayParticle(sparks);
+        PlayParticleAtTip(sparks);
 
         if (tempLayer == thisLayer) return;
 
@@ -74,10 +85,13 @@ public class Lance : MonoBehaviour
         LayerMask tempLayer = other.gameObject.GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
         if (shield != null && tempLayer != thisLayer && shield.isParryActive)
         {
+            
+            //longSmoke.Play();
+            //longSplinters.Play();
+            PlayParticleAlongEdge(longSmoke);
+            PlayParticleAlongEdge(longSplinters);
             this.gameObject.SetActive(false);
             ServiceLocator.instance.GetService<AudioManager>().Play("SuccessfulParry");
-            PlayParticle(smoke);
-            PlayParticle(splinters);
             Debug.Log("Lance is broken");
 
         }
