@@ -1,13 +1,17 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : Singleton<PlayerManager>
 {
-    public List<PlayerInput> players = new List<PlayerInput>();
-    //[SerializeField] private List<Transform> startingPoints;
+    private List<PlayerConfig> playerConfigs;
+    [SerializeField]
+    private readonly int maxPlayer = 4;
+
+    public List<PlayerInput> players = new List<PlayerInput>(); 
     [SerializeField] private List<LayerMask> playerLayers;
     [SerializeField] private List<Material> playerMaterials;
     [SerializeField] private List<GameObject> plumagePrefabList;
@@ -21,6 +25,9 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         playerInputManager = GetComponent<PlayerInputManager>();
+        SingletonBuilder(this);
+        DontDestroyOnLoad(this.gameObject);
+        playerConfigs = new List<PlayerConfig>();
     }
 
     private void Start()
@@ -31,7 +38,6 @@ public class PlayerManager : MonoBehaviour
     private void OnEnable()
     {
         playerInputManager.onPlayerJoined += AddPlayer;
-        Debug.Log("Player Joined");
     }
 
     private void OnDisable()
@@ -51,6 +57,7 @@ public class PlayerManager : MonoBehaviour
     {
         player.transform.position = new Vector3(0f, 0f, 0f);
         players.Add(player);
+        Debug.Log("Player Joined" + player.playerIndex);
         //using parent due to prefab structure
         Transform playerParent = player.transform.parent;
         playerParent.transform.position = playerSpawnPositions[players.Count - 1].position;
@@ -140,6 +147,11 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public void SetPlayerColor(int index, Material color)
+    {
+        playerConfigs[index].PlayerMaterial = color;
+    }
+
     private void SetPlayerColor(Transform playerParentTransform)
     {
         int materialIndex = players.Count - 1;
@@ -156,6 +168,15 @@ public class PlayerManager : MonoBehaviour
             tempLance.GetComponent<Renderer>().material = playerMaterials[materialIndex];
             tempShield.GetComponent<Renderer>().material = playerMaterials[materialIndex];
         }
+    }
 
+    public void ReadyPlayer(int index)
+    {
+        playerConfigs[index].IsReady = true;
+        if(playerConfigs.Count == maxPlayer && playerConfigs.All(p => p.IsReady ==true))
+        {
+            // Or SceneManager.LoadScene(SceneName);
+            ServiceLocator.instance.GetService<GameState>().states = GameState.GameStatesMachine.Playing;
+        }
     }
 }

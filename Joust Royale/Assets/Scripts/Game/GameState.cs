@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameState : MonoBehaviour
+public class GameState : Singleton<GameState>
 {
     PlayerManager playerManager;
     private int winCount;
@@ -11,9 +11,10 @@ public class GameState : MonoBehaviour
 
     private void Start()
     {
-        playerManager = FindAnyObjectByType<PlayerManager>();
+        playerManager = ServiceLocator.instance.GetService<PlayerManager>();
         states = GameStatesMachine.Playing;
         ServiceLocator.instance.GetService<AudioManager>().Play("BGM");
+        SingletonBuilder(this);
     }
 
     private void Update()
