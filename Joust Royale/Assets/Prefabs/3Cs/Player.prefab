@@ -2070,10 +2070,10 @@ MonoBehaviour:
   jumpHeight: 1
   gravityValue: -5
   rotationSpeed: 150
-  acceleration: 5
-  deceleration: 30
+  acceleration: 12
+  deceleration: 20
   maxSpeed: 15
-  AttackingAcceleration: 10
+  AttackingAcceleration: 30
   AttackingMaxSpeed: 30
   trail: {fileID: 1697844673194941997}
   maxTiltAngle: 20
@@ -2085,6 +2085,7 @@ MonoBehaviour:
   torso: {fileID: 7068990049402134814}
   frontHorseCape: {fileID: 3116670329208065515}
   backHorseCape: {fileID: 1309060604959108438}
+  currentSpeed: 0
   playerState: {fileID: 0}
 --- !u!114 &6647668562839623434
 MonoBehaviour:

@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     private bool groundedPlayer;
 
     private Vector2 movementInput;
-    private float currentSpeed = 0f;
+    [SerializeField] private float currentSpeed = 0f;
     private float targetSpeed = 0f;
 
     //Game State

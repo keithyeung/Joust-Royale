@@ -30276,36 +30276,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.0038328453
       objectReference: {fileID: 0}
-    - target: {fileID: 5102751956379703385, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 5102751956379703385, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: playerState
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5102751956379703385, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: acceleration
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5102751956379703385, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: deceleration
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 5102751956379703385, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: AttackingMaxSpeed
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 5102751956379703385, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: AttackingAcceleration
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
       propertyPath: m_LocalRotation.y
@@ -30492,7 +30462,7 @@ PrefabInstance:
     - target: {fileID: 4539695814598387199, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7195185889468392722, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
         type: 3}
