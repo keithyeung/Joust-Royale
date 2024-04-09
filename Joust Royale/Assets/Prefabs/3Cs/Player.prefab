@@ -2070,15 +2070,16 @@ MonoBehaviour:
   jumpHeight: 1
   gravityValue: -5
   rotationSpeed: 150
-  acceleration: 5
-  deceleration: 30
+  acceleration: 12
+  deceleration: 20
   maxSpeed: 15
-  AttackingAcceleration: 10
+  AttackingAcceleration: 30
   AttackingMaxSpeed: 30
+  currentSpeed: 0
   trail: {fileID: 1697844673194941997}
-  maxTiltAngle: 20
-  minTiltSpeed: 2
-  maxTiltSpeed: 7
+  maxTiltAngle: 10
+  minTiltSpeed: 1
+  maxTiltSpeed: 5
   speedMultiplier: 0.1
   lance: {fileID: 2608498029998077574}
   shield: {fileID: 758397806206449051}

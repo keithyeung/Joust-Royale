@@ -11479,7 +11479,7 @@ PrefabInstance:
     - target: {fileID: 2889816121523785837, guid: 7bfcf5733945c464394e72ca075c0ada,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2929861620580280001, guid: 7bfcf5733945c464394e72ca075c0ada,
         type: 3}
@@ -27336,7 +27336,7 @@ PrefabInstance:
     - target: {fileID: 5791148960444518968, guid: 60dcf4873f49bc54290af7e0b0e34dcf,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5831051725922411668, guid: 60dcf4873f49bc54290af7e0b0e34dcf,
         type: 3}
@@ -30268,6 +30268,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2768518777524992455, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.97220093
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768518777524992455, guid: a884dab8be06e0f49b81056881383229,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.2335726
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768518777524992455, guid: a884dab8be06e0f49b81056881383229,
+        type: 3}
       propertyPath: m_LocalRotation.y
       value: 0.01595348
       objectReference: {fileID: 0}
@@ -30276,35 +30286,15 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.0038328453
       objectReference: {fileID: 0}
-    - target: {fileID: 5102751956379703385, guid: a884dab8be06e0f49b81056881383229,
+    - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
-      propertyPath: maxSpeed
-      value: 30
+      propertyPath: m_LocalRotation.w
+      value: 0.97220093
       objectReference: {fileID: 0}
-    - target: {fileID: 5102751956379703385, guid: a884dab8be06e0f49b81056881383229,
+    - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
-      propertyPath: playerState
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5102751956379703385, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: acceleration
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5102751956379703385, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: deceleration
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 5102751956379703385, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: AttackingMaxSpeed
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 5102751956379703385, guid: a884dab8be06e0f49b81056881383229,
-        type: 3}
-      propertyPath: AttackingAcceleration
-      value: 15
+      propertyPath: m_LocalRotation.x
+      value: 0.2335726
       objectReference: {fileID: 0}
     - target: {fileID: 5549332329608853142, guid: a884dab8be06e0f49b81056881383229,
         type: 3}
@@ -30492,7 +30482,7 @@ PrefabInstance:
     - target: {fileID: 4539695814598387199, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7195185889468392722, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
         type: 3}
