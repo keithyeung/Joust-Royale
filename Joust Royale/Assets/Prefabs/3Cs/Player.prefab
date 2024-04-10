@@ -2129,7 +2129,7 @@ MonoBehaviour:
   rotationSpeed: 150
   acceleration: 12
   deceleration: 20
-  maxSpeed: 18
+  maxSpeed: 30
   AttackingAcceleration: 30
   AttackingMaxSpeed: 30
   currentSpeed: 0
