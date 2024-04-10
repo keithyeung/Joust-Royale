@@ -20,7 +20,7 @@ public class PlayerManager : Singleton<PlayerManager>
 
     [SerializeField] private Camera mainCamera;
     private PlayerInputManager playerInputManager;
-    private string[] names = { "Player Yellow", "Player Red", "Player Green", "Player Blue"};
+    private string[] names = { "Player Red", "Player Blue", "Player Green", "Player Yellow"};
 
     private void Awake()
     {
