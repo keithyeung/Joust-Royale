@@ -16,6 +16,24 @@ public class TestController : MonoBehaviour
     }
     private STATUS status;
 
+    [HideInInspector]
+    public int accumulatedInteractions = 0;
+    [HideInInspector]
+    public int accumulatedHits = 0;
+    [HideInInspector]
+    public int accumulatedHitsReceived = 0;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            if(other.gameObject.GetComponent<PlayerState>().state != PLAYER_STATE.Attacking 
+                                              && gameObject.GetComponentInParent<PlayerState>().state != PLAYER_STATE.Attacking) return;
+
+            accumulatedInteractions++;
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))

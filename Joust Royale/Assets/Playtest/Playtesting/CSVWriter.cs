@@ -42,7 +42,7 @@ public class CSVWriter : MonoBehaviour
                 }
                 foreach (PlayerInput player in players)
                 {
-                    WritePlayerData(tw,"Testing", player);
+                    WritePlayerData(tw, player);
                     Debug.Log("Wrote Context");
                 }
             }
@@ -64,24 +64,29 @@ public class CSVWriter : MonoBehaviour
         //textWriter = new StreamWriter(fileName);
         DateTime currentTime = DateTime.Now;
 
-        string[] rowData = { "Player Name", "Action:", "Player Position x","y","z", " Player Plumage " , "Status" , "Time: " + currentTime,
-        
+        string[] rowData = { "Player Name", "Player Position x","y","z", " Player Plumage " , "Status" , "Player Engagement" ,
+            "PlayerHit Number", "PlayerHitReceived Number",
+            "Time: " + currentTime
         };
         string rowDataString = string.Join(",", rowData);
         tw.WriteLine(rowDataString);
         headerWritten = true;
     }
 
-    public void WritePlayerData(TextWriter tw,string action, PlayerInput player)
+    public void WritePlayerData(TextWriter tw, PlayerInput player)
     {
         //textWriter = new StreamWriter(fileName);
         string playerName = player.name;
         Vector3 playerPosition = player.transform.position;
         int plumageCount = player.GetComponent<PlumageManager>().GetPlumageCount();
         var status = player.GetComponentInChildren<TestController>().GetStatus();
+        var playtestVariable = player.GetComponentInChildren<TestController>();
+        int playerEngagement = playtestVariable.accumulatedInteractions;
+        int playerHits = playtestVariable.accumulatedHits;
+        int playerHitsReceived = playtestVariable.accumulatedHitsReceived;
 
-
-        string[] rowData = { playerName, action, playerPosition.ToString(), plumageCount.ToString(), status.ToString()
+        string[] rowData = { playerName, playerPosition.ToString(), plumageCount.ToString(), status.ToString() 
+                , playerEngagement.ToString(), playerHits.ToString(), playerHitsReceived.ToString()
          };
         string rowDataString = string.Join(",", rowData);
 

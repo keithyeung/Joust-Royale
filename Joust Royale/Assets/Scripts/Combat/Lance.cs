@@ -34,20 +34,28 @@ public class Lance : MonoBehaviour
 
         if (other.gameObject.CompareTag("Armor"))
         {
-            var enemyPlayerController = other.gameObject.GetComponentInParent<PlayerController>();
-            var enemyTestController = enemyPlayerController.GetComponentInChildren<TestController>();
             HandleArmorCollision(other);
-            testController.SetStatus(TestController.STATUS.I_HIT_SOMEONE);
-            enemyTestController.SetStatus(TestController.STATUS.I_GOT_HIT);
-            ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
-            testController.SetStatus(TestController.STATUS.SOMEONE_IS_NEAR_ME_WITH_LANCE_DOWN);
-            enemyTestController.SetStatus(TestController.STATUS.SOMEONE_IS_NEAR_ME_WITH_LANCE_DOWN);
+            UpdateDataStatus(other);
 
         }
         if (other.gameObject.CompareTag("Shield"))
         {
             HandleShieldCollision(other);
         }
+    }
+
+    private void UpdateDataStatus(Collider other)
+    {
+        var enemyPlayerController = other.gameObject.GetComponentInParent<PlayerController>();
+        var enemyTestController = enemyPlayerController.GetComponentInChildren<TestController>();
+
+        testController.SetStatus(TestController.STATUS.I_HIT_SOMEONE);
+        enemyTestController.SetStatus(TestController.STATUS.I_GOT_HIT);
+        testController.accumulatedHits++;
+        enemyTestController.accumulatedHitsReceived++;
+        ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
+        testController.SetStatus(TestController.STATUS.SOMEONE_IS_NEAR_ME_WITH_LANCE_DOWN);
+        enemyTestController.SetStatus(TestController.STATUS.SOMEONE_IS_NEAR_ME_WITH_LANCE_DOWN);
     }
 
     private void PlayParticleAtTip(ParticleSystem particleSystem)

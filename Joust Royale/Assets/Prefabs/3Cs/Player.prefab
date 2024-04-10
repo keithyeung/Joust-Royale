@@ -170,6 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4400027678650976960}
   - component: {fileID: 7830465962082280128}
+  - component: {fileID: 8241705501923063858}
   m_Layer: 0
   m_Name: TestController
   m_TagString: Untagged
@@ -204,6 +205,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02e50ad11064d0040804379338877c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  accumulatedInteractions: 0
+  accumulatedHits: 0
+  accumulatedHitsReceived: 0
+--- !u!135 &8241705501923063858
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238421091964347192}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 12
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1553705560332112628
 GameObject:
   m_ObjectHideFlags: 0
