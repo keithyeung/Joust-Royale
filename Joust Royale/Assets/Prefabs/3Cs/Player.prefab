@@ -2072,14 +2072,14 @@ MonoBehaviour:
   rotationSpeed: 150
   acceleration: 12
   deceleration: 20
-  maxSpeed: 15
+  maxSpeed: 18
   AttackingAcceleration: 30
   AttackingMaxSpeed: 30
   currentSpeed: 0
   trail: {fileID: 1697844673194941997}
-  maxTiltAngle: 10
+  maxTiltAngle: 12
   minTiltSpeed: 1
-  maxTiltSpeed: 5
+  maxTiltSpeed: 4
   speedMultiplier: 0.1
   lance: {fileID: 2608498029998077574}
   shield: {fileID: 758397806206449051}
