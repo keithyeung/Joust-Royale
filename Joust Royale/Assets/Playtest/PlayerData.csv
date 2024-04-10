@@ -1,1 +1,8 @@
-Attacking Player,Defending Player,Player Positions,,Both Player Plumages,,Time in Game,Time in Real World,Stand still time,how many time did they press parry,Where did they get hit?
+
+Player Name,Action:,Player Position x,y,z, Player Plumage ,Status,Time: 10/4/2024 5:15:33 PM
+Player Red,Testing,(26.87, -1.32, -1.50),2,I_GOT_HIT
+Player Blue,Testing,(-1.95, -1.32, -29.06),3,SOMEONE_IS_NEAR_ME_WITH_LANCE_DOWN
+Player Green,Testing,(24.44, -1.32, 2.11),4,I_HIT_SOMEONE
+Player Red,Testing,(26.87, -1.32, -1.50),2,BORED
+Player Blue,Testing,(-1.95, -1.32, -29.06),2,I_GOT_HIT
+Player Green,Testing,(-4.71, -1.32, -32.15),5,I_HIT_SOMEONE

@@ -9,6 +9,8 @@ public class Lance : MonoBehaviour
     private PlumageManager plumageManager;
     private Shield shield;
     private PlayerState playerState;
+    private TestController testController;
+
     [SerializeField] private GameObject tip;
     [SerializeField] private ParticleSystem sparks;
     [SerializeField] private ParticleSystem smoke;
@@ -22,6 +24,7 @@ public class Lance : MonoBehaviour
         thisLayer = GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
         plumageManager = GetComponentInParent<PlumageManager>();
         playerState = GetComponentInParent<PlayerState>();
+        testController = playerState.GetComponentInChildren<TestController>();
     }
 
     private void OnTriggerStay(Collider other)
@@ -31,7 +34,15 @@ public class Lance : MonoBehaviour
 
         if (other.gameObject.CompareTag("Armor"))
         {
+            var enemyPlayerController = other.gameObject.GetComponentInParent<PlayerController>();
+            var enemyTestController = enemyPlayerController.GetComponentInChildren<TestController>();
             HandleArmorCollision(other);
+            testController.SetStatus(TestController.STATUS.I_HIT_SOMEONE);
+            enemyTestController.SetStatus(TestController.STATUS.I_GOT_HIT);
+            ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
+            testController.SetStatus(TestController.STATUS.SOMEONE_IS_NEAR_ME_WITH_LANCE_DOWN);
+            enemyTestController.SetStatus(TestController.STATUS.SOMEONE_IS_NEAR_ME_WITH_LANCE_DOWN);
+
         }
         if (other.gameObject.CompareTag("Shield"))
         {
