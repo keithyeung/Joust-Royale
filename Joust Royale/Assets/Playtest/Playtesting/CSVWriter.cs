@@ -7,10 +7,7 @@ using System;
 
 public class CSVWriter : MonoBehaviour
 {
-    
     private string fileName = "PlayerData.csv";
-    private int rowNumber = 0;
-
     bool headerWritten;
 
     // Start is called before the first frame update
@@ -19,13 +16,6 @@ public class CSVWriter : MonoBehaviour
         fileName = Application.dataPath + "/Playtest/PlayerData.csv";
         headerWritten = false;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     public void WriteToCSV()
     {

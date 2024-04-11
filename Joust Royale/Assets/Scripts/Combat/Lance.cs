@@ -29,8 +29,8 @@ public class Lance : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (playerState.state != PLAYER_STATE.Attacking) return;
         //maybe check the layer here, so I dont need the 2 if statement down below.
+        if (playerState.state != PLAYER_STATE.Attacking) return;
 
         if (other.gameObject.CompareTag("Armor"))
         {
