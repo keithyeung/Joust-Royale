@@ -9,8 +9,8 @@ public class TestController : MonoBehaviour
 {
     public enum STATUS
     {
-        SOMEONE_IS_NEAR_ME_WITH_LANCE_DOWN,
-        BORED,
+        ENGAGE_IN_COMBAT,
+        NOT_IN_COMBAT,
         I_HIT_SOMEONE,
         I_GOT_HIT,
     }
@@ -41,7 +41,7 @@ public class TestController : MonoBehaviour
             if(other.gameObject.GetComponent<PlayerState>().state != PLAYER_STATE.Attacking 
                                && gameObject.GetComponentInParent<PlayerState>().state != PLAYER_STATE.Attacking) return;
 
-            status = STATUS.SOMEONE_IS_NEAR_ME_WITH_LANCE_DOWN;
+            status = STATUS.ENGAGE_IN_COMBAT;
         }
     }
 
@@ -59,7 +59,7 @@ public class TestController : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            status = STATUS.BORED;
+            status = STATUS.NOT_IN_COMBAT;
         }
     }
 }

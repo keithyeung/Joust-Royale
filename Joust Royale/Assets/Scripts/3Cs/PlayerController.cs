@@ -48,6 +48,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 previousPosition;
     private bool resetPosition = false;
 
+    //Playtest
+    public float standStillTime = 0f;
+
 
     private void Start()
     {
@@ -69,6 +72,16 @@ public class PlayerController : MonoBehaviour
         HandleMovement();
 
         ResetPlayerPositionIfNeeded();
+    }
+
+    private void Update()
+    {
+        if (ServiceLocator.instance.GetService<GameState>().states != GameState.GameStatesMachine.Playing) return;
+
+        if (currentSpeed == 0)
+        {
+            standStillTime += Time.deltaTime;
+        }
     }
 
     private void GroundPlayer()
