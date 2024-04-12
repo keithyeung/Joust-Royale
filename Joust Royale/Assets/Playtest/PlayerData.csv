@@ -13,3 +13,8 @@ Player Red,(-26.33,-1.21, 35.89),6,NOT_IN_COMBAT,54,20,15,4.912325,
 Player Blue,(7.06,-1.19, 25.92),3,ENGAGE_IN_COMBAT,53,12,8,1.7546,
 Player Green,(10.45,-1.21, 41.70),0,ENGAGE_IN_COMBAT,56,3,15,3.933122,
 Player Yellow,(-44.27,-1.2, 37.55),3,ENGAGE_IN_COMBAT,59,16,13,0.6245791,
+Player Name,Player Position x,y,z, Player Plumage ,Status,Accumulated Player Engagement,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Time: 4/12/2024 10:59:56 AM
+Player Red,(-39.73, -1.19, 24.57),3,I_GOT_HIT,0,1,1,4.032922
+Player Red,(-26.38, -1.19, -40.00),3,I_GOT_HIT,0,2,2,7.752034
+Player Name,Player Position x,y,z, Player Plumage ,Status,Accumulated Player Engagement,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Time: 4/12/2024 1:05:20 PM
+Player Red,(28.47, 8.94, -70.35),3,I_GOT_HIT,0,1,1,0.7056798
