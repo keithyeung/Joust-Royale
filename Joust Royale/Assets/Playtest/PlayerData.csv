@@ -572,3 +572,5 @@ Player Red,(57.84,-1.23, 8.13),3,I_GOT_HIT,31,13,11,3.83781,
 Player Blue,(58.29,-1.23, 3.43),9,I_HIT_SOMEONE,27,21,14,0.9785347,
 Player Green,(-14.61,-1.22, 6.62),0,ENGAGE_IN_COMBAT,23,3,7,5.829406,
 Player Yellow,(-13.59,-1.2, -12.82),0,ENGAGE_IN_COMBAT,28,7,12,1.60993,
+Player Name,Player Position x,y,z, Player Plumage ,Status,Accumulated Player Engagement,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Time: 2024-04-12 11:49:00
+Player 1,(0.90, 1.53, -40.20),3,ENGAGE_IN_COMBAT,0,0,0,180,0042
