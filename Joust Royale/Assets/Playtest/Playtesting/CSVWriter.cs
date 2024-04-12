@@ -54,8 +54,8 @@ public class CSVWriter : MonoBehaviour
         //textWriter = new StreamWriter(fileName);
         DateTime currentTime = DateTime.Now;
 
-        string[] rowData = { "Player Name", "Player Position x","y","z", " Player Plumage " , "Status" , "Player Engagement" ,
-            "PlayerHit Number", "PlayerHitReceived Number",
+        string[] rowData = { "Player Name", "Player Position x","y","z", " Player Plumage " , "Status" , "Accumulated Player Engagement" ,
+            "Accumulated PlayerHit Number", "Accumulated PlayerHitReceived Number", "Accumulated Player Standing Still Time" , 
             "Time: " + currentTime
         };
         string rowDataString = string.Join(",", rowData);
@@ -74,9 +74,10 @@ public class CSVWriter : MonoBehaviour
         int playerEngagement = playtestVariable.accumulatedInteractions;
         int playerHits = playtestVariable.accumulatedHits;
         int playerHitsReceived = playtestVariable.accumulatedHitsReceived;
+        var playerStandingStillTime = player.GetComponent<PlayerController>().standStillTime;
 
         string[] rowData = { playerName, playerPosition.ToString(), plumageCount.ToString(), status.ToString() 
-                , playerEngagement.ToString(), playerHits.ToString(), playerHitsReceived.ToString()
+                , playerEngagement.ToString(), playerHits.ToString(), playerHitsReceived.ToString() , playerStandingStillTime.ToString()
          };
         string rowDataString = string.Join(",", rowData);
 

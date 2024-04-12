@@ -54,8 +54,8 @@ public class Lance : MonoBehaviour
         testController.accumulatedHits++;
         enemyTestController.accumulatedHitsReceived++;
         ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
-        testController.SetStatus(TestController.STATUS.SOMEONE_IS_NEAR_ME_WITH_LANCE_DOWN);
-        enemyTestController.SetStatus(TestController.STATUS.SOMEONE_IS_NEAR_ME_WITH_LANCE_DOWN);
+        testController.SetStatus(TestController.STATUS.ENGAGE_IN_COMBAT);
+        enemyTestController.SetStatus(TestController.STATUS.ENGAGE_IN_COMBAT);
     }
 
     private void PlayParticleAtTip(ParticleSystem particleSystem)
