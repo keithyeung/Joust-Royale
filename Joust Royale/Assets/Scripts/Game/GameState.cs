@@ -19,6 +19,8 @@ public class GameState : Singleton<GameState>
 
     private void Update()
     {
+        if (states != GameStatesMachine.Playing) return;
+
         if (playerManager.players.Count <= 1)
         {
             return;
@@ -29,7 +31,7 @@ public class GameState : Singleton<GameState>
             if (player.GetComponent<PlumageManager>().GetPlumageCount() >= winCount)
             {
                 states = GameStatesMachine.Ended;
-                //ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
+                ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
                 //ServiceLocator.instance.GetService<AudioManager>().Play("Victory");
             }
         }
