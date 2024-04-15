@@ -84,7 +84,7 @@ public class PlumageManager : MonoBehaviour
             return;
         }
 
-        Color lastPlumeColor = plumes.First<GameObject>().GetComponentInChildren<MeshRenderer>().material.GetColor("_color");
+        Color lastPlumeColor = plumes.Last<GameObject>().GetComponentInChildren<MeshRenderer>().material.GetColor("_color");
         PlayPlumePoff(lastPlumeColor);
 
         int plumeCount = plumes.Count;
@@ -110,11 +110,12 @@ public class PlumageManager : MonoBehaviour
 
     public void PlayPlumePoff(Color color)
     {
-        if (plumeTransform.GetComponentInChildren<MeshRenderer>() == null)
+        if (plumeParticleSystem.GetComponent<Renderer>().material == null)
         {
             return;
         }
-        plumeTransform.GetComponentInChildren<MeshRenderer>().material.SetColor("_color", color);
+        plumeParticleSystem.GetComponent<Renderer>().material.SetColor("_color", color);
+        
         plumeParticleSystem.Play();
     }
 }

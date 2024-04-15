@@ -572,3 +572,21 @@ Player Red,(57.84,-1.23, 8.13),3,I_GOT_HIT,31,13,11,3.83781,
 Player Blue,(58.29,-1.23, 3.43),9,I_HIT_SOMEONE,27,21,14,0.9785347,
 Player Green,(-14.61,-1.22, 6.62),0,ENGAGE_IN_COMBAT,23,3,7,5.829406,
 Player Yellow,(-13.59,-1.2, -12.82),0,ENGAGE_IN_COMBAT,28,7,12,1.60993,
+Player Name,Player Position x,y,z, Player Plumage ,Status,Accumulated Player Engagement,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Time: 2024-04-15 17:31:59
+Player Red,(68.41, 31.17, 21.93),1,ENGAGE_IN_COMBAT,5,0,2,37,21796
+Player Blue,(66.67, 31.21, 17.56),5,ENGAGE_IN_COMBAT,5,2,0,1,788041
+Player Name,Player Position x,y,z, Player Plumage ,Status,Accumulated Player Engagement,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Time: 2024-04-15 17:33:15
+Player Red,(72.72, 31.17, 23.63),1,ENGAGE_IN_COMBAT,2,0,2,17,0662
+Player Blue,(67.95, 31.17, 22.28),5,ENGAGE_IN_COMBAT,2,2,0,1,030335
+Player Name,Player Position x,y,z, Player Plumage ,Status,Accumulated Player Engagement,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Time: 2024-04-15 17:34:31
+Player Red,(83.53, 31.17, 18.52),1,ENGAGE_IN_COMBAT,2,0,2,17,74896
+Player Blue,(78.91, 31.17, 18.55),5,ENGAGE_IN_COMBAT,2,2,0,0,9472804
+Player Name,Player Position x,y,z, Player Plumage ,Status,Accumulated Player Engagement,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Time: 2024-04-15 17:35:32
+Player Red,(86.22, 31.17, 13.16),1,ENGAGE_IN_COMBAT,2,0,2,17,72737
+Player Blue,(82.51, 31.17, 15.79),5,ENGAGE_IN_COMBAT,2,2,0,1,362604
+Player Name,Player Position x,y,z, Player Plumage ,Status,Accumulated Player Engagement,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Time: 2024-04-15 17:56:11
+Player Red,(87.03, 31.17, 13.07),1,ENGAGE_IN_COMBAT,2,0,2,39,9226
+Player Blue,(83.77, 31.17, 10.63),5,ENGAGE_IN_COMBAT,2,2,0,10,55044
+Player Name,Player Position x,y,z, Player Plumage ,Status,Accumulated Player Engagement,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Time: 2024-04-15 17:56:53
+Player Red,(33.39, 31.19, -37.68),5,ENGAGE_IN_COMBAT,2,2,0,2,520724
+Player Blue,(32.26, 31.17, -42.12),1,ENGAGE_IN_COMBAT,2,0,2,14,35904
