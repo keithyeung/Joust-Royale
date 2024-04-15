@@ -39,7 +39,7 @@ public class PlayerSetupMenuController : MonoBehaviour
     public void SetColor(Material color)
     {
         if (!inputEnabled) return;
-        ServiceLocator.instance.GetService<PlayerManager>().SetPlayerColor(playerIndex, color);
+        ServiceLocator.instance.GetService<LobbyControls>();
         readyPanel.SetActive(true);
         readyButton.Select();
         menuPanel.SetActive(false);
@@ -49,7 +49,7 @@ public class PlayerSetupMenuController : MonoBehaviour
     {
         if (!inputEnabled) return;
         
-        ServiceLocator.instance.GetService<PlayerManager>().ReadyPlayer(playerIndex);
+        //ServiceLocator.instance.GetService<PlayerManager>().ReadyPlayer(playerIndex);
         readyButton.gameObject.SetActive(false);
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerManager : Singleton<PlayerManager>
 {
-    private List<PlayerConfig> playerConfigs;
+    
     [SerializeField]
     private readonly int maxPlayer = 4;
 
@@ -26,8 +26,7 @@ public class PlayerManager : Singleton<PlayerManager>
     {
         playerInputManager = GetComponent<PlayerInputManager>();
         SingletonBuilder(this);
-        DontDestroyOnLoad(this.gameObject);
-        playerConfigs = new List<PlayerConfig>();
+        //DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
@@ -109,7 +108,7 @@ public class PlayerManager : Singleton<PlayerManager>
         player.gameObject.layer = layerToAdd;
         player.name = names[players.Count -1];
         Transform armor = player.transform.Find("Mount/Knight/Upper/Knight_Upper 1");
-        Transform shield = player.transform.Find("Mount/Knight/Upper/ShieldFolder/Shield");
+        Transform shield = player.transform.Find("Mount/Knight/Upper/ShieldFolder");
         if (armor != null)
         {
             armor.gameObject.layer = layerToAdd;
@@ -147,11 +146,6 @@ public class PlayerManager : Singleton<PlayerManager>
         }
     }
 
-    public void SetPlayerColor(int index, Material color)
-    {
-        playerConfigs[index].PlayerMaterial = color;
-    }
-
     private void SetPlayerColor(Transform playerParentTransform)
     {
         int materialIndex = players.Count - 1;
@@ -170,13 +164,13 @@ public class PlayerManager : Singleton<PlayerManager>
         }
     }
 
-    public void ReadyPlayer(int index)
-    {
-        playerConfigs[index].IsReady = true;
-        if(playerConfigs.Count == maxPlayer && playerConfigs.All(p => p.IsReady ==true))
-        {
-            // Or SceneManager.LoadScene(SceneName);
-            ServiceLocator.instance.GetService<GameState>().states = GameState.GameStatesMachine.Playing;
-        }
-    }
+    //public void ReadyPlayer(int index)
+    //{
+    //    playerConfigs[index].IsReady = true;
+    //    if(playerConfigs.Count == maxPlayer && playerConfigs.All(p => p.IsReady ==true))
+    //    {
+    //        // Or SceneManager.LoadScene(SceneName);
+    //        ServiceLocator.instance.GetService<GameState>().states = GameState.GameStatesMachine.Playing;
+    //    }
+    //}
 }
