@@ -108,7 +108,7 @@ public class PlayerManager : Singleton<PlayerManager>
         player.gameObject.layer = layerToAdd;
         player.name = names[players.Count -1];
         Transform armor = player.transform.Find("Mount/Knight/Upper/Knight_Upper 1");
-        Transform shield = player.transform.Find("Mount/Knight/Upper/ShieldFolder/Shield");
+        Transform shield = player.transform.Find("Mount/Knight/Upper/ShieldFolder");
         if (armor != null)
         {
             armor.gameObject.layer = layerToAdd;

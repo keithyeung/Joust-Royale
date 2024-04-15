@@ -565,9 +565,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a38c7bed2debc44799bd1c47f11c10a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSetupMenuPrefab: {fileID: 0}
+  playerSetupMenuPrefab: {fileID: 693144127}
   rootMenu: {fileID: 0}
-  input: {fileID: 0}
+  input: {fileID: 1707620921}
 --- !u!1 &1863977518
 GameObject:
   m_ObjectHideFlags: 0
