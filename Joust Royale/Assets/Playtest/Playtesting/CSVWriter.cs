@@ -19,6 +19,7 @@ public class CSVWriter : MonoBehaviour
 
     public void WriteToCSV()
     {
+        if (!ServiceLocator.instance.GetService<GameState>().Playtesting) return;
         if (ServiceLocator.instance.GetService<PlayerManager>().players.Count > 0)
         {
             List<PlayerInput> players = ServiceLocator.instance.GetService<PlayerManager>().players;

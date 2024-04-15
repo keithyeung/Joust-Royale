@@ -53,7 +53,7 @@ public class Lance : MonoBehaviour
         enemyTestController.SetStatus(TestController.STATUS.I_GOT_HIT);
         testController.accumulatedHits++;
         enemyTestController.accumulatedHitsReceived++;
-        //ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
+        ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
         testController.SetStatus(TestController.STATUS.ENGAGE_IN_COMBAT);
         enemyTestController.SetStatus(TestController.STATUS.ENGAGE_IN_COMBAT);
     }
