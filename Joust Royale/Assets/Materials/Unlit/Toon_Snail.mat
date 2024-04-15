@@ -100,6 +100,7 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
+    - _CastShadows: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
@@ -125,12 +126,19 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _WorkflowMode: 1
+    - _ZTest: 4
     - _ZWrite: 1
+    - _ZWriteControl: 0
+    - _cell_size: 15
+    - _fresnel_power: 1.65
+    - _morph_strenght: 0.06
     - _petal_amount: 1
+    - _specular_multip: 1.5
+    - _specular_power: 34
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _color: {r: 1, g: 0.36226407, b: 0.36226407, a: 0}
+    - _color: {r: 0.49886903, g: 0.5283019, b: 0.3010324, a: 0}
   m_BuildTextureStacks: []
