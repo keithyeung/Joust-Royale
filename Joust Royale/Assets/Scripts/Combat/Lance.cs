@@ -9,6 +9,8 @@ public class Lance : MonoBehaviour
     private PlumageManager plumageManager;
     private Shield shield;
     private PlayerState playerState;
+    private TestController testController;
+
     [SerializeField] private GameObject tip;
     [SerializeField] private ParticleSystem sparks;
     [SerializeField] private ParticleSystem smoke;
@@ -22,21 +24,38 @@ public class Lance : MonoBehaviour
         thisLayer = GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
         plumageManager = GetComponentInParent<PlumageManager>();
         playerState = GetComponentInParent<PlayerState>();
+        testController = playerState.GetComponentInChildren<TestController>();
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (playerState.state != PLAYER_STATE.Attacking) return;
         //maybe check the layer here, so I dont need the 2 if statement down below.
+        if (playerState.state != PLAYER_STATE.Attacking) return;
 
         if (other.gameObject.CompareTag("Armor"))
         {
             HandleArmorCollision(other);
+            UpdateDataStatus(other);
+
         }
         if (other.gameObject.CompareTag("Shield"))
         {
             HandleShieldCollision(other);
         }
+    }
+
+    private void UpdateDataStatus(Collider other)
+    {
+        var enemyPlayerController = other.gameObject.GetComponentInParent<PlayerController>();
+        var enemyTestController = enemyPlayerController.GetComponentInChildren<TestController>();
+
+        testController.SetStatus(TestController.STATUS.I_HIT_SOMEONE);
+        enemyTestController.SetStatus(TestController.STATUS.I_GOT_HIT);
+        testController.accumulatedHits++;
+        enemyTestController.accumulatedHitsReceived++;
+        //ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
+        testController.SetStatus(TestController.STATUS.ENGAGE_IN_COMBAT);
+        enemyTestController.SetStatus(TestController.STATUS.ENGAGE_IN_COMBAT);
     }
 
     private void PlayParticleAtTip(ParticleSystem particleSystem)

@@ -16,6 +16,7 @@ public class CountdownTimer : MonoBehaviour
         {
             remainingTime = 0;      
             ServiceLocator.instance.GetService<GameState>().states = GameState.GameStatesMachine.Ended;
+            ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
             return;
         }
         remainingTime -= Time.deltaTime;

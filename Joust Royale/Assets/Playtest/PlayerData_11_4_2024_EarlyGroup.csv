@@ -1,0 +1,15 @@
+Player Name,Player Position x,y,z, Player Plumage ,Status,Accumulated Player Engagement,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Time: 11/4/2024 4:13:33 PM
+Player Red,(-28.81,0.7, -8.73),4,ENGAGE_IN_COMBAT,52,13,8,4.63502,
+Player Blue,(-5.31,0.67, -10.52),4,ENGAGE_IN_COMBAT,63,11,10,1.775757,
+Player Green,(35.99,0.67, 1.27),0,ENGAGE_IN_COMBAT,51,5,15,12.87778,
+Player Yellow,(-0.37,0.67, -9.03),4,ENGAGE_IN_COMBAT,63,12,8,1.142964,
+Player Name,Player Position x,y,z, Player Plumage ,Status,Accumulated Player Engagement,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Time: 11/4/2024 4:17:21 PM
+Player Red,(24.61,-1.19, -15.24),6,ENGAGE_IN_COMBAT,43,16,10,4.220758,
+Player Blue,(20.60,-1.22, 11.90),2,ENGAGE_IN_COMBAT,38,13,13,1.76669,
+Player Green,(-32.57,-1.22, 48.92),0,NOT_IN_COMBAT,35,3,11,5.196043,
+Player Yellow,(-44.99,-1.23, -32.27),4,ENGAGE_IN_COMBAT,42,15,13,0.7204602,
+Player Name,Player Position x,y,z, Player Plumage ,Status,Accumulated Player Engagement,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Time: 11/4/2024 4:21:57 PM
+Player Red,(-26.33,-1.21, 35.89),6,NOT_IN_COMBAT,54,20,15,4.912325,
+Player Blue,(7.06,-1.19, 25.92),3,ENGAGE_IN_COMBAT,53,12,8,1.7546,
+Player Green,(10.45,-1.21, 41.70),0,ENGAGE_IN_COMBAT,56,3,15,3.933122,
+Player Yellow,(-44.27,-1.2, 37.55),3,ENGAGE_IN_COMBAT,59,16,13,0.6245791,

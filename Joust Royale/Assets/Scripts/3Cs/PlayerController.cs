@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxSpeed = 30f;  // Adjust max speed as needed
     [SerializeField] private float AttackingAcceleration = 12f;  // Adjust rotation speed as needed
     [SerializeField] private float AttackingMaxSpeed = 50f;  // Adjust max speed as needed
+    [SerializeField] private float currentSpeed = 0f;
     [SerializeField] private ParticleSystem trail;
 
     [Header("Horse tilting Related")]
@@ -38,7 +39,6 @@ public class PlayerController : MonoBehaviour
     private bool groundedPlayer;
 
     private Vector2 movementInput;
-    private float currentSpeed = 0f;
     private float targetSpeed = 0f;
 
     //Game State
@@ -47,6 +47,9 @@ public class PlayerController : MonoBehaviour
     //Hard coded things
     private Vector3 previousPosition;
     private bool resetPosition = false;
+
+    //Playtest
+    public float standStillTime = 0f;
 
 
     private void Start()
@@ -69,6 +72,16 @@ public class PlayerController : MonoBehaviour
         HandleMovement();
 
         ResetPlayerPositionIfNeeded();
+    }
+
+    private void Update()
+    {
+        if (ServiceLocator.instance.GetService<GameState>().states != GameState.GameStatesMachine.Playing) return;
+
+        if (currentSpeed == 0)
+        {
+            standStillTime += Time.deltaTime;
+        }
     }
 
     private void GroundPlayer()

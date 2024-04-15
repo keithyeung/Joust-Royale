@@ -70,17 +70,18 @@ public class PlayerState : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (playerController.lance.activeInHierarchy)
-        {
-            state = PLAYER_STATE.Attacking;
-            Lance playerLance = playerController.lance.GetComponent<Lance>();
-            playerLance.PlayTrail(true);
-            playerController.PlayTrail(true);
-        }
-        else
-        {
-            Debug.Log("No Lance equipped");
-        }
+        state = PLAYER_STATE.Attacking;
+        Lance playerLance = playerController.lance.GetComponent<Lance>();
+        playerLance.PlayTrail(true);
+        playerController.PlayTrail(true);
+
+        //if (playerController.lance.activeInHierarchy)
+        //{
+        //}
+        //else
+        //{
+        //    Debug.Log("No Lance equipped");
+        //}
         //audioManager.Play("LanceAttack");
     }
 
