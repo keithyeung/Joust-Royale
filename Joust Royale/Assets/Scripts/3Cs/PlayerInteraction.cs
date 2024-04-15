@@ -21,13 +21,13 @@ public class PlayerInteraction : MonoBehaviour
 
     private void EquipItem(Collider other, GameObject playerItem, string logMessage)
     {
-        Renderer objectRenderer = other.gameObject.GetComponent<Renderer>();
+        Renderer objectRenderer = other.gameObject.GetComponentInChildren<Renderer>();
         if (objectRenderer != null)
         {
             Material tempMaterial = objectRenderer.material;
             playerItem.GetComponent<Renderer>().material = tempMaterial;
         }
-        playerItem.SetActive(true);
+        //playerItem.SetActive(true);
         ServiceLocator.instance.GetService<AudioManager>().Play("PickUp");
         Debug.Log(logMessage);
         other.gameObject.SetActive(false);
