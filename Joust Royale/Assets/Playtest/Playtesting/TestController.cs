@@ -72,7 +72,7 @@ public class TestController : MonoBehaviour
         if (zoneInteractions.ContainsKey(WHereIm))
         {
             zoneInteractions[WHereIm]++;
-            other.gameObject.GetComponentInChildren<TestController>().zoneInteractions[other.gameObject.GetComponentInChildren<TestController>().WHereIm]++;
+            //other.gameObject.GetComponentInChildren<TestController>().zoneInteractions[other.gameObject.GetComponentInChildren<TestController>().WHereIm]++;
         }
         else
         {

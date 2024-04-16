@@ -1,4 +1,3 @@
-
-Player Name, Player Plumage ,Accumulated Attempt to hit,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Accumulated Zone A Engagement,Accumulated Zone B Engagement,Accumulated Zone C Engagement,Accumulated Zone D Engagement,Accumulated MidCircle Engagement,Time: 16/4/2024 4:46:18 PM
-Player Red,1,0,0,2,11.90461,2,0,0,0,0
-Player Blue,5,2,2,0,1.110075,1,0,0,0,1
+Player Name, Final Player Plumage ,Accumulated Attempt to hit,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Zone A: Accumulated Hit Attempt,Zone B: Accumulated Hit Attempt,Zone C: Accumulated Hit Attempt,Zone D: Accumulated Hit Attempt,Mid Circle Zone: Accumulated Hit Attempt,Time: 16/4/2024 5:00:25 PM
+Player Red,1,0,0,2,23.94718,0,0,0,0,0,
+Player Blue,5,4,2,0,0.1283926,2,0,0,0,2,

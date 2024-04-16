@@ -54,10 +54,10 @@ public class CSVWriter : MonoBehaviour
     {
         DateTime currentTime = DateTime.Now;
 
-        string[] rowData = { "Player Name", " Player Plumage " , "Accumulated Attempt to hit" ,
+        string[] rowData = { "Player Name", " Final Player Plumage " , "Accumulated Attempt to hit" ,
             "Accumulated PlayerHit Number", "Accumulated PlayerHitReceived Number", "Accumulated Player Standing Still Time" ,
-            "Accumulated Zone A Engagement", "Accumulated Zone B Engagement", "Accumulated Zone C Engagement",
-            "Accumulated Zone D Engagement", "Accumulated MidCircle Engagement",
+            "Zone A: Accumulated Hit Attempt", "Zone B: Accumulated Hit Attempt", "Zone C: Accumulated Hit Attempt",
+            "Zone D: Accumulated Hit Attempt", "Mid Circle Zone: Accumulated Hit Attempt",
             "Time: " + currentTime
         };
         string rowDataString = string.Join(",", rowData);
