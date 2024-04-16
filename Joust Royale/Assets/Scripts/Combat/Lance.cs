@@ -49,13 +49,11 @@ public class Lance : MonoBehaviour
         var enemyPlayerController = other.gameObject.GetComponentInParent<PlayerController>();
         var enemyTestController = enemyPlayerController.GetComponentInChildren<TestController>();
 
-        testController.SetStatus(TestController.STATUS.I_HIT_SOMEONE);
-        enemyTestController.SetStatus(TestController.STATUS.I_GOT_HIT);
         testController.accumulatedHits++;
         enemyTestController.accumulatedHitsReceived++;
-        ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
-        testController.SetStatus(TestController.STATUS.ENGAGE_IN_COMBAT);
-        enemyTestController.SetStatus(TestController.STATUS.ENGAGE_IN_COMBAT);
+        testController.IsPositionInsideCollider(testController.transform.position);
+        enemyTestController.IsPositionInsideCollider(testController.transform.position);
+        //ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
     }
 
     private void PlayParticleAtTip(ParticleSystem particleSystem)

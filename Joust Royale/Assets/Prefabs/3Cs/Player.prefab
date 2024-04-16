@@ -208,6 +208,13 @@ MonoBehaviour:
   accumulatedInteractions: 0
   accumulatedHits: 0
   accumulatedHitsReceived: 0
+  accumulated_ZoneA_Interactions: 0
+  accumulated_ZoneB_Interactions: 0
+  accumulated_ZoneC_Interactions: 0
+  accumulated_ZoneD_Interactions: 0
+  accumulated_MidCircle_Interactions: 0
+  WHereIm: None
+  triggerCollider: []
 --- !u!135 &8241705501923063858
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2169,6 +2176,7 @@ MonoBehaviour:
   frontHorseCape: {fileID: 3116670329208065515}
   backHorseCape: {fileID: 1309060604959108438}
   playerState: {fileID: 0}
+  standStillTime: 0
 --- !u!114 &6647668562839623434
 MonoBehaviour:
   m_ObjectHideFlags: 0

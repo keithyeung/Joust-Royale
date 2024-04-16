@@ -19,6 +19,15 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
+
+    //public void CheckCurrentZone(Collider other)
+    //{
+    //    if(other.gameObject.CompareTag("Zones"))
+    //    {
+    //        Debug.Log("Player is in " + other.gameObject.name);
+    //    }
+    //}
+
     private void EquipItem(Collider other, GameObject playerItem, string logMessage)
     {
         Renderer objectRenderer = other.gameObject.GetComponentInChildren<Renderer>();
@@ -27,7 +36,7 @@ public class PlayerInteraction : MonoBehaviour
             Material tempMaterial = objectRenderer.material;
             playerItem.GetComponent<Renderer>().material = tempMaterial;
         }
-        //playerItem.SetActive(true);
+        playerItem.SetActive(true);
         ServiceLocator.instance.GetService<AudioManager>().Play("PickUp");
         Debug.Log(logMessage);
         other.gameObject.SetActive(false);

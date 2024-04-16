@@ -50,7 +50,8 @@ public class PlayerController : MonoBehaviour
 
     //Playtest
     public float standStillTime = 0f;
-
+    //[HideInInspector]
+    //public string ZoneName = "None";
 
     private void Start()
     {
@@ -168,7 +169,6 @@ public class PlayerController : MonoBehaviour
       
         //transform.rotation = transform.rotation * rotation;
         transform.rotation = Quaternion.Lerp(transform.rotation * rotation, tilt, Time.deltaTime * 5f);
-
         transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
 
 

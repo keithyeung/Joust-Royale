@@ -52,11 +52,12 @@ public class CSVWriter : MonoBehaviour
 
     private void WriteCSVHeader(TextWriter tw)
     {
-        //textWriter = new StreamWriter(fileName);
         DateTime currentTime = DateTime.Now;
 
-        string[] rowData = { "Player Name", "Player Position x","y","z", " Player Plumage " , "Status" , "Accumulated Player Engagement" ,
-            "Accumulated PlayerHit Number", "Accumulated PlayerHitReceived Number", "Accumulated Player Standing Still Time" , 
+        string[] rowData = { "Player Name", " Player Plumage " , "Accumulated Attempt to hit" ,
+            "Accumulated PlayerHit Number", "Accumulated PlayerHitReceived Number", "Accumulated Player Standing Still Time" ,
+            "Accumulated Zone A Engagement", "Accumulated Zone B Engagement", "Accumulated Zone C Engagement",
+            "Accumulated Zone D Engagement", "Accumulated MidCircle Engagement",
             "Time: " + currentTime
         };
         string rowDataString = string.Join(",", rowData);
@@ -70,18 +71,32 @@ public class CSVWriter : MonoBehaviour
         string playerName = player.name;
         Vector3 playerPosition = player.transform.position;
         int plumageCount = player.GetComponent<PlumageManager>().GetPlumageCount();
-        var status = player.GetComponentInChildren<TestController>().GetStatus();
         var playtestVariable = player.GetComponentInChildren<TestController>();
+        // Player Data
         int playerEngagement = playtestVariable.accumulatedInteractions;
         int playerHits = playtestVariable.accumulatedHits;
         int playerHitsReceived = playtestVariable.accumulatedHitsReceived;
+        // Zones Data
+        int ZoneAInteractions = playtestVariable.zoneInteractions["Zone_A"];
+        int ZoneBInteractions = playtestVariable.zoneInteractions["Zone_B"];
+        int ZoneCInteractions = playtestVariable.zoneInteractions["Zone_C"];
+        int ZoneDInteractions = playtestVariable.zoneInteractions["Zone_D"];
+        int MidCircleInteractions = playtestVariable.zoneInteractions["MiddleCircleZone"];
+        // Passive time
         var playerStandingStillTime = player.GetComponent<PlayerController>().standStillTime;
 
-        string[] rowData = { playerName, playerPosition.ToString(), plumageCount.ToString(), status.ToString() 
-                , playerEngagement.ToString(), playerHits.ToString(), playerHitsReceived.ToString() , playerStandingStillTime.ToString()
+        string[] rowData = { playerName, plumageCount.ToString(), playerEngagement.ToString(),
+            playerHits.ToString(), playerHitsReceived.ToString() , playerStandingStillTime.ToString(),
+            ZoneAInteractions.ToString(), ZoneBInteractions.ToString(), ZoneCInteractions.ToString(),
+            ZoneDInteractions.ToString(), MidCircleInteractions.ToString()
          };
         string rowDataString = string.Join(",", rowData);
 
         tw.WriteLine(rowDataString);
     }
+
+    //private void ZoneData(PlayerInput player)
+    //{
+    //    var playtestVariable = player.GetComponentInChildren<TestController>();
+    //}
 }
