@@ -208,11 +208,6 @@ MonoBehaviour:
   accumulatedInteractions: 0
   accumulatedHits: 0
   accumulatedHitsReceived: 0
-  accumulated_ZoneA_Interactions: 0
-  accumulated_ZoneB_Interactions: 0
-  accumulated_ZoneC_Interactions: 0
-  accumulated_ZoneD_Interactions: 0
-  accumulated_MidCircle_Interactions: 0
   WHereIm: None
   triggerCollider: []
 --- !u!135 &8241705501923063858
@@ -2114,7 +2109,7 @@ MonoBehaviour:
     m_ActionId: 17cc45b8-9c1b-417a-881e-b21459d4caa7
     m_ActionName: Player/Select[/Keyboard/enter,/XInputControllerWindows/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Controller
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 6384576291137159354}

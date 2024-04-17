@@ -19,6 +19,9 @@ public class PlayerManager : Singleton<PlayerManager>
     private List<Transform> playerSpawnPositions = new List<Transform>();
 
     [SerializeField] private Camera mainCamera;
+
+    [Header("Prefabs")]
+    [SerializeField] private GameObject playerPrefab;
     private PlayerInputManager playerInputManager;
     private string[] names = { "Player Red", "Player Blue", "Player Yellow", "Player Green"};
 
@@ -26,22 +29,23 @@ public class PlayerManager : Singleton<PlayerManager>
     {
         playerInputManager = GetComponent<PlayerInputManager>();
         SingletonBuilder(this);
-    }
-
-    private void Start()
-    {
         SpawnPointsPrefixs();
+        LoadPlayer();
+        ServiceLocator.instance.GetService<PPStorage>().ClearPlayerProperties();
     }
 
-    private void OnEnable()
+    private void LoadPlayer()
     {
-        playerInputManager.onPlayerJoined += AddPlayer;
-    }
+        var playerList = ServiceLocator.instance.GetService<PPStorage>().playerProperties;
 
-    private void OnDisable()
-    {
-        playerInputManager.onPlayerJoined -= AddPlayer;
+        for (int i = 0; i < playerList.Count; i++)
+        {
+            var playerInput = PlayerInput.Instantiate(playerPrefab, playerIndex: i);
+            playerInput.SwitchCurrentControlScheme(playerList[i].device); // Replace the problematic line
+            AddPlayer(playerInput);
+        }
     }
+   
 
     public void Update()
     {
@@ -65,7 +69,6 @@ public class PlayerManager : Singleton<PlayerManager>
         SetPlayerInputHandler(player);
         SetPlayerColor(playerParent);
         SetPlayerPlumagePrefab(player);
-        ServiceLocator.instance.GetService<GameState>().UpdateWinCount();
     }
 
     public void SpawnPointsPrefixs()

@@ -10,12 +10,17 @@ public class GameState : Singleton<GameState>
     public enum GameStatesMachine { MainMenu, Playing, Ended};
     public GameStatesMachine states;
 
-    private void Start()
+    private void Awake()
     {
         playerManager = ServiceLocator.instance.GetService<PlayerManager>();
         states = GameStatesMachine.Playing;
         ServiceLocator.instance.GetService<AudioManager>().Play("BGM");
         SingletonBuilder(this);
+    }
+
+    private void Start()
+    {
+        UpdateWinCount();
     }
 
     private void Update()

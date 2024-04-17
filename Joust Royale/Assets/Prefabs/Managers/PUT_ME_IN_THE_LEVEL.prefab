@@ -688,24 +688,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5733494046155767840, guid: 868daf464c1178c4bb4f040654a359a6,
         type: 3}
-      propertyPath: playerMaterials.Array.data[0]
+      propertyPath: playerPrefab
       value: 
-      objectReference: {fileID: 2100000, guid: 20129854ec2931649a54f997f52faf9d, type: 2}
+      objectReference: {fileID: 520871784489415707, guid: a884dab8be06e0f49b81056881383229,
+        type: 3}
     - target: {fileID: 5733494046155767840, guid: 868daf464c1178c4bb4f040654a359a6,
         type: 3}
-      propertyPath: playerMaterials.Array.data[1]
+      propertyPath: playerMaterials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9a36b52e01bb29e49834e9e59618ab9d, type: 2}
     - target: {fileID: 5733494046155767840, guid: 868daf464c1178c4bb4f040654a359a6,
         type: 3}
+      propertyPath: playerMaterials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 94e2393966ea39347b69c06cb4e1141c, type: 2}
+    - target: {fileID: 5733494046155767840, guid: 868daf464c1178c4bb4f040654a359a6,
+        type: 3}
       propertyPath: playerMaterials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: a4b351fa33309c24cbf21f0a308ae4b4, type: 2}
+      objectReference: {fileID: 2100000, guid: 20129854ec2931649a54f997f52faf9d, type: 2}
     - target: {fileID: 5733494046155767840, guid: 868daf464c1178c4bb4f040654a359a6,
         type: 3}
       propertyPath: playerMaterials.Array.data[3]
       value: 
-      objectReference: {fileID: 2100000, guid: 94e2393966ea39347b69c06cb4e1141c, type: 2}
+      objectReference: {fileID: 2100000, guid: a4b351fa33309c24cbf21f0a308ae4b4, type: 2}
     - target: {fileID: 5733494046155767840, guid: 868daf464c1178c4bb4f040654a359a6,
         type: 3}
       propertyPath: plumageMaterialList.Array.size
@@ -784,7 +790,7 @@ PrefabInstance:
     - target: {fileID: 8116760294552658540, guid: 868daf464c1178c4bb4f040654a359a6,
         type: 3}
       propertyPath: m_JoinBehavior
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8116760294552658540, guid: 868daf464c1178c4bb4f040654a359a6,
         type: 3}

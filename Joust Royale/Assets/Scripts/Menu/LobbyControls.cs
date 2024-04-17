@@ -7,9 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class LobbyControls : Singleton<LobbyControls>
 {
-    private List<PlayerInput> playerInputs = new List<PlayerInput>();
+    public List<PlayerInput> playerInputs = new List<PlayerInput>();
     PlayerInputManager playerInputManager;
-    private int maxPlayer = 4;
 
     private void Awake()
     {
@@ -22,11 +21,13 @@ public class LobbyControls : Singleton<LobbyControls>
         Debug.Log("player joined " + pi.playerIndex);
         pi.transform.SetParent(transform);
         playerInputs.Add(pi);
-        var pp_inStorage = ServiceLocator.instance.GetService<PPStorage>().playerProperties;
         var pp = new PlayerProperty();
         pp.playerInput = pi;
-        pp_inStorage.Add(pp);
-        Debug.Log("Storage size: " + pp_inStorage.Count);
+        pp.device = pi.devices[0];
+        pp.deviceName = pi.devices[0].name;
+        ServiceLocator.instance.GetService<PPStorage>().playerProperties.Add(pp);
+        Debug.Log("Storage size: " + ServiceLocator.instance.GetService<PPStorage>().playerProperties.Count);
+       
     }
 
     private void OnEnable()

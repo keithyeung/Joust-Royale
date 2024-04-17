@@ -27531,26 +27531,6 @@ PrefabInstance:
       objectReference: {fileID: 169733591}
     - target: {fileID: 7195185889468392722, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
         type: 3}
-      propertyPath: playerMaterials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9a36b52e01bb29e49834e9e59618ab9d, type: 2}
-    - target: {fileID: 7195185889468392722, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
-        type: 3}
-      propertyPath: playerMaterials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 94e2393966ea39347b69c06cb4e1141c, type: 2}
-    - target: {fileID: 7195185889468392722, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
-        type: 3}
-      propertyPath: playerMaterials.Array.data[2]
-      value: 
-      objectReference: {fileID: 2100000, guid: 20129854ec2931649a54f997f52faf9d, type: 2}
-    - target: {fileID: 7195185889468392722, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
-        type: 3}
-      propertyPath: playerMaterials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: a4b351fa33309c24cbf21f0a308ae4b4, type: 2}
-    - target: {fileID: 7195185889468392722, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
-        type: 3}
       propertyPath: playerSpawnPositions.Array.size
       value: 0
       objectReference: {fileID: 0}
