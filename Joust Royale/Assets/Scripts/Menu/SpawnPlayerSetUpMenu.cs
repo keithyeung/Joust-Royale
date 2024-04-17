@@ -8,7 +8,7 @@ public class SpawnPlayerSetUpMenu : MonoBehaviour
 {
     public GameObject playerSetupMenuPrefab;
 
-    [SerializeField] private GameObject rootMenu;
+    private GameObject rootMenu;
     public PlayerInput input;
 
     private void Awake()
