@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class LobbyControls : Singleton<LobbyControls>
 {
     private List<PlayerInput> playerInputs = new List<PlayerInput>();
-    private List<PlayerProperty> playerProperty = new List<PlayerProperty>();
     PlayerInputManager playerInputManager;
 
     private void Awake()
@@ -20,9 +19,11 @@ public class LobbyControls : Singleton<LobbyControls>
         Debug.Log("player joined " + pi.playerIndex);
         pi.transform.SetParent(transform);
         playerInputs.Add(pi);
+        var pp_inStorage = ServiceLocator.instance.GetService<PPStorage>().playerProperties;
         var pp = new PlayerProperty();
         pp.playerInput = pi;
-        playerProperty.Add(pp);
+        pp_inStorage.Add(pp);
+        Debug.Log("Storage size: " + pp_inStorage.Count);
     }
 
     private void OnEnable()
@@ -33,11 +34,5 @@ public class LobbyControls : Singleton<LobbyControls>
     {
         playerInputManager.onPlayerJoined -= HandlePlayerJoin;
     }
-    public void Update()
-    {
-        //if(playerInputs.Count > 0)
-        //{
-        //    Debug.Log("Players joined");
-        //}
-    }
+   
 }

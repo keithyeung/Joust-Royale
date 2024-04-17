@@ -39,7 +39,7 @@ public class PlayerSetupMenuController : MonoBehaviour
     public void SetColor(Material color)
     {
         if (!inputEnabled) return;
-        ServiceLocator.instance.GetService<LobbyControls>();
+        //ServiceLocator.instance.GetService<LobbyControls>();
         readyPanel.SetActive(true);
         readyButton.Select();
         menuPanel.SetActive(false);

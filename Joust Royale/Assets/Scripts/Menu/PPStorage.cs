@@ -5,6 +5,7 @@ using UnityEngine;
 public class PPStorage : Singleton<PPStorage>
 {
     public List<PlayerProperty> playerProperties = new List<PlayerProperty>();
+
     private void Awake()
     {
         SingletonBuilder(this);
