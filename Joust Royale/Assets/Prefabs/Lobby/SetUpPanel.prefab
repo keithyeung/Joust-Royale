@@ -367,6 +367,7 @@ MonoBehaviour:
   readyPanel: {fileID: 8774434401476119143}
   menuPanel: {fileID: 3560523255020109335}
   readyButton: {fileID: 4407487459389494487}
+  panelColor: {fileID: 7858759198081780751}
 --- !u!1 &920186948028701946
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,8 +603,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -638,7 +639,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -59.829407, y: 0, z: -124.07764, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

@@ -26,7 +26,6 @@ public class PlayerManager : Singleton<PlayerManager>
     {
         playerInputManager = GetComponent<PlayerInputManager>();
         SingletonBuilder(this);
-        //DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()

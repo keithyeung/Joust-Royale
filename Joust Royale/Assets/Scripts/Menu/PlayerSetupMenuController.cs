@@ -16,16 +16,50 @@ public class PlayerSetupMenuController : MonoBehaviour
     private GameObject menuPanel;
     [SerializeField]
     private Button readyButton;
+    [SerializeField]
+    private Image panelColor;
 
     private float ignoreInputTime = 1.5f;
     private bool inputEnabled;
 
+    enum PlayerColor
+    {
+        Red,
+        Blue,
+        Yellow,
+        Green
+    }
 
     public void SetPlayerIndex(int index)
     {
         playerIndex = index;
         titleText.SetText("Player " + (playerIndex + 1).ToString());
         ignoreInputTime = Time.time + ignoreInputTime;
+    }
+
+    public void SetPlayerPanelColor(int index)
+    {
+        playerIndex = index;
+        ColorHandler();
+    }
+
+    private void ColorHandler()
+    {
+        switch (playerIndex)
+        {
+            case (int)PlayerColor.Red:
+                panelColor.color = Color.red;
+                break;
+            case (int)PlayerColor.Blue:
+                panelColor.color = Color.blue;
+                break;
+            case (int)PlayerColor.Yellow:
+                panelColor.color = Color.yellow;
+                break;
+            case (int)PlayerColor.Green:
+                panelColor.color = Color.green;
+                break;
+        }
     }
 
     void Update()
@@ -49,7 +83,7 @@ public class PlayerSetupMenuController : MonoBehaviour
     {
         if (!inputEnabled) return;
         
-        //ServiceLocator.instance.GetService<PlayerManager>().ReadyPlayer(playerIndex);
+        ServiceLocator.instance.GetService<LobbyControls>().ReadyPlayer(playerIndex);
         readyButton.gameObject.SetActive(false);
     }
 }

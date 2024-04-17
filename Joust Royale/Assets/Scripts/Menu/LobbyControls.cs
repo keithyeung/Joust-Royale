@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class LobbyControls : Singleton<LobbyControls>
 {
     private List<PlayerInput> playerInputs = new List<PlayerInput>();
     PlayerInputManager playerInputManager;
+    private int maxPlayer = 4;
 
     private void Awake()
     {
@@ -34,5 +37,17 @@ public class LobbyControls : Singleton<LobbyControls>
     {
         playerInputManager.onPlayerJoined -= HandlePlayerJoin;
     }
-   
+
+
+    public void ReadyPlayer(int index)
+    {
+        var pp_inStorage = ServiceLocator.instance.GetService<PPStorage>().playerProperties;
+        pp_inStorage[index].isReady = true;
+        //pp_inStorage.Count == playerInputManager.playerCount &&
+        if (pp_inStorage.All(p => p.isReady == true))
+        {
+            SceneManager.LoadScene("Playtest_B");
+            //ServiceLocator.instance.GetService<GameState>().states = GameState.GameStatesMachine.Playing; // put this in the next scene instead.
+        }
+    }
 }
