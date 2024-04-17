@@ -3869,7 +3869,7 @@ PrefabInstance:
     - target: {fileID: 8179379498286394201, guid: f63c776d2aedd0949b9a610366fb5687,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8199280318054635242, guid: f63c776d2aedd0949b9a610366fb5687,
         type: 3}
@@ -22667,6 +22667,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AtotheB (MISSING NAMING CONVENTION)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8179379498286394201, guid: 1c61923b09381d74da5362422863a0f0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8199280318054635242, guid: 1c61923b09381d74da5362422863a0f0,
         type: 3}
