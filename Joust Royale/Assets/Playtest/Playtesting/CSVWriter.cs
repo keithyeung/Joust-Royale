@@ -53,11 +53,12 @@ public class CSVWriter : MonoBehaviour
     private void WriteCSVHeader(TextWriter tw)
     {
         DateTime currentTime = DateTime.Now;
+        string levelName = ServiceLocator.instance.GetService<PlayerManager>().levelName;
 
         string[] rowData = { "Player Name", " Final Player Plumage " , "Accumulated Attempt to hit" ,
             "Accumulated PlayerHit Number", "Accumulated PlayerHitReceived Number", "Accumulated Player Standing Still Time" ,
             "Zone A: Accumulated Hit Attempt", "Zone B: Accumulated Hit Attempt", "Zone C: Accumulated Hit Attempt",
-            "Zone D: Accumulated Hit Attempt", "Mid Circle Zone: Accumulated Hit Attempt",
+            "Zone D: Accumulated Hit Attempt", "Mid Circle Zone: Accumulated Hit Attempt", "Level: " + levelName,
             "Time: " + currentTime
         };
         string rowDataString = string.Join(",", rowData);
