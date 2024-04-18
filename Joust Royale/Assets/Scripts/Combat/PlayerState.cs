@@ -70,6 +70,8 @@ public class PlayerState : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext context)
     {
+        if (ServiceLocator.instance.GetService<GameState>().states != GameState.GameStatesMachine.Playing) return;
+
         state = PLAYER_STATE.Attacking;
         Lance playerLance = playerController.lance.GetComponent<Lance>();
         playerLance.PlayTrail(true);
