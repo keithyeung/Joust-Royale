@@ -24652,6 +24652,16 @@ PrefabInstance:
       propertyPath: playerSpawnPositions.Array.data[3]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f32d4feced681d408fda48508cd3de5, type: 3}
+    - target: {fileID: 8246039315996157415, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[7].volume
+      value: 0.7
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5334730941765321034, guid: 2cd07c0716079254f9d6ef56ef1ea8fd, type: 3}
     m_RemovedGameObjects: []
