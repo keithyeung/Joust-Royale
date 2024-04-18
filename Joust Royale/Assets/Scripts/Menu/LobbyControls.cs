@@ -18,16 +18,13 @@ public class LobbyControls : Singleton<LobbyControls>
 
     public void HandlePlayerJoin(PlayerInput pi)
     {
-        Debug.Log("player joined " + pi.playerIndex);
         pi.transform.SetParent(transform);
         playerInputs.Add(pi);
         var pp = new PlayerProperty();
         pp.playerInput = pi;
         pp.device = pi.devices[0];
         pp.deviceName = pi.devices[0].name;
-        ServiceLocator.instance.GetService<PPStorage>().playerProperties.Add(pp);
-        Debug.Log("Storage size: " + ServiceLocator.instance.GetService<PPStorage>().playerProperties.Count);
-       
+        ServiceLocator.instance.GetService<PPStorage>().playerProperties.Add(pp);       
     }
 
     private void OnEnable()

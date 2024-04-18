@@ -47,13 +47,6 @@ public class Shield : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Lance"))
-        {
-            Debug.Log("Parry Shield is no longer detecting Lance");
-        }
-    }
     public void OnParry(InputAction.CallbackContext context)
     {
         if (shieldStatus != ShieldStatus.Idle) return;

@@ -45,7 +45,6 @@ public class PlayerManager : Singleton<PlayerManager>
             AddPlayer(playerInput);
         }
     }
-   
 
     public void Update()
     {

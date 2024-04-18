@@ -24495,7 +24495,7 @@ PrefabInstance:
     - target: {fileID: 609685306896164163, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
         type: 3}
       propertyPath: Playtesting
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3136038535484186119, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
         type: 3}
@@ -24590,7 +24590,7 @@ PrefabInstance:
     - target: {fileID: 4539695814598387199, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6857169022072756155, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
         type: 3}
