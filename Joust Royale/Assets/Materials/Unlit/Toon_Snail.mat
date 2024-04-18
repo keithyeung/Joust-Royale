@@ -131,7 +131,7 @@ Material:
     - _ZWriteControl: 0
     - _cell_size: 15
     - _fresnel_power: 1.65
-    - _morph_strenght: 0.06
+    - _morph_strenght: 0.002
     - _petal_amount: 1
     - _specular_multip: 1.5
     - _specular_power: 34

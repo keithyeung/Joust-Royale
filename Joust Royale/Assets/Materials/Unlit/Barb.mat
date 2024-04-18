@@ -129,7 +129,7 @@ Material:
     - _barb_thickness: 0.85
     - _blend_end: 1
     - _blend_start: 0
-    - _opacity: 4
+    - _opacity: 15
     - _thickness: 0.85
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
