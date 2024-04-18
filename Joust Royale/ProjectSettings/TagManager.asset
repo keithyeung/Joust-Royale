@@ -9,6 +9,7 @@ TagManager:
   - Armor
   - PU_Lance
   - PU_Shield
+  - Zones
   layers:
   - Default
   - TransparentFX

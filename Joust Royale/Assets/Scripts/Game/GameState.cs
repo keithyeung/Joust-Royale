@@ -6,6 +6,7 @@ public class GameState : Singleton<GameState>
 {
     PlayerManager playerManager;
     private int winCount;
+    public bool Playtesting = false;
     public enum GameStatesMachine { MainMenu, Playing, Ended};
     public GameStatesMachine states;
 
