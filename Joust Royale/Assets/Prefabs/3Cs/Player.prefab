@@ -2443,6 +2443,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5550151039451788824, guid: ed767e8d4d067f847a84863788351368,
         type: 3}
+      propertyPath: lengthInSec
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5550151039451788824, guid: ed767e8d4d067f847a84863788351368,
+        type: 3}
       propertyPath: ShapeModule.m_Scale.x
       value: 4.6740675
       objectReference: {fileID: 0}
@@ -2455,6 +2460,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ShapeModule.m_Scale.z
       value: 1.6915939
+      objectReference: {fileID: 0}
+    - target: {fileID: 5550151039451788824, guid: ed767e8d4d067f847a84863788351368,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
