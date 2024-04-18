@@ -24495,7 +24495,7 @@ PrefabInstance:
     - target: {fileID: 609685306896164163, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
         type: 3}
       propertyPath: Playtesting
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3136038535484186119, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
         type: 3}
