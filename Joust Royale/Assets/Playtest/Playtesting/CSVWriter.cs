@@ -14,6 +14,7 @@ public class CSVWriter : MonoBehaviour
     void Awake()
     {
         fileName = "C:/Users/keith/Documents/GitHub/Joust-Royale/Joust Royale/Assets/Playtest/PlayerData.csv";
+        //Application.dataPath + "/Playtest/PlayerData.csv";
         headerWritten = false;
     }
 

@@ -9,6 +9,7 @@ public class LobbyControls : Singleton<LobbyControls>
 {
     public List<PlayerInput> playerInputs = new List<PlayerInput>();
     PlayerInputManager playerInputManager;
+    public string SceneName;
 
     private void Awake()
     {
@@ -44,7 +45,7 @@ public class LobbyControls : Singleton<LobbyControls>
         //pp_inStorage.Count == playerInputManager.playerCount &&
         if (pp_inStorage.All(p => p.isReady == true))
         {
-            SceneManager.LoadScene("Playtest_B");
+            SceneManager.LoadScene(SceneName);
             //ServiceLocator.instance.GetService<GameState>().states = GameState.GameStatesMachine.Playing; // put this in the next scene instead.
         }
     }

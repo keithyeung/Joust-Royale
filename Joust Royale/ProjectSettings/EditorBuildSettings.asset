@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Keith/Lobby.unity
     guid: f3fe19b499cb6a745a3ba0acb71b9efe
   - enabled: 1
-    path: Assets/Scenes/Keith/Playtest_B.unity
+    path: Assets/Scenes/Keith/Playtest.unity
     guid: 8f2dbde6e43789e4294b64830e97f558
   m_configObjects: {}
