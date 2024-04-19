@@ -50,8 +50,6 @@ public class PlayerController : MonoBehaviour
 
     //Playtest
     public float standStillTime = 0f;
-    //[HideInInspector]
-    //public string ZoneName = "None";
 
     private void Start()
     {
