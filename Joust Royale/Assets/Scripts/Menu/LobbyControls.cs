@@ -9,6 +9,8 @@ public class LobbyControls : Singleton<LobbyControls>
 {
     public List<PlayerInput> playerInputs = new List<PlayerInput>();
     PlayerInputManager playerInputManager;
+
+    [Header("Scene name has to be exactly the SAME!")]
     public string SceneName;
 
     private void Awake()
