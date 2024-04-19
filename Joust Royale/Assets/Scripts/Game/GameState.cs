@@ -12,10 +12,10 @@ public class GameState : Singleton<GameState>
 
     private void Awake()
     {
+        SingletonBuilder(this);
         playerManager = ServiceLocator.instance.GetService<PlayerManager>();
         states = GameStatesMachine.Playing;
         ServiceLocator.instance.GetService<AudioManager>().Play("BGM");
-        SingletonBuilder(this);
     }
 
     private void Start()

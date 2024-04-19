@@ -13,7 +13,7 @@ public class CSVWriter : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        fileName = Application.dataPath + "/Playtest/PlayerData.csv";
+        fileName = "C:/Users/keith/Documents/GitHub/Joust-Royale/Joust Royale/Assets/Playtest/PlayerData.csv";
         headerWritten = false;
     }
 
