@@ -17,6 +17,7 @@ public class PlayerManager : Singleton<PlayerManager>
     [SerializeField] private List<GameObject> plumagePrefabList;
     
     private List<Transform> playerSpawnPositions = new List<Transform>();
+    public string levelName; 
 
     [SerializeField] private Camera mainCamera;
 
@@ -73,6 +74,7 @@ public class PlayerManager : Singleton<PlayerManager>
     public void SpawnPointsPrefixs()
     {
         GameObject spawnPointsParent = GameObject.Find("SpawnPointsFamily");
+        levelName = spawnPointsParent.transform.parent.name;
 
         // Check if the GameObject was found
         if (spawnPointsParent != null && spawnPointsParent.activeInHierarchy)

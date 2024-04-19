@@ -16,16 +16,7 @@ public class TestController : MonoBehaviour
     public int accumulatedHits = 0;
     [HideInInspector]
     public int accumulatedHitsReceived = 0;
-    //[HideInInspector]
-    //public int accumulated_ZoneA_Interactions = 0;
-    //[HideInInspector]
-    //public int accumulated_ZoneB_Interactions = 0;
-    //[HideInInspector]
-    //public int accumulated_ZoneC_Interactions = 0;
-    //[HideInInspector]
-    //public int accumulated_ZoneD_Interactions = 0;
-    //[HideInInspector]
-    //public int accumulated_MidCircle_Interactions = 0;
+    
 
     private void Start()
     {
@@ -106,13 +97,6 @@ public class TestController : MonoBehaviour
         int zoneC_Engagement = zoneInteractions["Zone_C"];
         int zoneD_Engagement = zoneInteractions["Zone_D"];
         int zoneMiddleCircle_Engagement = zoneInteractions["MiddleCircleZone"];
-
-        Debug.Log(GetComponentInParent<PlayerController>().gameObject.name);
-        Debug.Log("Zone A Interaction: " + zoneA_Engagement);
-        Debug.Log("Zone B Interaction: " + zoneB_Engagement);
-        Debug.Log("Zone C Interaction: " + zoneC_Engagement);
-        Debug.Log("Zone D Interaction: " + zoneD_Engagement);
-        Debug.Log("Zone Middle Circle Interaction: " + zoneMiddleCircle_Engagement);
     }
 
     private void Update()

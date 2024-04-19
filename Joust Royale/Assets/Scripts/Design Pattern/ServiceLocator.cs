@@ -10,6 +10,7 @@ public class ServiceLocator : Singleton<ServiceLocator>
     {
         SingletonBuilder(this);
         serviceReferences = new Dictionary<Type, MonoBehaviour>();
+        DontDestroyOnLoad(gameObject);
     }
 
     public T GetService<T>() where T : MonoBehaviour, new()
