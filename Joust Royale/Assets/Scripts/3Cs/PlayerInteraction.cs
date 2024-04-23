@@ -19,6 +19,14 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
+    //private void OnCollisionEnter(Collision other)
+    //{
+    //    if (other.gameObject.CompareTag("Wall"))
+    //    {
+
+    //    }
+    //}
+
 
     //public void CheckCurrentZone(Collider other)
     //{
