@@ -30,12 +30,10 @@ public class CSVWriter : MonoBehaviour
                 if(!headerWritten)
                 {
                     WriteCSVHeader(tw);
-                    Debug.Log("Wrote Header");
                 }
                 foreach (PlayerInput player in players)
                 {
                     WritePlayerData(tw, player);
-                    Debug.Log("Wrote Context");
                 }
             }
         }
@@ -96,9 +94,4 @@ public class CSVWriter : MonoBehaviour
 
         tw.WriteLine(rowDataString);
     }
-
-    //private void ZoneData(PlayerInput player)
-    //{
-    //    var playtestVariable = player.GetComponentInChildren<TestController>();
-    //}
 }

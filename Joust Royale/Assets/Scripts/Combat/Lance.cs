@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class Lance : MonoBehaviour
@@ -92,8 +93,10 @@ public class Lance : MonoBehaviour
             Color plumeColor = opponentPlumageManager.StealPlume();
             plumageManager.AddPlume(plumeColor);
             ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
-
         }
+
+        //Comment this out until Friday 26/4/2024
+        //ServiceLocator.instance.GetService<GameState>().CheckForCrown();
     }
 
     private void HandleShieldCollision(Collider other)
@@ -114,16 +117,5 @@ public class Lance : MonoBehaviour
         }
     }
 
-    public void PlayTrail(bool play)
-    {
-        if (play)
-        {
-            trail.Play();
-
-        }
-        else
-        {
-            trail.Stop();
-        }
-    }
+    public void PlayTrail(bool play) { if (play) trail.Play(); else trail.Stop(); }
 }

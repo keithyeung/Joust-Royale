@@ -44,11 +44,9 @@ public class LobbyControls : Singleton<LobbyControls>
     {
         var pp_inStorage = ServiceLocator.instance.GetService<PPStorage>().playerProperties;
         pp_inStorage[index].isReady = true;
-        //pp_inStorage.Count == playerInputManager.playerCount &&
         if (pp_inStorage.All(p => p.isReady == true))
         {
             SceneManager.LoadScene(SceneName);
-            //ServiceLocator.instance.GetService<GameState>().states = GameState.GameStatesMachine.Playing; // put this in the next scene instead.
         }
     }
 }
