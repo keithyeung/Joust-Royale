@@ -206,7 +206,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard;Mouse"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -228,7 +228,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/press"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard;Mouse"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""AttackMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -239,7 +239,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard;Mouse"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""AttackMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

@@ -33,7 +33,7 @@ public class GameState : Singleton<GameState>
         }
         foreach (var player in playerManager.players)
         {
-            
+            //UpdateWinCount();
             if (player.GetComponent<PlumageManager>().GetPlumageCount() >= winCount)
             {
                 states = GameStatesMachine.Ended;

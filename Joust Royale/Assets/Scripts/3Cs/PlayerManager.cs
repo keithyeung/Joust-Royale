@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerManager : Singleton<PlayerManager>
 {
-    
     [SerializeField]
     private readonly int maxPlayer = 4;
 
@@ -26,18 +25,35 @@ public class PlayerManager : Singleton<PlayerManager>
     private PlayerInputManager playerInputManager;
     private string[] names = { "Player Red", "Player Blue", "Player Yellow", "Player Green"};
 
+    //[Header("Developer Mode")]
+    //[SerializeField] private bool developerMode = false;
+
     private void Awake()
     {
         playerInputManager = GetComponent<PlayerInputManager>();
         SingletonBuilder(this);
         SpawnPointsPrefixs();
-        LoadPlayer();
-        ServiceLocator.instance.GetService<PPStorage>().ClearPlayerProperties();
+
+        if(FindAnyObjectByType<PPStorage>() != null)
+        {
+            var playerList = ServiceLocator.instance.GetService<PPStorage>().playerProperties;
+            if(playerList.Count > 0)
+            LoadPlayer();
+            ServiceLocator.instance.GetService<PPStorage>()?.ClearPlayerProperties();
+        }
+        else
+        {
+            playerInputManager.EnableJoining();
+            playerInputManager.joinBehavior = PlayerJoinBehavior.JoinPlayersWhenButtonIsPressed;
+            playerInputManager.onPlayerJoined += AddPlayer;
+        }
     }
 
     private void LoadPlayer()
     {
         var playerList = ServiceLocator.instance.GetService<PPStorage>().playerProperties;
+
+        if (playerList == null) return;
 
         for (int i = 0; i < playerList.Count; i++)
         {
@@ -45,6 +61,7 @@ public class PlayerManager : Singleton<PlayerManager>
             playerInput.SwitchCurrentControlScheme(playerList[i].device); // Replace the problematic line
             AddPlayer(playerInput);
         }
+        playerInputManager.DisableJoining();
     }
 
     public void Update()
@@ -57,6 +74,7 @@ public class PlayerManager : Singleton<PlayerManager>
 
     public void AddPlayer(PlayerInput player)
     {
+        
         player.transform.position = new Vector3(0f, 0f, 0f);
         players.Add(player);
         Debug.Log("Player Joined" + player.playerIndex);
@@ -69,6 +87,11 @@ public class PlayerManager : Singleton<PlayerManager>
         SetPlayerInputHandler(player);
         SetPlayerColor(playerParent);
         SetPlayerPlumagePrefab(player);
+
+        if (playerInputManager.joinBehavior == PlayerJoinBehavior.JoinPlayersWhenButtonIsPressed)
+        {
+            ServiceLocator.instance.GetService<GameState>().UpdateWinCount();
+        }
     }
 
     public void SpawnPointsPrefixs()
