@@ -94,7 +94,7 @@ public class PlumageManager : MonoBehaviour
             return;
         }
 
-        Transform transform = GetComponent<Transform>();
+        Transform transform = plumeTransform;//GetComponent<Transform>();
         Vector3 playerRotation = transform.rotation.eulerAngles;
         float plumeSpacing = spreadAngle / (plumeCount + 1);
         float startAngle = -(spreadAngle * 0.5f) + plumeSpacing;
