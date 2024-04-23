@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField] private float jumpHeight = 1.0f;
+
     [SerializeField] private float gravityValue = -9.81f;
 
     [Header("Movement Related")]
@@ -21,11 +21,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float currentSpeed = 0f;
     [SerializeField] private ParticleSystem trail;
 
-    [Header("Horse tilting Related")]
-    [SerializeField] public float maxTiltAngle = 30f; // Maximum angle the motorcycle can tilt
-    [SerializeField] public float minTiltSpeed = 5f;  // Minimum tilt speed
-    [SerializeField] public float maxTiltSpeed = 15f; // Maximum tilt speed
-    [SerializeField] public float speedMultiplier = 0.1f; // Multiplier to control the effect of speed on tilt speed
+    [Header("Tilting Related")]
+    [SerializeField] private float maxTiltAngle = 30f; // Maximum angle the motorcycle can tilt
 
     [Header("Equipments")]
     [SerializeField] public GameObject lance;
@@ -39,7 +36,7 @@ public class PlayerController : MonoBehaviour
     private bool groundedPlayer;
 
     private Vector2 movementInput;
-    private float targetSpeed = 0f;
+
 
     //Game State
     [SerializeField] private PlayerState playerState;
@@ -117,7 +114,6 @@ public class PlayerController : MonoBehaviour
 
     public void HandleMovement()
     {
-
         if(playerState.state == PLAYER_STATE.Attacking)
         {
             ApplyAttackMovement();
@@ -134,13 +130,14 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyAttackMovement()
     {
+
         currentSpeed += AttackingAcceleration * Time.deltaTime;
         currentSpeed = Mathf.Clamp(currentSpeed, 0f, AttackingMaxSpeed);
     }
 
     private void ApplyRegularMovement()
     {
-        targetSpeed = movementInput.y * maxSpeed;
+        var targetSpeed = movementInput.y * maxSpeed;
         currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.deltaTime);
         DecelerateIfNoInput();
     }
@@ -155,25 +152,16 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyRotation()
     {
-        //float up_rotation = movementInput.x * rotationSpeed * Time.deltaTime;
-        //transform.Rotate(Vector3.up * up_rotation);
-
         float turnInput = movementInput.x;
         float rotationAngle = turnInput * rotationSpeed * Time.deltaTime;
         Quaternion rotation = Quaternion.AngleAxis(rotationAngle, Vector3.up);
+        Quaternion tilt = GetTiltQuaternion();
 
-        Quaternion tilt = GetHorseTilt();
-
-      
-        //transform.rotation = transform.rotation * rotation;
         transform.rotation = Quaternion.Lerp(transform.rotation * rotation, tilt, Time.deltaTime * 5f);
         transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
-
-
-
     }
 
-    private Quaternion GetHorseTilt()
+    private Quaternion GetTiltQuaternion()
     {
         float turnInput = movementInput.x;
         float targetTiltAngle = Mathf.Lerp(0, maxTiltAngle, currentSpeed) * turnInput;
@@ -185,13 +173,8 @@ public class PlayerController : MonoBehaviour
 
         targetTiltAngle = Mathf.Clamp(targetTiltAngle, -maxTiltAngle, maxTiltAngle);
         Quaternion targetRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, -targetTiltAngle);
-        //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
         return targetRotation;
     }
-
-
-
-
 
     private void ApplyMovement()
     {
@@ -205,17 +188,6 @@ public class PlayerController : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
     }
 
-    public void PlayTrail(bool play)
-    {
-        if (play)
-        {
-            trail.Play();
-
-        }
-        else
-        {
-            trail.Stop();
-        }
-    }
+    public void PlayTrail(bool play) { if (play) trail.Play(); else trail.Stop(); }
 
 }
