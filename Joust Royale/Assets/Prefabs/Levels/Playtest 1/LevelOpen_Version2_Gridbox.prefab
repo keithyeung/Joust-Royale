@@ -58,6 +58,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 99161438782281036, guid: d7bf3ede88418d74686048c1d3020bc0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5bf992e3ad078d244863c45bfafe19dd, type: 2}
     - target: {fileID: 6434475598365301295, guid: d7bf3ede88418d74686048c1d3020bc0,
         type: 3}
       propertyPath: m_Name
@@ -206,6 +211,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 99161438782281036, guid: d7bf3ede88418d74686048c1d3020bc0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ede291bc92bec4c4a906b645e156c5e2, type: 2}
     - target: {fileID: 6434475598365301295, guid: d7bf3ede88418d74686048c1d3020bc0,
         type: 3}
       propertyPath: m_Name
@@ -230,6 +240,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 302412047256876249, guid: a58419296d42c524e8262a2f683cd3fa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9a6292a06c89b3e4fb125a0294011bd7, type: 2}
     - target: {fileID: 522990091861945020, guid: a58419296d42c524e8262a2f683cd3fa,
         type: 3}
       propertyPath: m_VersionIndex
@@ -300,6 +315,11 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 61
       objectReference: {fileID: 0}
+    - target: {fileID: 3353401912524130203, guid: a58419296d42c524e8262a2f683cd3fa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9f443987690beee4c97529dbb8692f12, type: 2}
     - target: {fileID: 3511589500247325928, guid: a58419296d42c524e8262a2f683cd3fa,
         type: 3}
       propertyPath: m_VersionIndex
@@ -14720,11 +14740,21 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 330
       objectReference: {fileID: 0}
+    - target: {fileID: 6378960071371431995, guid: a58419296d42c524e8262a2f683cd3fa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: afbb36476f66d484aa0e95c587b16ca2, type: 2}
     - target: {fileID: 6384560313443069282, guid: a58419296d42c524e8262a2f683cd3fa,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: fe878f2b07e4a4b408b8bd709bcd364c, type: 2}
+    - target: {fileID: 6589174654248149489, guid: a58419296d42c524e8262a2f683cd3fa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 92af3bb0d1c779a4ca2f155a59860323, type: 2}
     - target: {fileID: 6630196142323224210, guid: a58419296d42c524e8262a2f683cd3fa,
         type: 3}
       propertyPath: m_VersionIndex
