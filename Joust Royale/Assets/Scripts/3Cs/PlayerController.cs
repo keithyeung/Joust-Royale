@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public GameObject torso;
     [SerializeField] public GameObject frontHorseCape;
     [SerializeField] public GameObject backHorseCape;
+    [SerializeField] public GameObject crown;
 
     private CharacterController controller;
     private Vector3 playerVelocity;
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         controller = gameObject.GetComponent<CharacterController>();
         playerState = GetComponent<PlayerState>();
+        crown.SetActive(false);
     }
 
     public void OnMove(InputAction.CallbackContext context)

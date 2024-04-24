@@ -1,14 +1,14 @@
-Player Name, Final Player Plumage ,Accumulated Attempt to hit,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Zone A: Accumulated Hit Attempt,Zone B: Accumulated Hit Attempt,Zone C: Accumulated Hit Attempt,Zone D: Accumulated Hit Attempt,Mid Circle Zone: Accumulated Hit Attempt,Level: LevelOpen_Version2_Gridbox,Time: 18/4/2024 5:10:39 PM
+Player Color, Final Plumage ,Accumulated Attempt to hit,Accumulated PlayerHit,Accumulated PlayerHitReceived,Accumulated Player Standing Still Time,Zone A: Accumulated Hit Attempt,Zone B: Accumulated Hit Attempt,Zone C: Accumulated Hit Attempt,Zone D: Accumulated Hit Attempt,Mid Circle Zone: Accumulated Hit Attempt,Level: LevelOpen_Version2_Gridbox,Time: 18/4/2024 5:10:39 PM
 Player Red,2,51,7,10,1.908588,16,9,7,8,11,,
 Player Blue,5,51,11,9,0.9620375,10,12,10,8,11,,
 Player Yellow,5,54,14,10,2.988462,17,12,7,6,12,,
 Player Green,0,18,2,5,13.34201,3,7,4,1,3,,
-Player Name, Final Player Plumage ,Accumulated Attempt to hit,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Zone A: Accumulated Hit Attempt,Zone B: Accumulated Hit Attempt,Zone C: Accumulated Hit Attempt,Zone D: Accumulated Hit Attempt,Mid Circle Zone: Accumulated Hit Attempt,Level: SymmetryArena_A,Time: 18/4/2024 5:16:28 PM
+Player Name, Final Plumage ,Accumulated Attempt to hit,Accumulated PlayerHit,Accumulated PlayerHitReceived,Accumulated Player Standing Still Time,Zone A: Accumulated Hit Attempt,Zone B: Accumulated Hit Attempt,Zone C: Accumulated Hit Attempt,Zone D: Accumulated Hit Attempt,Mid Circle Zone: Accumulated Hit Attempt,Level: SymmetryArena_A,Time: 18/4/2024 5:16:28 PM
 Player Red,5,43,10,8,0.866676,2,1,0,4,36,,
 Player Blue,4,30,14,13,1.247467,1,1,6,5,17,,
 Player Yellow,3,37,14,14,2.921244,1,1,1,9,25,,
 Player Green,0,39,6,9,1.447186,3,0,0,7,29,,
-Player Name, Final Player Plumage ,Accumulated Attempt to hit,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Zone A: Accumulated Hit Attempt,Zone B: Accumulated Hit Attempt,Zone C: Accumulated Hit Attempt,Zone D: Accumulated Hit Attempt,Mid Circle Zone: Accumulated Hit Attempt,Level: AsymmetryArena_B,Time: 18/4/2024 5:20:32 PM
+Player Name, Final Plumage ,Accumulated Attempt to hit,Accumulated PlayerHit,Accumulated PlayerHitReceived ,Accumulated Player Standing Still Time,Zone A: Accumulated Hit Attempt,Zone B: Accumulated Hit Attempt,Zone C: Accumulated Hit Attempt,Zone D: Accumulated Hit Attempt,Mid Circle Zone: Accumulated Hit Attempt,Level: AsymmetryArena_B,Time: 18/4/2024 5:20:32 PM
 Player Red,6,37,11,8,0.8077339,5,5,0,9,18,,
 Player Blue,3,57,11,9,0.2198806,4,9,0,20,24,,
 Player Yellow,2,65,9,8,1.965244,10,9,0,17,29,,

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameState : Singleton<GameState>
 {
@@ -9,6 +10,7 @@ public class GameState : Singleton<GameState>
     public bool Playtesting = false;
     public enum GameStatesMachine { MainMenu, Playing, Ended};
     public GameStatesMachine states;
+
 
     private void Awake()
     {
@@ -33,8 +35,7 @@ public class GameState : Singleton<GameState>
         }
         foreach (var player in playerManager.players)
         {
-            //UpdateWinCount();
-            if (player.GetComponent<PlumageManager>().GetPlumageCount() >= winCount)
+            if (player.GetComponent<PlumageManager>()?.GetPlumageCount() >= winCount)
             {
                 states = GameStatesMachine.Ended;
                 ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
@@ -46,5 +47,41 @@ public class GameState : Singleton<GameState>
     public void UpdateWinCount()
     {
         winCount = playerManager.players.Count * 2 + 1;
+    }
+
+    public void CheckForCrown()
+    {
+        PlayerInput playerWithMostPlumages = null;
+        int maxPlumages = 0;
+
+        foreach (var player in playerManager.players)
+        {
+            int playerPlumages = player.GetComponent<PlumageManager>().GetPlumageCount();
+            if (playerPlumages > maxPlumages)
+            {
+                maxPlumages = playerPlumages;
+                playerWithMostPlumages = player;
+            }
+        }
+
+        // Deactivate all crowns
+        foreach (var player in playerManager.players)
+        {
+            GameObject crown = player.GetComponent<PlayerController>().crown;
+            if (crown != null)
+            {
+                crown.SetActive(false);
+            }
+        }
+
+        // Activate the crown for the player with the most plumages
+        if (playerWithMostPlumages != null)
+        {
+            GameObject crown = playerWithMostPlumages.GetComponent<PlayerController>().crown;
+            if (crown != null)
+            {
+                crown.SetActive(true);
+            }
+        }
     }
 }
