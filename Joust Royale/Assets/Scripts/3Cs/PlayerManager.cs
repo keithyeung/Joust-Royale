@@ -180,23 +180,18 @@ public class PlayerManager : Singleton<PlayerManager>
             GameObject temptorso = playerParentTransform.GetComponentInChildren<PlayerController>().torso;
             GameObject tempFrontHorseCape = playerParentTransform.GetComponentInChildren<PlayerController>().frontHorseCape;
             GameObject tempBackHorseCape = playerParentTransform.GetComponentInChildren<PlayerController>().backHorseCape;
-            GameObject tempLance = playerParentTransform.GetComponentInChildren<PlayerController>().lance;
-            GameObject tempShield = playerParentTransform.GetComponentInChildren<PlayerController>().shield;
             temptorso.GetComponent<Renderer>().material = playerMaterials[materialIndex];
             tempFrontHorseCape.GetComponent<Renderer>().material = playerMaterials[materialIndex];
             tempBackHorseCape.GetComponent<Renderer>().material = playerMaterials[materialIndex];
-            tempLance.GetComponent<Renderer>().material = playerMaterials[materialIndex];
+
+            //Lance
+            GameObject tempLance = playerParentTransform.GetComponentInChildren<PlayerController>().lance;
+            GameObject tempShield = playerParentTransform.GetComponentInChildren<PlayerController>().shield;
+            tempLance.GetComponent<Renderer>().material.SetColor("_color", playerMaterials[materialIndex].GetColor("_color"));
+            tempLance.GetComponent<Renderer>().material.SetColor("_base_color", playerMaterials[materialIndex].GetColor("_base_color"));
+
+            //Shield
             tempShield.GetComponent<Renderer>().material = playerMaterials[materialIndex];
         }
     }
-
-    //public void ReadyPlayer(int index)
-    //{
-    //    playerConfigs[index].IsReady = true;
-    //    if(playerConfigs.Count == maxPlayer && playerConfigs.All(p => p.IsReady ==true))
-    //    {
-    //        // Or SceneManager.LoadScene(SceneName);
-    //        ServiceLocator.instance.GetService<GameState>().states = GameState.GameStatesMachine.Playing;
-    //    }
-    //}
 }
