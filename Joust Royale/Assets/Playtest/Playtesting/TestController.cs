@@ -8,8 +8,6 @@ using UnityEngine.InputSystem;
 
 public class TestController : MonoBehaviour
 {
-    
-
     [HideInInspector]
     public int accumulatedInteractions = 0;
     [HideInInspector]
@@ -17,7 +15,6 @@ public class TestController : MonoBehaviour
     [HideInInspector]
     public int accumulatedHitsReceived = 0;
     
-
     private void Start()
     {
         triggerColliderAssignment();
@@ -46,20 +43,20 @@ public class TestController : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if(other.gameObject.CompareTag("Player"))
-        {
-            if(other.gameObject.GetComponent<PlayerState>().state != PLAYER_STATE.Attacking 
-                               && gameObject.GetComponentInParent<PlayerState>().state != PLAYER_STATE.Attacking) return;
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if(other.gameObject.CompareTag("Player"))
+    //    {
+    //        if(other.gameObject.GetComponent<PlayerState>().state != PLAYER_STATE.Attacking 
+    //                           && gameObject.GetComponentInParent<PlayerState>().state != PLAYER_STATE.Attacking) return;
 
-        }
-    }
+    //    }
+    //}
 
     private void HandleZoneData(Collider other)
     {
         IsPositionInsideCollider(transform.position);
-        other.gameObject.GetComponentInChildren<TestController>().IsPositionInsideCollider(other.transform.position);
+        other.gameObject.GetComponentInChildren<TestController>()?.IsPositionInsideCollider(other.transform.position);
         if (zoneInteractions.ContainsKey(WHereIm))
         {
             zoneInteractions[WHereIm]++;
