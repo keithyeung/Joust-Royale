@@ -13,3 +13,21 @@ Player Red,2,68,8,10,0.9994192,0,0,0,0,0,,
 Player Blue,1,51,6,9,0.9158586,0,0,0,0,0,,
 Player Yellow,5,49,10,7,0.9195954,0,0,0,0,0,,
 Player Green,4,49,10,8,0.9597952,0,0,0,0,0,,
+Player Name, Final Player Plumage ,Accumulated Attempt to hit,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Zone A: Accumulated Hit Attempt,Zone B: Accumulated Hit Attempt,Zone C: Accumulated Hit Attempt,Zone D: Accumulated Hit Attempt,Mid Circle Zone: Accumulated Hit Attempt,Level: LevelOpen_Version2_Gridbox,Time: 24/4/2024 4:05:17 PM
+Player Red,2,48,8,9,6.812894,4,3,4,5,32
+Player Blue,3,57,7,7,2.977823,2,3,8,4,40
+Player Yellow,4,57,8,7,4.066767,5,3,7,5,37
+Player Green,3,62,6,6,1.206944,3,8,6,5,40
+Player Name, Final Player Plumage ,Accumulated Attempt to hit,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Zone A: Accumulated Hit Attempt,Zone B: Accumulated Hit Attempt,Zone C: Accumulated Hit Attempt,Zone D: Accumulated Hit Attempt,Mid Circle Zone: Accumulated Hit Attempt,Level: Asymmetry Map A,Time: 24/4/2024 4:12:36 PM
+Player Red,0,42,7,10,0.9996829,7,5,0,6,24
+Player Blue,9,47,14,8,3.892586,11,3,0,6,27
+Player Yellow,0,38,4,6,3.736526,9,8,0,7,14
+Player Green,3,47,7,8,1.258335,9,8,0,10,20
+Player Name, Final Player Plumage ,Accumulated Attempt to hit,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Zone A: Accumulated Hit Attempt,Zone B: Accumulated Hit Attempt,Zone C: Accumulated Hit Attempt,Zone D: Accumulated Hit Attempt,Mid Circle Zone: Accumulated Hit Attempt,Level: Asymmetry Map A,Time: 24/4/2024 4:21:30 PM
+Player Red,3,2,0,0,9.313033,0,0,0,0,2
+Player Blue,3,3,0,0,5.529608,0,0,0,1,2
+Player Name, Final Player Plumage ,Accumulated Attempt to hit,Accumulated PlayerHit Number,Accumulated PlayerHitReceived Number,Accumulated Player Standing Still Time,Zone A: Accumulated Hit Attempt,Zone B: Accumulated Hit Attempt,Zone C: Accumulated Hit Attempt,Zone D: Accumulated Hit Attempt,Mid Circle Zone: Accumulated Hit Attempt,Level: Asymmetry Map A,Time: 24/4/2024 4:29:24 PM
+Player Red,1,13,5,7,7.455863,2,3,0,2,6
+Player Blue,3,31,7,7,12.50161,5,4,0,6,16
+Player Yellow,4,31,9,8,4.592521,4,7,0,2,18
+Player Green,4,12,3,2,50.99115,0,1,0,2,9
