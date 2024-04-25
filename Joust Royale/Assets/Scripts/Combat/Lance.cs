@@ -95,7 +95,7 @@ public class Lance : MonoBehaviour
             ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
         }
 
-        //ServiceLocator.instance.GetService<GameState>().CheckForCrown();
+        ServiceLocator.instance.GetService<GameState>().CheckForCrown();
     }
 
     private void HandleShieldCollision(Collider other)

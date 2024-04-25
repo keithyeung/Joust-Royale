@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameState : Singleton<GameState>
 {
@@ -42,12 +43,24 @@ public class GameState : Singleton<GameState>
                 //ServiceLocator.instance.GetService<AudioManager>().Play("Victory");
             }
         }
+
+        if(states == GameStatesMachine.Ended)
+        {
+            //if pressed space
+
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            {
+                SceneManager.LoadScene("Lobby");
+                Debug.Log("Back to Lobby");
+            }
+        }
     }
 
     public void UpdateWinCount()
     {
         winCount = playerManager.players.Count * 2 + 1;
     }
+
 
     public void CheckForCrown()
     {
