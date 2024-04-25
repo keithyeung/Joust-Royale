@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Keith/Playtest.unity
     guid: 8f2dbde6e43789e4294b64830e97f558
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Henrik.unity
     guid: 1dfb68d284f6faa4396c2d1bbe0f8d19
+  - enabled: 0
+    path: Assets/Scenes/Keith/Development Area.unity
+    guid: ce6607341f40ff14e9d8c080aae59f17
   m_configObjects: {}

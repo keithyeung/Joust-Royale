@@ -95,7 +95,6 @@ public class Lance : MonoBehaviour
             ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
         }
 
-        //Comment this out until Friday 26/4/2024
         //ServiceLocator.instance.GetService<GameState>().CheckForCrown();
     }
 
