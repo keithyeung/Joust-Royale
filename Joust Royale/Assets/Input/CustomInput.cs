@@ -98,6 +98,15 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""BackToLobby"",
+                    ""type"": ""Button"",
+                    ""id"": ""2191cee3-2727-46f6-91bd-2cd0265651ec"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -298,6 +307,17 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""308a07d8-5967-4988-bc7e-d2ed075686db"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BackToLobby"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -348,6 +368,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         m_Player_Parry = m_Player.FindAction("Parry", throwIfNotFound: true);
         m_Player_Block = m_Player.FindAction("Block", throwIfNotFound: true);
         m_Player_Select = m_Player.FindAction("Select", throwIfNotFound: true);
+        m_Player_BackToLobby = m_Player.FindAction("BackToLobby", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -417,6 +438,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Parry;
     private readonly InputAction m_Player_Block;
     private readonly InputAction m_Player_Select;
+    private readonly InputAction m_Player_BackToLobby;
     public struct PlayerActions
     {
         private @CustomInput m_Wrapper;
@@ -429,6 +451,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         public InputAction @Parry => m_Wrapper.m_Player_Parry;
         public InputAction @Block => m_Wrapper.m_Player_Block;
         public InputAction @Select => m_Wrapper.m_Player_Select;
+        public InputAction @BackToLobby => m_Wrapper.m_Player_BackToLobby;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -462,6 +485,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Select.started += instance.OnSelect;
             @Select.performed += instance.OnSelect;
             @Select.canceled += instance.OnSelect;
+            @BackToLobby.started += instance.OnBackToLobby;
+            @BackToLobby.performed += instance.OnBackToLobby;
+            @BackToLobby.canceled += instance.OnBackToLobby;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -490,6 +516,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Select.started -= instance.OnSelect;
             @Select.performed -= instance.OnSelect;
             @Select.canceled -= instance.OnSelect;
+            @BackToLobby.started -= instance.OnBackToLobby;
+            @BackToLobby.performed -= instance.OnBackToLobby;
+            @BackToLobby.canceled -= instance.OnBackToLobby;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -544,5 +573,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         void OnParry(InputAction.CallbackContext context);
         void OnBlock(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
+        void OnBackToLobby(InputAction.CallbackContext context);
     }
 }
