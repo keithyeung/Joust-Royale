@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 4679943088554534709}
   - component: {fileID: 3592013026388149373}
   m_Layer: 5
-  m_Name: PlumesNumber (2)
+  m_Name: Hits made
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 2500007989105084228}
   - component: {fileID: 6107726686376114417}
   m_Layer: 5
-  m_Name: PlumesNumber (1)
+  m_Name: AttemptsToHit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 1316405996274143329}
   - component: {fileID: 1593124106905494950}
   m_Layer: 5
-  m_Name: PlumesNumber (1)
+  m_Name: AttemptsToHit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -548,7 +548,7 @@ GameObject:
   - component: {fileID: 7338848212770547007}
   - component: {fileID: 4773848337708488260}
   m_Layer: 5
-  m_Name: PlumesNumber (2)
+  m_Name: Hits made
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -682,7 +682,7 @@ GameObject:
   - component: {fileID: 5698000059246203252}
   - component: {fileID: 7606759525882136833}
   m_Layer: 5
-  m_Name: PlumesNumber (3)
+  m_Name: Parried
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -816,7 +816,7 @@ GameObject:
   - component: {fileID: 3652434619669321766}
   - component: {fileID: 5989970024852600954}
   m_Layer: 5
-  m_Name: HitMade
+  m_Name: ST_HitMade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -950,7 +950,7 @@ GameObject:
   - component: {fileID: 9095204714453418450}
   - component: {fileID: 3221950350465282510}
   m_Layer: 5
-  m_Name: PlumesNumber (3)
+  m_Name: Parried
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1320,7 +1320,7 @@ GameObject:
   - component: {fileID: 9212921264076573591}
   - component: {fileID: 1617343870227081767}
   m_Layer: 5
-  m_Name: PlumesNumber (1)
+  m_Name: AttemptsToHit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1454,7 +1454,7 @@ GameObject:
   - component: {fileID: 6244138059392847360}
   - component: {fileID: 8972648690403130497}
   m_Layer: 5
-  m_Name: PlumesNumber (2)
+  m_Name: Hits made
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1666,7 +1666,7 @@ GameObject:
   - component: {fileID: 1072329155871556041}
   - component: {fileID: 6394839845666902}
   m_Layer: 5
-  m_Name: PlumesNumber (1)
+  m_Name: AttemptsToHit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1800,7 +1800,7 @@ GameObject:
   - component: {fileID: 5182273723583174468}
   - component: {fileID: 1377610069695071363}
   m_Layer: 5
-  m_Name: PlumesNumber (3)
+  m_Name: Parried
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1934,7 +1934,7 @@ GameObject:
   - component: {fileID: 3030944302063522389}
   - component: {fileID: 266265169451573103}
   m_Layer: 5
-  m_Name: PlumesNumber (3)
+  m_Name: Parried
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2825,7 +2825,7 @@ GameObject:
   - component: {fileID: 4397030715926029650}
   - component: {fileID: 8161149598688892972}
   m_Layer: 5
-  m_Name: AttemptToHit
+  m_Name: ST_AttemptToHit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2961,7 +2961,7 @@ GameObject:
   - component: {fileID: 6038605924680575757}
   - component: {fileID: 3497036693742172604}
   m_Layer: 5
-  m_Name: Parried
+  m_Name: ST_Parried
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3095,7 +3095,7 @@ GameObject:
   - component: {fileID: 1734428399156517350}
   - component: {fileID: 5498435370673127105}
   m_Layer: 5
-  m_Name: Plumes
+  m_Name: ST_Plumes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3227,7 +3227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8414991110817908008}
   m_Layer: 5
-  m_Name: PlayerColors
+  m_Name: Players
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3268,7 +3268,7 @@ GameObject:
   - component: {fileID: 2361221101941293378}
   - component: {fileID: 1418909191071344345}
   m_Layer: 5
-  m_Name: PlumesNumber (2)
+  m_Name: Hits made
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

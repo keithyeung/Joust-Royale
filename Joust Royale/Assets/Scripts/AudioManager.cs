@@ -29,7 +29,6 @@ public class AudioManager : Singleton<AudioManager>
 
         SingletonBuilder(this);
         ServiceLocator.instance.RegisterService<AudioManager>(this);
-        //DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
