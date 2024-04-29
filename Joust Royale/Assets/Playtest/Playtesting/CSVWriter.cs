@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using System.IO;
 using System;
 
-public class CSVWriter : MonoBehaviour
+public class CSVWriter : Singleton<CSVWriter>
 {
     private string fileName = "PlayerData.csv";
     bool headerWritten;
@@ -13,6 +13,8 @@ public class CSVWriter : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        SingletonBuilder(this);
+        ServiceLocator.instance.RegisterService<CSVWriter>(this);
         fileName = "C:/Users/keith/Documents/GitHub/Joust-Royale/Joust Royale/Assets/Playtest/PlayerData.csv";
         //Application.dataPath + "/Playtest/PlayerData.csv";
         headerWritten = false;

@@ -64,7 +64,12 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (ServiceLocator.instance.GetService<GameState>().states != GameState.GameStatesMachine.Playing) return;
+        GameState gameState = ServiceLocator.instance.GetService<GameState>();
+        if (gameState == null)
+        {
+            return;
+        }
+        if (gameState.states != GameState.GameStatesMachine.Playing) return;
 
         GroundPlayer();
 

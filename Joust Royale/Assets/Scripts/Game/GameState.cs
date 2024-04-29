@@ -19,6 +19,7 @@ public class GameState : Singleton<GameState>
         SingletonBuilder(this);
         //playerManager = ServiceLocator.instance.GetService<PlayerManager>();
         states = GameStatesMachine.Playing;
+        ServiceLocator.instance.RegisterService<GameState>(this);
         ServiceLocator.instance.GetService<AudioManager>().Play("BGM");
     }
 
@@ -35,6 +36,8 @@ public class GameState : Singleton<GameState>
 
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
+                Destroy(instance.gameObject);
+                instance = null;
                 SceneManager.LoadScene("Lobby");
                 Debug.Log("Back to Lobby");
             }

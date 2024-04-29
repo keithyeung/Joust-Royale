@@ -16,6 +16,7 @@ public class LobbyControls : Singleton<LobbyControls>
     private void Awake()
     {
         SingletonBuilder(this);
+        ServiceLocator.instance.RegisterService<LobbyControls>(this);
         playerInputManager = GetComponent<PlayerInputManager>();
     }
 
