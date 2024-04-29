@@ -2932,17 +2932,17 @@ PrefabInstance:
     - target: {fileID: 1217653417152089747, guid: adf7392d3dbdbd843a4ebd407bb6ab8e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 53.46
+      value: 50.91
       objectReference: {fileID: 0}
     - target: {fileID: 1217653417152089747, guid: adf7392d3dbdbd843a4ebd407bb6ab8e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 157.63
+      value: 159.16
       objectReference: {fileID: 0}
     - target: {fileID: 1217653417152089747, guid: adf7392d3dbdbd843a4ebd407bb6ab8e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.22
+      value: -3.8
       objectReference: {fileID: 0}
     - target: {fileID: 1217653417152089747, guid: adf7392d3dbdbd843a4ebd407bb6ab8e,
         type: 3}
@@ -2984,29 +2984,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snail_Trail
       objectReference: {fileID: 0}
-    - target: {fileID: 5550151039451788824, guid: adf7392d3dbdbd843a4ebd407bb6ab8e,
+    - target: {fileID: 6582464524865339890, guid: adf7392d3dbdbd843a4ebd407bb6ab8e,
         type: 3}
-      propertyPath: ShapeModule.m_Rotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5550151039451788824, guid: adf7392d3dbdbd843a4ebd407bb6ab8e,
-        type: 3}
-      propertyPath: ShapeModule.m_Rotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5550151039451788824, guid: adf7392d3dbdbd843a4ebd407bb6ab8e,
-        type: 3}
-      propertyPath: ShapeModule.placementMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5550151039451788824, guid: adf7392d3dbdbd843a4ebd407bb6ab8e,
-        type: 3}
-      propertyPath: TrailModule.dieWithParticles
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5550151039451788824, guid: adf7392d3dbdbd843a4ebd407bb6ab8e,
-        type: 3}
-      propertyPath: TrailModule.widthOverTrail.scalar
+      propertyPath: m_RenderMode
       value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4325,7 +4305,7 @@ Transform:
   m_GameObject: {fileID: 734134631}
   serializedVersion: 2
   m_LocalRotation: {x: 0.803829, y: -0.008610411, z: -0.37796807, w: 0.45926568}
-  m_LocalPosition: {x: 62.43, y: 152.04, z: 11.49}
+  m_LocalPosition: {x: 62.02, y: 152.7, z: 12.19}
   m_LocalScale: {x: 1.1307944, y: 1.3786412, z: 1.212773}
   m_ConstrainProportionsScale: 0
   m_Children: []
