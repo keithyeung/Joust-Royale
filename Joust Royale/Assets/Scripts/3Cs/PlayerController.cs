@@ -2,6 +2,7 @@ using Cinemachine;
 using Unity.VisualScripting;
 //using UnityEditor.iOS.Extensions.Common;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
@@ -63,7 +64,12 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (ServiceLocator.instance.GetService<GameState>().states != GameState.GameStatesMachine.Playing) return;
+        GameState gameState = ServiceLocator.instance.GetService<GameState>();
+        if (gameState == null)
+        {
+            return;
+        }
+        if (gameState.states != GameState.GameStatesMachine.Playing) return;
 
         GroundPlayer();
 
@@ -181,6 +187,15 @@ public class PlayerController : MonoBehaviour
     private void ApplyMovement()
     {
         Vector3 moveDirection = transform.forward * currentSpeed * Time.deltaTime;
+
+        // Use a raycast to get the normal of the surface directly below the character
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, controller.height / 2 + 0.1f))
+        {
+            // Adjust the move direction to follow the slope of the terrain
+            moveDirection = Vector3.ProjectOnPlane(moveDirection, hit.normal);
+        }
+
         controller.Move(moveDirection);
     }
 
@@ -191,5 +206,4 @@ public class PlayerController : MonoBehaviour
     }
 
     public void PlayTrail(bool play) { if (play) trail.Play(); else trail.Stop(); }
-
 }

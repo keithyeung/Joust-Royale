@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameState : Singleton<GameState>
 {
-    PlayerManager playerManager;
+    [SerializeField]
+    private PlayerManager playerManager;
     private int winCount;
     public bool Playtesting = false;
     public enum GameStatesMachine { MainMenu, Playing, Ended};
@@ -15,8 +17,9 @@ public class GameState : Singleton<GameState>
     private void Awake()
     {
         SingletonBuilder(this);
-        playerManager = ServiceLocator.instance.GetService<PlayerManager>();
+        //playerManager = ServiceLocator.instance.GetService<PlayerManager>();
         states = GameStatesMachine.Playing;
+        ServiceLocator.instance.RegisterService<GameState>(this);
         ServiceLocator.instance.GetService<AudioManager>().Play("BGM");
     }
 
@@ -27,6 +30,19 @@ public class GameState : Singleton<GameState>
 
     private void Update()
     {
+        if (states == GameStatesMachine.Ended)
+        {
+            //if pressed space
+
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            {
+                Destroy(instance.gameObject);
+                instance = null;
+                SceneManager.LoadScene("Lobby");
+                Debug.Log("Back to Lobby");
+            }
+        }
+
         if (states != GameStatesMachine.Playing) return;
 
         if (playerManager.players.Count <= 1)
@@ -42,12 +58,15 @@ public class GameState : Singleton<GameState>
                 //ServiceLocator.instance.GetService<AudioManager>().Play("Victory");
             }
         }
+
+        
     }
 
     public void UpdateWinCount()
     {
         winCount = playerManager.players.Count * 2 + 1;
     }
+
 
     public void CheckForCrown()
     {

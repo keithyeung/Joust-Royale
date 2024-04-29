@@ -9,12 +9,16 @@ public class CountdownTimer : MonoBehaviour
     [SerializeField] float remainingTime = 180f;
 
 
+
     private void FixedUpdate()
     {
-        if(ServiceLocator.instance.GetService<GameState>() != null)
+        GameState gameState = ServiceLocator.instance.GetService<GameState>();
+        if (gameState == null)
         {
-            if (ServiceLocator.instance.GetService<GameState>().states == GameState.GameStatesMachine.Ended) return;
+            return;
         }
+        if (gameState.states == GameState.GameStatesMachine.Ended) return;
+        
         if(remainingTime <= 0)
         {
             remainingTime = 0;      

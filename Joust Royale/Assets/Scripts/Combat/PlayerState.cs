@@ -47,21 +47,11 @@ public class PlayerState : MonoBehaviour
         switch (state)
         {
             case PLAYER_STATE.Idle:
-                //animator.SetBool("Idle", true);
                 playerController.rotationSpeed = defaultRotationSpeed;
-                break;
-            case PLAYER_STATE.Walking:
-                break;
-            case PLAYER_STATE.Running:
                 break;
             case PLAYER_STATE.Attacking:
                 animator.SetBool("AttackMode", true);
                 playerController.rotationSpeed = lowerRotationSpeed;
-                break;
-            case PLAYER_STATE.Blocking:
-                //animator.SetBool("AttackMode", false);
-                break;
-            case PLAYER_STATE.Dead:
                 break;
             default:
                 break;

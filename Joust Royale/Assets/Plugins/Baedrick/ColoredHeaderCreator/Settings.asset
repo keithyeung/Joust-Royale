@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Settings
   m_EditorClassIdentifier: 
   headerSettings:
-    headerText: 3Cs
-    headerColor: {r: 0.34032825, g: 0.9528302, b: 0.030562414, a: 1}
+    headerText: Levels Ends
+    headerColor: {r: 0, g: 0.3562276, b: 0.754717, a: 1}
     textAlignmentOptions: 0
     fontStyleOptions: 0
     fontSize: 12
-    fontColor: {r: 1, g: 1, b: 1, a: 1}
+    fontColor: {r: 0, g: 0, b: 0, a: 1}
     dropShadow: 0

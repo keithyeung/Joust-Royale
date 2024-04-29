@@ -51,6 +51,12 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: GotHit
+    clip: {fileID: 8300000, guid: d05c307ca3f5b8b40a1c810d27fe4f29, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   - name: Player1Hit
     clip: {fileID: 0}
     volume: 1
@@ -75,26 +81,32 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: PickUp
+    clip: {fileID: 8300000, guid: 0a934108daab1664abbe655d6b999199, type: 3}
+    volume: 1
+    pitch: 0.6
+    loop: 0
+    source: {fileID: 0}
   - name: SuccessfulParry
-    clip: {fileID: 8300000, guid: e964dcab1942f9b46906d85131c0058d, type: 3}
-    volume: 0.6
+    clip: {fileID: 8300000, guid: 269df37fe72560e45b565346e3108bc5, type: 3}
+    volume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: LanceBreak
     clip: {fileID: 8300000, guid: aeda8072379ccd1408ea449632e03ca5, type: 3}
-    volume: 0.6
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: PickUp
-    clip: {fileID: 0}
-    volume: 1
+    volume: 0
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: ShieldBreak
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: daa3790a6120cd042a64c4a5626044c5, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Victory
+    clip: {fileID: 8300000, guid: 9ad61ac7071e58548955f11d9ca9bdfa, type: 3}
     volume: 0.6
     pitch: 1
     loop: 0
