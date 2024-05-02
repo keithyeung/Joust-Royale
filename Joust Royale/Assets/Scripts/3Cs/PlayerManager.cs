@@ -25,13 +25,11 @@ public class PlayerManager : Singleton<PlayerManager>
     private PlayerInputManager playerInputManager;
     private string[] names = { "Player Red", "Player Blue", "Player Yellow", "Player Green"};
 
-    //[Header("Developer Mode")]
-    //[SerializeField] private bool developerMode = false;
-
     private void Awake()
     {
         playerInputManager = GetComponent<PlayerInputManager>();
         SingletonBuilder(this);
+        ServiceLocator.instance.RegisterService<PlayerManager>(this);
         SpawnPointsPrefixs();
 
         if(FindAnyObjectByType<PPStorage>() != null)

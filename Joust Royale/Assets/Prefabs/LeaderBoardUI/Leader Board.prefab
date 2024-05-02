@@ -1189,7 +1189,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 3541359832685250707}
-  players: []
+  playerIcons:
+  - {fileID: 6903418781906710003}
+  - {fileID: 5985606842635268425}
+  - {fileID: 7406119271242157824}
+  - {fileID: 6273428774668154810}
+  animator: {fileID: 3413912282224347298}
 --- !u!95 &3413912282224347298
 Animator:
   serializedVersion: 5

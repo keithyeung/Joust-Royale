@@ -102,6 +102,10 @@ public class Lance : MonoBehaviour
     {
         Shield shield = other.gameObject.GetComponent<Shield>();
         LayerMask tempLayer = other.gameObject.GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
+
+        var enemyPlayerController = other.gameObject.GetComponentInParent<PlayerController>();
+        var enemyTestController = enemyPlayerController.GetComponentInChildren<TestController>();
+
         if (shield != null && tempLayer != thisLayer && shield.isParryActive)
         {
             
@@ -110,6 +114,7 @@ public class Lance : MonoBehaviour
             PlayParticleAlongEdge(longSmoke);
             PlayParticleAlongEdge(longSplinters);
             this.gameObject.SetActive(false);
+            enemyTestController.accumulatedHitsParried++;
             ServiceLocator.instance.GetService<AudioManager>().Play("SuccessfulParry");
             Debug.Log("Lance is broken");
 

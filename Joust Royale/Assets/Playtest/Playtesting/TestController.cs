@@ -14,6 +14,8 @@ public class TestController : MonoBehaviour
     public int accumulatedHits = 0;
     [HideInInspector]
     public int accumulatedHitsReceived = 0;
+    [HideInInspector]
+    public int accumulatedHitsParried = 0;
     
     private void Start()
     {

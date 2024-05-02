@@ -10,6 +10,7 @@ public class GameState : Singleton<GameState>
     private PlayerManager playerManager;
     private int winCount;
     public bool Playtesting = false;
+    private bool hasShowenLeaderBoard = false;
     public enum GameStatesMachine { MainMenu, Playing, Ended};
     public GameStatesMachine states;
 
@@ -45,7 +46,11 @@ public class GameState : Singleton<GameState>
                 }
                 break;
             case GameStatesMachine.Ended:
-                ServiceLocator.instance.GetService<LeaderBoard>()?.ShowLeaderBoard();
+                if(!hasShowenLeaderBoard)
+                {
+                    ServiceLocator.instance.GetService<LeaderBoard>()?.ShowLeaderBoard();
+                    hasShowenLeaderBoard = true;
+                }
                 if (Keyboard.current.spaceKey.wasPressedThisFrame)
                 {
                     Destroy(instance.gameObject);
@@ -74,21 +79,6 @@ public class GameState : Singleton<GameState>
         }
 
         stateMachine();
-        //if (states != GameStatesMachine.Playing) return;
-
-        //if (playerManager.players.Count <= 1)
-        //{
-        //    return;
-        //}
-        //foreach (var player in playerManager.players)
-        //{
-        //    if (player.GetComponent<PlumageManager>()?.GetPlumageCount() >= winCount)
-        //    {
-        //        states = GameStatesMachine.Ended;
-        //        ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
-        //        //ServiceLocator.instance.GetService<AudioManager>().Play("Victory");
-        //    }
-        //}
     }
 
     public void UpdateWinCount()
