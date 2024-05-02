@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -19,6 +20,16 @@ public class Lance : MonoBehaviour
     [SerializeField] private ParticleSystem trail;
     [SerializeField] private ParticleSystem longSmoke;
     [SerializeField] private ParticleSystem longSplinters;
+
+    [Header("Hit vibration")]
+    [SerializeField] private float hit_lowFrequency = 1.0f;
+    [SerializeField] private float hit_highFrequency = 1.0f;
+    [SerializeField] private float hit_duration = 0.2f;
+
+    [Header("Parried vibration")]
+    [SerializeField] private float parried_lowFrequency = 1.0f;
+    [SerializeField] private float parried_highFrequency = 1.0f;
+    [SerializeField] private float parried_duration = 0.5f;
 
     private void Start()
     {
@@ -87,6 +98,17 @@ public class Lance : MonoBehaviour
             return;
         }
 
+        PlayerController playerController = other.GetComponentInParent<PlayerController>();
+        Gamepad gamepad = playerController.playerInput.devices.FirstOrDefault(d => d is Gamepad) as Gamepad;
+        if (gamepad != null)
+        {
+            StartCoroutine(VibrateController(gamepad, hit_lowFrequency, hit_highFrequency, hit_duration));
+        }
+        else
+        {
+            Debug.Log("Vibration check is no good");
+        }
+
         other.gameObject.GetComponentInParent<PlayerHealth>().StartInvincibility();
         if (other.GetComponentInParent<PlumageManager>().GetPlumageCount() > 0)
         {
@@ -113,12 +135,36 @@ public class Lance : MonoBehaviour
             //longSplinters.Play();
             PlayParticleAlongEdge(longSmoke);
             PlayParticleAlongEdge(longSplinters);
-            this.gameObject.SetActive(false);
             enemyTestController.accumulatedHitsParried++;
+            PlayerController thisPlayerController = GetComponentInParent<PlayerController>();
+            Gamepad gamepad = thisPlayerController.playerInput.devices.FirstOrDefault(d => d is Gamepad) as Gamepad;
+            if (gamepad != null)
+            {
+                StartCoroutine(VibrateControllerPlusLoseLance(gamepad, parried_lowFrequency, parried_highFrequency, parried_duration));
+            }
+            else
+            {
+                Debug.Log("Vibration check is no good");
+            }
             ServiceLocator.instance.GetService<AudioManager>().Play("SuccessfulParry");
             Debug.Log("Lance is broken");
 
         }
+    }
+
+    private IEnumerator VibrateController(Gamepad gamepad, float lowFrequency, float highFrequency, float duration)
+    {
+        gamepad.SetMotorSpeeds(lowFrequency, highFrequency);
+        yield return new WaitForSeconds(duration);
+        gamepad.SetMotorSpeeds(0, 0);
+    }
+
+    private IEnumerator VibrateControllerPlusLoseLance(Gamepad gamepad, float lowFrequency, float highFrequency, float duration)
+    {
+        gamepad.SetMotorSpeeds(lowFrequency, highFrequency);
+        yield return new WaitForSeconds(duration);
+        gamepad.SetMotorSpeeds(0, 0);
+        this.gameObject.SetActive(false);
     }
 
     public void PlayTrail(bool play) { if (play) trail.Play(); else trail.Stop(); }

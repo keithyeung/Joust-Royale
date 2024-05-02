@@ -8,8 +8,6 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-
-
     [SerializeField] private float gravityValue = -9.81f;
 
     [Header("Movement Related")]
@@ -33,6 +31,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public GameObject backHorseCape;
     [SerializeField] public GameObject crown;
 
+    public PlayerInput playerInput;
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
@@ -52,6 +51,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        playerInput = GetComponent<PlayerInput>();
         controller = gameObject.GetComponent<CharacterController>();
         playerState = GetComponent<PlayerState>();
         crown.SetActive(false);
