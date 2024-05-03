@@ -25,23 +25,25 @@ public class PlayerManager : Singleton<PlayerManager>
     private PlayerInputManager playerInputManager;
     private string[] names = { "Player Red", "Player Blue", "Player Yellow", "Player Green"};
 
-    //[Header("Developer Mode")]
-    //[SerializeField] private bool developerMode = false;
-
     private void Awake()
     {
         playerInputManager = GetComponent<PlayerInputManager>();
         SingletonBuilder(this);
+        ServiceLocator.instance.RegisterService<PlayerManager>(this);
         SpawnPointsPrefixs();
 
-        if(FindAnyObjectByType<PPStorage>() != null)
+        if(FindAnyObjectByType<PPStorage>() != null) // if the game started from lobby
         {
-            var playerList = ServiceLocator.instance.GetService<PPStorage>().playerProperties;
-            if(playerList.Count > 0)
-            LoadPlayer();
-            ServiceLocator.instance.GetService<PPStorage>()?.ClearPlayerProperties();
+            var playerStorageVariable = ServiceLocator.instance.GetService<PPStorage>();
+            SetUpArena(playerStorageVariable.GetArenaName());
+            if(playerStorageVariable.playerProperties.Count > 0)
+            {
+                LoadPlayer();
+                ServiceLocator.instance.GetService<PPStorage>()?.ClearPlayerProperties();
+            }
+
         }
-        else
+        else // if it's started from the scene. Basically developer mode.
         {
             playerInputManager.EnableJoining();
             playerInputManager.joinBehavior = PlayerJoinBehavior.JoinPlayersWhenButtonIsPressed;
@@ -193,5 +195,10 @@ public class PlayerManager : Singleton<PlayerManager>
             //Shield
             tempShield.GetComponent<Renderer>().material = playerMaterials[materialIndex];
         }
+    }
+
+    private void SetUpArena(string name)
+    {
+        ServiceLocator.instance.GetService<ArenaManager>().ChangeArena(name);
     }
 }

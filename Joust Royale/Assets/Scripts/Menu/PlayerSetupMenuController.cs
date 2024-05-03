@@ -68,6 +68,11 @@ public class PlayerSetupMenuController : MonoBehaviour
         {
             inputEnabled = true;
         }
+        //This below should not be here as I just need it to be called once but I will refactor this later.
+        if (ServiceLocator.instance.GetService<LobbyControls>().AllPlayerReady()) 
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     public void SetColor(Material color)
@@ -85,5 +90,6 @@ public class PlayerSetupMenuController : MonoBehaviour
         
         ServiceLocator.instance.GetService<LobbyControls>().ReadyPlayer(playerIndex);
         readyButton.gameObject.SetActive(false);
+        
     }
 }

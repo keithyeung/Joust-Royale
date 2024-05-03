@@ -5,6 +5,17 @@ using UnityEngine;
 public class PPStorage : Singleton<PPStorage>
 {
     public List<PlayerProperty> playerProperties = new List<PlayerProperty>();
+    public string ArenaName;
+
+    public void SetArenaName(string name)
+    {
+        ArenaName = name;
+    }
+
+    public string GetArenaName()
+    {
+        return ArenaName;
+    }
 
     private void Awake()
     {

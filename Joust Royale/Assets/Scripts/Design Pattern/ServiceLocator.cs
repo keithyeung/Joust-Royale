@@ -48,7 +48,7 @@ public class ServiceLocator : Singleton<ServiceLocator>
         else
         {
             serviceReferences[serviceType] = service;
-            Debug.LogWarning("Service of type " + serviceType + " is already registered.");
+            Debug.LogWarning("Service of type " + serviceType + " 's value has been renewed.");
         }
     }
 

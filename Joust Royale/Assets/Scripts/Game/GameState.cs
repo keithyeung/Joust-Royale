@@ -10,6 +10,7 @@ public class GameState : Singleton<GameState>
     private PlayerManager playerManager;
     private int winCount;
     public bool Playtesting = false;
+    private bool hasShowenLeaderBoard = false;
     public enum GameStatesMachine { MainMenu, Playing, Ended};
     public GameStatesMachine states;
 
@@ -23,6 +24,46 @@ public class GameState : Singleton<GameState>
         ServiceLocator.instance.GetService<AudioManager>().Play("BGM");
     }
 
+    private void stateMachine()
+    {
+        switch (states)
+        {
+            case GameStatesMachine.MainMenu:
+                break;
+            case GameStatesMachine.Playing:
+                if (playerManager.players.Count <= 1)
+                {
+                    return;
+                }
+                foreach (var player in playerManager.players)
+                {
+                    if (player.GetComponent<PlumageManager>()?.GetPlumageCount() >= winCount)
+                    {
+                        states = GameStatesMachine.Ended;
+                        ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
+                        //ServiceLocator.instance.GetService<AudioManager>().Play("Victory");
+                    }
+                }
+                break;
+            case GameStatesMachine.Ended:
+                if(!hasShowenLeaderBoard)
+                {
+                    ServiceLocator.instance.GetService<LeaderBoard>()?.ShowLeaderBoard();
+                    hasShowenLeaderBoard = true;
+                }
+                if (Keyboard.current.spaceKey.wasPressedThisFrame)
+                {
+                    Destroy(instance.gameObject);
+                    instance = null;
+                    SceneManager.LoadScene("Lobby");
+                    Debug.Log("Back to Lobby");
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
     private void Start()
     {
         UpdateWinCount();
@@ -34,32 +75,10 @@ public class GameState : Singleton<GameState>
         {
             //if pressed space
 
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
-            {
-                Destroy(instance.gameObject);
-                instance = null;
-                SceneManager.LoadScene("Lobby");
-                Debug.Log("Back to Lobby");
-            }
+            
         }
 
-        if (states != GameStatesMachine.Playing) return;
-
-        if (playerManager.players.Count <= 1)
-        {
-            return;
-        }
-        foreach (var player in playerManager.players)
-        {
-            if (player.GetComponent<PlumageManager>()?.GetPlumageCount() >= winCount)
-            {
-                states = GameStatesMachine.Ended;
-                ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
-                //ServiceLocator.instance.GetService<AudioManager>().Play("Victory");
-            }
-        }
-
-        
+        stateMachine();
     }
 
     public void UpdateWinCount()
