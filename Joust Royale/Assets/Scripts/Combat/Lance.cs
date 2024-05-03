@@ -65,7 +65,6 @@ public class Lance : MonoBehaviour
         enemyTestController.accumulatedHitsReceived++;
         testController.IsPositionInsideCollider(testController.transform.position);
         enemyTestController.IsPositionInsideCollider(testController.transform.position);
-        //ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
     }
 
     private void PlayParticleAtTip(ParticleSystem particleSystem)
