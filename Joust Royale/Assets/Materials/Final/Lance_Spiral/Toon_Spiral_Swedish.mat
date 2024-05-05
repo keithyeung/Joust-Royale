@@ -113,9 +113,9 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _gradient_power: 1.81
-    - _gradient_width: 0.41
-    - _thickness: -0.18
+    - _gradient_power: 1.05
+    - _gradient_width: 0.59
+    - _thickness: -0.7
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
