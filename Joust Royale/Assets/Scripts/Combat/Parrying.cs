@@ -10,7 +10,7 @@ public class Parrying : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Lance") && isParryActive == true);
+        if (other.gameObject.CompareTag("Lance") && isParryActive == true)
         {
             Debug.Log("Parry Successful");
             other.gameObject.SetActive(false);

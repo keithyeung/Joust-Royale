@@ -481,7 +481,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066089397042150048}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2381335, y: 0.00000001671139, z: -0.0000000040974153, w: 0.9712325}
+  m_LocalRotation: {x: 0.2381335, y: -0.000000016711398, z: 0.0000000040974166, w: 0.9712325}
   m_LocalPosition: {x: 0, y: 16, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -937,6 +937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b405d08cbee1001479f1dc93c1e1d779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerState: {fileID: 7624911254171468607}
   tip: {fileID: 6837793341997216121}
   sparks: {fileID: 6449162000054787836}
   smoke: {fileID: 8840643896880980664}
@@ -6152,7 +6153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2172758391158009372}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2381335, y: 0.00000001671139, z: -0.0000000040974153, w: 0.9712325}
+  m_LocalRotation: {x: 0.2381335, y: -0.000000016711398, z: 0.0000000040974166, w: 0.9712325}
   m_LocalPosition: {x: 0, y: 16, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
