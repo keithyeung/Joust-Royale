@@ -33,6 +33,7 @@ public class LeaderBoard : Singleton<LeaderBoard>
     {
         //using int to enable color in order of the players color, need to change this after player customization i
         int playerCount = ServiceLocator.instance.GetService<PlayerManager>().players.Count;
+        ServiceLocator.instance.GetService<PlayerManager>().SetMainCameraActive();
 
         UpdateLeaderBoardData();
 
@@ -106,6 +107,11 @@ public class LeaderBoard : Singleton<LeaderBoard>
         {
             playerIcons[i].gameObject.SetActive(true);
         }
+    }
+
+    public void CallTheBackToLobby()
+    {
+        ServiceLocator.instance.GetService<GameState>().BackToLobby();
     }
 }
 

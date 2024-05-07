@@ -10,6 +10,7 @@ TagManager:
   - PU_Lance
   - PU_Shield
   - Zones
+  - Obstacles
   layers:
   - Default
   - TransparentFX

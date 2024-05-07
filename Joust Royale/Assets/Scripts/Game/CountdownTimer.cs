@@ -26,6 +26,10 @@ public class CountdownTimer : MonoBehaviour
             ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
             return;
         }
+        if(remainingTime <= 10 )
+        {
+            countdownText.color = Color.red;
+        }
         remainingTime -= Time.deltaTime;
         int minutes = Mathf.FloorToInt(remainingTime / 60f);
         int seconds = Mathf.FloorToInt(remainingTime % 60);

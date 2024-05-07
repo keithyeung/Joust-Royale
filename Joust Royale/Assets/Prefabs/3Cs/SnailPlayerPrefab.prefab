@@ -180,13 +180,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 6.19
-  m_Radius: 1.5
+  m_Height: 5
+  m_Radius: 1.73
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 2.17, z: 0}
+  m_Center: {x: 0, y: 1.83, z: 0.78}
 --- !u!114 &194365811947698458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +215,7 @@ MonoBehaviour:
   frontHorseCape: {fileID: 3473610967748580594}
   backHorseCape: {fileID: 6673631254417143309}
   crown: {fileID: 485261191120320492}
+  playerInput: {fileID: 0}
   playerState: {fileID: 0}
   standStillTime: 0
 --- !u!114 &7624911254171468607
@@ -229,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba07e28d3705ef84181305b3e56afe84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 3
   animator: {fileID: 7131179190692930636}
 --- !u!114 &744688114024338973
 MonoBehaviour:
@@ -480,7 +481,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066089397042150048}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2381335, y: -0.00000001671139, z: 0.0000000040974153, w: 0.9712325}
+  m_LocalRotation: {x: 0.2381335, y: 0.00000001671139, z: -0.0000000040974153, w: 0.9712325}
   m_LocalPosition: {x: 0, y: 16, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -943,6 +944,12 @@ MonoBehaviour:
   trail: {fileID: 7716223300326246433}
   longSmoke: {fileID: 3506047372730668273}
   longSplinters: {fileID: 2610570674017918694}
+  hit_lowFrequency: 1
+  hit_highFrequency: 1
+  hit_duration: 0.2
+  parried_lowFrequency: 1
+  parried_highFrequency: 1
+  parried_duration: 0.5
 --- !u!1 &1728743986703107586
 GameObject:
   m_ObjectHideFlags: 0
@@ -6145,7 +6152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2172758391158009372}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2381335, y: -0.00000001671139, z: 0.0000000040974153, w: 0.9712325}
+  m_LocalRotation: {x: 0.2381335, y: 0.00000001671139, z: -0.0000000040974153, w: 0.9712325}
   m_LocalPosition: {x: 0, y: 16, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -23017,6 +23024,7 @@ MonoBehaviour:
   accumulatedInteractions: 0
   accumulatedHits: 0
   accumulatedHitsReceived: 0
+  accumulatedHitsParried: 0
   WHereIm: None
   triggerCollider: []
 --- !u!135 &336944436082150728
@@ -23275,6 +23283,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snail
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3828a093c3666d34eb261c9a448840f7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3828a093c3666d34eb261c9a448840f7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -66,13 +66,7 @@ public class PlayerManager : Singleton<PlayerManager>
         playerInputManager.DisableJoining();
     }
 
-    public void Update()
-    {
-        if(players.Count > 0)
-        {
-            mainCamera.GetComponent<Camera>().enabled = false;
-        }
-    }
+   
 
     public void AddPlayer(PlayerInput player)
     {
@@ -94,6 +88,12 @@ public class PlayerManager : Singleton<PlayerManager>
         {
             ServiceLocator.instance.GetService<GameState>().UpdateWinCount();
         }
+
+        if(mainCamera.GetComponent<Camera>().enabled)
+        {
+            mainCamera.GetComponent<Camera>().enabled = false;
+        }
+
     }
 
     public void SpawnPointsPrefixs()
@@ -200,5 +200,10 @@ public class PlayerManager : Singleton<PlayerManager>
     private void SetUpArena(string name)
     {
         ServiceLocator.instance.GetService<ArenaManager>().ChangeArena(name);
+    }
+
+    public void SetMainCameraActive()
+    {
+        mainCamera.GetComponent<Camera>().enabled = true;
     }
 }
