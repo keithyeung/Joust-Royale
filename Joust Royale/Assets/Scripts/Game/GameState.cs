@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -71,10 +70,10 @@ public class GameState : Singleton<GameState>
         
     }
 
-    private void Start()
-    {
-        UpdateWinCount();
-    }
+    //private void Start()
+    //{
+    //    UpdateWinCount();
+    //}
 
     private void Update()
     {

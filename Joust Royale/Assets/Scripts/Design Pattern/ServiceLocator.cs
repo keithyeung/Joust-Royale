@@ -38,6 +38,8 @@ public class ServiceLocator : Singleton<ServiceLocator>
         return serviceInstance;
     }
 
+
+
     public void RegisterService<T>(T service) where T : MonoBehaviour
     {
         Type serviceType = typeof(T);

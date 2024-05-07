@@ -27,21 +27,29 @@ public class PlayerManager : Singleton<PlayerManager>
 
     private void Awake()
     {
-        playerInputManager = GetComponent<PlayerInputManager>();
         SingletonBuilder(this);
+        playerInputManager = GetComponent<PlayerInputManager>();
         ServiceLocator.instance.RegisterService<PlayerManager>(this);
         SpawnPointsPrefixs();
+        //HandleDifferentTypeOfPlayerJoin();
+    }
 
-        if(FindAnyObjectByType<PPStorage>() != null) // if the game started from lobby
+    private void Start()
+    {
+        HandleDifferentTypeOfPlayerJoin();
+    }
+
+    private void HandleDifferentTypeOfPlayerJoin()
+    {
+        if (FindAnyObjectByType<PPStorage>() != null) // if the game started from lobby
         {
             var playerStorageVariable = ServiceLocator.instance.GetService<PPStorage>();
             SetUpArena(playerStorageVariable.GetArenaName());
-            if(playerStorageVariable.playerProperties.Count > 0)
+            if (playerStorageVariable.playerProperties.Count > 0)
             {
-                LoadPlayer();
+                LoadPlayers();
                 ServiceLocator.instance.GetService<PPStorage>()?.ClearPlayerProperties();
             }
-
         }
         else // if it's started from the scene. Basically developer mode.
         {
@@ -51,7 +59,7 @@ public class PlayerManager : Singleton<PlayerManager>
         }
     }
 
-    private void LoadPlayer()
+    private void LoadPlayers()
     {
         var playerList = ServiceLocator.instance.GetService<PPStorage>().playerProperties;
 
@@ -64,6 +72,7 @@ public class PlayerManager : Singleton<PlayerManager>
             AddPlayer(playerInput);
         }
         playerInputManager.DisableJoining();
+        ServiceLocator.instance.GetService<GameState>().UpdateWinCount();
     }
 
    

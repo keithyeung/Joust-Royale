@@ -10,9 +10,13 @@ public class Lance : MonoBehaviour
     private LayerMask thisLayer;
     private PlumageManager plumageManager;
     private Shield shield;
-    private PlayerState playerState;
     private TestController testController;
 
+    [Header("Scripts that need help")]
+    [SerializeField] private PlayerState playerState;
+
+
+    [Header("VFX")]
     [SerializeField] private GameObject tip;
     [SerializeField] private ParticleSystem sparks;
     [SerializeField] private ParticleSystem smoke;
