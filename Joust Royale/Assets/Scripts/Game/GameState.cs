@@ -15,8 +15,12 @@ public class GameState : Singleton<GameState>
     public GameStatesMachine states;
 
 
+    [SerializeField] private int frameRate = 60;
+
+
     private void Awake()
     {
+        Application.targetFrameRate = frameRate;
         SingletonBuilder(this);
         //playerManager = ServiceLocator.instance.GetService<PlayerManager>();
         states = GameStatesMachine.Playing;
@@ -46,17 +50,10 @@ public class GameState : Singleton<GameState>
                 }
                 break;
             case GameStatesMachine.Ended:
-                if(!hasShowenLeaderBoard)
+                if (!hasShowenLeaderBoard)
                 {
                     ServiceLocator.instance.GetService<LeaderBoard>()?.ShowLeaderBoard();
                     hasShowenLeaderBoard = true;
-                }
-                if (Keyboard.current.spaceKey.wasPressedThisFrame)
-                {
-                    Destroy(instance.gameObject);
-                    instance = null;
-                    SceneManager.LoadScene("Lobby");
-                    Debug.Log("Back to Lobby");
                 }
                 break;
             default:
@@ -64,10 +61,19 @@ public class GameState : Singleton<GameState>
         }
     }
 
-    private void Start()
+    public void BackToLobby()
     {
-        UpdateWinCount();
+        Destroy(instance.gameObject);
+        instance = null;
+        SceneManager.LoadScene("Lobby");
+        Debug.Log("Back to Lobby");
+        
     }
+
+    //private void Start()
+    //{
+    //    UpdateWinCount();
+    //}
 
     private void Update()
     {

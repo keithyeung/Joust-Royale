@@ -39,6 +39,9 @@ public class PlayerController : MonoBehaviour
     private Vector2 movementInput;
 
 
+    //[Header("External Collision")]
+    //[SerializeField] private GameObject snailCollider;
+
     //Game State
     [SerializeField] private PlayerState playerState;
 
@@ -55,6 +58,7 @@ public class PlayerController : MonoBehaviour
         controller = gameObject.GetComponent<CharacterController>();
         playerState = GetComponent<PlayerState>();
         crown.SetActive(false);
+        
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -76,6 +80,8 @@ public class PlayerController : MonoBehaviour
         HandleMovement();
 
         ResetPlayerPositionIfNeeded();
+        //snailCollider.transform.position = transform.position;
+        //snailCollider.transform.rotation = transform.rotation;
     }
 
     private void Update()
@@ -197,6 +203,8 @@ public class PlayerController : MonoBehaviour
         }
 
         controller.Move(moveDirection);
+
+        
     }
 
     private void ApplyGravity()

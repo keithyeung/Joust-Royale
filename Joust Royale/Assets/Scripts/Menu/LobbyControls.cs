@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LobbyControls : Singleton<LobbyControls>
 {
@@ -16,6 +17,9 @@ public class LobbyControls : Singleton<LobbyControls>
     [Header("Scene name has to be exactly the SAME!")]
     public string SceneName;
 
+    [SerializeField] private Image titleImage;
+    [SerializeField] private Image crowdBackground;
+
     private void Awake()
     {
         SingletonBuilder(this);
@@ -27,6 +31,12 @@ public class LobbyControls : Singleton<LobbyControls>
 
     public void HandlePlayerJoin(PlayerInput pi)
     {
+        if(titleImage.enabled)
+        {
+            titleImage.enabled = false;
+            crowdBackground.enabled = true;
+            //crowdBackground.color = new Color(crowdBackground.color.r, crowdBackground.color.g, crowdBackground.color.b, 0.5f);
+        }
         pi.transform.SetParent(transform);
         playerInputs.Add(pi);
         var pp = new PlayerProperty();
@@ -50,11 +60,7 @@ public class LobbyControls : Singleton<LobbyControls>
     {
         var pp_inStorage = ServiceLocator.instance.GetService<PPStorage>().playerProperties;
         pp_inStorage[index].isReady = true;
-        //if (pp_inStorage.All(p => p.isReady == true))
-        //{
-        //    arenaSelection.SetActive(true);
-        //    //SceneManager.LoadScene(SceneName);
-        //}
+        
         if(AllPlayerReady())
         {
             arenaSelection.SetActive(true);
@@ -70,5 +76,10 @@ public class LobbyControls : Singleton<LobbyControls>
     {
         ServiceLocator.instance.GetService<PPStorage>().SetArenaName(name);
         SceneManager.LoadScene(SceneName);
+    }
+
+    public void DisableBackground()
+    {
+        crowdBackground.enabled = false;
     }
 }

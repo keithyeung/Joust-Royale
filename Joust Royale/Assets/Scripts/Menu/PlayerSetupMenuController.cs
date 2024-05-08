@@ -71,6 +71,7 @@ public class PlayerSetupMenuController : MonoBehaviour
         //This below should not be here as I just need it to be called once but I will refactor this later.
         if (ServiceLocator.instance.GetService<LobbyControls>().AllPlayerReady()) 
         {
+            //ServiceLocator.instance.GetService<LobbyControls>().DisableBackground();
             this.gameObject.SetActive(false);
         }
     }
