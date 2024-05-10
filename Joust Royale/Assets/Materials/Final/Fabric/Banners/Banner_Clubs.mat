@@ -129,7 +129,7 @@ Material:
     - _squares: 2
     - _textile: 1
     - _wind: 0.06
-    - _wind_sensitivity: 0
+    - _wind_sensitivity: 0.002
     - _wind_speed: 0.33
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
