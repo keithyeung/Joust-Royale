@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Dude
+  m_Name: Dude 1
   m_Shader: {fileID: -6465566751694194690, guid: df1aca64d3cc3f24b9b593f422ca9d9e,
     type: 3}
   m_Parent: {fileID: 0}
@@ -133,16 +133,17 @@ Material:
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
-    - _eye_Y: 0.37
-    - _eye_distance: 0.05
-    - _eye_height: 0.08
-    - _eye_width: 0.06
+    - _eye_Y: 0.4
+    - _eye_distance: 0.06
+    - _eye_height: 0.09
+    - _eye_width: 0.04
     - _neck_hight: 0.7
-    - _nose_Y: -0.32
-    - _nose_height: 0.16
-    - _nose_width: 0.07
+    - _nose_Y: -0.37
+    - _nose_height: 0.17
+    - _nose_width: 0.13
     - _petal_amount: 1
-    - _thickness: 0.22
+    - _phase: 3
+    - _thickness: 0.33
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
@@ -151,6 +152,6 @@ Material:
     - _color: {r: 1, g: 1, b: 1, a: 0}
     - _eye_color: {r: 1, g: 1, b: 1, a: 0}
     - _nose_color: {r: 1, g: 0.48490554, b: 0.48490554, a: 0}
-    - _skinn_color: {r: 1, g: 0.5226414, b: 0.5226414, a: 0}
-    - _skirt_color: {r: 0.8207547, g: 0.27410105, b: 0.6587834, a: 0}
+    - _skinn_color: {r: 1, g: 0.6614784, b: 0.48490566, a: 0}
+    - _skirt_color: {r: 0.5872072, g: 0.38625845, b: 0.9433962, a: 0}
   m_BuildTextureStacks: []
