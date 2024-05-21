@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
     //Game State
     [SerializeField] private PlayerState playerState;
     private GameRules gameRules;
+    private bool isStunned = false;
 
     //Hard coded things
     private Vector3 previousPosition;
@@ -82,8 +83,6 @@ public class PlayerController : MonoBehaviour
         HandleMovement();
 
         ResetPlayerPositionIfNeeded();
-        //snailCollider.transform.position = transform.position;
-        //snailCollider.transform.rotation = transform.rotation;
     }
 
     private void Update()
@@ -138,6 +137,7 @@ public class PlayerController : MonoBehaviour
 
     public void HandleMovement()
     {
+        if (isStunned) return;
         if(playerState.state == PLAYER_STATE.Attacking)
         {
             ApplyAttackMovement();
@@ -224,4 +224,16 @@ public class PlayerController : MonoBehaviour
     }
 
     public void PlayTrail(bool play) { if (play) trail.Play(); else trail.Stop(); }
+
+    public void StunPlayer()
+    {
+        isStunned = true;
+        playerState.state = PLAYER_STATE.Idle;
+        playerState.SetAnimatorBackToDefault();
+    }
+
+    public void UnstunPlayer()
+    {
+        isStunned = false;
+    }
 }

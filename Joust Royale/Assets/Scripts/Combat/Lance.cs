@@ -222,7 +222,16 @@ public class Lance : MonoBehaviour
         {
             playerController.crown.SetActive(false);
             GetComponentInParent<PlayerController>().crown.SetActive(true);
+            ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
         }
+        playerController.StunPlayer();
+        StartCoroutine(UnstunPlayerAfterDelay(playerController, 1.0f));
+    }
+
+    private IEnumerator UnstunPlayerAfterDelay(PlayerController playerController, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        playerController.UnstunPlayer();
     }
 }
 
