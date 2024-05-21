@@ -8,12 +8,7 @@ using UnityEngine.InputSystem.Controls;
 public enum PLAYER_STATE
 {
     Idle,
-    Walking,
-    Running,
     Attacking,
-    Blocking,
-    Parry,
-    Dead
 }
 
 public class PlayerState : MonoBehaviour
@@ -84,6 +79,11 @@ public class PlayerState : MonoBehaviour
         Lance playerLance = playerController.lance.GetComponent<Lance>();
         playerLance.PlayTrail(false);
         playerController.PlayTrail(false);
+    }
+
+    public void SetAnimatorBackToDefault()
+    {
+        animator.SetBool("AttackMode", false);
     }
     
     public PLAYER_STATE SetState(PLAYER_STATE newState)
