@@ -11,13 +11,16 @@ public class ArenaManager : Singleton<ArenaManager>
         public string name;
         public GameObject gameObject;
     }
+    public GameObject crown;
 
     private void Awake()
     {
         SingletonBuilder(this);
         ServiceLocator.instance.RegisterService<ArenaManager>(this);
     }
+    //This is a crown that should be activated if it's crown snatcher mode
 
+    
     //This is an array of the Arena class that will be used to store all the arenas
     public Arena[] arenas;
     //This is the current arena,self explanatory
@@ -47,5 +50,17 @@ public class ArenaManager : Singleton<ArenaManager>
     public GameObject GetCurrentArena()
     {
         return currentArena;
+    }
+
+    public void SetCrownActive()
+    {
+        if (ServiceLocator.instance.GetService<GameRules>().gameModes == GameMode.GameModes.CrownSnatcher)
+        {
+            crown.SetActive(true);
+        }
+        else
+        {
+            crown.SetActive(false);
+        }
     }
 }

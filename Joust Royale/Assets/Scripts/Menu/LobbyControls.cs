@@ -13,6 +13,8 @@ public class LobbyControls : Singleton<LobbyControls>
 
     [Header("Arena Selection Panel")]
     [SerializeField] private GameObject arenaSelection;
+    [Header("GameMode Selection Panel")]
+    [SerializeField] private GameObject gameModeSelection;
 
     [Header("Scene name has to be exactly the SAME!")]
     public string SceneName;
@@ -27,6 +29,7 @@ public class LobbyControls : Singleton<LobbyControls>
         playerInputManager = GetComponent<PlayerInputManager>();
 
         arenaSelection.SetActive(false);
+        gameModeSelection.SetActive(false);
     }
 
     public void HandlePlayerJoin(PlayerInput pi)
@@ -63,8 +66,15 @@ public class LobbyControls : Singleton<LobbyControls>
         
         if(AllPlayerReady())
         {
-            arenaSelection.SetActive(true);
+            gameModeSelection.SetActive(true);
         }
+    }
+
+    public void GameModeToArenaSelection(GameMode.GameModes p_gameMode)
+    {
+        ServiceLocator.instance.GetService<PPStorage>().SetGameMode(p_gameMode);
+        gameModeSelection.SetActive(false);
+        arenaSelection.SetActive(true);
     }
 
     public bool AllPlayerReady()
@@ -77,6 +87,8 @@ public class LobbyControls : Singleton<LobbyControls>
         ServiceLocator.instance.GetService<PPStorage>().SetArenaName(name);
         SceneManager.LoadScene(SceneName);
     }
+
+    
 
     public void DisableBackground()
     {

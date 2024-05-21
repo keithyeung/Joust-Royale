@@ -33,9 +33,12 @@ public class PlumageManager : MonoBehaviour
             Debug.Log("Color is empty");
             return;
         }
-        for (int i = 0; i < startAmount; i++)
+        if(ServiceLocator.instance.GetService<GameRules>().gameModes != GameMode.GameModes.CrownSnatcher)
         {
-            AddPlume(color);
+            for (int i = 0; i < startAmount; i++)
+            {
+                AddPlume(color);
+            }
         }
     }
 

@@ -9,6 +9,9 @@ using UnityEngine.InputSystem;
 public class LeaderBoard : Singleton<LeaderBoard>
 {
     public GameObject panel;
+
+    [SerializeField] private TextMeshProUGUI ST_WinCondition;
+
     public List<Image> playerIcons;
     [SerializeField]
     private Animator animator;
@@ -39,6 +42,13 @@ public class LeaderBoard : Singleton<LeaderBoard>
 
         ShowPlayerIcons(playerCount);
         animator.enabled = true;
+        animator.Play("PS_LeaderBoard");
+        
+        
+
+        
+
+
     }
 
     public void UpdateLeaderBoardData()
@@ -53,9 +63,18 @@ public class LeaderBoard : Singleton<LeaderBoard>
             leaderboardData.Add(playerData);
         }
 
-        leaderboardData = SortLeaderboardData(leaderboardData);
-
-        UpdateUIWithLeaderboardData(leaderboardData);
+        if(ServiceLocator.instance.GetService<GameRules>().gameModes != GameMode.GameModes.CrownSnatcher)
+        {
+            ST_WinCondition.text = "Plumes";
+            leaderboardData = SortLeaderboardDataByPlumes(leaderboardData);
+            UpdateUIWithLeaderboardData_Plumes(leaderboardData);
+        }
+        else
+        {
+            ST_WinCondition.text = "Total crown time";
+            leaderboardData = SortLeaderboardDataByCrownHoldingTime(leaderboardData);
+            UpdateUIWithLeaderboardData_CrownTime(leaderboardData);
+        }
     }
 
     private LeaderBoardData CreatePlayerData(PlayerInput playerInput)
@@ -64,6 +83,7 @@ public class LeaderBoard : Singleton<LeaderBoard>
 
         playerData.playerIconColor = playerIcons[playerInput.playerIndex].color;
         playerData.plumesNumber = playerInput.GetComponent<PlumageManager>().GetPlumageCount();
+        playerData.crownHoldingTime = (int)playerInput.GetComponent<PlayerController>().ownedCrownTime;
 
         TestController testController = playerInput.GetComponentInChildren<TestController>();
         playerData.attemptHits = testController.accumulatedInteractions;
@@ -73,12 +93,17 @@ public class LeaderBoard : Singleton<LeaderBoard>
         return playerData;
     }
 
-    private List<LeaderBoardData> SortLeaderboardData(List<LeaderBoardData> data)
+    private List<LeaderBoardData> SortLeaderboardDataByPlumes(List<LeaderBoardData> data)
     {
         return data.OrderByDescending(d => d.plumesNumber).ToList();
     }
 
-    private void UpdateUIWithLeaderboardData(List<LeaderBoardData> data)
+    private List<LeaderBoardData> SortLeaderboardDataByCrownHoldingTime(List<LeaderBoardData> data)
+    {
+        return data.OrderByDescending(d => d.crownHoldingTime).ToList();
+    }
+
+    private void UpdateUIWithLeaderboardData_Plumes(List<LeaderBoardData> data)
     {
         for (int i = 0; i < data.Count; i++)
         {
@@ -87,6 +112,21 @@ public class LeaderBoard : Singleton<LeaderBoard>
 
             playerIcon.color = data[i].playerIconColor;
             textMeshes[0].text = data[i].plumesNumber.ToString();
+            textMeshes[1].text = data[i].attemptHits.ToString();
+            textMeshes[2].text = data[i].hitsMade.ToString();
+            textMeshes[3].text = data[i].parried.ToString();
+        }
+    }
+
+    private void UpdateUIWithLeaderboardData_CrownTime(List<LeaderBoardData> data)
+    {
+        for (int i = 0; i < data.Count; i++)
+        {
+            Image playerIcon = playerIcons[i];
+            TextMeshProUGUI[] textMeshes = playerIcons[i].gameObject.GetComponentsInChildren<TextMeshProUGUI>();
+
+            playerIcon.color = data[i].playerIconColor;
+            textMeshes[0].text = data[i].crownHoldingTime.ToString();
             textMeshes[1].text = data[i].attemptHits.ToString();
             textMeshes[2].text = data[i].hitsMade.ToString();
             textMeshes[3].text = data[i].parried.ToString();
@@ -118,6 +158,7 @@ public class LeaderBoard : Singleton<LeaderBoard>
 struct LeaderBoardData
 {
     public Color playerIconColor;
+    public int crownHoldingTime;
     public int plumesNumber;
     public int attemptHits;
     public int hitsMade;

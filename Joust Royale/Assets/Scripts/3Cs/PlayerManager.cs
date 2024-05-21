@@ -72,6 +72,8 @@ public class PlayerManager : Singleton<PlayerManager>
             AddPlayer(playerInput);
         }
         playerInputManager.DisableJoining();
+        // if it's crown snatcher mode, activate the crown
+        ServiceLocator.instance.GetService<ArenaManager>().SetCrownActive();
         ServiceLocator.instance.GetService<GameState>().UpdateWinCount();
     }
 

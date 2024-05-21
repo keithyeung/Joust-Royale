@@ -17,24 +17,15 @@ public class PlayerInteraction : MonoBehaviour
 
             EquipItem(other, GetComponent<PlayerController>().shield, "Found a Shield and equipped");
         }
+
+        if(other.gameObject.CompareTag("Crown"))
+        {
+            EquipTheCrown(other, GetComponent<PlayerController>().crown, "Found a Crown and equipped");
+        }
+        
     }
 
-    //private void OnCollisionEnter(Collision other)
-    //{
-    //    if (other.gameObject.CompareTag("Wall"))
-    //    {
-
-    //    }
-    //}
-
-
-    //public void CheckCurrentZone(Collider other)
-    //{
-    //    if(other.gameObject.CompareTag("Zones"))
-    //    {
-    //        Debug.Log("Player is in " + other.gameObject.name);
-    //    }
-    //}
+    
 
     private void EquipItem(Collider other, GameObject playerItem, string logMessage)
     {
@@ -49,5 +40,14 @@ public class PlayerInteraction : MonoBehaviour
         Debug.Log(logMessage);
         other.gameObject.SetActive(false);
         StartCoroutine(ServiceLocator.instance.GetService<RespawnObject>().RespawnPickup(other.gameObject));
+    }
+
+    private void EquipTheCrown(Collider other, GameObject playerItem, string logMessage)
+    {
+        playerItem.SetActive(true);
+        ServiceLocator.instance.GetService<AudioManager>().Play("PickUp");
+        Debug.Log(logMessage);
+        other.gameObject.SetActive(false);
+
     }
 }
