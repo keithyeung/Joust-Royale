@@ -11,6 +11,7 @@ TagManager:
   - PU_Shield
   - Zones
   - Obstacles
+  - Crown
   layers:
   - Default
   - TransparentFX

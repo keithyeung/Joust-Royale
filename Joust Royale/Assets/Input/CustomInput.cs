@@ -82,15 +82,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Block"",
-                    ""type"": ""Button"",
-                    ""id"": ""75e35ce8-2c65-45ff-aca5-cc8bc4b7099c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Select"",
                     ""type"": ""Button"",
                     ""id"": ""17cc45b8-9c1b-417a-881e-b21459d4caa7"",
@@ -268,12 +259,12 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d78cabb0-df9e-463f-b972-21e38c6b09ac"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": ""Hold(duration=0.6)"",
+                    ""id"": ""145a9270-735d-4961-af62-7f5053e684da"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Block"",
+                    ""groups"": """",
+                    ""action"": ""Parry"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -346,7 +337,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         m_Player_AttackMode = m_Player.FindAction("AttackMode", throwIfNotFound: true);
         m_Player_ReleaseAttack = m_Player.FindAction("ReleaseAttack", throwIfNotFound: true);
         m_Player_Parry = m_Player.FindAction("Parry", throwIfNotFound: true);
-        m_Player_Block = m_Player.FindAction("Block", throwIfNotFound: true);
         m_Player_Select = m_Player.FindAction("Select", throwIfNotFound: true);
     }
 
@@ -415,7 +405,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_AttackMode;
     private readonly InputAction m_Player_ReleaseAttack;
     private readonly InputAction m_Player_Parry;
-    private readonly InputAction m_Player_Block;
     private readonly InputAction m_Player_Select;
     public struct PlayerActions
     {
@@ -427,7 +416,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         public InputAction @AttackMode => m_Wrapper.m_Player_AttackMode;
         public InputAction @ReleaseAttack => m_Wrapper.m_Player_ReleaseAttack;
         public InputAction @Parry => m_Wrapper.m_Player_Parry;
-        public InputAction @Block => m_Wrapper.m_Player_Block;
         public InputAction @Select => m_Wrapper.m_Player_Select;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -456,9 +444,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Parry.started += instance.OnParry;
             @Parry.performed += instance.OnParry;
             @Parry.canceled += instance.OnParry;
-            @Block.started += instance.OnBlock;
-            @Block.performed += instance.OnBlock;
-            @Block.canceled += instance.OnBlock;
             @Select.started += instance.OnSelect;
             @Select.performed += instance.OnSelect;
             @Select.canceled += instance.OnSelect;
@@ -484,9 +469,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Parry.started -= instance.OnParry;
             @Parry.performed -= instance.OnParry;
             @Parry.canceled -= instance.OnParry;
-            @Block.started -= instance.OnBlock;
-            @Block.performed -= instance.OnBlock;
-            @Block.canceled -= instance.OnBlock;
             @Select.started -= instance.OnSelect;
             @Select.performed -= instance.OnSelect;
             @Select.canceled -= instance.OnSelect;
@@ -542,7 +524,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         void OnAttackMode(InputAction.CallbackContext context);
         void OnReleaseAttack(InputAction.CallbackContext context);
         void OnParry(InputAction.CallbackContext context);
-        void OnBlock(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
     }
 }

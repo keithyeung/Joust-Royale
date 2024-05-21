@@ -481,7 +481,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066089397042150048}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2381335, y: -0.000000016711398, z: 0.0000000040974166, w: 0.9712325}
+  m_LocalRotation: {x: 0.2381335, y: 0.00000001671139, z: -0.0000000040974153, w: 0.9712325}
   m_LocalPosition: {x: 0, y: 16, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6153,7 +6153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2172758391158009372}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2381335, y: -0.000000016711398, z: 0.0000000040974166, w: 0.9712325}
+  m_LocalRotation: {x: 0.2381335, y: 0.00000001671139, z: -0.0000000040974153, w: 0.9712325}
   m_LocalPosition: {x: 0, y: 16, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -23163,7 +23163,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ac9d03ce3c1932a40ae2fb9483da75aa,
         type: 3}
       propertyPath: m_Name
-      value: Crown
+      value: PlayerCrown
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ac9d03ce3c1932a40ae2fb9483da75aa,
         type: 3}

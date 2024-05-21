@@ -70,19 +70,8 @@ public class GameState : Singleton<GameState>
         
     }
 
-    //private void Start()
-    //{
-    //    UpdateWinCount();
-    //}
-
     private void Update()
     {
-        if (states == GameStatesMachine.Ended)
-        {
-            //if pressed space
-
-            
-        }
 
         stateMachine();
     }
