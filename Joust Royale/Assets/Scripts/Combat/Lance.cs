@@ -134,18 +134,19 @@ public class Lance : MonoBehaviour
 
         if (shield != null && tempLayer != thisLayer && shield.isParryActive)
         {
-            
             //longSmoke.Play();
             //longSplinters.Play();
             PlayParticleAlongEdge(longSmoke);
             PlayParticleAlongEdge(longSplinters);
             enemyTestController.accumulatedHitsParried++;
             this.gameObject.SetActive(false);
+
+            //controller shake stuff
             PlayerController thisPlayerController = GetComponentInParent<PlayerController>();
             Gamepad gamepad = thisPlayerController.playerInput.devices.FirstOrDefault(d => d is Gamepad) as Gamepad;
             if (gamepad != null)
             {
-                StartCoroutine(VibrateControllerPlusLoseLance(gamepad, parried_lowFrequency, parried_highFrequency, parried_duration));
+                StartCoroutine(VibrateController(gamepad, parried_lowFrequency, parried_highFrequency, parried_duration));
             }
             else
             {
@@ -164,13 +165,7 @@ public class Lance : MonoBehaviour
         gamepad.SetMotorSpeeds(0, 0);
     }
 
-    private IEnumerator VibrateControllerPlusLoseLance(Gamepad gamepad, float lowFrequency, float highFrequency, float duration)
-    {
-        gamepad.SetMotorSpeeds(lowFrequency, highFrequency);
-        yield return new WaitForSeconds(duration);
-        gamepad.SetMotorSpeeds(0, 0);
-    }
-
+    
     public void PlayTrail(bool play) { if (play) trail.Play(); else trail.Stop(); }
 
     private void HandleGameMode(PlayerController playerController, PlumageManager opponentPlumageManager)
