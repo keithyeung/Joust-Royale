@@ -60,15 +60,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Block",
-                    "type": "Button",
-                    "id": "75e35ce8-2c65-45ff-aca5-cc8bc4b7099c",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Select",
                     "type": "Button",
                     "id": "17cc45b8-9c1b-417a-881e-b21459d4caa7",
@@ -246,12 +237,12 @@
                 },
                 {
                     "name": "",
-                    "id": "d78cabb0-df9e-463f-b972-21e38c6b09ac",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "Hold(duration=0.6)",
+                    "id": "145a9270-735d-4961-af62-7f5053e684da",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
-                    "action": "Block",
+                    "groups": "",
+                    "action": "Parry",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

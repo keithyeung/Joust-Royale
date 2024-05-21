@@ -6,6 +6,17 @@ public class PPStorage : Singleton<PPStorage>
 {
     public List<PlayerProperty> playerProperties = new List<PlayerProperty>();
     public string ArenaName;
+    public GameMode.GameModes gameMode;
+
+    public void SetGameMode(GameMode.GameModes p_gameMode)
+    {
+        gameMode = p_gameMode;
+    }
+
+    public GameMode.GameModes GetGameMode()
+    {
+        return gameMode;
+    }
 
     public void SetArenaName(string name)
     {

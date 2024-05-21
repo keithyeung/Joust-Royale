@@ -30,6 +30,9 @@ public class PlayerSetupMenuController : MonoBehaviour
         Green
     }
 
+    // Define custom colors as static variables
+    //public static Color orange = new Color(1f, 0.5f, 0f, 1f);
+
     public void SetPlayerIndex(int index)
     {
         playerIndex = index;
@@ -45,10 +48,12 @@ public class PlayerSetupMenuController : MonoBehaviour
 
     private void ColorHandler()
     {
+        float alpha_temp = 230f / 255f;
+        Color red_lessA = new Color(1f, 0f, 0f, alpha_temp);
         switch (playerIndex)
         {
             case (int)PlayerColor.Red:
-                panelColor.color = Color.red;
+                panelColor.color = red_lessA;
                 break;
             case (int)PlayerColor.Blue:
                 panelColor.color = Color.blue;

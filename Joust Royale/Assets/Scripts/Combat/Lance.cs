@@ -87,6 +87,7 @@ public class Lance : MonoBehaviour
 
     private void HandleArmorCollision(Collider other)
     {
+        PlayerController otherPlayerController = other.GetComponentInParent<PlayerController>();
         LayerMask tempLayer = other.gameObject.GetComponentInParent<PlayerController>().GetLayerMaskForArmor();
         PlumageManager opponentPlumageManager = other.gameObject.GetComponentInParent<PlumageManager>();
 
@@ -100,8 +101,18 @@ public class Lance : MonoBehaviour
             Debug.Log("Lance.cs cannot find a material");
             return;
         }
+        //adding vibration to the controller
+        VibrateControllerIfPossible(otherPlayerController);
 
-        PlayerController playerController = other.GetComponentInParent<PlayerController>();
+        //blanking out the material
+        other.gameObject.GetComponentInParent<PlayerHealth>().StartInvincibility();
+        
+        //handling the game mode
+        HandleGameMode(otherPlayerController, opponentPlumageManager);
+    }
+
+    private void VibrateControllerIfPossible(PlayerController playerController)
+    {
         Gamepad gamepad = playerController.playerInput.devices.FirstOrDefault(d => d is Gamepad) as Gamepad;
         if (gamepad != null)
         {
@@ -111,16 +122,6 @@ public class Lance : MonoBehaviour
         {
             Debug.Log("Vibration check is no good");
         }
-
-        other.gameObject.GetComponentInParent<PlayerHealth>().StartInvincibility();
-        if (other.GetComponentInParent<PlumageManager>().GetPlumageCount() > 0)
-        {
-            Color plumeColor = opponentPlumageManager.StealPlume();
-            plumageManager.AddPlume(plumeColor);
-            ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
-        }
-
-        ServiceLocator.instance.GetService<GameState>().CheckForCrown();
     }
 
     private void HandleShieldCollision(Collider other)
@@ -133,17 +134,19 @@ public class Lance : MonoBehaviour
 
         if (shield != null && tempLayer != thisLayer && shield.isParryActive)
         {
-            
             //longSmoke.Play();
             //longSplinters.Play();
             PlayParticleAlongEdge(longSmoke);
             PlayParticleAlongEdge(longSplinters);
             enemyTestController.accumulatedHitsParried++;
+            this.gameObject.SetActive(false);
+
+            //controller shake stuff
             PlayerController thisPlayerController = GetComponentInParent<PlayerController>();
             Gamepad gamepad = thisPlayerController.playerInput.devices.FirstOrDefault(d => d is Gamepad) as Gamepad;
             if (gamepad != null)
             {
-                StartCoroutine(VibrateControllerPlusLoseLance(gamepad, parried_lowFrequency, parried_highFrequency, parried_duration));
+                StartCoroutine(VibrateController(gamepad, parried_lowFrequency, parried_highFrequency, parried_duration));
             }
             else
             {
@@ -162,13 +165,100 @@ public class Lance : MonoBehaviour
         gamepad.SetMotorSpeeds(0, 0);
     }
 
-    private IEnumerator VibrateControllerPlusLoseLance(Gamepad gamepad, float lowFrequency, float highFrequency, float duration)
+    
+    public void PlayTrail(bool play) { if (play) trail.Play(); else trail.Stop(); }
+
+    private void HandleGameMode(PlayerController playerController, PlumageManager opponentPlumageManager)
     {
-        gamepad.SetMotorSpeeds(lowFrequency, highFrequency);
-        yield return new WaitForSeconds(duration);
-        gamepad.SetMotorSpeeds(0, 0);
-        this.gameObject.SetActive(false);
+        GameMode.GameModes gameMode = ServiceLocator.instance.GetService<GameRules>().gameModes;
+        switch (gameMode)
+        {
+            case GameMode.GameModes.PlumeStealer:
+                HandlePlumeStealerMode(playerController, opponentPlumageManager);
+                break;
+            case GameMode.GameModes.DeathMatch:
+                HandleDeathMatchMode(playerController, opponentPlumageManager);
+                break;
+            case GameMode.GameModes.CrownSnatcher:
+                HandleCrownSnatcherMode(playerController, opponentPlumageManager);
+                break;
+            default:
+                Debug.Log("GameMode not found");
+                break;
+        }
     }
 
-    public void PlayTrail(bool play) { if (play) trail.Play(); else trail.Stop(); }
+    private void HandlePlumeStealerMode(PlayerController playerController, PlumageManager opponentPlumageManager)
+    {
+        if (opponentPlumageManager.GetPlumageCount() > 0)
+        {
+            Color plumeColor = opponentPlumageManager.StealPlume();
+            plumageManager.AddPlume(plumeColor);
+            ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
+        }
+        ServiceLocator.instance.GetService<GameState>().CheckForCrown();
+    }
+
+    private void HandleDeathMatchMode(PlayerController playerController, PlumageManager opponentPlumageManager)
+    {
+        if (opponentPlumageManager.GetPlumageCount() > 0)
+        {
+            Color plumeColor = opponentPlumageManager.StealPlume();
+            ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
+            if (opponentPlumageManager.GetPlumageCount() == 0)
+            {
+                Debug.Log("DM Mode, all plumage gone");
+                //play dead animation
+                //Maybe ragdoll it.
+            }
+        }
+    }
+
+    private void HandleCrownSnatcherMode(PlayerController playerController, PlumageManager opponentPlumageManager)
+    {
+        Debug.Log("CrownSnatcherMode");
+        // steal crown if there's one otherwise stun them/ hit them away
+        if(playerController.crown.activeSelf)
+        {
+            playerController.crown.SetActive(false);
+            GetComponentInParent<PlayerController>().crown.SetActive(true);
+        }
+    }
 }
+
+
+//back up:
+//prob statemachine??
+//if (ServiceLocator.instance.GetService<GameRules>().gameModes == GameMode.GameModes.PlumeStealer)
+//{
+//    //Everything about the plume
+//    if (other.GetComponentInParent<PlumageManager>().GetPlumageCount() > 0)
+//    {
+//        Color plumeColor = opponentPlumageManager.StealPlume();
+//        plumageManager.AddPlume(plumeColor);
+//        ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
+//    }
+//    ServiceLocator.instance.GetService<GameState>().CheckForCrown();
+//}
+//else if (ServiceLocator.instance.GetService<GameRules>().gameModes == GameMode.GameModes.DeathMatch)
+//{
+//    if (other.GetComponentInParent<PlumageManager>().GetPlumageCount() > 0)
+//    {
+//        Color plumeColor = opponentPlumageManager.StealPlume();
+//        ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
+//        if (other.GetComponentInParent<PlumageManager>().GetPlumageCount() == 0)
+//        {
+//            //play dead animation
+//            //Maybe ragdoll it.
+//        }
+//    }
+//}
+//else if (ServiceLocator.instance.GetService<GameRules>().gameModes == GameMode.GameModes.CrownSnatcher)
+//{
+//    // steal crown if there's one otherwise stun them/ hit them away
+
+//}
+//else
+//{
+//    Debug.Log("GameMode not found");
+//}

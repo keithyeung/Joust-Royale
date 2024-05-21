@@ -1321,7 +1321,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57702a083ce2d8143a9da48abb4818db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 3541359832685250707}
+  panel: {fileID: 0}
+  ST_WinCondition: {fileID: 0}
   playerIcons:
   - {fileID: 6903418781906710003}
   - {fileID: 5985606842635268425}
@@ -1768,7 +1769,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3388531751112338383
 RectTransform:
   m_ObjectHideFlags: 0

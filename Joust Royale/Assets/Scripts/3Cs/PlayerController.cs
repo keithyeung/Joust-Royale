@@ -44,13 +44,15 @@ public class PlayerController : MonoBehaviour
 
     //Game State
     [SerializeField] private PlayerState playerState;
+    private GameRules gameRules;
 
     //Hard coded things
     private Vector3 previousPosition;
     private bool resetPosition = false;
 
-    //Playtest
+    //data
     public float standStillTime = 0f;
+    public float ownedCrownTime = 0;
 
     private void Start()
     {
@@ -58,7 +60,7 @@ public class PlayerController : MonoBehaviour
         controller = gameObject.GetComponent<CharacterController>();
         playerState = GetComponent<PlayerState>();
         crown.SetActive(false);
-        
+        gameRules = ServiceLocator.instance.GetService<GameRules>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -91,6 +93,14 @@ public class PlayerController : MonoBehaviour
         if (currentSpeed == 0)
         {
             standStillTime += Time.deltaTime;
+        }
+
+        if(crown.activeSelf)
+        {
+            if(gameRules.gameModes == GameMode.GameModes.CrownSnatcher)
+            {
+                ownedCrownTime += Time.deltaTime;
+            }
         }
     }
 
