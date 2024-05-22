@@ -131,8 +131,8 @@ Material:
     - _ZWriteControl: 0
     - _brightness: 0.259
     - _scale: 100
-    - _vertex_distort_y: 1
-    - _vertex_scale: 2.91
+    - _vertex_distort_y: 0
+    - _vertex_scale: 3
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
