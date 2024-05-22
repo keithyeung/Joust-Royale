@@ -32,7 +32,10 @@ public class PlayerManager : Singleton<PlayerManager>
         ServiceLocator.instance.RegisterService<PlayerManager>(this);
 
         var playerStorageVariable = ServiceLocator.instance.GetService<PPStorage>();
-        SetUpArena(playerStorageVariable.GetArenaName());
+        if(playerStorageVariable != null)
+        {
+            SetUpArena(playerStorageVariable.GetArenaName());
+        }
         //HandleDifferentTypeOfPlayerJoin();
     }
 
@@ -113,6 +116,10 @@ public class PlayerManager : Singleton<PlayerManager>
     public void SpawnPointsPrefixs()
     {
         levelName = ServiceLocator.instance.GetService<PPStorage>().GetArenaName();
+        if(levelName == null)
+        {
+            
+        }
         GameObject spawnPointsParent = GameObject.Find(levelName);
         GameObject spawnPoints = spawnPointsParent.transform.Find("SpawnPointsFamily").gameObject;
 
