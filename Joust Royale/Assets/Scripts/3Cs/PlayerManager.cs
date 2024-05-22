@@ -83,7 +83,10 @@ public class PlayerManager : Singleton<PlayerManager>
         ServiceLocator.instance.GetService<GameState>().UpdateWinCount();
     }
 
-   
+    public void DisablePlayerJoining()
+    {
+        playerInputManager.DisableJoining();
+    }
 
     public void AddPlayer(PlayerInput player)
     {
@@ -115,12 +118,9 @@ public class PlayerManager : Singleton<PlayerManager>
 
     public void SpawnPointsPrefixs()
     {
-        levelName = ServiceLocator.instance.GetService<PPStorage>().GetArenaName();
-        if(levelName == null)
-        {
-            
-        }
-        GameObject spawnPointsParent = GameObject.Find(levelName);
+        levelName = ServiceLocator.instance.GetService<ArenaManager>().GetCurrentArena().name;
+        
+        GameObject spawnPointsParent = ServiceLocator.instance.GetService<ArenaManager>().GetCurrentArena();
         GameObject spawnPoints = spawnPointsParent.transform.Find("SpawnPointsFamily").gameObject;
 
         // Check if the GameObject was found

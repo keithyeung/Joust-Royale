@@ -1,4 +1,5 @@
 using Cinemachine;
+using System.Collections;
 using Unity.VisualScripting;
 //using UnityEditor.iOS.Extensions.Common;
 using UnityEngine;
@@ -225,11 +226,23 @@ public class PlayerController : MonoBehaviour
 
     public void PlayTrail(bool play) { if (play) trail.Play(); else trail.Stop(); }
 
+    public void StunPlayerForDuration(float duration)
+    {
+        StunPlayer();
+        StartCoroutine(UnstunPlayerAfterDelay(duration));
+    }
+
     public void StunPlayer()
     {
         isStunned = true;
         playerState.state = PLAYER_STATE.Idle;
         playerState.SetAnimatorBackToDefault();
+    }
+
+    private IEnumerator UnstunPlayerAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        UnstunPlayer();
     }
 
     public void UnstunPlayer()
