@@ -20,11 +20,26 @@ public class ArenaManager : Singleton<ArenaManager>
     }
     //This is a crown that should be activated if it's crown snatcher mode
 
-    
+    private void Start()
+    {
+        if(currentArena == null)
+        {
+            for(int i = 0;i< arenas.Length; i++)
+            {
+                if (arenas[i].gameObject.activeSelf)
+                {
+                    currentArena = arenas[i].gameObject;
+                    return;
+                }
+            }
+        }
+    }
+
     //This is an array of the Arena class that will be used to store all the arenas
     public Arena[] arenas;
     //This is the current arena,self explanatory
     [SerializeField] private GameObject currentArena;
+
     //This will be used to change the arena
     //I will pass the name of the arena for now until I find a better way to do this
     public void ChangeArena(string name)
