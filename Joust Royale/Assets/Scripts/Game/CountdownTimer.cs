@@ -54,6 +54,7 @@ public class CountdownTimer : MonoBehaviour
         if (preGameTime <= 0)
         {
             preGameTime = 0;
+            ServiceLocator.instance.GetService<PlayerManager>().DisablePlayerJoining();
             ServiceLocator.instance.GetService<GameState>().states = GameState.GameStatesMachine.Playing;
             return;
         }

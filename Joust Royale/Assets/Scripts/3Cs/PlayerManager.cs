@@ -83,7 +83,10 @@ public class PlayerManager : Singleton<PlayerManager>
         ServiceLocator.instance.GetService<GameState>().UpdateWinCount();
     }
 
-   
+    public void DisablePlayerJoining()
+    {
+        playerInputManager.DisableJoining();
+    }
 
     public void AddPlayer(PlayerInput player)
     {
