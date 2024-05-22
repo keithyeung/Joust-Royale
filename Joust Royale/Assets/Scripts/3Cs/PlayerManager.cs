@@ -30,12 +30,15 @@ public class PlayerManager : Singleton<PlayerManager>
         SingletonBuilder(this);
         playerInputManager = GetComponent<PlayerInputManager>();
         ServiceLocator.instance.RegisterService<PlayerManager>(this);
-        SpawnPointsPrefixs();
+
+        var playerStorageVariable = ServiceLocator.instance.GetService<PPStorage>();
+        SetUpArena(playerStorageVariable.GetArenaName());
         //HandleDifferentTypeOfPlayerJoin();
     }
 
     private void Start()
     {
+        SpawnPointsPrefixs();
         HandleDifferentTypeOfPlayerJoin();
     }
 
@@ -44,7 +47,7 @@ public class PlayerManager : Singleton<PlayerManager>
         if (FindAnyObjectByType<PPStorage>() != null) // if the game started from lobby
         {
             var playerStorageVariable = ServiceLocator.instance.GetService<PPStorage>();
-            SetUpArena(playerStorageVariable.GetArenaName());
+            //SetUpArena(playerStorageVariable.GetArenaName());
             if (playerStorageVariable.playerProperties.Count > 0)
             {
                 LoadPlayers();
@@ -109,13 +112,14 @@ public class PlayerManager : Singleton<PlayerManager>
 
     public void SpawnPointsPrefixs()
     {
-        GameObject spawnPointsParent = GameObject.Find("SpawnPointsFamily");
-        levelName = spawnPointsParent.transform.parent.name;
+        levelName = ServiceLocator.instance.GetService<PPStorage>().GetArenaName();
+        GameObject spawnPointsParent = GameObject.Find(levelName);
+        GameObject spawnPoints = spawnPointsParent.transform.Find("SpawnPointsFamily").gameObject;
 
         // Check if the GameObject was found
-        if (spawnPointsParent != null && spawnPointsParent.activeInHierarchy)
+        if (spawnPoints != null && spawnPoints.activeInHierarchy)
         {
-            Transform parentTransform = spawnPointsParent.transform;
+            Transform parentTransform = spawnPoints.transform;
 
             for (int i = 0; i < parentTransform.childCount; i++)
             {
@@ -125,7 +129,7 @@ public class PlayerManager : Singleton<PlayerManager>
         }
         else
         {
-            Debug.LogError("GameObject" + spawnPointsParent.name + "SpawnPointsFamily not found!");
+            Debug.LogError("GameObject" + spawnPoints.name + "SpawnPointsFamily not found!");
         }
     }
 

@@ -24,7 +24,7 @@ public class ArenaManager : Singleton<ArenaManager>
     //This is an array of the Arena class that will be used to store all the arenas
     public Arena[] arenas;
     //This is the current arena,self explanatory
-    private GameObject currentArena;
+    [SerializeField] private GameObject currentArena;
     //This will be used to change the arena
     //I will pass the name of the arena for now until I find a better way to do this
     public void ChangeArena(string name)
