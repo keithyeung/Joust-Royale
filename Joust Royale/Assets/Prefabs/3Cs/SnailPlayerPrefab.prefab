@@ -217,6 +217,7 @@ MonoBehaviour:
   playerInput: {fileID: 0}
   playerState: {fileID: 0}
   standStillTime: 0
+  ownedCrownTime: 0
 --- !u!114 &7624911254171468607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,7 +481,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066089397042150048}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2381335, y: 0.00000001671139, z: -0.0000000040974153, w: 0.9712325}
+  m_LocalRotation: {x: 0.2381335, y: -0.000000016711398, z: 0.0000000040974166, w: 0.9712325}
   m_LocalPosition: {x: 0, y: 16, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -816,7 +817,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.70710677, y: 0, z: 0, w: 0.70710677}
   m_LocalPosition: {x: 0, y: 3.72, z: 0}
-  m_LocalScale: {x: 15, y: 15, z: 6}
+  m_LocalScale: {x: 15, y: 15, z: 6.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4580221641035981575}
@@ -1930,7 +1931,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 10
+        scalar: 20
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -6152,7 +6153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2172758391158009372}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2381335, y: 0.00000001671139, z: -0.0000000040974153, w: 0.9712325}
+  m_LocalRotation: {x: 0.2381335, y: -0.000000016711398, z: 0.0000000040974166, w: 0.9712325}
   m_LocalPosition: {x: 0, y: 16, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12038,7 +12039,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4132230503973245524}
   serializedVersion: 8
-  lengthInSec: 1
+  lengthInSec: 0.7
   simulationSpeed: 1.2
   stopAction: 0
   cullingMode: 0
@@ -12977,7 +12978,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 10
+        scalar: 15
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -17033,7 +17034,7 @@ MonoBehaviour:
   isParryActive: 0
   shieldStatus: 0
   playerstate: {fileID: 7624911254171468607}
-  parryTime: 0.25
+  parryTime: 0.2
   blockTime: 0.5
   tiredBlockingTime: 0.5
   cooldownTime: 1
@@ -17056,8 +17057,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.023575388, y: 0.05, z: 0.025754547}
-  m_Center: {x: -0.000000089594145, y: -0.08, z: -0.0012882521}
+  m_Size: {x: 0.023575388, y: 0.042187072, z: 0.025754547}
+  m_Center: {x: -0.00000006785217, y: -0.07609372, z: -0.0012882513}
 --- !u!1 &4977635263979356215
 GameObject:
   m_ObjectHideFlags: 0
@@ -18329,7 +18330,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 30
+        scalar: 50
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -25693,6 +25694,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3063654101634964075}
     m_Modifications:
+    - target: {fileID: 1547143920071883390, guid: e16e7e19cbd9461479e0b46dd3d7bb31,
+        type: 3}
+      propertyPath: ShapeModule.type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547143920071883390, guid: e16e7e19cbd9461479e0b46dd3d7bb31,
+        type: 3}
+      propertyPath: ShapeModule.arc.mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547143920071883390, guid: e16e7e19cbd9461479e0b46dd3d7bb31,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547143920071883390, guid: e16e7e19cbd9461479e0b46dd3d7bb31,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547143920071883390, guid: e16e7e19cbd9461479e0b46dd3d7bb31,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547143920071883390, guid: e16e7e19cbd9461479e0b46dd3d7bb31,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2846455597454935135, guid: e16e7e19cbd9461479e0b46dd3d7bb31,
         type: 3}
       propertyPath: m_Name
