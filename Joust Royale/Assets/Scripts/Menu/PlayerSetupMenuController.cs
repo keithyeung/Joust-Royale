@@ -19,10 +19,10 @@ public class PlayerSetupMenuController : MonoBehaviour
     [SerializeField]
     private Image panelColor;
 
-    private float ignoreInputTime = 1.5f;
+    private float ignoreInputTime = 0.5f;
     private bool inputEnabled;
 
-    enum PlayerColor
+    public enum PlayerColor
     {
         Red,
         Blue,

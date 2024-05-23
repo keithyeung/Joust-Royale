@@ -102,6 +102,7 @@ public class PlayerManager : Singleton<PlayerManager>
         SetPlayerCamera(player);
         SetPlayerInputHandler(player);
         SetPlayerColor(playerParent);
+        //SetHelmet(playerParent);
         SetPlayerPlumagePrefab(player);
 
         if (playerInputManager.joinBehavior == PlayerJoinBehavior.JoinPlayersWhenButtonIsPressed)
@@ -216,6 +217,27 @@ public class PlayerManager : Singleton<PlayerManager>
 
             //Shield
             tempShield.GetComponent<Renderer>().material = playerMaterials[materialIndex];
+        }
+    }
+
+    private void SetHelmet(Transform playerParentTransform)
+    {
+        var playerController = playerParentTransform.GetComponentInChildren<PlayerController>().gameObject;
+        var helmetFolder = playerController.GetComponentInChildren<PlayerCustomization>();
+        //Helmet
+        var helmetSelection = ServiceLocator.instance.GetService<PPStorage>().GetPlayerProperty(players.Count - 1).helmetSelection;
+        
+        //check if the selected helmet is one of the helmet in the helmet folder
+        foreach (var helmet in helmetFolder.helmets)
+        {
+            if (helmet.name == helmetSelection.name)
+            {
+                helmet.gameObject.GetComponent<MeshRenderer>().enabled = true;
+            }
+            else
+            {
+                helmet.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            }
         }
     }
 
