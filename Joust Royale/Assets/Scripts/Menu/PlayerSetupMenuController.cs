@@ -18,6 +18,8 @@ public class PlayerSetupMenuController : MonoBehaviour
     private Button readyButton;
     [SerializeField]
     private Image panelColor;
+    [SerializeField]
+    private GameObject[] helmet;
 
     private float ignoreInputTime = 0.5f;
     private bool inputEnabled;
