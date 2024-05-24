@@ -3602,6 +3602,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PUT_ME_IN_THE_LEVEL
       objectReference: {fileID: 0}
+    - target: {fileID: 5589890339290483701, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
+        type: 3}
+      propertyPath: sounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: dd397d2d8d558cd4ab3a0221adc35756, type: 3}
     - target: {fileID: 7195185889468392722, guid: 2cd07c0716079254f9d6ef56ef1ea8fd,
         type: 3}
       propertyPath: mainCamera
