@@ -13,6 +13,9 @@ public class PlayerHealth : MonoBehaviour
     public GameObject[] plumageIcon;
     public GameObject plumagePrefabInPlayer;
 
+    [SerializeField]
+    private TrailRenderer stunEffect;
+
 
     //Invincible functions
     [Header("Invincible variable")]
@@ -31,11 +34,27 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        stunEffect.enabled = false;
     }
 
     private void ToggleVisibility()
     {
         playerModel.SetActive(!playerModel.activeSelf);
+    }
+
+    public void TriggerStunEffect()
+    {
+        stunEffect.enabled = true;
+        stunEffect.time = 1f;
+        // Move the GameObject slightly to make the trail visible
+        transform.position += new Vector3(0, 0.01f, 0);
+    }
+
+    public void StopStunEffect()
+    {
+        stunEffect.enabled = false;
+        stunEffect.time = -1f;
+        stunEffect.Clear();
     }
 
     private void StartBlinking()

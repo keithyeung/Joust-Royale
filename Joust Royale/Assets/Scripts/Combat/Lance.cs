@@ -101,8 +101,8 @@ public class Lance : MonoBehaviour
             Debug.Log("Lance.cs cannot find a material");
             return;
         }
-        //adding vibration to the controller
-        VibrateControllerIfPossible(otherPlayerController);
+        //adding vibration to the enemy controller
+        otherPlayerController.VibrateControllerIfPossible(hit_lowFrequency, hit_highFrequency, hit_duration);
 
         //blanking out the material
         other.gameObject.GetComponentInParent<PlayerHealth>().StartInvincibility();
@@ -111,18 +111,6 @@ public class Lance : MonoBehaviour
         HandleGameMode(otherPlayerController, opponentPlumageManager);
     }
 
-    private void VibrateControllerIfPossible(PlayerController playerController)
-    {
-        Gamepad gamepad = playerController.playerInput.devices.FirstOrDefault(d => d is Gamepad) as Gamepad;
-        if (gamepad != null)
-        {
-            StartCoroutine(VibrateController(gamepad, hit_lowFrequency, hit_highFrequency, hit_duration));
-        }
-        else
-        {
-            Debug.Log("Vibration check is no good");
-        }
-    }
 
     private void HandleShieldCollision(Collider other)
     {
@@ -139,30 +127,16 @@ public class Lance : MonoBehaviour
             PlayParticleAlongEdge(longSmoke);
             PlayParticleAlongEdge(longSplinters);
             enemyTestController.accumulatedHitsParried++;
-            this.gameObject.SetActive(false);
 
             //controller shake stuff
-            PlayerController thisPlayerController = GetComponentInParent<PlayerController>();
-            Gamepad gamepad = thisPlayerController.playerInput.devices.FirstOrDefault(d => d is Gamepad) as Gamepad;
-            if (gamepad != null)
-            {
-                StartCoroutine(VibrateController(gamepad, parried_lowFrequency, parried_highFrequency, parried_duration));
-            }
-            else
-            {
-                Debug.Log("Vibration check is no good");
-            }
+            var playerController = GetComponentInParent<PlayerController>();
+            playerController.VibrateControllerIfPossible(parried_lowFrequency, parried_highFrequency, parried_duration);
+
             ServiceLocator.instance.GetService<AudioManager>().Play("SuccessfulParry");
             Debug.Log("Lance is broken");
+            this.gameObject.SetActive(false);
 
         }
-    }
-
-    private IEnumerator VibrateController(Gamepad gamepad, float lowFrequency, float highFrequency, float duration)
-    {
-        gamepad.SetMotorSpeeds(lowFrequency, highFrequency);
-        yield return new WaitForSeconds(duration);
-        gamepad.SetMotorSpeeds(0, 0);
     }
 
     
@@ -222,9 +196,9 @@ public class Lance : MonoBehaviour
         {
             playerController.crown.SetActive(false);
             GetComponentInParent<PlayerController>().crown.SetActive(true);
-            ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
         }
-        playerController.StunPlayerForDuration(1.0f);
+        ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
+        playerController.StunPlayerForDuration(2.0f);
         
     }
 
