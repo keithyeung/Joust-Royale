@@ -182,7 +182,7 @@ MonoBehaviour:
     on the helmet resemble health points).\r\n\u2022    Deal damage: \nCharge at
     your opponents and hit them with your lance.\r\n\u2022    Time limit: 3 minutes."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1f2baa62033b487478a90a1850972e70, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: -6.8812256, z: 18.931885, w: -19.994446}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &449166296365459323
@@ -397,8 +397,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Crown Snatcher
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1f2baa62033b487478a90a1850972e70, type: 2}
+  m_sharedMaterial: {fileID: 7963967667824435909, guid: 1f2baa62033b487478a90a1850972e70,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -666,8 +667,9 @@ MonoBehaviour:
     get plumes: Charge at your opponents and hit them with your lance\n\u2022   
     Time limit: 3 minutes.\r\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1f2baa62033b487478a90a1850972e70, type: 2}
+  m_sharedMaterial: {fileID: 7963967667824435909, guid: 1f2baa62033b487478a90a1850972e70,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1215,8 +1217,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Plume stealer
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1f2baa62033b487478a90a1850972e70, type: 2}
+  m_sharedMaterial: {fileID: 7963967667824435909, guid: 1f2baa62033b487478a90a1850972e70,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1424,8 +1427,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Select a game mode.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1f2baa62033b487478a90a1850972e70, type: 2}
+  m_sharedMaterial: {fileID: 7963967667824435909, guid: 1f2baa62033b487478a90a1850972e70,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1561,7 +1565,7 @@ MonoBehaviour:
     the Crown: \nCharge at your opponents and hit them with your lance.\r\n\u2022   
     Time limit: 3 minutes."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1f2baa62033b487478a90a1850972e70, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1625,7 +1629,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 18.92511, z: 18.931885, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8650424123916956363
@@ -1695,8 +1699,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Deathmatch
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1f2baa62033b487478a90a1850972e70, type: 2}
+  m_sharedMaterial: {fileID: 7963967667824435909, guid: 1f2baa62033b487478a90a1850972e70,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

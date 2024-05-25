@@ -70,7 +70,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: PickUp
-    clip: {fileID: 8300000, guid: 0a934108daab1664abbe655d6b999199, type: 3}
+    clip: {fileID: 8300000, guid: dd397d2d8d558cd4ab3a0221adc35756, type: 3}
     volume: 1
     pitch: 0.6
     loop: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Snatch
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 95d072464a56f694eab80521d862dd1c, type: 3}
     volume: 1
     pitch: 1
     loop: 0
