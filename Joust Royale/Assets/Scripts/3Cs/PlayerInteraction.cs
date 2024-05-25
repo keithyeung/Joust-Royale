@@ -21,6 +21,7 @@ public class PlayerInteraction : MonoBehaviour
         if(other.gameObject.CompareTag("Crown"))
         {
             EquipTheCrown(other, GetComponent<PlayerController>().crown, "Found a Crown and equipped");
+            ServiceLocator.instance.GetService<AudioManager>().Play("Snatch");
         }
         
     }
