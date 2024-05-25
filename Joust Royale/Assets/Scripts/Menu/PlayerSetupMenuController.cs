@@ -20,9 +20,16 @@ public class PlayerSetupMenuController : MonoBehaviour
     private Image panelColor;
     [SerializeField]
     private GameObject[] helmet;
+    [SerializeField]
+    private GameObject readyText; //This is for the ready button text
 
     private float ignoreInputTime = 0.5f;
     private bool inputEnabled;
+
+    private void Start()
+    {
+        readyText.SetActive(false);
+    }
 
     public enum PlayerColor
     {
@@ -98,6 +105,7 @@ public class PlayerSetupMenuController : MonoBehaviour
         
         ServiceLocator.instance.GetService<LobbyControls>().ReadyPlayer(playerIndex);
         readyButton.gameObject.SetActive(false);
+        readyText.SetActive(true);
         
     }
 }

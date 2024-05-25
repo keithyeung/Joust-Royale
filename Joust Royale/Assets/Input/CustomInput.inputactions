@@ -226,6 +226,17 @@
                 },
                 {
                     "name": "",
+                    "id": "6b380160-3986-4384-ae29-af7b63833f1b",
+                    "path": "<Keyboard>/p",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "ReleaseAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "54809c55-1151-4b6e-8467-0bb018395e90",
                     "path": "<Gamepad>/leftTrigger",
                     "interactions": "Press",
@@ -239,9 +250,9 @@
                     "name": "",
                     "id": "145a9270-735d-4961-af62-7f5053e684da",
                     "path": "<Keyboard>/o",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard",
                     "action": "Parry",
                     "isComposite": false,
                     "isPartOfComposite": false

@@ -422,6 +422,7 @@ MonoBehaviour:
   - {fileID: 7813696819211301595}
   - {fileID: 7678078195350315364}
   - {fileID: 7661549360697560414}
+  readyText: {fileID: 5047569573487562004}
 --- !u!1 &443953027470254864
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using Cinemachine;
 using System.Collections;
+using System.Linq;
 using Unity.VisualScripting;
 //using UnityEditor.iOS.Extensions.Common;
 using UnityEngine;
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
     //Game State
     [SerializeField] private PlayerState playerState;
     private GameRules gameRules;
+    private PlayerHealth playerHealth;
     private bool isStunned = false;
 
     //Hard coded things
@@ -63,6 +65,7 @@ public class PlayerController : MonoBehaviour
         playerState = GetComponent<PlayerState>();
         crown.SetActive(false);
         gameRules = ServiceLocator.instance.GetService<GameRules>();
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -236,7 +239,9 @@ public class PlayerController : MonoBehaviour
     {
         isStunned = true;
         playerState.state = PLAYER_STATE.Idle;
+        currentSpeed = 0;
         playerState.SetAnimatorBackToDefault();
+        playerHealth.TriggerStunEffect();
     }
 
     private IEnumerator UnstunPlayerAfterDelay(float delay)
@@ -248,5 +253,26 @@ public class PlayerController : MonoBehaviour
     public void UnstunPlayer()
     {
         isStunned = false;
+        playerHealth.StopStunEffect();
+    }
+
+    public void VibrateControllerIfPossible(float lowFrequency, float highFrequency, float duration)
+    {
+        Gamepad gamepad = playerInput.devices.FirstOrDefault(d => d is Gamepad) as Gamepad;
+        if (gamepad != null)
+        {
+            StartCoroutine(VibrateController(gamepad, lowFrequency, highFrequency, duration));
+        }
+        else
+        {
+            Debug.Log("Vibration check is no good");
+        }
+    }
+
+    private IEnumerator VibrateController(Gamepad gamepad, float lowFrequency, float highFrequency, float duration)
+    {
+        gamepad.SetMotorSpeeds(lowFrequency, highFrequency);
+        yield return new WaitForSeconds(duration);
+        gamepad.SetMotorSpeeds(0, 0);
     }
 }
