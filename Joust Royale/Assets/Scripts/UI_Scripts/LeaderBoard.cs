@@ -84,12 +84,12 @@ public class LeaderBoard : Singleton<LeaderBoard>
         playerData.playerIconColor = playerIcons[playerInput.playerIndex].color;
         playerData.plumesNumber = playerInput.GetComponent<PlumageManager>().GetPlumageCount();
         playerData.crownHoldingTime = (int)playerInput.GetComponent<PlayerController>().ownedCrownTime;
+        playerData.playerName = playerInput.GetComponent<PlayerController>().gameObject.name;
 
-        TestController testController = playerInput.GetComponentInChildren<TestController>();
-        playerData.attemptHits = testController.accumulatedInteractions;
-        playerData.hitsMade = testController.accumulatedHits;
-        playerData.parried = testController.accumulatedHitsParried;
-
+        //TestController testController = playerInput.GetComponentInChildren<TestController>();
+        //playerData.attemptHits = testController.accumulatedInteractions;
+        //playerData.hitsMade = testController.accumulatedHits;
+        //playerData.parried = testController.accumulatedHitsParried;
         return playerData;
     }
 
@@ -111,10 +111,8 @@ public class LeaderBoard : Singleton<LeaderBoard>
             TextMeshProUGUI[] textMeshes = playerIcons[i].gameObject.GetComponentsInChildren<TextMeshProUGUI>();
 
             playerIcon.color = data[i].playerIconColor;
-            textMeshes[0].text = data[i].plumesNumber.ToString();
-            textMeshes[1].text = data[i].attemptHits.ToString();
-            textMeshes[2].text = data[i].hitsMade.ToString();
-            textMeshes[3].text = data[i].parried.ToString();
+            textMeshes[0].text = data[i].playerName.ToString();
+            textMeshes[1].text = data[i].plumesNumber.ToString();
         }
     }
 
@@ -126,10 +124,8 @@ public class LeaderBoard : Singleton<LeaderBoard>
             TextMeshProUGUI[] textMeshes = playerIcons[i].gameObject.GetComponentsInChildren<TextMeshProUGUI>();
 
             playerIcon.color = data[i].playerIconColor;
-            textMeshes[0].text = data[i].crownHoldingTime.ToString();
-            textMeshes[1].text = data[i].attemptHits.ToString();
-            textMeshes[2].text = data[i].hitsMade.ToString();
-            textMeshes[3].text = data[i].parried.ToString();
+            textMeshes[0].text = data[i].playerName.ToString();
+            textMeshes[1].text = data[i].crownHoldingTime.ToString();
         }
     }
 
@@ -160,7 +156,6 @@ struct LeaderBoardData
     public Color playerIconColor;
     public int crownHoldingTime;
     public int plumesNumber;
-    public int attemptHits;
-    public int hitsMade;
-    public int parried;
+    public string playerName;
+
 }
