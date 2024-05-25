@@ -35,6 +35,7 @@ public class CountdownTimer : MonoBehaviour
         if (remainingTime <= 0)
         {
             remainingTime = 0;
+            countdownText.text = "00:00";
             ServiceLocator.instance.GetService<GameState>().states = GameState.GameStatesMachine.Ended;
             ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
             return;
