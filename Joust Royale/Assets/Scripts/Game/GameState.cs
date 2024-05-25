@@ -45,13 +45,13 @@ public class GameState : Singleton<GameState>
                     {
                         states = GameStatesMachine.Ended;
                         ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
-                        //ServiceLocator.instance.GetService<AudioManager>().Play("Victory");
                     }
                 }
                 break;
             case GameStatesMachine.Ended:
                 if (!hasShowenLeaderBoard)
                 {
+                    ServiceLocator.instance.GetService<AudioManager>().Play("Victory");
                     ServiceLocator.instance.GetService<LeaderBoard>()?.ShowLeaderBoard();
                     hasShowenLeaderBoard = true;
                 }
