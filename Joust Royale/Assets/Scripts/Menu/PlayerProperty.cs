@@ -13,4 +13,6 @@ public class PlayerProperty
     public Vector3 position;
     public Material material;
     public LayerMask layer;
+    public Color color;
+    public PlayerCustomization.HelmetSelection helmetSelection;
 }
