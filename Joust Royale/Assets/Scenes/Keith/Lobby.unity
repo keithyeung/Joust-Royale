@@ -853,7 +853,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &794221968
 RectTransform:
@@ -926,7 +926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.38431373}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.78039217}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1987,6 +1987,11 @@ PrefabInstance:
       propertyPath: SceneName
       value: GameScene
       objectReference: {fileID: 0}
+    - target: {fileID: 1470974809716393748, guid: ca9d5996db1969740b83456be05524ee,
+        type: 3}
+      propertyPath: pressStart
+      value: 
+      objectReference: {fileID: 794221964}
     - target: {fileID: 1470974809716393748, guid: ca9d5996db1969740b83456be05524ee,
         type: 3}
       propertyPath: titleImage
