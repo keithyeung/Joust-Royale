@@ -97,6 +97,7 @@ public class PlayerManager : Singleton<PlayerManager>
         //using parent due to prefab structure
         Transform playerParent = player.transform.parent;
         playerParent.transform.position = playerSpawnPositions[players.Count - 1].position;
+        playerParent.transform.rotation = playerSpawnPositions[players.Count - 1].rotation;
 
         SetPlayerLayers(player);
         SetPlayerCamera(player);
