@@ -182,6 +182,8 @@ public class Lance : MonoBehaviour
             if (opponentPlumageManager.GetPlumageCount() == 0)
             {
                 Debug.Log("DM Mode, all plumage gone");
+                ServiceLocator.instance.GetService<AudioManager>().Play("Death");
+
                 //play dead animation
                 //Maybe ragdoll it.
             }
@@ -196,6 +198,8 @@ public class Lance : MonoBehaviour
         {
             playerController.crown.SetActive(false);
             GetComponentInParent<PlayerController>().crown.SetActive(true);
+            ServiceLocator.instance.GetService<AudioManager>().Play("Snatch");
+
         }
         ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
         playerController.StunPlayerForDuration(2.0f);

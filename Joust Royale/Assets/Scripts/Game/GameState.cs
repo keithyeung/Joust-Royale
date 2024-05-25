@@ -70,10 +70,19 @@ public class GameState : Singleton<GameState>
         
     }
 
+    private void EmergencyBackToMenu()
+    {
+        //if leftshift + K is pressed
+        if (Keyboard.current.leftShiftKey.isPressed && Keyboard.current.qKey.isPressed)
+        {
+            BackToLobby();
+        }
+    }
+
     private void Update()
     {
-
         stateMachine();
+        EmergencyBackToMenu();
     }
 
     public void UpdateWinCount()
