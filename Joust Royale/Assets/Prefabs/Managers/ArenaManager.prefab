@@ -44,10 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8325b6d07742c8e4bb4581141e3c2fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crown: {fileID: 0}
   arenas:
   - name: TrainingGround
     gameObject: {fileID: 0}
-  - name: ArenaA_AsymmetryV2
+  - name: Asymmetry
     gameObject: {fileID: 0}
-  - name: ArenaB_AsymmetryVerticality
+  - name: Vertical
     gameObject: {fileID: 0}
+  - name: Symmetry
+    gameObject: {fileID: 0}
+  currentArena: {fileID: 0}
