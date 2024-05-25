@@ -21,6 +21,7 @@ public class LobbyControls : Singleton<LobbyControls>
 
     [SerializeField] private Image titleImage;
     [SerializeField] private Image crowdBackground;
+    [SerializeField] private GameObject pressStart;
 
     private void Awake()
     {
@@ -38,6 +39,7 @@ public class LobbyControls : Singleton<LobbyControls>
         {
             titleImage.enabled = false;
             crowdBackground.enabled = true;
+            pressStart.SetActive(false);
             //crowdBackground.color = new Color(crowdBackground.color.r, crowdBackground.color.g, crowdBackground.color.b, 0.5f);
         }
         pi.transform.SetParent(transform);

@@ -23,7 +23,7 @@ public class GameState : Singleton<GameState>
         Application.targetFrameRate = frameRate;
         SingletonBuilder(this);
         //playerManager = ServiceLocator.instance.GetService<PlayerManager>();
-        states = GameStatesMachine.Playing;
+        //states = GameStatesMachine.Playing;
         ServiceLocator.instance.RegisterService<GameState>(this);
         ServiceLocator.instance.GetService<AudioManager>().Play("BGM");
     }
@@ -45,13 +45,13 @@ public class GameState : Singleton<GameState>
                     {
                         states = GameStatesMachine.Ended;
                         ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
-                        //ServiceLocator.instance.GetService<AudioManager>().Play("Victory");
                     }
                 }
                 break;
             case GameStatesMachine.Ended:
                 if (!hasShowenLeaderBoard)
                 {
+                    ServiceLocator.instance.GetService<AudioManager>().Play("Victory");
                     ServiceLocator.instance.GetService<LeaderBoard>()?.ShowLeaderBoard();
                     hasShowenLeaderBoard = true;
                 }

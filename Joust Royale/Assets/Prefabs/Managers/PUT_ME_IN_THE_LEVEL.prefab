@@ -334,6 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countdownText: {fileID: 1623037987365393104}
   remainingTime: 180
+  preGameTime: 5
 --- !u!1 &4677797912618445766
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,6 +563,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Audio Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 6263876249887461875, guid: a7b776fd3d0e18f4c81fb745b6bc33c9,
+        type: 3}
+      propertyPath: sounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: dd397d2d8d558cd4ab3a0221adc35756, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

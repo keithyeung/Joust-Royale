@@ -57,57 +57,51 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Player1Hit
-    clip: {fileID: 0}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Player2Hit
-    clip: {fileID: 0}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Player3Hit
-    clip: {fileID: 0}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Player4Hit
-    clip: {fileID: 0}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: PickUp
-    clip: {fileID: 8300000, guid: 0a934108daab1664abbe655d6b999199, type: 3}
-    volume: 1
-    pitch: 0.6
-    loop: 0
-    source: {fileID: 0}
   - name: SuccessfulParry
     clip: {fileID: 8300000, guid: 269df37fe72560e45b565346e3108bc5, type: 3}
     volume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: LanceBreak
-    clip: {fileID: 8300000, guid: aeda8072379ccd1408ea449632e03ca5, type: 3}
-    volume: 0
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: ShieldBreak
-    clip: {fileID: 8300000, guid: daa3790a6120cd042a64c4a5626044c5, type: 3}
-    volume: 0
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
   - name: Victory
     clip: {fileID: 8300000, guid: 9ad61ac7071e58548955f11d9ca9bdfa, type: 3}
     volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PickUp
+    clip: {fileID: 8300000, guid: dd397d2d8d558cd4ab3a0221adc35756, type: 3}
+    volume: 1
+    pitch: 0.6
+    loop: 0
+    source: {fileID: 0}
+  - name: Death
+    clip: {fileID: 8300000, guid: b1b130934f81e1c47a2182d903357a1d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Snatch
+    clip: {fileID: 8300000, guid: 4931dc7de47c9cb458e3ad3f4b5ac6cf, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MenuMove
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MenuPress
+    clip: {fileID: 8300000, guid: 24f0855e4f44db24799d6f2f5a752ff6, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ready
+    clip: {fileID: 8300000, guid: 0d6801a9969e0784592a62daf1cd7a47, type: 3}
+    volume: 0.8
     pitch: 1
     loop: 0
     source: {fileID: 0}

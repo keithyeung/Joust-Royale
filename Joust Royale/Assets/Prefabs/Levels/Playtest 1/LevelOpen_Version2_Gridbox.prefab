@@ -1427,6 +1427,11 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 5375
       objectReference: {fileID: 0}
+    - target: {fileID: 548621423904587436, guid: a58419296d42c524e8262a2f683cd3fa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4
+      objectReference: {fileID: 0}
     - target: {fileID: 656626845364955601, guid: a58419296d42c524e8262a2f683cd3fa,
         type: 3}
       propertyPath: m_VersionIndex
@@ -1441,6 +1446,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VersionIndex
       value: 324
+      objectReference: {fileID: 0}
+    - target: {fileID: 1049516358385209223, guid: a58419296d42c524e8262a2f683cd3fa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 1405651418456378413, guid: a58419296d42c524e8262a2f683cd3fa,
         type: 3}
@@ -15907,6 +15917,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelOpen_Version2_Gridbox
       objectReference: {fileID: 0}
+    - target: {fileID: 5341023004637227458, guid: a58419296d42c524e8262a2f683cd3fa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4
+      objectReference: {fileID: 0}
     - target: {fileID: 5366459826574028733, guid: a58419296d42c524e8262a2f683cd3fa,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -15956,6 +15971,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VersionIndex
       value: 324
+      objectReference: {fileID: 0}
+    - target: {fileID: 6896926115045136613, guid: a58419296d42c524e8262a2f683cd3fa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 7194221416972925823, guid: a58419296d42c524e8262a2f683cd3fa,
         type: 3}

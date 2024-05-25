@@ -30,12 +30,18 @@ public class PlayerManager : Singleton<PlayerManager>
         SingletonBuilder(this);
         playerInputManager = GetComponent<PlayerInputManager>();
         ServiceLocator.instance.RegisterService<PlayerManager>(this);
-        SpawnPointsPrefixs();
+
+        var playerStorageVariable = ServiceLocator.instance.GetService<PPStorage>();
+        if(playerStorageVariable != null)
+        {
+            SetUpArena(playerStorageVariable.GetArenaName());
+        }
         //HandleDifferentTypeOfPlayerJoin();
     }
 
     private void Start()
     {
+        SpawnPointsPrefixs();
         HandleDifferentTypeOfPlayerJoin();
     }
 
@@ -44,7 +50,7 @@ public class PlayerManager : Singleton<PlayerManager>
         if (FindAnyObjectByType<PPStorage>() != null) // if the game started from lobby
         {
             var playerStorageVariable = ServiceLocator.instance.GetService<PPStorage>();
-            SetUpArena(playerStorageVariable.GetArenaName());
+            //SetUpArena(playerStorageVariable.GetArenaName());
             if (playerStorageVariable.playerProperties.Count > 0)
             {
                 LoadPlayers();
@@ -77,7 +83,10 @@ public class PlayerManager : Singleton<PlayerManager>
         ServiceLocator.instance.GetService<GameState>().UpdateWinCount();
     }
 
-   
+    public void DisablePlayerJoining()
+    {
+        playerInputManager.DisableJoining();
+    }
 
     public void AddPlayer(PlayerInput player)
     {
@@ -93,6 +102,7 @@ public class PlayerManager : Singleton<PlayerManager>
         SetPlayerCamera(player);
         SetPlayerInputHandler(player);
         SetPlayerColor(playerParent);
+        //SetHelmet(playerParent);
         SetPlayerPlumagePrefab(player);
 
         if (playerInputManager.joinBehavior == PlayerJoinBehavior.JoinPlayersWhenButtonIsPressed)
@@ -109,13 +119,15 @@ public class PlayerManager : Singleton<PlayerManager>
 
     public void SpawnPointsPrefixs()
     {
-        GameObject spawnPointsParent = GameObject.Find("SpawnPointsFamily");
-        levelName = spawnPointsParent.transform.parent.name;
+        levelName = ServiceLocator.instance.GetService<ArenaManager>().GetCurrentArena().name;
+        
+        GameObject spawnPointsParent = ServiceLocator.instance.GetService<ArenaManager>().GetCurrentArena();
+        GameObject spawnPoints = spawnPointsParent.transform.Find("SpawnPointsFamily").gameObject;
 
         // Check if the GameObject was found
-        if (spawnPointsParent != null && spawnPointsParent.activeInHierarchy)
+        if (spawnPoints != null && spawnPoints.activeInHierarchy)
         {
-            Transform parentTransform = spawnPointsParent.transform;
+            Transform parentTransform = spawnPoints.transform;
 
             for (int i = 0; i < parentTransform.childCount; i++)
             {
@@ -125,7 +137,7 @@ public class PlayerManager : Singleton<PlayerManager>
         }
         else
         {
-            Debug.LogError("GameObject" + spawnPointsParent.name + "SpawnPointsFamily not found!");
+            Debug.LogError("GameObject" + spawnPoints.name + "SpawnPointsFamily not found!");
         }
     }
 
@@ -205,6 +217,27 @@ public class PlayerManager : Singleton<PlayerManager>
 
             //Shield
             tempShield.GetComponent<Renderer>().material = playerMaterials[materialIndex];
+        }
+    }
+
+    private void SetHelmet(Transform playerParentTransform)
+    {
+        var playerController = playerParentTransform.GetComponentInChildren<PlayerController>().gameObject;
+        var helmetFolder = playerController.GetComponentInChildren<PlayerCustomization>();
+        //Helmet
+        var helmetSelection = ServiceLocator.instance.GetService<PPStorage>().GetPlayerProperty(players.Count - 1).helmetSelection;
+        
+        //check if the selected helmet is one of the helmet in the helmet folder
+        foreach (var helmet in helmetFolder.helmets)
+        {
+            if (helmet.name == helmetSelection.name)
+            {
+                helmet.gameObject.GetComponent<MeshRenderer>().enabled = true;
+            }
+            else
+            {
+                helmet.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            }
         }
     }
 
