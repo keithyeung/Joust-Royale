@@ -185,7 +185,7 @@ MonoBehaviour:
     2 minutes
     match
 
-    
+
 
     Charge at your opponents and hit them with your lance to remove
     opponents plumes.
@@ -577,7 +577,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
     m_HighlightedColor: {r: 0.7176471, g: 0.5294118, b: 0.61960787, a: 1}
     m_PressedColor: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
-    m_SelectedColor: {r: 0.5188679, g: 0.38051346, b: 0.0019579534, a: 1}
+    m_SelectedColor: {r: 0.7176471, g: 0.5294118, b: 0.61960787, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -992,7 +992,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
     m_HighlightedColor: {r: 0.7176471, g: 0.5294118, b: 0.61960787, a: 1}
     m_PressedColor: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
-    m_SelectedColor: {r: 0.5188679, g: 0.38051346, b: 0.0019579534, a: 1}
+    m_SelectedColor: {r: 0.7176471, g: 0.5294118, b: 0.61960787, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1544,7 +1544,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
     m_HighlightedColor: {r: 0.7176471, g: 0.5294118, b: 0.61960787, a: 1}
     m_PressedColor: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
-    m_SelectedColor: {r: 0.5188679, g: 0.38051346, b: 0.0019579534, a: 1}
+    m_SelectedColor: {r: 0.7176471, g: 0.5294118, b: 0.61960787, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
