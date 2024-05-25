@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundTest : MonoBehaviour
 {
@@ -26,5 +27,9 @@ public class SoundTest : MonoBehaviour
             // Call a function to play the sound effect
             FindObjectOfType<AudioManager>().Play("GotHit");
         }
+    }
+    public void PlaySound()
+    {
+        FindObjectOfType<AudioManager>().Play("Ready");
     }
 }
