@@ -54,6 +54,7 @@ public class Shield : MonoBehaviour
         {
             playerstate.animator.Play("ShieldParry");
             shieldStatus = ShieldStatus.Parry;
+            ServiceLocator.instance.GetService<AudioManager>().Play("ParrySwing");
         }
     }
 

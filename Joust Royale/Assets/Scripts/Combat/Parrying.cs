@@ -25,6 +25,7 @@ public class Parrying : MonoBehaviour
         {
             Debug.Log("LT Pressed");
             isParryActive = true;
+            ServiceLocator.instance.GetService<AudioManager>().Play("ParrySwing");
         }
         else if(context.canceled)
         {

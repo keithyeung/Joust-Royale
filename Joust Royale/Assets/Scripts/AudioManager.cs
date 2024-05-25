@@ -55,3 +55,4 @@ public class AudioManager : Singleton<AudioManager>
 }
 
 // FindObjectOfType<AudioManager>().Play("Choochoo");
+// ServiceLocator.instance.GetService<AudioManager>().Play("Name");
