@@ -16,7 +16,8 @@ public class PlayerManager : Singleton<PlayerManager>
     [SerializeField] private List<GameObject> plumagePrefabList;
     
     private List<Transform> playerSpawnPositions = new List<Transform>();
-    public string levelName; 
+    public string levelName;
+    public int playerCount;
 
     [SerializeField] private Camera mainCamera;
 
@@ -43,6 +44,11 @@ public class PlayerManager : Singleton<PlayerManager>
     {
         SpawnPointsPrefixs();
         HandleDifferentTypeOfPlayerJoin();
+    }
+
+    private void Update()
+    {
+        playerCount = players.Count;
     }
 
     private void HandleDifferentTypeOfPlayerJoin()

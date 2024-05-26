@@ -276,11 +276,15 @@ public class PlayerController : MonoBehaviour
         gamepad.SetMotorSpeeds(lowFrequency, highFrequency);
         yield return new WaitForSeconds(duration);
         gamepad.SetMotorSpeeds(0, 0);
-        if(plumesManager.GetPlumageCount() <= 0)
+        var gameRule = ServiceLocator.instance.GetService<GameRules>();
+        if(gameRule.gameModes == GameMode.GameModes.DeathMatch)
         {
-            playerHealth.Dead();
-            ServiceLocator.instance.GetService<GameRules>().CheckWinCondition();
-            Debug.Log(this.gameObject.name + " is dead");
+            if (plumesManager.GetPlumageCount() <= 0)
+            {
+                playerHealth.Dead();
+                ServiceLocator.instance.GetService<GameRules>().CheckWinCondition();
+                Debug.Log(this.gameObject.name + " is dead");
+            }
         }
     }
 }
