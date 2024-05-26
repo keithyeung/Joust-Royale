@@ -13,6 +13,8 @@ public class PlayerHealth : MonoBehaviour
     public GameObject[] plumageIcon;
     public GameObject plumagePrefabInPlayer;
 
+    public GameObject deathSmoke;
+
     [SerializeField]
     private TrailRenderer stunEffect;
 
@@ -116,6 +118,15 @@ public class PlayerHealth : MonoBehaviour
         {
             plumageIcon[i].GetComponent<Image>().color = color;
         }
+    }
+
+    public void Dead()
+    {
+        var deathSmokeVFX = deathSmoke.GetComponent<ParticleSystem>();
+        deathSmoke.SetActive(true);
+        deathSmokeVFX.Play();
+        ServiceLocator.instance.GetService<AudioManager>().Play("Death");
+        this.gameObject.SetActive(false);
     }
 
 }

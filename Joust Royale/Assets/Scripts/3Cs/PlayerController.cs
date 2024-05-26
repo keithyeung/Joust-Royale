@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerState playerState;
     private GameRules gameRules;
     private PlayerHealth playerHealth;
+    private PlumageManager plumesManager;
     private bool isStunned = false;
 
     //Hard coded things
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
         crown.SetActive(false);
         gameRules = ServiceLocator.instance.GetService<GameRules>();
         playerHealth = GetComponent<PlayerHealth>();
+        plumesManager = GetComponent<PlumageManager>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -274,5 +276,11 @@ public class PlayerController : MonoBehaviour
         gamepad.SetMotorSpeeds(lowFrequency, highFrequency);
         yield return new WaitForSeconds(duration);
         gamepad.SetMotorSpeeds(0, 0);
+        if(plumesManager.GetPlumageCount() <= 0)
+        {
+            playerHealth.Dead();
+            ServiceLocator.instance.GetService<GameRules>().CheckWinCondition();
+            Debug.Log(this.gameObject.name + " is dead");
+        }
     }
 }
