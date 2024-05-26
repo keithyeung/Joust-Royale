@@ -8,6 +8,8 @@ using static UnityEngine.Rendering.DebugUI.Table;
 public class GameRules : Singleton<GameRules>
 {
     public GameMode.GameModes gameModes;
+    [SerializeField]
+    private PlayerManager playerManager;
 
     private void Awake()
     {
@@ -27,7 +29,7 @@ public class GameRules : Singleton<GameRules>
 
     }
 
-    private void GameModeStateMachine()
+    public void CheckWinCondition()
     {
         switch (gameModes)
         {
@@ -44,6 +46,14 @@ public class GameRules : Singleton<GameRules>
                 //Deal damage: Charge at your opponents and hit them with your lance.
 
                 //when you hit someone, you destroy their plumes.
+                //foreach (var player in playerManager.players)
+                //{
+                //    if(playerManager.players.Count == 1)
+                //    {
+                //        ServiceLocator.instance.GetService<GameState>().states = GameState.GameStatesMachine.Ended;
+                //    }
+                //}
+
                 break;
             case GameMode.GameModes.CrownSnatcher:
                 //Win Condition: The one who has owned the crown the most.

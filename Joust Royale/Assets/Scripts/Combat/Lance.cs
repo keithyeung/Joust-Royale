@@ -51,7 +51,7 @@ public class Lance : MonoBehaviour
         if (other.gameObject.CompareTag("Armor"))
         {
             HandleArmorCollision(other);
-            UpdateDataStatus(other);
+            //UpdateDataStatus(other);
 
         }
         if (other.gameObject.CompareTag("Shield"))
@@ -179,14 +179,6 @@ public class Lance : MonoBehaviour
         {
             Color plumeColor = opponentPlumageManager.StealPlume();
             ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
-            if (opponentPlumageManager.GetPlumageCount() == 0)
-            {
-                Debug.Log("DM Mode, all plumage gone");
-                ServiceLocator.instance.GetService<AudioManager>().Play("Death");
-
-                //play dead animation
-                //Maybe ragdoll it.
-            }
         }
     }
 
