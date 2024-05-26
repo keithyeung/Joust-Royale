@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ClubsBanner
-  m_Shader: {fileID: -6465566751694194690, guid: 8017b986ae3dedb4386eb075a6f55092,
+  m_Shader: {fileID: -6465566751694194690, guid: 93504f478c66ac44a86cff2b7ca2641a,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -129,7 +129,7 @@ Material:
     - _squares: 1
     - _textile: 1
     - _wind: 0.06
-    - _wind_sensitivity: 0.002
+    - _wind_sensitivity: 0
     - _wind_speed: 0.33
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
