@@ -276,8 +276,13 @@ public class PlayerController : MonoBehaviour
         gamepad.SetMotorSpeeds(lowFrequency, highFrequency);
         yield return new WaitForSeconds(duration);
         gamepad.SetMotorSpeeds(0, 0);
+        CheckDMmatchRules();
+    }
+
+    private void CheckDMmatchRules()
+    {
         var gameRule = ServiceLocator.instance.GetService<GameRules>();
-        if(gameRule.gameModes == GameMode.GameModes.DeathMatch)
+        if (gameRule.gameModes == GameMode.GameModes.DeathMatch)
         {
             if (plumesManager.GetPlumageCount() <= 0)
             {
