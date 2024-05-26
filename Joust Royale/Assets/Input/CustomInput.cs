@@ -89,6 +89,15 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UI_previous"",
+                    ""type"": ""Button"",
+                    ""id"": ""fa10f196-a040-42de-a6e6-d2fe55a9d319"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -300,6 +309,28 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cd70fec0-7397-4667-afc4-ca893c34da54"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""UI_previous"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7789a670-9db9-47bb-aa47-2d46ff64433b"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""UI_previous"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -349,6 +380,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         m_Player_ReleaseAttack = m_Player.FindAction("ReleaseAttack", throwIfNotFound: true);
         m_Player_Parry = m_Player.FindAction("Parry", throwIfNotFound: true);
         m_Player_Select = m_Player.FindAction("Select", throwIfNotFound: true);
+        m_Player_UI_previous = m_Player.FindAction("UI_previous", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -417,6 +449,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_ReleaseAttack;
     private readonly InputAction m_Player_Parry;
     private readonly InputAction m_Player_Select;
+    private readonly InputAction m_Player_UI_previous;
     public struct PlayerActions
     {
         private @CustomInput m_Wrapper;
@@ -428,6 +461,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         public InputAction @ReleaseAttack => m_Wrapper.m_Player_ReleaseAttack;
         public InputAction @Parry => m_Wrapper.m_Player_Parry;
         public InputAction @Select => m_Wrapper.m_Player_Select;
+        public InputAction @UI_previous => m_Wrapper.m_Player_UI_previous;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -458,6 +492,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Select.started += instance.OnSelect;
             @Select.performed += instance.OnSelect;
             @Select.canceled += instance.OnSelect;
+            @UI_previous.started += instance.OnUI_previous;
+            @UI_previous.performed += instance.OnUI_previous;
+            @UI_previous.canceled += instance.OnUI_previous;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -483,6 +520,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Select.started -= instance.OnSelect;
             @Select.performed -= instance.OnSelect;
             @Select.canceled -= instance.OnSelect;
+            @UI_previous.started -= instance.OnUI_previous;
+            @UI_previous.performed -= instance.OnUI_previous;
+            @UI_previous.canceled -= instance.OnUI_previous;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -536,5 +576,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         void OnReleaseAttack(InputAction.CallbackContext context);
         void OnParry(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
+        void OnUI_previous(InputAction.CallbackContext context);
     }
 }
