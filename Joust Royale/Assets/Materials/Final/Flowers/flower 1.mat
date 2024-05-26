@@ -130,16 +130,16 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     - _carpel_size: 0.99
-    - _concaveness_1: 0.42
+    - _concaveness_1: 0.49
     - _concaveness_2: 0.88
     - _gradient_power: 0.63
-    - _gradient_power_1: 0.43
+    - _gradient_power_1: 0.52
     - _gradient_power_2: 1.38
     - _gradient_width: 0.84
-    - _petal_amount: 7.24
-    - _petal_length: 0.02
+    - _petal_amount: 4
+    - _petal_length: 0.057
     - _petal_shape: 4.5
-    - _size: 0.31
+    - _size: 0.317
     - _thickness: -0.75
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
@@ -147,8 +147,8 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _base_color: {r: 0.7264151, g: 0, b: 0, a: 0}
-    - _carpel_color: {r: 1, g: 0.017125895, b: 0, a: 0}
+    - _carpel_color: {r: 1, g: 0.3815538, b: 0.37169808, a: 0}
     - _color: {r: 1, g: 0.36226407, b: 0.36226407, a: 0}
-    - _petal_inner: {r: 0, g: 0.14216995, b: 1, a: 0}
+    - _petal_inner: {r: 0.15471691, g: 0.27405077, b: 1, a: 0}
     - _petal_outer: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
