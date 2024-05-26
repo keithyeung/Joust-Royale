@@ -130,7 +130,7 @@ Material:
     - _barb_opacity: 1.5
     - _barb_thickness: -0.19
     - _blend_end: 1
-    - _blend_start: 0
+    - _blend_start: 0.132
     - _grass_frequency: 7
     - _noise_power: -0.07
     - _thickness: 3.38
@@ -139,6 +139,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _color: {r: 0.27312687, g: 0.42452827, b: 0.22588107, a: 0}
-    - _color_top: {r: 0.7265015, g: 1, b: 0.29622638, a: 0}
+    - _color: {r: 0.21572445, g: 0.4245283, b: 0.1497864, a: 0}
+    - _color_top: {r: 0.5253547, g: 0.8679245, b: 0.29804197, a: 0}
   m_BuildTextureStacks: []
