@@ -17,7 +17,7 @@ public class PlayerManager : Singleton<PlayerManager>
     
     private List<Transform> playerSpawnPositions = new List<Transform>();
     public string levelName;
-    public int playerCount;
+    public int activePlayer;
 
     [SerializeField] private Camera mainCamera;
 
@@ -44,11 +44,7 @@ public class PlayerManager : Singleton<PlayerManager>
     {
         SpawnPointsPrefixs();
         HandleDifferentTypeOfPlayerJoin();
-    }
-
-    private void Update()
-    {
-        playerCount = players.Count;
+        activePlayer = players.Count;
     }
 
     private void HandleDifferentTypeOfPlayerJoin()

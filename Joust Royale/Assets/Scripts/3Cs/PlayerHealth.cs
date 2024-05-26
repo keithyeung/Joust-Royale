@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Scripting;
 using UnityEngine.UI;
 
@@ -123,10 +123,11 @@ public class PlayerHealth : MonoBehaviour
     public void Dead()
     {
         var deathSmokeVFX = deathSmoke.GetComponent<ParticleSystem>();
-        deathSmoke.SetActive(true);
+        //deathSmoke.SetActive(true);
         deathSmokeVFX.Play();
         ServiceLocator.instance.GetService<AudioManager>().Play("Death");
-        this.gameObject.SetActive(false);
+        ServiceLocator.instance.GetService<PlayerManager>().activePlayer--;
+        //this.gameObject.SetActive(false);
     }
 
 }

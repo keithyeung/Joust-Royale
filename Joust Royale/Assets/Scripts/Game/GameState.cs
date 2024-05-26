@@ -30,23 +30,29 @@ public class GameState : Singleton<GameState>
 
     private void stateMachine()
     {
+        var gameMode = ServiceLocator.instance.GetService<GameRules>().gameModes;
         switch (states)
         {
             case GameStatesMachine.MainMenu:
                 break;
             case GameStatesMachine.Playing:
-                if (playerManager.players.Count <= 1)
+                if(gameMode == GameMode.GameModes.PlumeStealer)
                 {
-                    return;
+                    HandlePSmode();
                 }
-                foreach (var player in playerManager.players)
+                else if(gameMode == GameMode.GameModes.DeathMatch)
                 {
-                    if (player.GetComponent<PlumageManager>()?.GetPlumageCount() >= winCount)
-                    {
-                        states = GameStatesMachine.Ended;
-                        ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
-                    }
+                    HandleDMmode();
                 }
+                else if(gameMode == GameMode.GameModes.CrownSnatcher)
+                {
+                    //nth
+                }
+                else
+                {
+                    Debug.Log("This should never happen.");
+                }
+                
                 break;
             case GameStatesMachine.Ended:
                 if (!hasShowenLeaderBoard)
@@ -58,6 +64,31 @@ public class GameState : Singleton<GameState>
                 break;
             default:
                 break;
+        }
+    }
+
+    private void HandlePSmode()
+    {
+        if (playerManager.players.Count <= 1)
+        {
+            return;
+        }
+        foreach (var player in playerManager.players)
+        {
+            if (player.GetComponent<PlumageManager>()?.GetPlumageCount() >= winCount)
+            {
+                states = GameStatesMachine.Ended;
+                ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
+            }
+        }
+    }
+
+    private void HandleDMmode()
+    {
+        if (playerManager.activePlayer <= 1)
+        {
+            states = GameStatesMachine.Ended;
+            Debug.Log("One player left in DM mode.");
         }
     }
 
