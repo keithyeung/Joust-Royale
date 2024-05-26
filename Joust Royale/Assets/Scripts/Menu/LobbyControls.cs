@@ -22,6 +22,7 @@ public class LobbyControls : Singleton<LobbyControls>
     [SerializeField] private Image titleImage;
     [SerializeField] private Image crowdBackground;
     [SerializeField] private GameObject pressStart;
+    [SerializeField] private GameObject blackScreen;
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class LobbyControls : Singleton<LobbyControls>
 
         arenaSelection.SetActive(false);
         gameModeSelection.SetActive(false);
+        blackScreen.SetActive(false);
     }
 
     public void HandlePlayerJoin(PlayerInput pi)
@@ -87,6 +89,7 @@ public class LobbyControls : Singleton<LobbyControls>
     public void SelectionOfArena(string name)
     {
         ServiceLocator.instance.GetService<PPStorage>().SetArenaName(name);
+        blackScreen.SetActive(true);
         SceneManager.LoadScene(SceneName);
     }
 
