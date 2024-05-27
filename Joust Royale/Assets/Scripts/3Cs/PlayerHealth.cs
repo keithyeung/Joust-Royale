@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Scripting;
 using UnityEngine.UI;
 
@@ -17,6 +17,11 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField]
     private TrailRenderer stunEffect;
+
+    [SerializeField]
+    private GameObject mount;
+    [SerializeField]
+    private GameObject snail;
 
 
     //Invincible functions
@@ -37,6 +42,12 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         stunEffect.enabled = false;
+    }
+
+    private void DisableCharacterVisually()
+    {
+        mount.SetActive(false);
+        snail.SetActive(false);
     }
 
     private void ToggleVisibility()
@@ -122,11 +133,13 @@ public class PlayerHealth : MonoBehaviour
 
     public void Dead()
     {
-        var deathSmokeVFX = deathSmoke.GetComponent<ParticleSystem>();
-        deathSmoke.SetActive(true);
-        deathSmokeVFX.Play();
+        ServiceLocator.instance.GetService<VFX_Manager>().SetDeathSmokePositionAndPlay(this.transform.position);
         ServiceLocator.instance.GetService<AudioManager>().Play("Death");
-        this.gameObject.SetActive(false);
+        ServiceLocator.instance.GetService<PlayerManager>().activePlayer--;
+        var playerinput = GetComponent<PlayerInput>();
+        var playerdata = ServiceLocator.instance.GetService<LeaderBoard>().CreatePlayerData(playerinput);
+        ServiceLocator.instance.GetService<LeaderBoard>().leaderboardData.Add(playerdata);
+        DisableCharacterVisually();
     }
 
 }

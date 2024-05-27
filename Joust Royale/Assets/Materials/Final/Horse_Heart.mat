@@ -126,7 +126,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _frequency: 2
-    - _squares: 2
+    - _squares: 4
     - _textile: 1
     - _wind: 0.06
     - _wind_sensitivity: 0

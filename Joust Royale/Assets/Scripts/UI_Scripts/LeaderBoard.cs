@@ -5,12 +5,15 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 
 public class LeaderBoard : Singleton<LeaderBoard>
 {
     public GameObject panel;
 
     [SerializeField] private TextMeshProUGUI ST_WinCondition;
+    public List<LeaderBoardData> leaderboardData = new List<LeaderBoardData>();
+
 
     public List<Image> playerIcons;
     [SerializeField]
@@ -24,6 +27,7 @@ public class LeaderBoard : Singleton<LeaderBoard>
 
         HideAllPlayerIcons();
         panel.SetActive(false);
+        leaderboardData.Clear();
     }
 
     private void OnDisable()
@@ -43,22 +47,20 @@ public class LeaderBoard : Singleton<LeaderBoard>
         ShowPlayerIcons(playerCount);
         animator.enabled = true;
         animator.Play("PS_LeaderBoard");
-        
-        
-
-        
-
-
     }
 
     public void UpdateLeaderBoardData()
     {
         List<PlayerInput> playerInputs = ServiceLocator.instance.GetService<PlayerManager>().players;
 
-        List<LeaderBoardData> leaderboardData = new List<LeaderBoardData>();
 
         foreach (var playerInput in playerInputs)
         {
+            if (playerInput.playerIndex < 0)
+            {
+                Debug.Log("playerIndex < 0 " + playerInput.name);
+                continue;
+            }
             LeaderBoardData playerData = CreatePlayerData(playerInput);
             leaderboardData.Add(playerData);
         }
@@ -77,19 +79,15 @@ public class LeaderBoard : Singleton<LeaderBoard>
         }
     }
 
-    private LeaderBoardData CreatePlayerData(PlayerInput playerInput)
+    public LeaderBoardData CreatePlayerData(PlayerInput playerInput)
     {
+        
         LeaderBoardData playerData = new LeaderBoardData();
 
         playerData.playerIconColor = playerIcons[playerInput.playerIndex].color;
         playerData.plumesNumber = playerInput.GetComponent<PlumageManager>().GetPlumageCount();
         playerData.crownHoldingTime = (int)playerInput.GetComponent<PlayerController>().ownedCrownTime;
         playerData.playerName = playerInput.GetComponent<PlayerController>().gameObject.name;
-
-        //TestController testController = playerInput.GetComponentInChildren<TestController>();
-        //playerData.attemptHits = testController.accumulatedInteractions;
-        //playerData.hitsMade = testController.accumulatedHits;
-        //playerData.parried = testController.accumulatedHitsParried;
         return playerData;
     }
 
@@ -151,7 +149,7 @@ public class LeaderBoard : Singleton<LeaderBoard>
     }
 }
 
-struct LeaderBoardData
+public struct LeaderBoardData
 {
     public Color playerIconColor;
     public int crownHoldingTime;
