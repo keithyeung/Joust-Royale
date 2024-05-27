@@ -19,8 +19,6 @@ public class PlayerHealth : MonoBehaviour
     private TrailRenderer stunEffect;
 
     [SerializeField]
-    private GameObject mount;
-    [SerializeField]
     private GameObject snail;
 
 
@@ -46,7 +44,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void DisableCharacterVisually()
     {
-        mount.SetActive(false);
+        playerModel.SetActive(false);
         snail.SetActive(false);
     }
 
