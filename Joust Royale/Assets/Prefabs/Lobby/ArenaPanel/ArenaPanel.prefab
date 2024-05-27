@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 2644235531742476564}
   - component: {fileID: 4678691273001510385}
   - component: {fileID: 4129556544006278824}
+  - component: {fileID: 4737188762921095451}
   m_Layer: 5
   m_Name: ArenaB_Button
   m_TagString: Untagged
@@ -180,7 +181,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.77254903, g: 0.57254905, b: 0.6784314, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.2
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -199,16 +200,30 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LobbyControls, Assembly-CSharp
-        m_MethodName: SelectionOfArena
-        m_Mode: 5
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4737188762921095451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405625601551138753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c9a068a917b4e47869bf1e7d092f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &999513137192685701
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +371,7 @@ GameObject:
   - component: {fileID: 9195123718532728893}
   - component: {fileID: 3723076755381645190}
   - component: {fileID: 8543909614656869897}
+  - component: {fileID: 8336345567518994719}
   m_Layer: 5
   m_Name: ArenaC_Button
   m_TagString: Untagged
@@ -449,7 +465,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.77254903, g: 0.57254905, b: 0.6784314, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.2
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -468,16 +484,30 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LobbyControls, Assembly-CSharp
-        m_MethodName: SelectionOfArena
-        m_Mode: 5
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8336345567518994719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104859635422489313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c9a068a917b4e47869bf1e7d092f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &1224961600265522451
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,6 +910,7 @@ GameObject:
   - component: {fileID: 8413079142027139176}
   - component: {fileID: 3979669849692448264}
   - component: {fileID: 6694775519577528560}
+  - component: {fileID: 6029468118246711656}
   m_Layer: 5
   m_Name: ArenaA_Button
   m_TagString: Untagged
@@ -973,7 +1004,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.77254903, g: 0.57254905, b: 0.6784314, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.2
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -992,16 +1023,30 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LobbyControls, Assembly-CSharp
-        m_MethodName: SelectionOfArena
-        m_Mode: 5
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6029468118246711656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3875572933607579663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c9a068a917b4e47869bf1e7d092f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &4545820410775753346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,6 +1497,7 @@ GameObject:
   - component: {fileID: 6234243997015540436}
   - component: {fileID: 2915680406745479791}
   - component: {fileID: 4543942574929205541}
+  - component: {fileID: 8722507044124074072}
   m_Layer: 5
   m_Name: TG_Button
   m_TagString: Untagged
@@ -1545,7 +1591,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.77254903, g: 0.57254905, b: 0.6784314, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.2
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -1564,16 +1610,30 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LobbyControls, Assembly-CSharp
-        m_MethodName: SelectionOfArena
-        m_Mode: 5
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8722507044124074072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7287156535166621035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c9a068a917b4e47869bf1e7d092f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &7969301040298973356
 GameObject:
   m_ObjectHideFlags: 0
