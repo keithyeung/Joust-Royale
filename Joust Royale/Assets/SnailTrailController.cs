@@ -6,7 +6,7 @@ public class SnailTrailController : MonoBehaviour
 {
     private void OnParticleCollision(GameObject other)
     {
-        if (other = null)
+        if (other == null)
         {
             return;
         }
