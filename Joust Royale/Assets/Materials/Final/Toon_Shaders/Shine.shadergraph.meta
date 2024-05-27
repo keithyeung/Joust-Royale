@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: b122ed413226bdf4c88c3b51db105a2a
-=======
-guid: 5b8fc9f1122d8f14d92541383c6051fd
->>>>>>> parent of 8063e4b (Revert "Merge branch 'main' into Keith_SafeBrunch")
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
