@@ -99,6 +99,7 @@ public class LobbyControls : Singleton<LobbyControls>
     {
         ServiceLocator.instance.GetService<PPStorage>().SetArenaName(name);
         blackScreen.SetActive(true);
+        menuButton.SetActive(false);
         SceneManager.LoadScene(SceneName);
     }
 

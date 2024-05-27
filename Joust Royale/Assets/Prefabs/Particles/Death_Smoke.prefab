@@ -21,7 +21,12 @@ PrefabInstance:
     - target: {fileID: 5739823281162934657, guid: 766e68e766d68e14a9b9c8eb526c2e1e,
         type: 3}
       propertyPath: lengthInSec
-      value: 0.6
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739823281162934657, guid: 766e68e766d68e14a9b9c8eb526c2e1e,
+        type: 3}
+      propertyPath: simulationSpeed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5739823281162934657, guid: 766e68e766d68e14a9b9c8eb526c2e1e,
         type: 3}
@@ -215,7 +220,12 @@ PrefabInstance:
     - target: {fileID: 2129262379463997504, guid: 1ea92444a51433841a89b41d3203939f,
         type: 3}
       propertyPath: lengthInSec
-      value: 1
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129262379463997504, guid: 1ea92444a51433841a89b41d3203939f,
+        type: 3}
+      propertyPath: simulationSpeed
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2129262379463997504, guid: 1ea92444a51433841a89b41d3203939f,
         type: 3}
@@ -225,7 +235,7 @@ PrefabInstance:
     - target: {fileID: 2129262379463997504, guid: 1ea92444a51433841a89b41d3203939f,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2129262379463997504, guid: 1ea92444a51433841a89b41d3203939f,
         type: 3}
@@ -290,7 +300,7 @@ PrefabInstance:
     - target: {fileID: 2129262379463997504, guid: 1ea92444a51433841a89b41d3203939f,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7607510948160255541, guid: 1ea92444a51433841a89b41d3203939f,
         type: 3}
