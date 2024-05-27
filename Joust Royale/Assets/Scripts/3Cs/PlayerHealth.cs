@@ -35,11 +35,21 @@ public class PlayerHealth : MonoBehaviour
     public float blinkDuration = 2f;
     private bool isBlinking = false;
 
+    private bool isDead = false;
+
 
     void Start()
     {
         currentHealth = maxHealth;
         stunEffect.enabled = false;
+    }
+
+    private void Update()
+    {
+        if(isDead)
+        {
+            DisableCharacterVisually();
+        }
     }
 
     private void DisableCharacterVisually()
