@@ -149,7 +149,7 @@ public class PlayerHealth : MonoBehaviour
     public void Dead()
     {
         ServiceLocator.instance.GetService<VFX_Manager>().SetDeathSmokePositionAndPlay(this.transform.position);
-        ServiceLocator.instance.GetService<AudioManager>().Play("Death");
+        ServiceLocator.instance.GetService<AudioManager>().Play("DeathSFX");
         ServiceLocator.instance.GetService<PlayerManager>().activePlayer--;
         var playerinput = GetComponent<PlayerInput>();
         var playerdata = ServiceLocator.instance.GetService<LeaderBoard>().CreatePlayerData(playerinput);

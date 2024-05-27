@@ -1918,13 +1918,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4129556544006278824, guid: bd1d054bd035b2942940b83fe4b61b94,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129556544006278824, guid: bd1d054bd035b2942940b83fe4b61b94,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8095532359406827317}
     - target: {fileID: 4129556544006278824, guid: bd1d054bd035b2942940b83fe4b61b94,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectionOfArena
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129556544006278824, guid: bd1d054bd035b2942940b83fe4b61b94,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Vertical
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129556544006278824, guid: bd1d054bd035b2942940b83fe4b61b94,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543942574929205541, guid: bd1d054bd035b2942940b83fe4b61b94,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4543942574929205541, guid: bd1d054bd035b2942940b83fe4b61b94,
         type: 3}
@@ -1933,8 +1953,18 @@ PrefabInstance:
       objectReference: {fileID: 8095532359406827317}
     - target: {fileID: 4543942574929205541, guid: bd1d054bd035b2942940b83fe4b61b94,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectionOfArena
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543942574929205541, guid: bd1d054bd035b2942940b83fe4b61b94,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: TrainingGround
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543942574929205541, guid: bd1d054bd035b2942940b83fe4b61b94,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4678691273001510385, guid: bd1d054bd035b2942940b83fe4b61b94,
         type: 3}
@@ -2083,13 +2113,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6694775519577528560, guid: bd1d054bd035b2942940b83fe4b61b94,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694775519577528560, guid: bd1d054bd035b2942940b83fe4b61b94,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8095532359406827317}
     - target: {fileID: 6694775519577528560, guid: bd1d054bd035b2942940b83fe4b61b94,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectionOfArena
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694775519577528560, guid: bd1d054bd035b2942940b83fe4b61b94,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Asymmetry
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694775519577528560, guid: bd1d054bd035b2942940b83fe4b61b94,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8336345567518994719, guid: bd1d054bd035b2942940b83fe4b61b94,
         type: 3}
@@ -2103,13 +2148,28 @@ PrefabInstance:
       objectReference: {fileID: 2139933159}
     - target: {fileID: 8543909614656869897, guid: bd1d054bd035b2942940b83fe4b61b94,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543909614656869897, guid: bd1d054bd035b2942940b83fe4b61b94,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8095532359406827317}
     - target: {fileID: 8543909614656869897, guid: bd1d054bd035b2942940b83fe4b61b94,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectionOfArena
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543909614656869897, guid: bd1d054bd035b2942940b83fe4b61b94,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Symmetry
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543909614656869897, guid: bd1d054bd035b2942940b83fe4b61b94,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8722507044124074072, guid: bd1d054bd035b2942940b83fe4b61b94,
         type: 3}
