@@ -17499,7 +17499,7 @@ PrefabInstance:
     - target: {fileID: 8179379498286394201, guid: 1abdffb728b14c746a0501f8c4275b5e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8545613129692407643, guid: 1abdffb728b14c746a0501f8c4275b5e,
         type: 3}
@@ -18113,6 +18113,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VerticalityAsymmetry Arena 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8179379498286394201, guid: b7c69b7ae0bb5b746a70a17923bd3d8a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8545613129692407643, guid: b7c69b7ae0bb5b746a70a17923bd3d8a,
         type: 3}
