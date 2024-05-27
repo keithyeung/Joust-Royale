@@ -19,8 +19,6 @@ public class PlayerHealth : MonoBehaviour
     private TrailRenderer stunEffect;
 
     [SerializeField]
-    private GameObject mount;
-    [SerializeField]
     private GameObject snail;
 
 
@@ -37,6 +35,8 @@ public class PlayerHealth : MonoBehaviour
     public float blinkDuration = 2f;
     private bool isBlinking = false;
 
+    private bool isDead = false;
+
 
     void Start()
     {
@@ -44,9 +44,17 @@ public class PlayerHealth : MonoBehaviour
         stunEffect.enabled = false;
     }
 
+    private void Update()
+    {
+        if(isDead)
+        {
+            DisableCharacterVisually();
+        }
+    }
+
     private void DisableCharacterVisually()
     {
-        mount.SetActive(false);
+        playerModel.SetActive(false);
         snail.SetActive(false);
     }
 
