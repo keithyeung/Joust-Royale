@@ -80,6 +80,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void StartBlinking()
     {
+        
         if (!isBlinking)
         {
             isBlinking = true;
@@ -102,6 +103,12 @@ public class PlayerHealth : MonoBehaviour
 
     public void StartInvincibility()
     {
+        var plumesManager = GetComponent<PlumageManager>();
+        var gameMode = ServiceLocator.instance.GetService<GameRules>().gameModes;
+        if (plumesManager.GetPlumageCount() <= 0 && gameMode == GameMode.GameModes.DeathMatch)
+        {
+            return;
+        }
         isInvincible = true;
         StartBlinking();
         Invoke(nameof(EndInvincibility), invincibilityDuration);
@@ -147,7 +154,8 @@ public class PlayerHealth : MonoBehaviour
         var playerinput = GetComponent<PlayerInput>();
         var playerdata = ServiceLocator.instance.GetService<LeaderBoard>().CreatePlayerData(playerinput);
         ServiceLocator.instance.GetService<LeaderBoard>().leaderboardData.Add(playerdata);
-        DisableCharacterVisually();
+        isDead = true;
+        //DisableCharacterVisually();
     }
 
 }

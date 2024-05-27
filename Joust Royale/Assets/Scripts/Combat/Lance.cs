@@ -105,7 +105,7 @@ public class Lance : MonoBehaviour
         otherPlayerController.VibrateControllerIfPossible(hit_lowFrequency, hit_highFrequency, hit_duration);
 
         //blanking out the material
-        other.gameObject.GetComponentInParent<PlayerHealth>().StartInvincibility();
+        //other.gameObject.GetComponentInParent<PlayerHealth>().StartInvincibility();
         
         //handling the game mode
         HandleGameMode(otherPlayerController, opponentPlumageManager);
