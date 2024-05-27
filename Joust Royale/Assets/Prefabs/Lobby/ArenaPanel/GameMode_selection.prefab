@@ -488,6 +488,7 @@ GameObject:
   - component: {fileID: 2700157555330590536}
   - component: {fileID: 2769412276239857469}
   - component: {fileID: 3741515983431258788}
+  - component: {fileID: 898115088638035969}
   m_Layer: 5
   m_Name: Deathmatch_Button
   m_TagString: Untagged
@@ -580,7 +581,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.7176471, g: 0.5294118, b: 0.61960787, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.2
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -609,6 +610,20 @@ MonoBehaviour:
           m_StringArgument: ArenaA_AsymmetryV2
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &898115088638035969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059758494681083540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c9a068a917b4e47869bf1e7d092f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 3741515983431258788}
+  audioSource: {fileID: 6603794738418322657}
 --- !u!1 &1581288058012866333
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +698,7 @@ MonoBehaviour:
     - 3 plumes
     per player at start
 
-    - To steal a plume hit a plume holding knight with your
+    - To steal a plume hit a plume-holding knight with your
     lance
 
 '
@@ -750,7 +765,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -3.3850708, y: 3.382019, z: -15.630249, w: 0}
+  m_margin: {x: -3.3850708, y: 3.382019, z: -135.71179, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -903,6 +918,7 @@ GameObject:
   - component: {fileID: 1026060344976046095}
   - component: {fileID: 1642714785539832969}
   - component: {fileID: 4600608765072772031}
+  - component: {fileID: 7531006071987944104}
   m_Layer: 5
   m_Name: Crown Snatcher_Button
   m_TagString: Untagged
@@ -995,7 +1011,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.7176471, g: 0.5294118, b: 0.61960787, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.2
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -1024,6 +1040,20 @@ MonoBehaviour:
           m_StringArgument: ArenaB_AsymmetryVerticality
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7531006071987944104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132191034213149529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c9a068a917b4e47869bf1e7d092f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 4600608765072772031}
+  audioSource: {fileID: 6603794738418322657}
 --- !u!1 &3043800170285950856
 GameObject:
   m_ObjectHideFlags: 0
@@ -1455,6 +1485,7 @@ GameObject:
   - component: {fileID: 367109963365771897}
   - component: {fileID: 2964534257407913819}
   - component: {fileID: 1008294315109986866}
+  - component: {fileID: 1538706144363666133}
   m_Layer: 5
   m_Name: Plume stealer_Button
   m_TagString: Untagged
@@ -1547,7 +1578,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.7176471, g: 0.5294118, b: 0.61960787, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.2
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -1576,6 +1607,20 @@ MonoBehaviour:
           m_StringArgument: TrainingGround
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1538706144363666133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6499155088252969075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c9a068a917b4e47869bf1e7d092f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1008294315109986866}
+  audioSource: {fileID: 6603794738418322657}
 --- !u!1 &7611232459642245440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1722,6 +1767,7 @@ GameObject:
   - component: {fileID: 1376965288646605894}
   - component: {fileID: 155806794741263021}
   - component: {fileID: 164217754127271919}
+  - component: {fileID: 6603794738418322657}
   m_Layer: 5
   m_Name: RulesBackground
   m_TagString: Untagged
@@ -1786,6 +1832,102 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!82 &6603794738418322657
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7949886312891223023}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 24f0855e4f44db24799d6f2f5a752ff6, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8229047614096991152
 GameObject:
   m_ObjectHideFlags: 0
