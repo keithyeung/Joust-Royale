@@ -276,10 +276,10 @@ public class PlayerController : MonoBehaviour
         gamepad.SetMotorSpeeds(lowFrequency, highFrequency);
         yield return new WaitForSeconds(duration);
         gamepad.SetMotorSpeeds(0, 0);
-        CheckDMmatchRules();
+        //CheckDMmatchRules();
     }
 
-    private void CheckDMmatchRules()
+    public void CheckDMmatchRules()
     {
         var gameRule = ServiceLocator.instance.GetService<GameRules>();
         if (gameRule.gameModes == GameMode.GameModes.DeathMatch)
