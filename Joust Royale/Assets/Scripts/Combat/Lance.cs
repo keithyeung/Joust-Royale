@@ -104,6 +104,10 @@ public class Lance : MonoBehaviour
         //adding vibration to the enemy controller
         otherPlayerController.VibrateControllerIfPossible(hit_lowFrequency, hit_highFrequency, hit_duration);
 
+        //add vibration to our own controller
+        var playerController = GetComponentInParent<PlayerController>();
+        playerController.VibrateControllerIfPossible(hit_lowFrequency, hit_highFrequency, hit_duration);
+
         //blanking out the material
         other.gameObject.GetComponentInParent<PlayerHealth>().StartInvincibility();
         
