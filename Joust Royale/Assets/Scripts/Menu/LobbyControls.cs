@@ -19,11 +19,14 @@ public class LobbyControls : Singleton<LobbyControls>
     [Header("Scene name has to be exactly the SAME!")]
     public string SceneName;
 
-    [SerializeField] private Image titleImage;
+    public Image titleImage;
     [SerializeField] private Image crowdBackground;
     [SerializeField] private GameObject pressStart;
     [SerializeField] private GameObject blackScreen;
     [SerializeField] private GameObject menuButton;
+
+    [SerializeField] private VideoPlaying videoPlaying;
+
 
     private void Awake()
     {
@@ -39,7 +42,11 @@ public class LobbyControls : Singleton<LobbyControls>
 
     public void HandlePlayerJoin(PlayerInput pi)
     {
-        if(titleImage.enabled)
+        if (videoPlaying.isPlayingVideo)
+        {
+            videoPlaying.StopVideo();            
+        }
+        if (titleImage.enabled)
         {
             titleImage.enabled = false;
             crowdBackground.enabled = true;
@@ -97,12 +104,19 @@ public class LobbyControls : Singleton<LobbyControls>
 
     public void SelectionOfArena(string name)
     {
-        ServiceLocator.instance.GetService<PPStorage>().SetArenaName(name);
         blackScreen.SetActive(true);
         menuButton.SetActive(false);
-        SceneManager.LoadScene(SceneName);
+        blackScreen.GetComponent<Animator>().enabled = true;
+
+        ServiceLocator.instance.GetService<PPStorage>().SetArenaName(name);
+        StartCoroutine(SceneTransition());
     }
 
+    private IEnumerator SceneTransition()
+    {
+        yield return new WaitForSeconds(3.0f);
+        SceneManager.LoadScene(SceneName);
+    }
     
 
     public void DisableBackground()

@@ -9,7 +9,13 @@ public class CountdownTimer : MonoBehaviour
     [SerializeField] float remainingTime = 180f;
     [SerializeField] float preGameTime = 5f;
 
+    private Animator animator;
 
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        animator.enabled = false;
+    }
 
     private void FixedUpdate()
     {
@@ -22,10 +28,12 @@ public class CountdownTimer : MonoBehaviour
 
         if(gameState.states == GameState.GameStatesMachine.MainMenu)
         {
+            countdownText.color = Color.red;
             PreGameTimer();
         }
         else if(gameState.states == GameState.GameStatesMachine.Playing)
         {
+            countdownText.color = Color.black;
             GameplayTimer();
         }
     }
@@ -52,12 +60,17 @@ public class CountdownTimer : MonoBehaviour
 
     private void PreGameTimer()
     {
-        if (preGameTime <= 0)
+        //countdownText.color = Color.red;
+        if (preGameTime <= 0f)
         {
             preGameTime = 0;
             ServiceLocator.instance.GetService<PlayerManager>().DisablePlayerJoining();
             ServiceLocator.instance.GetService<GameState>().states = GameState.GameStatesMachine.Playing;
             return;
+        }
+        if(preGameTime <= 1f && animator.enabled != true)
+        {
+            animator.enabled = true;
         }
         preGameTime -= Time.deltaTime;
         int minutes = Mathf.FloorToInt(preGameTime / 60f);

@@ -26,6 +26,7 @@ public class PlayerManager : Singleton<PlayerManager>
     private PlayerInputManager playerInputManager;
     private string[] names = { "Player Red", "Player Blue", "Player Yellow", "Player Green"};
 
+
     private void Awake()
     {
         SingletonBuilder(this);

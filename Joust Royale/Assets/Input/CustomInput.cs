@@ -170,7 +170,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ce909e00-e278-42aa-831c-0da34e81183b"",
-                    ""path"": ""<Keyboard>/anyKey"",
+                    ""path"": ""<Keyboard>/period"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",

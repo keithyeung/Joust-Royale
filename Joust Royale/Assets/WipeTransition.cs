@@ -11,9 +11,5 @@ public class WipeTransition : MonoBehaviour
         wipeInImage.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
