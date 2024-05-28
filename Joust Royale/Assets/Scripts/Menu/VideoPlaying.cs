@@ -20,6 +20,7 @@ public class VideoPlaying : MonoBehaviour
     { 
         lb_control = ServiceLocator.instance.GetService<LobbyControls>();
         videoPlayer.clip = videoClip;
+        
         StopVideo();
     }
 
