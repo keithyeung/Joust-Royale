@@ -6,6 +6,7 @@ using TMPro;
 using System.Linq;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
+using UnityEngine.SceneManagement;
 
 public class LeaderBoard : Singleton<LeaderBoard>
 {
@@ -18,6 +19,9 @@ public class LeaderBoard : Singleton<LeaderBoard>
     public List<Image> playerIcons;
     [SerializeField]
     private Animator animator;
+
+    [SerializeField]
+    private GameObject wipeOut;
 
     private void Awake()
     {
@@ -145,6 +149,13 @@ public class LeaderBoard : Singleton<LeaderBoard>
 
     public void CallTheBackToLobby()
     {
+        wipeOut.SetActive(true);
+        StartCoroutine(SceneTransitionToMenu());
+    }
+
+    private IEnumerator SceneTransitionToMenu()
+    {
+        yield return new WaitForSeconds(3.0f);
         ServiceLocator.instance.GetService<GameState>().BackToLobby();
     }
 }

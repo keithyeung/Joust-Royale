@@ -104,8 +104,12 @@ public class Lance : MonoBehaviour
         //adding vibration to the enemy controller
         otherPlayerController.VibrateControllerIfPossible(hit_lowFrequency, hit_highFrequency, hit_duration);
 
+        //add vibration to our own controller
+        var playerController = GetComponentInParent<PlayerController>();
+        playerController.VibrateControllerIfPossible(hit_lowFrequency, hit_highFrequency, hit_duration);
+
         //blanking out the material
-        //other.gameObject.GetComponentInParent<PlayerHealth>().StartInvincibility();
+        other.gameObject.GetComponentInParent<PlayerHealth>().StartInvincibility();
         
         //handling the game mode
         HandleGameMode(otherPlayerController, opponentPlumageManager);
@@ -175,10 +179,15 @@ public class Lance : MonoBehaviour
 
     private void HandleDeathMatchMode(PlayerController playerController, PlumageManager opponentPlumageManager)
     {
+        Color plumeColor = opponentPlumageManager.StealPlume();
         if (opponentPlumageManager.GetPlumageCount() > 0)
         {
-            Color plumeColor = opponentPlumageManager.StealPlume();
             ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
+        }
+        else
+        {
+            playerController.CheckDMmatchRules();
+            ServiceLocator.instance.GetService<AudioManager>().Play("DeathSFX");
         }
     }
 

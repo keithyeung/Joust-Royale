@@ -570,6 +570,16 @@ PrefabInstance:
       propertyPath: sounds.Array.data[4].clip
       value: 
       objectReference: {fileID: 8300000, guid: dd397d2d8d558cd4ab3a0221adc35756, type: 3}
+    - target: {fileID: 6263876249887461875, guid: a7b776fd3d0e18f4c81fb745b6bc33c9,
+        type: 3}
+      propertyPath: sounds.Array.data[4].volume
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6263876249887461875, guid: a7b776fd3d0e18f4c81fb745b6bc33c9,
+        type: 3}
+      propertyPath: sounds.Array.data[10].volume
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
