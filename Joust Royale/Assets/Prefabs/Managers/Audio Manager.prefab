@@ -58,14 +58,14 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: SuccessfulParry
-    clip: {fileID: 8300000, guid: 269df37fe72560e45b565346e3108bc5, type: 3}
-    volume: 0.85
+    clip: {fileID: 8300000, guid: 4e7e91c355e37fa49bfdc80160175526, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Victory
-    clip: {fileID: 8300000, guid: 9ad61ac7071e58548955f11d9ca9bdfa, type: 3}
-    volume: 0.6
+    clip: {fileID: 8300000, guid: 3686be224fc1cfe4fbd326b331cbe5d0, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -108,12 +108,6 @@ MonoBehaviour:
   - name: ParrySwing
     clip: {fileID: 8300000, guid: 26e33b2e14e341744bba781fc61e3d5d, type: 3}
     volume: 0.8
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: CrowdCheering
-    clip: {fileID: 8300000, guid: a7056878320a81f4fbba22661b271d27, type: 3}
-    volume: 0.85
     pitch: 1
     loop: 0
     source: {fileID: 0}
