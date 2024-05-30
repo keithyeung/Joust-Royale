@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Object_shine : MonoBehaviour
 {
-    public Material objectMaterial;
+    private Material objectMaterial;
 
     void Start()
     {
