@@ -89,6 +89,10 @@ public class PlayerManager : Singleton<PlayerManager>
     public void DisablePlayerJoining()
     {
         playerInputManager.DisableJoining();
+        if (mainCamera.GetComponent<Camera>().enabled)
+        {
+            mainCamera.GetComponent<Camera>().enabled = false;
+        }
     }
 
     public void AddPlayer(PlayerInput player)
@@ -114,10 +118,7 @@ public class PlayerManager : Singleton<PlayerManager>
             ServiceLocator.instance.GetService<GameState>().UpdateWinCount();
         }
 
-        if(mainCamera.GetComponent<Camera>().enabled)
-        {
-            mainCamera.GetComponent<Camera>().enabled = false;
-        }
+        
 
     }
 
