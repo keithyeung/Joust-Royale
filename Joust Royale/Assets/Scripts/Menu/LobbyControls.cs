@@ -175,4 +175,12 @@ public class LobbyControls : Singleton<LobbyControls>
     {
         crowdBackground.enabled = false;
     }
+
+    private void Update()
+    {
+        if (Keyboard.current.qKey.wasPressedThisFrame)
+        {
+            ReloadScene();
+        }
+    }
 }
