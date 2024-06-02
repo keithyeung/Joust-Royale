@@ -203,7 +203,7 @@ public class Lance : MonoBehaviour
 
         }
         ServiceLocator.instance.GetService<AudioManager>().Play("GotHit");
-        playerController.StunPlayerForDuration(2.0f);
+        playerController.StunPlayerForDuration(1.5f);
         
     }
 
