@@ -30,13 +30,9 @@ public class PlayerInteraction : MonoBehaviour
 
     private void EquipItem(Collider other, GameObject playerItem, string logMessage)
     {
-        //how can I find a specific object in the child of the other gameobject with a name?
-        var findShine = other.gameObject.transform.Find("Smart_shine");
-        var findLance = findShine.gameObject.transform.Find("Lance");
-        Renderer objectRenderer = findLance.gameObject.GetComponent<Renderer>();
+        Renderer objectRenderer = other.gameObject.GetComponentInChildren<Renderer>();
         if (objectRenderer != null)
         {
-            Debug.Log(objectRenderer.name);
             Material tempMaterial = objectRenderer.material;
             playerItem.GetComponent<Renderer>().material = tempMaterial;
         }
