@@ -3155,7 +3155,6 @@ MonoBehaviour:
   videoClip: {fileID: 32900000, guid: e6d9e64efc6ef924b833eb8995409e28, type: 3}
   videoPlayer: {fileID: 1917839155}
   idleTime: 11.5
-  idleTimer: 0
   isPlayingVideo: 0
 --- !u!114 &8161127059222834147
 MonoBehaviour:
