@@ -104,7 +104,7 @@ public class GameState : Singleton<GameState>
     private void EmergencyBackToMenu()
     {
         //if leftshift + K is pressed
-        if (Keyboard.current.leftShiftKey.isPressed && Keyboard.current.qKey.isPressed)
+        if (Keyboard.current.qKey.isPressed)
         {
             BackToLobby();
         }
