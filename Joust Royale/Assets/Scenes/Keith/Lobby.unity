@@ -1026,7 +1026,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press 'start' to play
+  m_text: 'Press ''start'' to join
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f2baa62033b487478a90a1850972e70, type: 2}
   m_sharedMaterial: {fileID: 7963967667824435909, guid: 1f2baa62033b487478a90a1850972e70,
