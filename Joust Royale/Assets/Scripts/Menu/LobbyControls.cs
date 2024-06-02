@@ -48,22 +48,22 @@ public class LobbyControls : Singleton<LobbyControls>
         startScreen.SetActive(false);
         pressStartToJoin.SetActive(false);
         pressAToStart.SetActive(true);
-
+        playerInputManager.DisableJoining();
     }
 
     public void HandlePlayerJoin(PlayerInput pi)
     {
-        if (videoPlaying.isPlayingVideo)
-        {
-            videoPlaying.StopVideo();            
-        }
-        if (titleImage.enabled)
-        {
-            titleImage.enabled = false;
-            crowdBackground.enabled = true;
-            pressStartToJoin.SetActive(false);
-            //crowdBackground.color = new Color(crowdBackground.color.r, crowdBackground.color.g, crowdBackground.color.b, 0.5f);
-        }
+        //if (videoPlaying.isPlayingVideo)
+        //{
+        //    videoPlaying.StopVideo();            
+        //}
+        //if (titleImage.enabled)
+        //{
+        //    titleImage.enabled = false;
+        //    crowdBackground.enabled = true;
+        //    pressStartToJoin.SetActive(false);
+        //    //crowdBackground.color = new Color(crowdBackground.color.r, crowdBackground.color.g, crowdBackground.color.b, 0.5f);
+        //}
         pi.transform.SetParent(transform);
         playerInputs.Add(pi);
         var pp = new PlayerProperty();
@@ -91,6 +91,7 @@ public class LobbyControls : Singleton<LobbyControls>
             crowdBackground.enabled = true;
             pressStartToJoin.SetActive(true);
         }
+        playerInputManager.EnableJoining();
     }
 
     public void StartButton()
