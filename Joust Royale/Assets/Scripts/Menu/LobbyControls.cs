@@ -26,7 +26,11 @@ public class LobbyControls : Singleton<LobbyControls>
     public GameObject pressAToStart;
     [SerializeField] private GameObject blackScreen;
     [SerializeField] private GameObject menuButton;
-    [SerializeField] private GameObject StartScreen;
+    [SerializeField] private GameObject startScreen;
+    [SerializeField] private GameObject creditScene;
+    [SerializeField] private GameObject additionalCreditScene;
+    //[SerializeField] private GameObject creditSceneEventSystem;
+    
 
     [SerializeField] private VideoPlaying videoPlaying;
 
@@ -41,7 +45,7 @@ public class LobbyControls : Singleton<LobbyControls>
         gameModeSelection.SetActive(false);
         blackScreen.SetActive(false);
         menuButton.SetActive(false);
-        StartScreen.SetActive(false);
+        startScreen.SetActive(false);
         pressStartToJoin.SetActive(false);
         pressAToStart.SetActive(true);
 
@@ -83,7 +87,7 @@ public class LobbyControls : Singleton<LobbyControls>
         if (titleImage.enabled)
         {
             titleImage.enabled = false;
-            StartScreen.SetActive(false);
+            startScreen.SetActive(false);
             crowdBackground.enabled = true;
             pressStartToJoin.SetActive(true);
         }
@@ -92,8 +96,9 @@ public class LobbyControls : Singleton<LobbyControls>
     public void StartButton()
     {
         Debug.Log("Start button clicked");
+        videoPlaying.StopVideo();
         pressAToStart.SetActive(false);
-        StartScreen.SetActive(true);
+        startScreen.SetActive(true);
     }
 
     public void ReadyPlayer(int index)
@@ -143,6 +148,27 @@ public class LobbyControls : Singleton<LobbyControls>
         SceneManager.LoadScene(SceneName);
     }
     
+    public void DisplayCreditScene()
+    {
+        //creditSceneEventSystem.SetActive(true);
+        startScreen.SetActive(false);
+        additionalCreditScene.SetActive(false);
+        creditScene.SetActive(true);
+    }
+
+    public void DisplayAdditionalCredits()
+    {
+        creditScene.SetActive(false);
+        additionalCreditScene.SetActive(true);
+    }
+
+    public void BackToStartScene()
+    {
+        //creditSceneEventSystem.SetActive(false);
+        creditScene.SetActive(false);
+        additionalCreditScene.SetActive(false);
+        startScreen.SetActive(true);
+    }
 
     public void DisableBackground()
     {

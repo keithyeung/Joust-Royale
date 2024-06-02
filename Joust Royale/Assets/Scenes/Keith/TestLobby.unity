@@ -3190,11 +3190,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7569195841094167565}
     m_Modifications:
-    - target: {fileID: 198853529339361594, guid: b3d277ab976570d4b8f35efb76ff36c4,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 390859817241995220, guid: b3d277ab976570d4b8f35efb76ff36c4,
         type: 3}
       propertyPath: m_Pivot.x
@@ -3295,58 +3290,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 484774144908153327, guid: b3d277ab976570d4b8f35efb76ff36c4,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662313766207141646, guid: b3d277ab976570d4b8f35efb76ff36c4,
-        type: 3}
-      propertyPath: m_text
-      value: 'Play
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1793086451809865620, guid: b3d277ab976570d4b8f35efb76ff36c4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1793086451809865620, guid: b3d277ab976570d4b8f35efb76ff36c4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1793086451809865620, guid: b3d277ab976570d4b8f35efb76ff36c4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8095532359406827317}
-    - target: {fileID: 1793086451809865620, guid: b3d277ab976570d4b8f35efb76ff36c4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1793086451809865620, guid: b3d277ab976570d4b8f35efb76ff36c4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 1793086451809865620, guid: b3d277ab976570d4b8f35efb76ff36c4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: LobbyControls, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1793086451809865620, guid: b3d277ab976570d4b8f35efb76ff36c4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 4177359010453501793, guid: b3d277ab976570d4b8f35efb76ff36c4,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayButton
-      objectReference: {fileID: 0}
     - target: {fileID: 8236661606639335486, guid: b3d277ab976570d4b8f35efb76ff36c4,
         type: 3}
       propertyPath: m_Name

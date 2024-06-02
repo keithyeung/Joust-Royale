@@ -49,8 +49,11 @@ public class VideoPlaying : MonoBehaviour
 
     public void StopVideo()
     {
-        Debug.Log("StopVideo was called");
-        audioSource.Play();
+        //Debug.Log("StopVideo was called");
+        if(isPlayingVideo)
+        {
+            audioSource.Play();
+        }
         videoPlayer.Stop();
         videoPlayer.time = 0f;
         idleTimer = 0f; 
