@@ -44,4 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75073ac06d7abcf4f8dcf0f7900260c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 0}
+  Playtesting: 0
   states: 0
+  frameRate: 40
