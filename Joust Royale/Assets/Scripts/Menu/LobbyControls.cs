@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -21,9 +22,11 @@ public class LobbyControls : Singleton<LobbyControls>
 
     public Image titleImage;
     [SerializeField] private Image crowdBackground;
-    [SerializeField] private GameObject pressStart;
+    [SerializeField] private GameObject pressStartToJoin;
+    public GameObject pressAToStart;
     [SerializeField] private GameObject blackScreen;
     [SerializeField] private GameObject menuButton;
+    [SerializeField] private GameObject StartScreen;
 
     [SerializeField] private VideoPlaying videoPlaying;
 
@@ -38,6 +41,10 @@ public class LobbyControls : Singleton<LobbyControls>
         gameModeSelection.SetActive(false);
         blackScreen.SetActive(false);
         menuButton.SetActive(false);
+        StartScreen.SetActive(false);
+        pressStartToJoin.SetActive(false);
+        pressAToStart.SetActive(true);
+
     }
 
     public void HandlePlayerJoin(PlayerInput pi)
@@ -50,7 +57,7 @@ public class LobbyControls : Singleton<LobbyControls>
         {
             titleImage.enabled = false;
             crowdBackground.enabled = true;
-            pressStart.SetActive(false);
+            pressStartToJoin.SetActive(false);
             //crowdBackground.color = new Color(crowdBackground.color.r, crowdBackground.color.g, crowdBackground.color.b, 0.5f);
         }
         pi.transform.SetParent(transform);
@@ -71,6 +78,23 @@ public class LobbyControls : Singleton<LobbyControls>
         playerInputManager.onPlayerJoined -= HandlePlayerJoin;
     }
 
+    public void PlayButton()
+    {
+        if (titleImage.enabled)
+        {
+            titleImage.enabled = false;
+            StartScreen.SetActive(false);
+            crowdBackground.enabled = true;
+            pressStartToJoin.SetActive(true);
+        }
+    }
+
+    public void StartButton()
+    {
+        Debug.Log("Start button clicked");
+        pressAToStart.SetActive(false);
+        StartScreen.SetActive(true);
+    }
 
     public void ReadyPlayer(int index)
     {
@@ -81,6 +105,7 @@ public class LobbyControls : Singleton<LobbyControls>
         {
             gameModeSelection.SetActive(true);
             menuButton.SetActive(true);
+            pressStartToJoin.SetActive(false);
         }
     }
 

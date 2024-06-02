@@ -26,7 +26,7 @@ public class VideoPlaying : MonoBehaviour
 
     void Update()
     {
-        if (lb_control.titleImage.enabled != true)
+        if (lb_control.pressAToStart.activeSelf != true)
         {
             return;
         }
