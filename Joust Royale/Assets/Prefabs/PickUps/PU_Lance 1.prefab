@@ -19791,6 +19791,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Smart_shine
       objectReference: {fileID: 0}
+    - target: {fileID: 7941468449349979957, guid: 8567f33e8e0b9954dabe4e75cd546fbd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
