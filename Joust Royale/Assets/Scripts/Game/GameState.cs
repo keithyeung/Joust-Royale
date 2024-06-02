@@ -118,7 +118,7 @@ public class GameState : Singleton<GameState>
 
     public void UpdateWinCount()
     {
-        winCount = playerManager.players.Count * 2 + 1;
+        winCount = playerManager.players.Count * 3;
     }
 
 
