@@ -96,7 +96,7 @@ MonoBehaviour:
   - name: MenuPress
     clip: {fileID: 8300000, guid: 24f0855e4f44db24799d6f2f5a752ff6, type: 3}
     volume: 1
-    pitch: 1
+    pitch: 0.8
     loop: 0
     source: {fileID: 0}
   - name: Ready
@@ -107,6 +107,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: ParrySwing
     clip: {fileID: 8300000, guid: 26e33b2e14e341744bba781fc61e3d5d, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CountDown
+    clip: {fileID: 8300000, guid: 3e2808470e355de4185e8e92e6eaf519, type: 3}
     volume: 0.8
     pitch: 1
     loop: 0
