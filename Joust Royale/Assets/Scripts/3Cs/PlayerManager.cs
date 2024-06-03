@@ -89,12 +89,12 @@ public class PlayerManager : Singleton<PlayerManager>
     public void DisablePlayerJoining()
     {
         playerInputManager.DisableJoining();
-        if (mainCamera.GetComponent<Camera>().enabled)
-        {
-            mainCamera.GetComponent<Camera>().cullingMask = 5;
-            Debug.Log(mainCamera.GetComponent<Camera>().cullingMask.ToString());
-            mainCamera.GetComponent<Camera>().enabled = false;
-        }
+        //if (mainCamera.GetComponent<Camera>().enabled)
+        //{
+        //    mainCamera.GetComponent<Camera>().cullingMask = 7;
+        //    Debug.Log(mainCamera.GetComponent<Camera>().cullingMask.ToString());
+        //    mainCamera.GetComponent<Camera>().enabled = false;
+        //}
     }
 
     public void AddPlayer(PlayerInput player)

@@ -51,6 +51,8 @@ public class PlumageManager : MonoBehaviour
     {
         GameObject newPlume = Instantiate(plumeObject, plumeTransform);
         newPlume.GetComponentInChildren<MeshRenderer>().material.SetColor("_color", _color);
+        Material plumeMaterial = newPlume.GetComponentInChildren<MeshRenderer>().material;
+        plumeMaterial.renderQueue = 3000;
 
         plumes.Add(newPlume);
         ArrangePlumage();
