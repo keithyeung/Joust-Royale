@@ -111,7 +111,7 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: CountDown
+  - name: Count
     clip: {fileID: 8300000, guid: 3e2808470e355de4185e8e92e6eaf519, type: 3}
     volume: 0.8
     pitch: 1

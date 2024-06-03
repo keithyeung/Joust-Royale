@@ -26,7 +26,7 @@ public class GameState : Singleton<GameState>
         //states = GameStatesMachine.Playing;
         ServiceLocator.instance.RegisterService<GameState>(this);
         ServiceLocator.instance.GetService<AudioManager>().Play("BGM");
-        ServiceLocator.instance.GetService<AudioManager>().Play("CountDown");
+        ServiceLocator.instance.GetService<AudioManager>().Play("Count");
     }
 
     private void stateMachine()
