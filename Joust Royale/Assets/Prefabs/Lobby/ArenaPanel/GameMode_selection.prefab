@@ -774,7 +774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9202671411758491595
 RectTransform:
   m_ObjectHideFlags: 0
@@ -824,7 +824,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Steal all plumes
+  m_text: Steal everyone's plumes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dad18bcdbb167d54e843d5e33e568e46, type: 2}
   m_sharedMaterial: {fileID: -7003053725554711359, guid: dad18bcdbb167d54e843d5e33e568e46,
@@ -1197,8 +1197,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 79.95923, y: -129}
-  m_SizeDelta: {x: 422.0632, y: 508.5057}
+  m_AnchoredPosition: {x: 0, y: -181}
+  m_SizeDelta: {x: 359.6007, y: 414.5441}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5062124494248545356
 CanvasRenderer:
@@ -2522,7 +2522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3482999078321216522
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2572,7 +2572,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Possess the crown the most
+  m_text: Snatch, Keep & Defend the crown for the longest time
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dad18bcdbb167d54e843d5e33e568e46, type: 2}
   m_sharedMaterial: {fileID: -7003053725554711359, guid: dad18bcdbb167d54e843d5e33e568e46,
@@ -2607,7 +2607,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 5
@@ -2636,7 +2636,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -98.46118, y: 55.7558, z: -247.22705, w: 334.88763}
+  m_margin: {x: -55.33264, y: 55.7558, z: -204.02185, w: 334.88763}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
