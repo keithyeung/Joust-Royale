@@ -5,35 +5,36 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
 
-    private void OnTriggerEnter(Collider other)
+    private PlayerController playerController;
+    private AudioManager audioManager;
+    private RespawnObject respawnObject;
+
+    private void Awake()
     {
-        if (other.gameObject.CompareTag("PU_Lance"))
-        {
-            EquipItem(other, GetComponent<PlayerController>().lance, "Found a lance and equipped");
-        }
-
-        if (other.gameObject.CompareTag("PU_Shield"))
-        {
-
-            EquipItem(other, GetComponent<PlayerController>().shield, "Found a Shield and equipped");
-        }
-
-        if(other.gameObject.CompareTag("Crown"))
-        {
-            EquipTheCrown(other, GetComponent<PlayerController>().crown, "Found a Crown and equipped");
-            ServiceLocator.instance.GetService<AudioManager>().Play("Snatch");
-        }
-        
+        playerController = GetComponent<PlayerController>();
+        audioManager = ServiceLocator.instance.GetService<AudioManager>();
+        respawnObject = ServiceLocator.instance.GetService<RespawnObject>();
     }
 
-    
-
-    private void EquipItem(Collider other, GameObject playerItem, string logMessage)
+    private void OnTriggerEnter(Collider other)
     {
-        //how can I find a specific object in the child of the other gameobject with a name?
-        var findShine = other.gameObject.transform.Find("Smart_shine");
-        var findLance = findShine.gameObject.transform.Find("Lance");
-        Renderer objectRenderer = findLance.gameObject.GetComponent<Renderer>();
+        switch (other.gameObject.tag)
+        {
+            case "PU_Lance":
+                EquipItem(other, playerController.lance, "Found a lance and equipped", "Smart_shine/Lance");
+                break;
+            case "Crown":
+                EquipTheCrown(other, playerController.crown, "Found a Crown and equipped");
+                audioManager.Play("Snatch");
+                break;
+        }
+    }
+
+    //adding the childObjectName to the method so it can be use for more than one object
+    private void EquipItem(Collider other, GameObject playerItem, string logMessage, string childObjectName)
+    {
+        var childObject = other.gameObject.transform.Find(childObjectName);
+        Renderer objectRenderer = childObject?.gameObject.GetComponent<Renderer>();
         if (objectRenderer != null)
         {
             Debug.Log(objectRenderer.name);
@@ -41,10 +42,10 @@ public class PlayerInteraction : MonoBehaviour
             playerItem.GetComponent<Renderer>().material = tempMaterial;
         }
         playerItem.SetActive(true);
-        ServiceLocator.instance.GetService<AudioManager>().Play("PickUp");
+        audioManager.Play("PickUp");
         Debug.Log(logMessage);
         other.gameObject.SetActive(false);
-        StartCoroutine(ServiceLocator.instance.GetService<RespawnObject>().RespawnPickup(other.gameObject));
+        StartCoroutine(respawnObject.RespawnPickup(other.gameObject));
     }
 
     private void EquipTheCrown(Collider other, GameObject playerItem, string logMessage)

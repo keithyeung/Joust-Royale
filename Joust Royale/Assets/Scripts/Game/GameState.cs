@@ -22,8 +22,6 @@ public class GameState : Singleton<GameState>
     {
         Application.targetFrameRate = frameRate;
         SingletonBuilder(this);
-        //playerManager = ServiceLocator.instance.GetService<PlayerManager>();
-        //states = GameStatesMachine.Playing;
         ServiceLocator.instance.RegisterService<GameState>(this);
         ServiceLocator.instance.GetService<AudioManager>().Play("BGM");
         ServiceLocator.instance.GetService<AudioManager>().Play("Count");

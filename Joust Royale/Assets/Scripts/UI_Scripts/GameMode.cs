@@ -33,7 +33,7 @@ public class GameMode : MonoBehaviour
 
     public void SelectionOfGameMode()
     {
-        ServiceLocator.instance.GetService<LobbyControls>().GameModeToArenaSelection(gameMode);
+        ServiceLocator.instance.GetService<LobbyStateMachine>().SetGameModeToStorage(gameMode);
     }
 
     private void StateMachine(GameModes mode)

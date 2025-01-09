@@ -26,16 +26,16 @@ public class VideoPlaying : MonoBehaviour
 
     void Update()
     {
-        if (lb_control.pressAToStart.activeSelf != true)
-        {
-            return;
-        }
-        idleTimer += Time.deltaTime;
-        if (idleTimer >= idleTime && !isPlayingVideo)
-        {
-            PlayVideo();
-            audioSource.Stop();
-        }
+        //if (lb_control.pressAToStart.activeSelf != true)
+        //{
+        //    return;
+        //}
+        //idleTimer += Time.deltaTime;
+        //if (idleTimer >= idleTime && !isPlayingVideo)
+        //{
+        //    PlayVideo();
+        //    audioSource.Stop();
+        //}
         
     }
 

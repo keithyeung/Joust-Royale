@@ -1,11 +1,9 @@
-using Cinemachine;
 using System.Collections;
 using System.Linq;
-using Unity.VisualScripting;
 //using UnityEditor.iOS.Extensions.Common;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -17,8 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float acceleration = 6f;  // Adjust acceleration as needed
     [SerializeField] private float deceleration = 2f;  // Adjust deceleration as needed
     [SerializeField] private float maxSpeed = 30f;  // Adjust max speed as needed
-    [SerializeField] private float AttackingAcceleration = 12f;  // Adjust rotation speed as needed
-    [SerializeField] private float AttackingMaxSpeed = 50f;  // Adjust max speed as needed
+    [FormerlySerializedAs("AttackingAcceleration")] [SerializeField] private float attackingAcceleration = 12f;  // Adjust rotation speed as needed
+    [FormerlySerializedAs("AttackingMaxSpeed")] [SerializeField] private float attackingMaxSpeed = 50f;  // Adjust max speed as needed
     [SerializeField] private float currentSpeed = 0f;
     [SerializeField] private ParticleSystem trail;
 
@@ -58,9 +56,11 @@ public class PlayerController : MonoBehaviour
     //data
     public float standStillTime = 0f;
     public float ownedCrownTime = 0;
+    private GameState gameState;
 
     private void Start()
     {
+        gameState = ServiceLocator.instance.GetService<GameState>();
         playerInput = GetComponent<PlayerInput>();
         controller = gameObject.GetComponent<CharacterController>();
         playerState = GetComponent<PlayerState>();
@@ -77,8 +77,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        GameState gameState = ServiceLocator.instance.GetService<GameState>();
-        if (gameState == null)
+        if (!gameState)
         {
             return;
         }
@@ -93,19 +92,17 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (ServiceLocator.instance.GetService<GameState>().states != GameState.GameStatesMachine.Playing) return;
+        if (gameState.states != GameState.GameStatesMachine.Playing) return;
 
         if (currentSpeed == 0)
         {
             standStillTime += Time.deltaTime;
         }
 
-        if(crown.activeSelf)
+        if (!crown.activeSelf) return;
+        if(gameRules.gameModes == GameMode.GameModes.CrownSnatcher)
         {
-            if(gameRules.gameModes == GameMode.GameModes.CrownSnatcher)
-            {
-                ownedCrownTime += Time.deltaTime;
-            }
+            ownedCrownTime += Time.deltaTime;
         }
     }
 
@@ -121,19 +118,15 @@ public class PlayerController : MonoBehaviour
     private void ResetPlayerPositionIfNeeded()
     {
         // Check if the player's position has changed
-        if (transform.localPosition != previousPosition)
-        {
-            if (!resetPosition)
-            {
-                transform.localPosition = previousPosition;
-                resetPosition = true;
-            }
-        }
+        if (transform.localPosition == previousPosition) return;
+        if (resetPosition) return;
+        transform.localPosition = previousPosition;
+        resetPosition = true;
     }
 
     public LayerMask GetLayerMaskForArmor()
     {
-        Transform armorTransform = transform.Find("Mount/Knight/Upper/Knight_Upper 1");
+        var armorTransform = transform.Find("Mount/Knight/Upper/Knight_Upper 1");
         if (armorTransform != null)
         {
             return 1 << armorTransform.gameObject.layer;
@@ -141,7 +134,7 @@ public class PlayerController : MonoBehaviour
         return 0;
     }
 
-    public void HandleMovement()
+    private void HandleMovement()
     {
         if (isStunned) return;
         if(playerState.state == PLAYER_STATE.Attacking)
@@ -161,8 +154,8 @@ public class PlayerController : MonoBehaviour
     private void ApplyAttackMovement()
     {
 
-        currentSpeed += AttackingAcceleration * Time.deltaTime;
-        currentSpeed = Mathf.Clamp(currentSpeed, 0f, AttackingMaxSpeed);
+        currentSpeed += attackingAcceleration * Time.deltaTime;
+        currentSpeed = Mathf.Clamp(currentSpeed, 0f, attackingMaxSpeed);
     }
 
     private void ApplyRegularMovement()
@@ -193,8 +186,8 @@ public class PlayerController : MonoBehaviour
 
     private Quaternion GetTiltQuaternion()
     {
-        float turnInput = movementInput.x;
-        float targetTiltAngle = Mathf.Lerp(0, maxTiltAngle, currentSpeed) * turnInput;
+        var turnInput = movementInput.x;
+        var targetTiltAngle = Mathf.Lerp(0, maxTiltAngle, currentSpeed) * turnInput;
 
         if (Mathf.Approximately(turnInput, 0))
         {
@@ -208,11 +201,10 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyMovement()
     {
-        Vector3 moveDirection = transform.forward * currentSpeed * Time.deltaTime;
+        var moveDirection = transform.forward * (currentSpeed * Time.deltaTime);
 
         // Use a raycast to get the normal of the surface directly below the character
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, controller.height / 2 + 0.1f))
+        if (Physics.Raycast(transform.position, Vector3.down, out var hit, controller.height / 2 + 0.1f))
         {
             // Adjust the move direction to follow the slope of the terrain
             moveDirection = Vector3.ProjectOnPlane(moveDirection, hit.normal);
@@ -234,10 +226,10 @@ public class PlayerController : MonoBehaviour
     public void StunPlayerForDuration(float duration)
     {
         StunPlayer();
-        StartCoroutine(UnstunPlayerAfterDelay(duration));
+        StartCoroutine(UnStunPlayerAfterDelay(duration));
     }
 
-    public void StunPlayer()
+    private void StunPlayer()
     {
         isStunned = true;
         playerState.state = PLAYER_STATE.Idle;
@@ -246,13 +238,13 @@ public class PlayerController : MonoBehaviour
         playerHealth.TriggerStunEffect();
     }
 
-    private IEnumerator UnstunPlayerAfterDelay(float delay)
+    private IEnumerator UnStunPlayerAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        UnstunPlayer();
+        UnStunPlayer();
     }
 
-    public void UnstunPlayer()
+    private void UnStunPlayer()
     {
         isStunned = false;
         playerHealth.StopStunEffect();
@@ -260,8 +252,7 @@ public class PlayerController : MonoBehaviour
 
     public void VibrateControllerIfPossible(float lowFrequency, float highFrequency, float duration)
     {
-        Gamepad gamepad = playerInput.devices.FirstOrDefault(d => d is Gamepad) as Gamepad;
-        if (gamepad != null)
+        if (playerInput.devices.FirstOrDefault(d => d is Gamepad) is Gamepad gamepad)
         {
             StartCoroutine(VibrateController(gamepad, lowFrequency, highFrequency, duration));
         }
@@ -271,25 +262,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private IEnumerator VibrateController(Gamepad gamepad, float lowFrequency, float highFrequency, float duration)
+    private static IEnumerator VibrateController(Gamepad gamepad, float lowFrequency, float highFrequency, float duration)
     {
         gamepad.SetMotorSpeeds(lowFrequency, highFrequency);
         yield return new WaitForSeconds(duration);
         gamepad.SetMotorSpeeds(0, 0);
-        //CheckDMmatchRules();
+        //CheckDMMatchRules();
     }
 
-    public void CheckDMmatchRules()
+    public void CheckDmMatchRules()
     {
         var gameRule = ServiceLocator.instance.GetService<GameRules>();
-        if (gameRule.gameModes == GameMode.GameModes.DeathMatch)
-        {
-            if (plumesManager.GetPlumageCount() <= 0)
-            {
-                playerHealth.Dead();
-                ServiceLocator.instance.GetService<GameRules>().CheckWinCondition();
-                Debug.Log(this.gameObject.name + " is dead");
-            }
-        }
+        if (gameRule.gameModes != GameMode.GameModes.DeathMatch) return;
+        if (plumesManager.GetPlumageCount() > 0) return;
+        playerHealth.Dead();
+        ServiceLocator.instance.GetService<GameRules>().CheckWinCondition();
+        Debug.Log(this.gameObject.name + " is dead");
     }
 }

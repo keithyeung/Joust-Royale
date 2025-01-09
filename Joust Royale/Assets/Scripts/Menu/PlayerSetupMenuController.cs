@@ -103,7 +103,7 @@ public class PlayerSetupMenuController : MonoBehaviour
     {
         if (!inputEnabled) return;
 
-        ServiceLocator.instance.GetService<LobbyControls>().ReadyPlayer(playerIndex);
+        ServiceLocator.instance.GetService<LobbyStateMachine>().ReadyPlayer(playerIndex);
         readyButton.gameObject.SetActive(false);
         readyText.SetActive(true);
 

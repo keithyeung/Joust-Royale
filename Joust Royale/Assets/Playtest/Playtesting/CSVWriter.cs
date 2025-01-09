@@ -84,7 +84,7 @@ public class CSVWriter : Singleton<CSVWriter>
         int ZoneCInteractions = playtestVariable.zoneInteractions["Zone_C"];
         int ZoneDInteractions = playtestVariable.zoneInteractions["Zone_D"];
         int MidCircleInteractions = playtestVariable.zoneInteractions["MiddleCircleZone"];
-        // Passive time
+        // Passive/standing still time
         var playerStandingStillTime = player.GetComponent<PlayerController>().standStillTime;
 
         string[] rowData = { playerName, plumageCount.ToString(), playerEngagement.ToString(),

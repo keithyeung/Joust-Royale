@@ -186,7 +186,7 @@ public class Lance : MonoBehaviour
         }
         else
         {
-            playerController.CheckDMmatchRules();
+            playerController.CheckDmMatchRules();
             ServiceLocator.instance.GetService<AudioManager>().Play("DeathSFX");
         }
     }
