@@ -11,7 +11,7 @@ public class GameState : Singleton<GameState>
     private int winCount;
     public bool Playtesting = false;
     private bool hasShowenLeaderBoard = false;
-    public enum GameStatesMachine { MainMenu, Playing, Ended};
+    public enum GameStatesMachine { MainMenu, Playing, Ended}
     public GameStatesMachine states;
 
 
@@ -74,23 +74,21 @@ public class GameState : Singleton<GameState>
         }
         foreach (var player in playerManager.players)
         {
-            if (player.GetComponent<PlumageManager>()?.GetPlumageCount() >= winCount)
-            {
-                states = GameStatesMachine.Ended;
-                ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
-            }
+            if (!(player.GetComponent<PlumageManager>()?.GetPlumageCount() >= winCount)) continue;
+            states = GameStatesMachine.Ended;
+            ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
         }
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     private void HandleDMmode()
     {
-        if (playerManager.activePlayer <= 1)
-        {
-            states = GameStatesMachine.Ended;
-            Debug.Log("One player left in DM mode.");
-        }
+        if (playerManager.activePlayer > 1) return;
+        states = GameStatesMachine.Ended;
+        Debug.Log("One player left in DM mode.");
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     public void BackToLobby()
     {
         Destroy(instance.gameObject);

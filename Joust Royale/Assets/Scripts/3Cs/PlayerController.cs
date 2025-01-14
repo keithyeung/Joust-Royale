@@ -175,10 +175,10 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyRotation()
     {
-        float turnInput = movementInput.x;
-        float rotationAngle = turnInput * rotationSpeed * Time.deltaTime;
-        Quaternion rotation = Quaternion.AngleAxis(rotationAngle, Vector3.up);
-        Quaternion tilt = GetTiltQuaternion();
+        var turnInput = movementInput.x;
+        var rotationAngle = turnInput * rotationSpeed * Time.deltaTime;
+        var rotation = Quaternion.AngleAxis(rotationAngle, Vector3.up);
+        var tilt = GetTiltQuaternion();
 
         transform.rotation = Quaternion.Lerp(transform.rotation * rotation, tilt, Time.deltaTime * 5f);
         transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
@@ -195,7 +195,7 @@ public class PlayerController : MonoBehaviour
         }
 
         targetTiltAngle = Mathf.Clamp(targetTiltAngle, -maxTiltAngle, maxTiltAngle);
-        Quaternion targetRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, -targetTiltAngle);
+        var targetRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, -targetTiltAngle);
         return targetRotation;
     }
 
@@ -277,6 +277,6 @@ public class PlayerController : MonoBehaviour
         if (plumesManager.GetPlumageCount() > 0) return;
         playerHealth.Dead();
         ServiceLocator.instance.GetService<GameRules>().CheckWinCondition();
-        Debug.Log(this.gameObject.name + " is dead");
+        Debug.Log(gameObject.name + " is dead");
     }
 }

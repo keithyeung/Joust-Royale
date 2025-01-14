@@ -128,17 +128,17 @@ public class PlayerManager : Singleton<PlayerManager>
     {
         levelName = ServiceLocator.instance.GetService<ArenaManager>().GetCurrentArena().name;
         
-        GameObject spawnPointsParent = ServiceLocator.instance.GetService<ArenaManager>().GetCurrentArena();
-        GameObject spawnPoints = spawnPointsParent.transform.Find("SpawnPointsFamily").gameObject;
+        var spawnPointsParent = ServiceLocator.instance.GetService<ArenaManager>().GetCurrentArena();
+        var spawnPoints = spawnPointsParent.transform.Find("SpawnPointsFamily").gameObject;
 
         // Check if the GameObject was found
         if (spawnPoints != null && spawnPoints.activeInHierarchy)
         {
-            Transform parentTransform = spawnPoints.transform;
+            var parentTransform = spawnPoints.transform;
 
             for (int i = 0; i < parentTransform.childCount; i++)
             {
-                Transform childTransform = parentTransform.GetChild(i);
+                var childTransform = parentTransform.GetChild(i);
                 playerSpawnPositions.Add(childTransform);
             }
         }
@@ -195,9 +195,9 @@ public class PlayerManager : Singleton<PlayerManager>
 
     private void SetPlayerPlumagePrefab(PlayerInput player)
     {
-        Transform playerParent = player.transform.parent;
-        PlayerHealth playerHealthComponent = playerParent.GetComponentInChildren<PlayerHealth>();
-        int prefabPlumageIndex = players.Count - 1;
+        var playerParent = player.transform.parent;
+        var playerHealthComponent = playerParent.GetComponentInChildren<PlayerHealth>();
+        var prefabPlumageIndex = players.Count - 1;
         if (prefabPlumageIndex < plumagePrefabList.Count)
         {
             playerHealthComponent.plumagePrefabInPlayer = plumagePrefabList[prefabPlumageIndex];
@@ -206,19 +206,19 @@ public class PlayerManager : Singleton<PlayerManager>
 
     private void SetPlayerColor(Transform playerParentTransform)
     {
-        int materialIndex = players.Count - 1;
+        var materialIndex = players.Count - 1;
         if (materialIndex < playerMaterials.Count)
         {
-            GameObject temptorso = playerParentTransform.GetComponentInChildren<PlayerController>().torso;
-            GameObject tempFrontHorseCape = playerParentTransform.GetComponentInChildren<PlayerController>().frontHorseCape;
-            GameObject tempBackHorseCape = playerParentTransform.GetComponentInChildren<PlayerController>().backHorseCape;
-            temptorso.GetComponent<Renderer>().material = playerMaterials[materialIndex];
+            var tempTorso = playerParentTransform.GetComponentInChildren<PlayerController>().torso;
+            var tempFrontHorseCape = playerParentTransform.GetComponentInChildren<PlayerController>().frontHorseCape;
+            var tempBackHorseCape = playerParentTransform.GetComponentInChildren<PlayerController>().backHorseCape;
+            tempTorso.GetComponent<Renderer>().material = playerMaterials[materialIndex];
             tempFrontHorseCape.GetComponent<Renderer>().material = playerMaterials[materialIndex];
             tempBackHorseCape.GetComponent<Renderer>().material = playerMaterials[materialIndex];
 
             //Lance
-            GameObject tempLance = playerParentTransform.GetComponentInChildren<PlayerController>().lance;
-            GameObject tempShield = playerParentTransform.GetComponentInChildren<PlayerController>().shield;
+            var tempLance = playerParentTransform.GetComponentInChildren<PlayerController>().lance;
+            var tempShield = playerParentTransform.GetComponentInChildren<PlayerController>().shield;
             tempLance.GetComponent<Renderer>().material.SetColor("_color", playerMaterials[materialIndex].GetColor("_color"));
             tempLance.GetComponent<Renderer>().material.SetColor("_base_color", playerMaterials[materialIndex].GetColor("_base_color"));
 
@@ -237,14 +237,7 @@ public class PlayerManager : Singleton<PlayerManager>
         //check if the selected helmet is one of the helmet in the helmet folder
         foreach (var helmet in helmetFolder.helmets)
         {
-            if (helmet.name == helmetSelection.name)
-            {
-                helmet.gameObject.GetComponent<MeshRenderer>().enabled = true;
-            }
-            else
-            {
-                helmet.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            }
+            helmet.gameObject.GetComponent<MeshRenderer>().enabled = helmet.name == helmetSelection.name;
         }
     }
 

@@ -80,13 +80,13 @@ public class PlayerHealth : MonoBehaviour
 
     private void StartBlinking()
     {
+        if (isBlinking) return; 
+        //Inverted if statement
+        isBlinking = true;
+        InvokeRepeating(nameof(ToggleVisibility), 0f, blinkInterval);
+        Invoke(nameof(EndBlinking), blinkDuration);
         
-        if (!isBlinking)
-        {
-            isBlinking = true;
-            InvokeRepeating(nameof(ToggleVisibility), 0f, blinkInterval);
-            Invoke(nameof(EndBlinking), blinkDuration);
-        }
+        
     }
 
     private void EndBlinking()
@@ -140,9 +140,9 @@ public class PlayerHealth : MonoBehaviour
     public void SetPlumageColor(Color color)
     {
         color.a = 255f;
-        for (int i = 0; i < plumageIcon.Length; i++)
+        foreach (var t in plumageIcon)
         {
-            plumageIcon[i].GetComponent<Image>().color = color;
+            t.GetComponent<Image>().color = color;
         }
     }
 
@@ -151,9 +151,9 @@ public class PlayerHealth : MonoBehaviour
         ServiceLocator.instance.GetService<VFX_Manager>().SetDeathSmokePositionAndPlay(this.transform.position);
         ServiceLocator.instance.GetService<AudioManager>().Play("DeathSFX");
         ServiceLocator.instance.GetService<PlayerManager>().activePlayer--;
-        var playerinput = GetComponent<PlayerInput>();
-        var playerdata = ServiceLocator.instance.GetService<LeaderBoard>().CreatePlayerData(playerinput);
-        ServiceLocator.instance.GetService<LeaderBoard>().leaderboardData.Add(playerdata);
+        var playerInput = GetComponent<PlayerInput>();
+        var playerData = ServiceLocator.instance.GetService<LeaderBoard>().CreatePlayerData(playerInput);
+        ServiceLocator.instance.GetService<LeaderBoard>().leaderboardData.Add(playerData);
         isDead = true;
         //DisableCharacterVisually();
     }

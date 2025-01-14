@@ -30,7 +30,7 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    //adding the childObjectName to the method so it can be use for more than one object
+    //adding the childObjectName to the method so it can be used for more than one object
     private void EquipItem(Collider other, GameObject playerItem, string logMessage, string childObjectName)
     {
         var childObject = other.gameObject.transform.Find(childObjectName);
@@ -38,7 +38,7 @@ public class PlayerInteraction : MonoBehaviour
         if (objectRenderer != null)
         {
             Debug.Log(objectRenderer.name);
-            Material tempMaterial = objectRenderer.material;
+            var tempMaterial = objectRenderer.material;
             playerItem.GetComponent<Renderer>().material = tempMaterial;
         }
         playerItem.SetActive(true);
