@@ -20,9 +20,9 @@ public class CSVWriter : Singleton<CSVWriter>
         headerWritten = false;
     }
 
-    public void WriteToCSV()
+    public void WriteToCsv()
     {
-        if (!ServiceLocator.instance.GetService<GameState>().Playtesting) return;
+        if (!ServiceLocator.instance.GetService<GameState>().playtesting) return;
         if (ServiceLocator.instance.GetService<PlayerManager>().players.Count > 0)
         {
             List<PlayerInput> players = ServiceLocator.instance.GetService<PlayerManager>().players;
@@ -53,8 +53,8 @@ public class CSVWriter : Singleton<CSVWriter>
 
     private void WriteCSVHeader(TextWriter tw)
     {
-        DateTime currentTime = DateTime.Now;
-        string levelName = ServiceLocator.instance.GetService<PlayerManager>().levelName;
+        var currentTime = DateTime.Now;
+        var levelName = ServiceLocator.instance.GetService<PlayerManager>().levelName;
 
         string[] rowData = { "Player Name", " Final Player Plumage " , "Accumulated Attempt to hit" ,
             "Accumulated PlayerHit Number", "Accumulated PlayerHitReceived Number", "Accumulated Player Standing Still Time" ,
@@ -70,20 +70,20 @@ public class CSVWriter : Singleton<CSVWriter>
     public void WritePlayerData(TextWriter tw, PlayerInput player)
     {
         //textWriter = new StreamWriter(fileName);
-        string playerName = player.name;
-        Vector3 playerPosition = player.transform.position;
-        int plumageCount = player.GetComponent<PlumageManager>().GetPlumageCount();
+        var playerName = player.name;
+        var playerPosition = player.transform.position;
+        var plumageCount = player.GetComponent<PlumageManager>().GetPlumageCount();
         var playtestVariable = player.GetComponentInChildren<TestController>();
         // Player Data
-        int playerEngagement = playtestVariable.accumulatedInteractions;
-        int playerHits = playtestVariable.accumulatedHits;
-        int playerHitsReceived = playtestVariable.accumulatedHitsReceived;
+        var playerEngagement = playtestVariable.accumulatedInteractions;
+        var playerHits = playtestVariable.accumulatedHits;
+        var playerHitsReceived = playtestVariable.accumulatedHitsReceived;
         // Zones Data
-        int ZoneAInteractions = playtestVariable.zoneInteractions["Zone_A"];
-        int ZoneBInteractions = playtestVariable.zoneInteractions["Zone_B"];
-        int ZoneCInteractions = playtestVariable.zoneInteractions["Zone_C"];
-        int ZoneDInteractions = playtestVariable.zoneInteractions["Zone_D"];
-        int MidCircleInteractions = playtestVariable.zoneInteractions["MiddleCircleZone"];
+        var ZoneAInteractions = playtestVariable.zoneInteractions["Zone_A"];
+        var ZoneBInteractions = playtestVariable.zoneInteractions["Zone_B"];
+        var ZoneCInteractions = playtestVariable.zoneInteractions["Zone_C"];
+        var ZoneDInteractions = playtestVariable.zoneInteractions["Zone_D"];
+        var MidCircleInteractions = playtestVariable.zoneInteractions["MiddleCircleZone"];
         // Passive/standing still time
         var playerStandingStillTime = player.GetComponent<PlayerController>().standStillTime;
 

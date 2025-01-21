@@ -1,35 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class GameState : Singleton<GameState>
 {
     [SerializeField]
     private PlayerManager playerManager;
     private int winCount;
-    public bool Playtesting = false;
-    private bool hasShowenLeaderBoard = false;
+    [FormerlySerializedAs("Playtesting")] public bool playtesting = false;
+    private bool hasShownLeaderBoard = false;
     public enum GameStatesMachine { MainMenu, Playing, Ended}
     public GameStatesMachine states;
 
+    
+    //Audio
+    AudioManager audioManager;
 
     [SerializeField] private int frameRate = 60;
 
+    //Code that needed to load stuff in functions
+    private GameMode.GameModes gameMode;
 
     private void Awake()
     {
         Application.targetFrameRate = frameRate;
         SingletonBuilder(this);
         ServiceLocator.instance.RegisterService<GameState>(this);
-        ServiceLocator.instance.GetService<AudioManager>().Play("BGM");
-        ServiceLocator.instance.GetService<AudioManager>().Play("Count");
+        audioManager = ServiceLocator.instance.GetService<AudioManager>();
+        audioManager.Play("BGM");
+        audioManager.Play("Count");
+        
+        //Load stuff
+        gameMode = ServiceLocator.instance.GetService<GameRules>().gameModes;
+        
     }
 
     private void stateMachine()
     {
-        var gameMode = ServiceLocator.instance.GetService<GameRules>().gameModes;
         switch (states)
         {
             case GameStatesMachine.MainMenu:
@@ -54,11 +62,11 @@ public class GameState : Singleton<GameState>
                 
                 break;
             case GameStatesMachine.Ended:
-                if (!hasShowenLeaderBoard)
+                if (!hasShownLeaderBoard)
                 {
-                    ServiceLocator.instance.GetService<AudioManager>().Play("Victory");
+                    audioManager.Play("Victory");
                     ServiceLocator.instance.GetService<LeaderBoard>()?.ShowLeaderBoard();
-                    hasShowenLeaderBoard = true;
+                    hasShownLeaderBoard = true;
                 }
                 break;
             default:
@@ -68,15 +76,12 @@ public class GameState : Singleton<GameState>
 
     private void HandlePSmode()
     {
-        if (playerManager.players.Count <= 1)
-        {
-            return;
-        }
+        if (playerManager.players.Count <= 1) return;
         foreach (var player in playerManager.players)
         {
             if (!(player.GetComponent<PlumageManager>()?.GetPlumageCount() >= winCount)) continue;
             states = GameStatesMachine.Ended;
-            ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
+            ServiceLocator.instance.GetService<CSVWriter>().WriteToCsv();
         }
     }
 

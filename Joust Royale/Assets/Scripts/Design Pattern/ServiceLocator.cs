@@ -21,7 +21,7 @@ public class ServiceLocator : Singleton<ServiceLocator>
         if (!serviceReferences.ContainsKey(serviceType))
         {
             T service = FindObjectOfType<T>();
-            if (service != null)
+            if (service is not null)
             {
                 serviceReferences.Add(serviceType, service);
             }

@@ -45,7 +45,7 @@ public class CountdownTimer : MonoBehaviour
             remainingTime = 0;
             countdownText.text = "00:00";
             ServiceLocator.instance.GetService<GameState>().states = GameState.GameStatesMachine.Ended;
-            ServiceLocator.instance.GetService<CSVWriter>().WriteToCSV();
+            ServiceLocator.instance.GetService<CSVWriter>().WriteToCsv();
             return;
         }
         if (remainingTime <= 10)
@@ -53,9 +53,9 @@ public class CountdownTimer : MonoBehaviour
             countdownText.color = Color.red;
         }
         remainingTime -= Time.deltaTime;
-        int minutes = Mathf.FloorToInt(remainingTime / 60f);
-        int seconds = Mathf.FloorToInt(remainingTime % 60);
-        countdownText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        var minutes = Mathf.FloorToInt(remainingTime / 60f);
+        var seconds = Mathf.FloorToInt(remainingTime % 60f);
+        countdownText.text = $"{minutes:00}:{seconds:00}";
     }
 
     private void PreGameTimer()
