@@ -16,6 +16,9 @@ public class GameState : Singleton<GameState>
     
     //Audio
     AudioManager audioManager;
+    
+    //CSV
+    CSVWriter csvWriter;
 
     [SerializeField] private int frameRate = 60;
 
@@ -33,6 +36,7 @@ public class GameState : Singleton<GameState>
         
         //Load stuff
         gameMode = ServiceLocator.instance.GetService<GameRules>().gameModes;
+        csvWriter = ServiceLocator.instance.GetService<CSVWriter>();
         
     }
 
@@ -81,7 +85,7 @@ public class GameState : Singleton<GameState>
         {
             if (!(player.GetComponent<PlumageManager>()?.GetPlumageCount() >= winCount)) continue;
             states = GameStatesMachine.Ended;
-            ServiceLocator.instance.GetService<CSVWriter>().WriteToCsv();
+            csvWriter.WriteToCsv();
         }
     }
 

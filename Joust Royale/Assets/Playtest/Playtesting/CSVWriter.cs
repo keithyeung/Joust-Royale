@@ -10,6 +10,12 @@ public class CSVWriter : Singleton<CSVWriter>
     private string fileName = "PlayerData.csv";
     bool headerWritten;
 
+    
+    //
+    GameState gameState;
+    PlayerManager playerManager;
+    
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -18,14 +24,16 @@ public class CSVWriter : Singleton<CSVWriter>
         fileName = "C:/Users/keith/Documents/GitHub/Joust-Royale/Joust Royale/Assets/Playtest/PlayerData.csv";
         //Application.dataPath + "/Playtest/PlayerData.csv";
         headerWritten = false;
+        gameState = ServiceLocator.instance.GetService<GameState>();
+        playerManager = ServiceLocator.instance.GetService<PlayerManager>();
     }
 
     public void WriteToCsv()
     {
-        if (!ServiceLocator.instance.GetService<GameState>().playtesting) return;
-        if (ServiceLocator.instance.GetService<PlayerManager>().players.Count > 0)
+        if (!gameState.playtesting) return;
+        if (playerManager.players.Count > 0)
         {
-            List<PlayerInput> players = ServiceLocator.instance.GetService<PlayerManager>().players;
+            List<PlayerInput> players = playerManager.players;
 
             using (TextWriter tw = new StreamWriter(fileName, true))
             {
@@ -54,7 +62,7 @@ public class CSVWriter : Singleton<CSVWriter>
     private void WriteCSVHeader(TextWriter tw)
     {
         var currentTime = DateTime.Now;
-        var levelName = ServiceLocator.instance.GetService<PlayerManager>().levelName;
+        var levelName = playerManager.levelName;
 
         string[] rowData = { "Player Name", " Final Player Plumage " , "Accumulated Attempt to hit" ,
             "Accumulated PlayerHit Number", "Accumulated PlayerHitReceived Number", "Accumulated Player Standing Still Time" ,

@@ -10,31 +10,33 @@ public class CountdownTimer : MonoBehaviour
     [SerializeField] float preGameTime = 5f;
 
     private Animator animator;
+    private GameState gameState;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         animator.enabled = false;
+        gameState = ServiceLocator.instance.GetService<GameState>();
     }
 
     private void FixedUpdate()
     {
-        GameState gameState = ServiceLocator.instance.GetService<GameState>();
-        if (gameState == null)
+        if (!gameState)
         {
             return;
         }
-        if (gameState.states == GameState.GameStatesMachine.Ended) return;
-
-        if(gameState.states == GameState.GameStatesMachine.MainMenu)
+        switch (gameState.states)
         {
-            countdownText.color = Color.red;
-            PreGameTimer();
-        }
-        else if(gameState.states == GameState.GameStatesMachine.Playing)
-        {
-            countdownText.color = Color.black;
-            GameplayTimer();
+            case GameState.GameStatesMachine.Ended:
+                return;
+            case GameState.GameStatesMachine.MainMenu:
+                countdownText.color = Color.red;
+                PreGameTimer();
+                break;
+            case GameState.GameStatesMachine.Playing:
+                countdownText.color = Color.black;
+                GameplayTimer();
+                break;
         }
     }
 
@@ -44,8 +46,8 @@ public class CountdownTimer : MonoBehaviour
         {
             remainingTime = 0;
             countdownText.text = "00:00";
-            ServiceLocator.instance.GetService<GameState>().states = GameState.GameStatesMachine.Ended;
-            ServiceLocator.instance.GetService<CSVWriter>().WriteToCsv();
+            GameState.instance.states = GameState.GameStatesMachine.Ended;
+            CSVWriter.instance.WriteToCsv();
             return;
         }
         if (remainingTime <= 10)
@@ -60,21 +62,22 @@ public class CountdownTimer : MonoBehaviour
 
     private void PreGameTimer()
     {
-        //countdownText.color = Color.red;
-        if (preGameTime <= 0f)
+        switch (preGameTime)
         {
-            preGameTime = 0;
-            ServiceLocator.instance.GetService<PlayerManager>().DisablePlayerJoining();
-            ServiceLocator.instance.GetService<GameState>().states = GameState.GameStatesMachine.Playing;
-            return;
+            //countdownText.color = Color.red;
+            case <= 0f:
+                preGameTime = 0;
+                PlayerManager.instance.DisablePlayerJoining();
+                gameState.states = GameState.GameStatesMachine.Playing;
+                return;
+            case <= 1f when animator.enabled != true:
+                animator.enabled = true;
+                break;
         }
-        if(preGameTime <= 1f && animator.enabled != true)
-        {
-            animator.enabled = true;
-        }
+
         preGameTime -= Time.deltaTime;
-        int minutes = Mathf.FloorToInt(preGameTime / 60f);
-        int seconds = Mathf.FloorToInt(preGameTime % 60);
+        var minutes = Mathf.FloorToInt(preGameTime / 60f);
+        var seconds = Mathf.FloorToInt(preGameTime % 60);
         countdownText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
     }
